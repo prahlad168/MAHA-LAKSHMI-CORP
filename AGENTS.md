@@ -41,29 +41,73 @@ AIRDROP_AUTO_CLAIM=true
 AIRDROP_CLAIM_DEADLINE=
 ```
 
-## New Project: Speech-to-Text App
-Lokasi: `/workspace/project/speech-to-text/`
+## 🎤 SPEECH-TO-TEXT SKILL
 
-Aplikasi voice control untuk bot Molty Royale.
+### Lokasi MacBook User
+`~/voice-chat/app.py`
 
-### Setup:
+### Cara Install di MacBook
 ```bash
-cd /workspace/project/speech-to-text
-pip install -r requirements.txt
+mkdir -p ~/voice-chat
+cd ~/voice-chat
+
+cat > app.py << 'EOF'
+#!/usr/bin/env python3
+"""
+🎤 SPEECH - Bicara dengan Saya
+Ketik /speech di terminal untuk jalankan
+"""
+import speech_recognition as sr
+from pathlib import Path
+
+def main():
+    print("🎤 SPEECH - BICARA DENGAN SAYA")
+    recognizer = sr.Recognizer()
+    microphone = sr.Microphone()
+    voice_dir = Path.home() / "voice-chat-messages"
+    voice_dir.mkdir(exist_ok=True)
+    
+    with microphone as source:
+        recognizer.adjust_for_ambient_noise(source, duration=1)
+    
+    print("✅ Siap! BICARA SEKARANG...\n")
+    
+    while True:
+        try:
+            with microphone as source:
+                print("🎤 Mendengarkan...")
+                audio = recognizer.listen(source, timeout=10, phrase_time_limit=20)
+                print("🔄 Memproses...")
+                text = recognizer.recognize_google(audio, language="id-ID")
+            
+            if text:
+                print(f'\n📝 "{text}"')
+                with open(voice_dir / "latest.txt", "w") as f:
+                    f.write(text)
+        except KeyboardInterrupt:
+            print("\n👋 Sampai jumpa!")
+            break
+        except:
+            print("❌ Coba lagi...")
+
+if __name__ == "__main__":
+    main()
+EOF
+
+pip3 install SpeechRecognition
+python3 app.py
 ```
 
-### Run:
-```bash
-python app.py
-```
+### Fitur
+- 🇮🇩 Mendukung Bahasa Indonesia
+- 📝 Teks muncul langsung di layar
+- 💾 Otomatis simpan ke `~/voice-chat-messages/latest.txt`
+- 🎤 Cukup jalankan `python3 app.py`
 
-### Commands:
-- "bot status" - Periksa status bot
-- "bot mulai" - Jalankan bot
-- "bot berhenti" - Hentikan bot
-- "waktu" - Tampilkan waktu
-- "bantuan" - Tampilkan bantuan
-- "keluar" - Keluar aplikasi
+### Catatan untuk User
+- User: macpayanganhospital
+- MacBook setup dengan Python 3.14
+- portaudio sudah terinstall via Homebrew
 
 ## Next Steps (To Continue at Home)
 
