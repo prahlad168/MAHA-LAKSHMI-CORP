@@ -6,7 +6,7 @@ Respects First-Run Intake config flags for Railway/Docker deployment.
 import asyncio
 from bot.api_client import MoltyAPI, APIError
 from bot.dashboard.state import dashboard_state
-from bot.state_router import determine_state, NO_ACCOUNT, NO_IDENTITY, IN_GAME, READY_PAID, READY_FREE
+from bot.state_router import determine_state, NO_ACCOUNT, NO_IDENTITY, IN_GAME, READY_PAID, READY_FREE, AIRDROP_PENDING
 from bot.setup.account_setup import ensure_account_ready
 from bot.setup.wallet_setup import ensure_molty_wallet
 from bot.setup.whitelist import ensure_whitelist
@@ -21,7 +21,9 @@ from bot.credentials import load_credentials, get_api_key
 from bot.config import (
     ADVANCED_MODE, ROOM_MODE, AUTO_WHITELIST,
     AUTO_SC_WALLET, ENABLE_MEMORY, AUTO_IDENTITY,
+    ENABLE_AIRDROP,
 )
+from bot.airdrop import get_airdrop_manager, get_airdrop_config
 from bot.utils.logger import get_logger
 
 log = get_logger(__name__)
@@ -51,6 +53,7 @@ class Heartbeat:
         log.info("  ENABLE_MEMORY   = %s  (Q7: cross-game learning)", ENABLE_MEMORY)
         log.info("  AUTO_IDENTITY   = %s  (Q9: auto ERC-8004)", AUTO_IDENTITY)
         log.info("  ROOM_MODE       = %s", ROOM_MODE)
+        log.info("  ENABLE_AIRDROP  = %s  (airdrop claim)", ENABLE_AIRDROP)
 
         # Phase 0: First-run intake + account setup (retry until success)
         creds = None
@@ -116,8 +119,19 @@ class Heartbeat:
                 return
             raise
 
+        # Check for available airdrops
+        airdrop_available = False
+        if ENABLE_AIRDROP:
+            try:
+                airdrop_manager = get_airdrop_manager()
+                available = airdrop_manager.get_available_airdrops()
+                pending_claims = airdrop_manager.get_pending_claims()
+                airdrop_available = len(available) > 0 or len(pending_claims) > 0
+            except Exception as e:
+                log.warning(f"Error checking airdrops: {e}")
+
         # Step 2: Determine state
-        state, ctx = determine_state(me)
+        state, ctx = determine_state(me, airdrop_available=airdrop_available)
         log.info("State: %s", state)
 
         # Feed dashboard with account info — use CONSISTENT key
@@ -130,11 +144,16 @@ class Heartbeat:
             "status": "playing" if state == IN_GAME else "idle",
             "smoltz": balance,
             "whitelisted": state != NO_IDENTITY,
+            "airdrop_available": airdrop_available,
         })
 
         # Step 3: Route based on state
         if state == NO_IDENTITY:
             await self._handle_no_identity(me)
+            return
+
+        if state == AIRDROP_PENDING:
+            await self._handle_airdrop_pending(me)
             return
 
         if state == IN_GAME:
@@ -190,6 +209,63 @@ class Heartbeat:
             log.info("Identity auto-registration skipped (AUTO_IDENTITY=false)")
 
         log.info("✅ Full setup complete!")
+
+    async def _handle_airdrop_pending(self, me: dict):
+        """Handle pending airdrop claims."""
+        log.info("Processing pending airdrop claims...")
+        
+        try:
+            airdrop_manager = get_airdrop_manager()
+            airdrop_config = get_airdrop_config()
+            wallet_address = me.get("readiness", {}).get("walletAddress")
+            
+            if not wallet_address:
+                log.warning("No wallet address found for airdrop claim")
+                await asyncio.sleep(10)
+                return
+            
+            # Process pending claims
+            pending_claims = airdrop_manager.get_pending_claims()
+            log.info(f"Found {len(pending_claims)} pending airdrop claims")
+            
+            for airdrop, claim in pending_claims:
+                if not self.running:
+                    break
+                    
+                log.info(f"Claiming airdrop: {airdrop.name} for {claim.recipient_address}")
+                
+                # Check gas price
+                gas_price = airdrop_config.max_gas_price
+                if airdrop_config.gas_priority_fee:
+                    gas_price = airdrop_config.gas_priority_fee
+                
+                result = await airdrop_manager.claim_airdrop(
+                    airdrop.airdrop_id, 
+                    claim.recipient_address
+                )
+                
+                if result["success"]:
+                    log.info(f"✅ Airdrop claimed: {result.get('amount', 0)} tokens (tx: {result.get('tx_hash', 'N/A')})")
+                    dashboard_state.add_log(f"Airdrop claimed: {airdrop.name}", "success")
+                else:
+                    log.warning(f"❌ Airdrop claim failed: {result.get('message', 'Unknown error')}")
+                    
+                # Delay between claims
+                await asyncio.sleep(2)
+            
+            # Get summary and update dashboard
+            summary = airdrop_manager.get_summary()
+            log.info(f"Airdrop summary: {summary}")
+            
+            # Log airdrop status
+            if summary["pending"] > 0:
+                log.info(f"{summary['pending']} airdrop claims still pending")
+            else:
+                log.info("All airdrop claims processed")
+                
+        except Exception as e:
+            log.error(f"Error processing airdrop: {e}")
+            await asyncio.sleep(30)
 
     async def _handle_ready(self, me: dict, state: str):
         """Join a game based on room selection."""

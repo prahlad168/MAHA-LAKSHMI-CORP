@@ -3,6 +3,7 @@ State router — determines agent state from GET /accounts/me response.
 Routes per skill.md State Router logic.
 """
 from bot.utils.logger import get_logger
+from bot.config import ENABLE_AIRDROP
 
 log = get_logger(__name__)
 
@@ -12,16 +13,29 @@ NO_IDENTITY = "NO_IDENTITY"
 IN_GAME = "IN_GAME"
 READY_PAID = "READY_PAID"
 READY_FREE = "READY_FREE"
+AIRDROP_PENDING = "AIRDROP_PENDING"
 ERROR = "ERROR"
 
 
-def determine_state(me_response: dict) -> tuple[str, dict]:
+def determine_state(me_response: dict, airdrop_available: bool = False) -> tuple[str, dict]:
     """
     Analyze /accounts/me response → return (state, context).
     Context contains relevant data for the next step.
+    
+    Args:
+        me_response: Response from GET /accounts/me
+        airdrop_available: Whether there are pending airdrops to claim
     """
     readiness = me_response.get("readiness", {})
     current_games = me_response.get("currentGames", [])
+
+    # Check for airdrop first (if enabled and available)
+    if ENABLE_AIRDROP and airdrop_available:
+        log.info("Airdrop available for claiming")
+        return AIRDROP_PENDING, {
+            "balance": me_response.get("balance", 0),
+            "wallet_address": readiness.get("walletAddress"),
+        }
 
     # Check for active game
     for game in current_games:

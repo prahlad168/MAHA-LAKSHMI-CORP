@@ -71,3 +71,16 @@ ENABLE_MEMORY = os.getenv("ENABLE_MEMORY", "true").lower() == "true"         # Q
 ENABLE_AGENT_TOKEN = os.getenv("ENABLE_AGENT_TOKEN", "false").lower() == "true"  # Q8: agent token
 AUTO_IDENTITY = os.getenv("AUTO_IDENTITY", "true").lower() == "true"         # Q9: ERC-8004 auto-register
 
+# ── Airdrop Configuration ─────────────────────────────────────────────
+ENABLE_AIRDROP = os.getenv("ENABLE_AIRDROP", "true").lower() == "true"
+AIRDROP_WHITELIST_ONLY = os.getenv("AIRDROP_WHITELIST_ONLY", "false").lower() == "true"
+AIRDROP_MIN_BALANCE = int(os.getenv("AIRDROP_MIN_BALANCE", "0"))
+AIRDROP_GAS_PRIORITY_FEE = os.getenv("AIRDROP_GAS_PRIORITY_FEE")
+AIRDROP_MAX_GAS_PRICE = float(os.getenv("AIRDROP_MAX_GAS_PRICE", "100"))
+AIRDROP_CLAIM_BATCH_SIZE = int(os.getenv("AIRDROP_CLAIM_BATCH_SIZE", "10"))
+AIRDROP_RETRY_ATTEMPTS = int(os.getenv("AIRDROP_RETRY_ATTEMPTS", "3"))
+AIRDROP_RETRY_DELAY = int(os.getenv("AIRDROP_RETRY_DELAY", "60"))
+AIRDROP_NOTIFY_WEBHOOK = os.getenv("AIRDROP_NOTIFY_WEBHOOK") or None
+AIRDROP_AUTO_CLAIM = os.getenv("AIRDROP_AUTO_CLAIM", "true").lower() == "true"
+AIRDROP_CLAIM_DEADLINE = os.getenv("AIRDROP_CLAIM_DEADLINE") or None
+
