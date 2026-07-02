@@ -2,7 +2,7 @@
 session_start();
 
 // Simple password protection
-$PASSWORD = "mahalakshmi2024"; // Change this password
+$PASSWORD = "Lilasravana168$"; // Change this password
 $USERNAME = "admin";
 
 $error = "";
@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user === $USERNAME && $pass === $PASSWORD) {
         $_SESSION['maha_lakshmi_auth'] = true;
         $_SESSION['login_time'] = time();
-        header('Location: index.html');
+        header('Location: index.php');
         exit;
     } else {
         $error = "Username atau password salah!";
@@ -28,9 +28,14 @@ if (isset($_SESSION['maha_lakshmi_auth']) && $_SESSION['maha_lakshmi_auth'] === 
         session_destroy();
         $error = "Session expired. Silakan login ulang.";
     } else {
-        header('Location: index.html');
+        header('Location: index.php');
         exit;
     }
+}
+
+// Check if just logged out
+if (isset($_GET['logout'])) {
+    $error = "Anda sudah logout. Silakan login kembali.";
 }
 ?>
 <!DOCTYPE html>

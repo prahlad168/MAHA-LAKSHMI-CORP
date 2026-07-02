@@ -561,7 +561,7 @@ $_SESSION['login_time'] = time();
         });
         function logout() {
             if (confirm('Logout dari Maha Lakshmi?')) {
-                window.location.href = 'logout.php';
+                window.location.href = 'login.php?logout=1';
             }
         }
     </script>
