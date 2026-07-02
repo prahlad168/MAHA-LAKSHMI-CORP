@@ -1,3 +1,12 @@
+<?php
+session_start();
+if (!isset($_SESSION['maha_lakshmi_auth']) || $_SESSION['maha_lakshmi_auth'] !== true) {
+    header('Location: login.php');
+    exit;
+}
+// Refresh session on activity
+$_SESSION['login_time'] = time();
+?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -214,6 +223,7 @@
                         LIVE
                     </div>
                 </div>
+                <button onclick="logout()" style="background: #333; color: #FFD700; border: 1px solid #FFD700; padding: 8px 16px; border-radius: 8px; cursor: pointer; margin-left: 20px;">🚪 Logout</button>
             </div>
         </div>
     </header>
@@ -549,6 +559,11 @@
             bar.style.width = '0%';
             setTimeout(() => { bar.style.width = width; }, 500);
         });
+        function logout() {
+            if (confirm('Logout dari Maha Lakshmi?')) {
+                window.location.href = 'logout.php';
+            }
+        }
     </script>
 </body>
 </html>
