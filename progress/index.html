@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Report - Payangan Hospital</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 2rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .header h1 {
+            color: var(--gray-800);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .header p {
+            color: var(--gray-600);
+        }
+
+        .hospital-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            margin-top: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        .stat-icon.blue { background: #dbeafe; }
+        .stat-icon.green { background: #d1fae5; }
+        .stat-icon.yellow { background: #fef3c7; }
+        .stat-icon.red { background: #fee2e2; }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gray-800);
+        }
+
+        .stat-label {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-100);
+        }
+
+        .section-header h2 {
+            color: var(--gray-800);
+            font-size: 1.25rem;
+        }
+
+        .section-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gray-200);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -2rem;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary);
+        }
+
+        .timeline-dot.completed {
+            background: var(--success);
+            box-shadow: 0 0 0 2px var(--success);
+        }
+
+        .timeline-dot.in-progress {
+            background: var(--warning);
+            box-shadow: 0 0 0 2px var(--warning);
+            animation: pulse 2s infinite;
+        }
+
+        .timeline-dot.pending {
+            background: var(--gray-300);
+            box-shadow: 0 0 0 2px var(--gray-300);
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .timeline-content {
+            background: var(--gray-50);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+        }
+
+        .timeline-content.completed {
+            border-left-color: var(--success);
+        }
+
+        .timeline-content.in-progress {
+            border-left-color: var(--warning);
+        }
+
+        .timeline-date {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-desc {
+            color: var(--gray-600);
+            font-size: 0.875rem;
+        }
+
+        .task-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .task-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--gray-50);
+            border-radius: 8px;
+            align-items: flex-start;
+        }
+
+        .task-checkbox {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 2px solid var(--gray-300);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .task-checkbox.checked {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+
+        .task-info {
+            flex: 1;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: 0.25rem;
+        }
+
+        .task-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            flex-wrap: wrap;
+        }
+
+        .task-tag {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .tag-done { background: #d1fae5; color: #065f46; }
+        .tag-progress { background: #fef3c7; color: #92400e; }
+        .tag-todo { background: #e5e7eb; color: #374151; }
+
+        .progress-container {
+            margin-top: 1rem;
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--gray-200);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), #8b5cf6);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .summary-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--gray-200);
+        }
+
+        .summary-card h4 {
+            color: var(--gray-700);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-card ul {
+            list-style: none;
+        }
+
+        .summary-card li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--gray-100);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--gray-700);
+            font-size: 0.9rem;
+        }
+
+        .summary-card li:last-child {
+            border-bottom: none;
+        }
+
+        .summary-card li::before {
+            content: '•';
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            color: white;
+            padding: 1rem;
+            font-size: 0.875rem;
+            opacity: 0.9;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gray-100);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--gray-600);
+            margin-top: 1rem;
+        }
+
+        .daily-reports {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .daily-report-card {
+            background: var(--gray-50);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border-left: 4px solid var(--primary);
+            transition: all 0.2s;
+        }
+
+        .daily-report-card:hover {
+            background: var(--gray-100);
+            transform: translateX(4px);
+        }
+
+        .report-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .report-date {
+            font-weight: 600;
+            color: var(--gray-800);
+        }
+
+        .report-time {
+            font-size: 0.75rem;
+            color: var(--gray-500);
+        }
+
+        .report-content {
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        .report-section {
+            margin-top: 0.75rem;
+        }
+
+        .report-section-title {
+            font-weight: 600;
+            color: var(--gray-700);
+            font-size: 0.8rem;
+            margin-bottom: 0.25rem;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            .header, .section {
+                padding: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>📊 Progress Report</h1>
+            <p>Payangan Hospital - Sistem Informasi Manajemen Rumah Sakit</p>
+            <div class="hospital-badge">
+                🏥 RS Payangan
+            </div>
+            <div class="last-updated">
+                <span>🕐</span>
+                <span id="lastUpdated">Memuat...</span>
+            </div>
+        </header>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon blue">📋</div>
+                <div class="stat-value">24</div>
+                <div class="stat-label">Total Task</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon green">✅</div>
+                <div class="stat-value">18</div>
+                <div class="stat-label">Selesai</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon yellow">🔄</div>
+                <div class="stat-value">4</div>
+                <div class="stat-label">Dalam Proses</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon red">⏳</div>
+                <div class="stat-value">2</div>
+                <div class="stat-label">Menunggu</div>
+            </div>
+        </div>
+
+        <!-- Overall Progress -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #dbeafe;">📈</div>
+                <h2>Progres Keseluruhan</h2>
+            </div>
+            <div class="progress-container">
+                <div class="progress-header">
+                    <span style="font-weight: 600; color: var(--gray-700);">Penyelesaian Proyek</span>
+                    <span style="color: var(--primary); font-weight: 600;">75%</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 75%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #d1fae5;">📅</div>
+                <h2>Timeline Proyek</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-content completed">
+                        <div class="timeline-date">01 Jun - 15 Jun 2026</div>
+                        <div class="timeline-title">Fase 1: Perencanaan & Analisis</div>
+                        <div class="timeline-desc">Studi kelayakan, analisis kebutuhan, dan desain sistem selesai</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot completed"></div>
+                    <div class="timeline-content completed">
+                        <div class="timeline-date">16 Jun - 30 Jun 2026</div>
+                        <div class="timeline-title">Fase 2: Development Frontend</div>
+                        <div class="timeline-desc">UI/UX design dan implementasi frontend rumah sakit</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot in-progress"></div>
+                    <div class="timeline-content in-progress">
+                        <div class="timeline-date">01 Jul - 15 Jul 2026</div>
+                        <div class="timeline-title">Fase 3: Development Backend</div>
+                        <div class="timeline-desc">API integration, database, dan logic system - SEDANG BERJALAN</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot pending"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">16 Jul - 31 Jul 2026</div>
+                        <div class="timeline-title">Fase 4: Testing & QA</div>
+                        <div class="timeline-desc">Unit testing, integration testing, dan user acceptance testing</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot pending"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">01 Ags - 15 Ags 2026</div>
+                        <div class="timeline-title">Fase 5: Deployment</div>
+                        <div class="timeline-desc">Go-live dan training pengguna</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Current Tasks -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #fef3c7;">🎯</div>
+                <h2>Task Saat Ini</h2>
+            </div>
+            <div class="task-list">
+                <div class="task-item">
+                    <div class="task-checkbox checked">✓</div>
+                    <div class="task-info">
+                        <div class="task-title">Dashboard Admin Utama</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-done">Selesai</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 28 Jun 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox checked">✓</div>
+                    <div class="task-info">
+                        <div class="task-title">Modul Pendaftaran Pasien</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-done">Selesai</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 29 Jun 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-title">Sistem Rekam Medis Elektronik (ERM)</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-progress">70%</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 Target: 05 Jul 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-title">Integrasi API Pembayaran</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-progress">40%</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 Target: 08 Jul 2026</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="task-item">
+                    <div class="task-checkbox"></div>
+                    <div class="task-info">
+                        <div class="task-title">Laporan Keuangan Harian</div>
+                        <div class="task-meta">
+                            <span class="task-tag tag-todo">Belum Mulai</span>
+                            <span>👤 Developer Team</span>
+                            <span>📅 Target: 10 Jul 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #ede9fe;">📋</div>
+                <h2>Ringkasan Mingguan</h2>
+            </div>
+            <div class="summary-grid">
+                <div class="summary-card">
+                    <h4>✅ Yang Sudah Selesai</h4>
+                    <ul>
+                        <li>Setup database PostgreSQL</li>
+                        <li>Frontend dashboard admin</li>
+                        <li>Modul pendaftaran pasien</li>
+                        <li>Sistem autentikasi user</li>
+                        <li>Template responsive hospital</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>🔄 Sedang Dikerjakan</h4>
+                    <ul>
+                        <li>Integrasi API laboratorium</li>
+                        <li>Sistem jadwal dokter</li>
+                        <li>Modul apotek & farmasi</li>
+                        <li>Dashboard analytics</li>
+                    </ul>
+                </div>
+                <div class="summary-card">
+                    <h4>📌 Rencana Mendatang</h4>
+                    <ul>
+                        <li>Testing & quality assurance</li>
+                        <li>User training material</li>
+                        <li>Dokumentasi teknis</li>
+                        <li>Deployment ke server</li>
+                        <li>Go-live preparation</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily Reports -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-icon" style="background: #fce7f3;">📝</div>
+                <h2>Laporan Harian</h2>
+            </div>
+            <div class="daily-reports" id="dailyReports">
+                <!-- Reports will be loaded here by automation -->
+                <div class="daily-report-card">
+                    <div class="report-header">
+                        <span class="report-date">📅 Laporan Otomatis</span>
+                        <span class="report-time">🕐 Auto-update 6 AM WIB</span>
+                    </div>
+                    <div class="report-content">
+                        Laporan harian akan ditambahkan secara otomatis setiap hari jam 6 pagi WIB oleh agent.
+                    </div>
+                    <div class="report-section">
+                        <div class="report-section-title">📊 Progress Summary:</div>
+                        <p>Menunggu laporan pertama...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>🏥 Payangan Hospital Management System</p>
+            <p>Generated by OpenHands Agent • Auto-update setiap jam 6:00 pagi WIB</p>
+        </footer>
+    </div>
+
+    <script>
+        // Set last updated time
+        const now = new Date();
+        const options = { 
+            weekday: 'long', 
+            year: 'numeric', 
+            month: 'long', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            timeZoneName: 'short',
+            timeZone: 'Asia/Jakarta'
+        };
+        document.getElementById('lastUpdated').textContent = now.toLocaleDateString('id-ID', options);
+    </script>
+</body>
+</html>
