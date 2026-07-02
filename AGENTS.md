@@ -159,12 +159,34 @@ curl "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f3
 
 ---
 
+## 🔄 AUTO-DEPLOY HABIT (WAJIB)
+
+**Setiap kali melakukan perubahan:**
+1. Buat/edit file di repository
+2. Commit dengan pesan deskriptif
+3. **OTOMATIS push ke GitHub**
+4. GitHub Actions akan trigger deploy
+5. Website langsung ter-update
+
+**GitHub Actions Workflow:** `.github/workflows/deploy.yml`
+
+### Quick Deploy:
+```bash
+cd /workspace/project/Bot_Molty5
+git add -A
+git commit -m "Your changes"
+git push origin main
+# Website akan auto-deploy!
+```
+
+---
+
 ## 📝 For Future Development
 
 ### Adding New Pages:
 1. Create HTML file di repository
 2. Push ke GitHub
-3. Hosting auto-update via webhook
+3. **GitHub Actions auto-deploy via deploy.yml**
 
 ### Modifying Automation:
 1. Edit prompt di OpenHands dashboard
