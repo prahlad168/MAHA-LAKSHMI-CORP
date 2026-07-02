@@ -310,12 +310,37 @@
     </div>
     
     <script>
+        // Check authentication first
+        async function checkAuth() {
+            try {
+                const response = await fetch('check-session.php');
+                const data = await response.json();
+                
+                if (!data.authenticated) {
+                    // Redirect to login
+                    window.location.href = 'login.php';
+                    return false;
+                }
+                return true;
+            } catch (error) {
+                window.location.href = 'login.php';
+                return false;
+            }
+        }
+        
         async function loadReport() {
+            // Check auth first
+            const isAuth = await checkAuth();
+            if (!isAuth) return;
+            
             try {
                 const response = await fetch('data/companies.json');
                 const data = await response.json();
                 renderReport(data);
                 startClock();
+                
+                // Add logout button
+                addLogoutButton();
             } catch (error) {
                 document.getElementById('mainContent').innerHTML = `
                     <div style="text-align: center; padding: 40px; color: #666;">
@@ -323,6 +348,19 @@
                         <p>Gagal memuat data. Pastikan file companies.json tersedia.</p>
                     </div>
                 `;
+            }
+        }
+        
+        function addLogoutButton() {
+            const header = document.querySelector('.header');
+            if (header) {
+                const logoutBtn = document.createElement('a');
+                logoutBtn.href = 'logout.php';
+                logoutBtn.className = 'logout-btn';
+                logoutBtn.innerHTML = '<i class="fas fa-sign-out-alt"></i> Logout';
+                logoutBtn.style.cssText = 'position:absolute;top:20px;right:20px;background:rgba(255,255,255,0.2);color:white;padding:8px 16px;border-radius:20px;text-decoration:none;font-size:0.85rem;';
+                header.style.position = 'relative';
+                header.appendChild(logoutBtn);
             }
         }
         

@@ -65,6 +65,18 @@ $_SESSION['login_time'] = time();
         .header-stat { text-align: right; }
         .header-stat-label { font-size: 12px; color: #888; text-transform: uppercase; }
         .header-stat-value { font-size: 28px; font-weight: 700; color: var(--gold); }
+        .header-nav { display: flex; gap: 15px; }
+        .header-nav a {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .header-nav a:hover { background: var(--gold); color: var(--bg-dark); }
         .main { max-width: 1400px; margin: 0 auto; padding: 30px 40px; }
         .summary-grid {
             display: grid;
@@ -209,13 +221,17 @@ $_SESSION['login_time'] = time();
                 </div>
             </div>
             <div class="header-stats">
+                <div class="header-nav">
+                    <a href="ceo-report.html"><i class="fas fa-chart-line"></i> CEO Report</a>
+                    <a href="logout.php" style="background: rgba(239,68,68,0.2); color: #EF4444;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
                 <div class="header-stat">
                     <div class="header-stat-label">Total Target</div>
                     <div class="header-stat-value">Rp 1Milyar</div>
                 </div>
                 <div class="header-stat">
                     <div class="header-stat-label">Active</div>
-                    <div class="header-stat-value">1/10</div>
+                    <div class="header-stat-value">10/10</div>
                 </div>
                 <div class="header-stat">
                     <div class="live-indicator">
