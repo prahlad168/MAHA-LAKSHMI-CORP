@@ -1,151 +1,177 @@
-# 🏢 GAURANGA - Digital Company Ecosystem
+# 👑 MAHA LAKSHMI HOLDINGS
+## AI Agent System - GAURANGA
 
-## 📋 Overview
-
-Master agent system untuk mengelola 10 perusahaan digital dengan target **Rp 1.000.000.000/bulan**.
+**Version:** 2.0.0
+**Updated:** 2026-07-03
+**CEO:** Prahlad
+**Bank:** BCA 6485086645
 
 ---
 
-## 🏗️ Architecture
+## 🏢 HOLDING STRUCTURE
 
 ```
-                    ╔═══════════════════════════════╗
-                    ║      👑 GAURANGA CEO          ║
-                    ║   Master Orchestrator         ║
-                    ║   Target: Rp 1B/bulan        ║
-                    ╚═══════════════════════════════╝
-                                    │
-           ┌──────────┬──────────┬─┴──┬──────────┬──────────┐
-           │          │          │    │          │          │
-           ▼          ▼          ▼    ▼          ▼          ▼
-    ┌──────────┐┌──────────┐┌──────┐┌──────────┐┌──────────┐┌──────────┐
-    │Company 1 ││Company 2 ││ ...  ││Company 9 ││Company 10││ HQ Ops  │
-    │Payangan  ││Gianyar   ││      ││Property  ││Consulting││         │
-    │Hospital  ││Tech      ││      ││Tech      ││Group     ││         │
-    └──────────┘└──────────┘└──────┘└──────────┘└──────────┘└──────────┘
-           │          │          │    │          │          │
-           ▼          ▼          ▼    ▼          ▼          ▼
-    ┌──────────────────────────────────────────────────────────────┐
-    │              SUB-AGENTS (6 per company = 60 agents)         │
-    │  Daily Report │ Sales │ Marketing │ SEO │ CS │ Finance       │
-    └──────────────────────────────────────────────────────────────┘
-```
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                        👑 MAHA LAKSHMI HOLDINGS                           ║
+║                         CEO: Prahlad                                        ║
+║                         Target: Rp 1.000.000.000/bulan                     ║
+╚══════════════════════════════════════════════════════════════════════════════╝
 
-### 📂 Detail arsitektur: `.agents/skills/agent-architecture.md`
-
----
-
-## 🏥 PAYANGAN HOSPITAL DIGITAL
-
-| Field | Value |
-|-------|-------|
-| **Project** | Payangan Hospital Management System |
-| **Repository** | `prahlad168/Payangan-Hospital` |
-| **Domain** | `https://payanganhospital.gianyarkab.go.id/` |
-| **Status** | ✅ ACTIVE |
-| **Agents** | 6 Active |
-
----
-
-## 🏢 10 COMPANY ECOSYSTEM
-
-| # | Company | Type | Target | Status |
-|---|---------|------|--------|--------|
-| 1 | Payangan Hospital Digital | Healthcare SaaS | Rp 100M/mo | ✅ ACTIVE |
-| 2 | Gianyar Tech Solutions | IT Services | Rp 100M/mo | 📋 READY |
-| 3 | Bali Digital Agency | Digital Marketing | Rp 100M/mo | 📋 READY |
-| 4 | Gianyar E-Commerce Hub | E-Commerce | Rp 100M/mo | 📋 READY |
-| 5 | Bali EdTech Center | Education | Rp 100M/mo | 📋 READY |
-| 6 | Gianyar Finance Tech | Fintech | Rp 100M/mo | 📋 READY |
-| 7 | Bali Logistics Network | Logistics | Rp 100M/mo | 📋 READY |
-| 8 | Gianyar Food Tech | Food Tech | Rp 100M/mo | 📋 READY |
-| 9 | Bali Travel Platform | Travel | Rp 100M/mo | 📋 READY |
-| 10 | Gianyar Property Tech | Property | Rp 100M/mo | 📋 READY |
-
-### 📁 All Companies Setup: `companys/` folder
-
----
-
-## 📁 Project Structure
-
-```
-├── index.html              # Homepage
-├── about.html              # About page
-├── dokter.html             # Doctor list
-├── igd.html                # IGD/Emergency
-├── kontak.html             # Contact page
-├── progress/
-│   └── index.html         # Progress dashboard
-├── img/                    # Images folder
-├── webhook.php             # Auto-deploy webhook script
-└── ... (other hospital pages)
+                                    CEO
+                                     │
+        ┌────────────────────────────┼────────────────────────────┐
+        │                            │                            │
+        ▼                            ▼                            ▼
+┌───────────────┐          ┌───────────────┐          ┌───────────────┐
+│Corporate AI   │          │Corporate      │          │Corporate      │
+│Board          │          │Finance        │          │Legal &        │
+│               │          │               │          │Compliance     │
+└───────────────┘          └───────────────┘          └───────────────┘
+        │                            │                            │
+        ▼                            ▼                            ▼
+┌───────────────┐          ┌───────────────┐          ┌───────────────┐
+│Corporate HR   │          │Corporate IT   │          │Corporate      │
+│& AI Learning  │          │Infrastructure │          │Business Intel │
+└───────────────┘          └───────────────┘          └───────────────┘
+        │                                                          
+        ▼                                                          
+┌───────────────┐          ┌───────────────┐          ┌───────────────┐
+│Corporate      │          │Corporate      │          │Corporate AI   │
+│Marketing      │          │Innovation Lab │          │CEO Office     │
+└───────────────┘          └───────────────┘          └───────────────┘
+                                     │
+                                     ▼
+                    ┌─────────────────────────────────────────────────┐
+                    │                    10 SBUs                       │
+                    ├─────────────────────────────────────────────────┤
+                    │ SBU-01 │ Payangan AI Solutions                   │
+                    │ SBU-02 │ Gianyar Tech Solutions                  │
+                    │ SBU-03 │ Bali Digital Agency                     │
+                    │ SBU-04 │ Gianyar E-Commerce Hub                  │
+                    │ SBU-05 │ Bali EdTech Center                      │
+                    │ SBU-06 │ Gianyar Finance Tech                    │
+                    │ SBU-07 │ Bali Logistics Network                  │
+                    │ SBU-08 │ Gianyar Food Tech                       │
+                    │ SBU-09 │ Bali Travel Platform                    │
+                    │ SBU-10 │ Gianyar Property Tech                   │
+                    └─────────────────────────────────────────────────┘
 ```
 
 ---
 
-## 🤖 Available Skills
+## 💰 TARGET REVENUE
 
-### 1. Webhook Auto-Deploy
-**File:** `.agents/skills/webhook-auto-deploy.md`
-
-Setup webhook untuk auto-deploy dari GitHub ke hosting Idwebhost.
-
-**Yang sudah configured:**
-- ✅ Webhook URL: `https://payanganhospital.gianyarkab.go.id/webhook.php`
-- ✅ GitHub webhook active
-- ✅ Auto-deploy working
-
-### 2. OpenHands Daily Report
-**File:** `.agents/skills/openhands-daily-report.md`
-
-Automation untuk laporan progress harian otomatis jam 6 pagi WIB.
-
-**Yang sudah configured:**
-- ✅ Automation ID: `2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7`
-- ✅ Schedule: `0 6 * * *` (Asia/Jakarta)
-- ✅ Output: `progress/daily-report-YYYY-MM-DD.md`
+| Per SBU | Total Holding |
+|---------|--------------|
+| Rp 100.000.000/bulan | **Rp 1.000.000.000/bulan** |
 
 ---
 
-## 🚀 Deployment Flow
+## 📁 FILE STRUCTURE
 
 ```
-┌─────────────────┐
-│  GitHub Push    │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  GitHub         │
-│  Webhook        │
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐     ┌──────────────────┐
-│  Idwebhost      │────▶│  Website Updated │
-│  webhook.php    │     │  ✅ Success      │
-└─────────────────┘     └──────────────────┘
+MAHA LAKSHMI HOLDINGS
+├── AGENTS.md                          ← This file (main)
+├── maha-lakshmi/
+│   ├── 00-holdings-master.md          ← Master config
+│   ├── 01-corporate-divisions.md      ← Corporate divisions
+│   ├── 02-sbu-01-payangan-ai.md      ← Payangan AI Solutions
+│   ├── 03-sbu-02-gianyar-tech.md      ← Gianyar Tech Solutions
+│   ├── 04-sbu-03-bali-digital.md       ← Bali Digital Agency
+│   ├── 05-sbu-04-gianyar-ecommerce.md  ← Gianyar E-Commerce Hub
+│   ├── 06-sbu-05-bali-edtech.md        ← Bali EdTech Center
+│   ├── 07-sbu-06-gianyar-finance.md     ← Gianyar Finance Tech
+│   ├── 08-sbu-07-bali-logistics.md      ← Bali Logistics Network
+│   ├── 09-sbu-08-gianyar-foodtech.md    ← Gianyar Food Tech
+│   ├── 10-sbu-09-bali-travel.md          ← Bali Travel Platform
+│   ├── 11-sbu-10-gianyar-property.md     ← Gianyar Property Tech
+│   ├── 12-ai-knowledge-center.md         ← AI Knowledge Center
+│   ├── 13-ai-agents-template.md          ← AI Agents Template
+│   ├── ceo-dashboard.html                ← CEO Dashboard
+│   └── api.php                           ← Dashboard API
+│
+├── companys/                            ← SBU project folders
+│   ├── 01-gianyar-tech-solutions/
+│   ├── 02-bali-digital-agency/
+│   └── ...
+│
+└── progress/
+    ├── index.html                      ← Progress dashboard
+    └── daily-report-*.md               ← Daily reports
 ```
 
 ---
 
-## 📅 Automation Schedule
+## 🤖 AI AGENTS (PER SBU)
 
-| Task | Schedule | Output |
-|------|----------|--------|
-| Daily Progress Report | Setiap jam 6:00 pagi WIB | `progress/daily-report-*.md` |
-| Progress Dashboard | Setiap push | `progress/index.html` |
+```
+SETIAP SBU MEMILIKI 10 AI AGENTS:
+
+Director (Human)
+├── Business AI     → Business analysis & strategy
+├── Marketing AI    → Content, SEO, social media
+├── Sales AI        → Lead generation & conversion
+├── Finance AI      → Invoicing & financial tracking
+├── Research AI     → Market research & trends
+├── Learning AI     → Training & knowledge
+├── Automation AI   → Workflow automation
+├── Customer AI     → Support & service
+├── QA AI          → Quality assurance
+└── Innovation AI   → R&D & new ideas
+```
 
 ---
 
-## 🔧 Quick Commands
+## 🧠 AI KNOWLEDGE CENTER (SHARED)
 
-### Test Webhook:
 ```
-https://payanganhospital.gianyarkab.go.id/webhook.php
+SEMUA SBU BERBAGI KNOWLEDGE CENTER:
+
+├── SOP                     → Standard Operating Procedures
+├── Market Trend            → Industry insights
+├── Prompts                 → AI prompt templates
+├── Automation              → Workflow templates
+├── Customer Data            → Client profiles
+├── Competitor Analysis     → Competitive intel
+├── Failed Projects         → Lessons learned
+├── Success Stories         → Winning strategies
+├── AI Model Updates        → Model improvements
+└── Innovation Library      → New ideas
 ```
 
-### Trigger Automation Manually:
+---
+
+## 💵 PROFIT DISTRIBUTION
+
+| Category | % | Destination |
+|----------|---|-------------|
+| Owner Share | 60% | BCA 6485086645 |
+| Reinvestment | 25% | Company Reserve |
+| Team Bonus | 10% | Team Members |
+| Charity | 5% | CSR Account |
+
+---
+
+## 🏢 10 SBU DETAILS
+
+| ID | SBU | Type | Domain | Status |
+|----|-----|------|--------|--------|
+| 01 | Payangan AI Solutions | AI Automation | payanganhospital.gianyarkab.go.id | ✅ ACTIVE |
+| 02 | Gianyar Tech Solutions | Software House | gianyartech.id | 📋 READY |
+| 03 | Bali Digital Agency | Digital Marketing | balidigital.id | 📋 READY |
+| 04 | Gianyar E-Commerce Hub | E-Commerce | gianyarmart.id | 📋 READY |
+| 05 | Bali EdTech Center | Education Tech | baliedu.id | 📋 READY |
+| 06 | Gianyar Finance Tech | Fintech | gianyarfinance.id | 📋 READY |
+| 07 | Bali Logistics Network | Logistics | balilogistics.id | 📋 READY |
+| 08 | Gianyar Food Tech | Food Tech | gianyarfood.id | 📋 READY |
+| 09 | Bali Travel Platform | Travel | balitravel.id | 📋 READY |
+| 10 | Gianyar Property Tech | Property | gianyarproperty.id | 📋 READY |
+
+---
+
+## 🚀 QUICK COMMANDS
+
+### Trigger Daily Report:
 ```bash
 curl -X POST "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7/dispatch" \
   -H "Authorization: Bearer ${OPENHANDS_API_KEY}"
@@ -157,72 +183,41 @@ curl "https://app.all-hands.dev/api/automation/v1/2e4d4f38-1c7c-4437-b25b-7d52f3
   -H "Authorization: Bearer ${OPENHANDS_API_KEY}"
 ```
 
----
-
-## 🔄 AUTO-DEPLOY HABIT (WAJIB)
-
-**Setiap kali melakukan perubahan:**
-1. Buat/edit file di repository
-2. Commit dengan pesan deskriptif
-3. **OTOMATIS push ke GitHub**
-4. GitHub Actions akan trigger deploy
-5. Website langsung ter-update
-
-**GitHub Actions Workflow:** `.github/workflows/deploy.yml`
-
-### Quick Deploy:
+### Git Push & Deploy:
 ```bash
-cd /workspace/project/Bot_Molty5
-git add -A
-git commit -m "Your changes"
-git push origin main
-# Website akan auto-deploy!
+git add -A && git commit -m "Changes" && git push origin main
 ```
 
 ---
 
-## 📝 For Future Development
+## 📊 CEO DASHBOARD
 
-### Adding New Pages:
-1. Create HTML file di repository
-2. Push ke GitHub
-3. **GitHub Actions auto-deploy via deploy.yml**
+Access at: `maha-lakshmi/index.html` or `maha-lakshmi/ceo-dashboard.html`
 
-### Modifying Automation:
-1. Edit prompt di OpenHands dashboard
-2. Atau update via API
-
-### Checking Logs:
-- Webhook log: `/home/payangan/public_html/webhook.log`
-- OpenHands runs: Via dashboard
-
----
-
-## 🔒 Security Notes
-
-- Webhook secret: Tidak dipakai (kosong) untuk simplicity
-- Untuk production: Tambahkan secret verification
-- GitHub token: Gunakan read-only access jika memungkinkan
+**Features:**
+- Total Revenue Holding (Daily/Monthly/Yearly)
+- Profit per SBU
+- Cash Balance
+- Top Products
+- Top Clients
+- Pipeline
+- KPIs
+- Transfer to BCA 6485086645
 
 ---
 
-## 📞 Contact
-
-- **GitHub Owner:** prahlad168
-- **Domain Admin:** Team Idwebhost
-
----
-
-## ✅ Status
+## ✅ STATUS
 
 | Component | Status |
 |-----------|--------|
 | GitHub Repository | ✅ Active |
-| Hosting Connected | ✅ Connected |
-| Webhook | ✅ Working |
-| Daily Automation | ✅ Active |
-| Auto-Deploy | ✅ Ready |
+| Holding Structure | ✅ Updated v2.0 |
+| Corporate Divisions | ✅ Configured |
+| AI Knowledge Center | ✅ Ready |
+| SBU Templates | ✅ Ready |
+| CEO Dashboard | ✅ Available |
 
 ---
 
-**Last Updated:** 2026-07-02
+**Last Updated:** 2026-07-03
+**Version:** 2.0.0
