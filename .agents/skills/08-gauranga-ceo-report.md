@@ -2,7 +2,7 @@
 
 ## Version: 1.0.0
 ## Created: 2026-07-02
-## Owner: Prahlad (Owner)
+## Owner: i Made Purna Ananda
 
 ---
 

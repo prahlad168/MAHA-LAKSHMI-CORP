@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**CEO:** Prahlad
+**CEO:** i Made Purna Ananda
 **Bank:** BCA 6485086645
 
 ---
@@ -478,7 +478,7 @@ Results:
 ### Hierarchical Structure:
 
 ```
-👑 MAHA LAKSHMI HOLDINGS (CEO: Prahlad)
+👑 MAHA LAKSHMI HOLDINGS (CEO: i Made Purna Ananda)
     │
     ├── 🏢 Holding Level
     │   └── Corporate Divisions
@@ -761,7 +761,7 @@ CEO View (Actionable Insights)
 ### For Issues:
 - Technical Support: AI Team
 - Business Support: GAURANGA Agent
-- Emergency: Prahlad (CEO)
+- Emergency: i Made Purna Ananda (CEO)
 
 ---
 

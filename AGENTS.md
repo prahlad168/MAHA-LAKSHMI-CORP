@@ -3,7 +3,7 @@
 
 **Version:** 2.0.0
 **Updated:** 2026-07-03
-**CEO:** Prahlad
+**CEO:** i Made Purna Ananda
 **Bank:** BCA 6485086645
 
 ---
@@ -587,7 +587,7 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 
 **Version:** 2.0.0
 **Updated:** 2026-07-03
-**CEO:** Prahlad
+**CEO:** i Made Purna Ananda
 **Bank:** BCA 6485086645
 
 ---
@@ -597,7 +597,7 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                        👑 MAHA LAKSHMI HOLDINGS                           ║
-║                         CEO: Prahlad                                        ║
+║                         CEO: i Made Purna Ananda                                        ║
 ║                         Target: Rp 1.000.000.000/bulan                     ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 

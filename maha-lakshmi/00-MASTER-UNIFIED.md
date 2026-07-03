@@ -4,7 +4,7 @@
 **Version:** 2.0.0
 **Created:** 2026-07-03
 **Updated:** 2026-07-03
-**CEO:** Prahlad
+**CEO:** i Made Purna Ananda
 **Bank:** BCA 6485086645
 
 ---
@@ -23,7 +23,7 @@ Semua adalah SATU ECO-SYSTEM yang saling terhubung."
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                    👑 MAHA LAKSHMI DIGITAL HOLDINGS                       ║
-║                           CEO: Prahlad                                     ║
+║                           CEO: i Made Purna Ananda                                     ║
 ║                         Target: Rp 1B/bulan                               ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
@@ -65,7 +65,7 @@ Semua adalah SATU ECO-SYSTEM yang saling terhubung."
 ### Profit Distribution
 | Category | % | Destination |
 |----------|---|-------------|
-| Owner (Prahlad) | 60% | BCA 6485086645 |
+| Owner (i Made Purna Ananda) | 60% | BCA 6485086645 |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity | 5% | CSR Account |

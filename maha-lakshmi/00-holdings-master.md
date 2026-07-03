@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**Owner:** Prahlad
+**Owner:** i Made Purna Ananda
 
 ---
 
@@ -61,7 +61,7 @@
 
 ## 👑 CEO
 
-**Name:** Prahlad
+**Name:** i Made Purna Ananda
 **Email:** [CEO Email]
 **Phone:** [CEO Phone]
 **Bank:** BCA
@@ -719,5 +719,5 @@ https://github.com/prahlad168/Bot_Molty5
 **Last Updated:** 2026-07-03
 **Version:** 1.0.0
 **Status:** 🚀 ACTIVE DEVELOPMENT
-**CEO:** Prahlad
+**CEO:** i Made Purna Ananda
 **Bank:** BCA 6485086645

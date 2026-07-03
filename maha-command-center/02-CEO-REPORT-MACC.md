@@ -268,7 +268,7 @@ Pending Setup: 54
 
 ## 🎯 RECOMMENDATIONS
 
-### For CEO (Prahlad)
+### For CEO (i Made Purna Ananda)
 
 1. **Approve Marketing Budget**
    - Amount: Rp 5.000.000
@@ -418,7 +418,7 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 
 | Role | Contact | Purpose |
 |------|---------|---------|
-| CEO | Prahlad | Strategic decisions |
+| CEO | i Made Purna Ananda | Strategic decisions |
 | Bank | BCA 6485086645 | Financial transfers |
 | Tech | OpenHands Agent | Technical support |
 

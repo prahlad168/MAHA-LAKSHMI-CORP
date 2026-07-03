@@ -4,7 +4,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**CEO:** Prahlad
+**CEO:** i Made Purna Ananda
 **Target:** One dashboard to rule them all
 
 ---

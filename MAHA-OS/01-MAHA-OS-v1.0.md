@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**Owner:** Prahlad
+**Owner:** i Made Purna Ananda
 **Bank:** BCA 6485086645
 
 ---
@@ -48,7 +48,7 @@ menghasilkan Rp 1.000.000.000/bulan dalam 12 bulan melalui:
 ## 2.1 Holding Structure
 
 ```
-CEO: Prahlad
+CEO: i Made Purna Ananda
 Target: Rp 1.000.000.000/bulan
 
 Corporate Divisions:
