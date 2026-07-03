@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Pembuatan Website Profesional | Gianyar Tech Solutions</title>
+    <meta name="description" content="Jasa pembuatan website profesional untuk UMKM Gianyar dan Bali. Landing page, company profile, e-commerce. Harga mulai Rp 1.500.000">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --success: #10b981;
+            --dark: #1f2937;
+            --gray: #6b7280;
+        }
+        
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+        
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
+        .hero p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .cta-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary { background: white; color: var(--primary); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,0.2); }
+        
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-whatsapp:hover { background: #128C7E; }
+        
+        /* Stats */
+        .stats { background: white; padding: 40px 0; border-bottom: 1px solid #e5e7eb; }
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+        .stat-item h3 { font-size: 2.5rem; color: var(--primary); }
+        .stat-item p { color: var(--gray); }
+        
+        /* Services */
+        .services { padding: 80px 0; background: #f9fafb; }
+        .section-title { text-align: center; font-size: 2.5rem; margin-bottom: 50px; }
+        
+        .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .service-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .service-card:hover { transform: translateY(-10px); }
+        .service-icon { font-size: 4rem; margin-bottom: 20px; }
+        .service-card h3 { font-size: 1.5rem; margin-bottom: 15px; }
+        .service-card .price { font-size: 2rem; color: var(--primary); font-weight: 700; margin: 20px 0; }
+        .service-card .price span { font-size: 1rem; color: var(--gray); }
+        
+        /* Pricing */
+        .pricing { padding: 80px 0; background: white; }
+        .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .pricing-card {
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+        }
+        .pricing-card.featured { border-color: var(--primary); position: relative; }
+        .pricing-card.featured::before {
+            content: 'TERLARIS';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.875rem;
+        }
+        .pricing-card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .pricing-card .price { font-size: 3rem; color: var(--primary); font-weight: 700; }
+        .pricing-card .period { color: var(--gray); }
+        .pricing-card ul { list-style: none; margin: 20px 0; text-align: left; }
+        .pricing-card li { padding: 10px 0; border-bottom: 1px solid #f3f4f6; }
+        .pricing-card li::before { content: '✓ '; color: var(--success); }
+        
+        /* Testimonials */
+        .testimonials { padding: 80px 0; background: #f9fafb; }
+        .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .testimonial-card .stars { color: #fbbf24; margin-bottom: 15px; }
+        .testimonial-card p { font-style: italic; margin-bottom: 20px; }
+        .testimonial-author { font-weight: 600; }
+        .testimonial-company { color: var(--gray); font-size: 0.875rem; }
+        
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .cta-section h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .cta-section p { font-size: 1.25rem; margin-bottom: 30px; opacity: 0.9; }
+        
+        /* Footer */
+        footer { background: var(--dark); color: white; padding: 40px 0; text-align: center; }
+        footer p { opacity: 0.7; }
+        
+        /* WhatsApp Float */
+        .wa-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        .wa-float:hover { transform: scale(1.1); }
+        .wa-float svg { width: 35px; height: 35px; fill: white; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .services-grid, .pricing-grid, .testimonial-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Jasa Pembuatan Website Profesional</h1>
+            <p>Bantu bisnis Anda tampil profesional di online. Landing page, company profile, hingga e-commerce dengan harga terjangkau untuk UMKM Gianyar dan Bali.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/6281234567890?text=Halo%20Gianyar%20Tech,%20saya%20tertarik%20buatkan%20website" class="btn btn-whatsapp">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Hubungi via WhatsApp
+                </a>
+                <a href="#pricing" class="btn btn-primary">Lihat Harga</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Stats -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>150+</h3>
+                    <p>Website Dibuat</p>
+                </div>
+                <div class="stat-item">
+                    <h3>5 Tahun</h3>
+                    <p>Pengalaman</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Klien Puas</p>
+                </div>
+                <div class="stat-item">
+                    <h3>24 Jam</h3>
+                    <p>Support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">Layanan Kami</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🚀</div>
+                    <h3>Landing Page</h3>
+                    <p>Halaman promo profesional untuk konversi tinggi. Cocok untuk campaign, product launch, atau jasa.</p>
+                    <div class="price">Rp 1.500.000 <span>/ project</span></div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20Landing%20Page" class="btn btn-whatsapp">Pesan Sekarang</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏢</div>
+                    <h3>Company Profile</h3>
+                    <p>Website perusahaan profesional untuk menampilkan profil bisnis Anda dengan tampilan eksklusif.</p>
+                    <div class="price">Rp 3.500.000 <span>/ project</span></div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20Company%20Profile" class="btn btn-whatsapp">Pesan Sekarang</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛒</div>
+                    <h3>E-Commerce</h3>
+                    <p>Toko online lengkap dengan keranjang belanja, payment gateway, dan manajemen produk.</p>
+                    <div class="price">Rp 8.000.000 <span>/ project</span></div>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20E-Commerce" class="btn btn-whatsapp">Pesan Sekarang</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Paket Harga</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Basic</h3>
+                    <div class="price">Rp 1.5jt</div>
+                    <p class="period">One-time payment</p>
+                    <ul>
+                        <li>Landing Page 1 halaman</li>
+                        <li>Desain responsif</li>
+                        <li>SEO basic</li>
+                        <li>Free hosting 1 tahun</li>
+                        <li>Revisi 3x</li>
+                        <li>Delivery 3 hari</li>
+                    </ul>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20Paket%20Basic" class="btn btn-whatsapp">Pilih Paket</a>
+                </div>
+                <div class="pricing-card featured">
+                    <h3>Professional</h3>
+                    <div class="price">Rp 3.5jt</div>
+                    <p class="period">One-time payment</p>
+                    <ul>
+                        <li>Company Profile 5 halaman</li>
+                        <li>Desain premium</li>
+                        <li>SEO advanced</li>
+                        <li>Free hosting 1 tahun</li>
+                        <li>Revisi unlimited</li>
+                        <li>Free domain .com</li>
+                        <li>Delivery 7 hari</li>
+                        <li>Training penggunaan</li>
+                    </ul>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20Paket%20Professional" class="btn btn-primary" style="background: var(--primary); color: white;">Pilih Paket</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Rp 8jt</div>
+                    <p class="period">One-time payment</p>
+                    <ul>
+                        <li>E-Commerce lengkap</li>
+                        <li>Custom design</li>
+                        <li>Payment gateway</li>
+                        <li>Free hosting 2 tahun</li>
+                        <li>Revisi unlimited</li>
+                        <li>Free domain + SSL</li>
+                        <li>Delivery 14 hari</li>
+                        <li>Maintenance 6 bulan</li>
+                    </ul>
+                    <a href="https://wa.me/6281234567890?text=Halo%20saya%20tertarik%20Paket%20Enterprise" class="btn btn-whatsapp">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2 class="section-title">Kata Klien Kami</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Website yang dibuat sangat profesional dan sesuai ekspektasi. Proses cepat dan hasilnya memuaskan!"</p>
+                    <div class="testimonial-author">Pak Wayan Sudiarta</div>
+                    <div class="testimonial-company">Wayan Leather Craft, Ubud</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Sudah 3 website saya buat di Gianyar Tech. Mantap berkualitas dan harganya terjangkau untuk UMKM."</p>
+                    <div class="testimonial-author">Ibu Sari Dewi</div>
+                    <div class="testimonial-company">Sari Bali Souvenir, Gianyar</div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Landing page untuk produk baru saya laris manis! Konversi meningkat 200% dari sebelumnya."</p>
+                    <div class="testimonial-author">Made Ardana</div>
+                    <div class="testimonial-company">D'Coffee Gianyar</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Siap Punya Website Profesional?</h2>
+            <p>Hubungi kami sekarang dan dapatkan konsultasi GRATIS untuk kebutuhan website Anda.</p>
+            <a href="https://wa.me/6281234567890?text=Halo%20Gianyar%20Tech,%20saya%20ingin%20konsultasi%20tentang%20website" class="btn btn-whatsapp">
+                💬 Chat Sekarang
+            </a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>Gianyar Tech Solutions</strong></p>
+            <p>Jasa Pembuatan Website Profesional | Gianyar, Bali</p>
+            <p style="margin-top: 20px; font-size: 0.875rem;">© 2026 Gianyar Tech Solutions. All rights reserved.</p>
+        </div>
+    </footer>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Gianyar%20Tech,%20saya%20tertarik%20buatkan%20website" class="wa-float" target="_blank">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+</body>
+</html>
