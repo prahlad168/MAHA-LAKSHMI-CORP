@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maha Tukang - Platform Marketplace Jasa Tukang Berbasis AI. Cari tukang terbaik di seluruh Indonesia dengan mudah, aman, dan terpercaya.">
+    <meta name="keywords" content="tukang, jasa tukang, renovasi rumah, bangun rumah, listrik, plumbing, cat, keramik, Indonesia">
+    <meta name="author" content="i Made Purna Ananda">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Maha Tukang - Platform Jasa Tukang AI Indonesia">
+    <meta property="og:description" content="Cari tukang terbaik dengan AI. Booking mudah, pembayaran aman, garansi terjamin.">
+    <meta property="og:type" content="website">
+    <title>Maha Tukang - Platform Marketplace Jasa Tukang Berbasis AI Indonesia</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A24;
+            --secondary: #004E89;
+            --secondary-light: #1A6BB5;
+            --accent: #F7C948;
+            --dark: #1A1A2E;
+            --light: #FFFFFF;
+            --gray: #6B7280;
+            --success: #10B981;
+            --gradient: linear-gradient(135deg, #FF6B35 0%, #FF8E53 100%);
+            --gradient-blue: linear-gradient(135deg, #004E89 0%, #1A6BB5 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-blue);
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #FFF5F0 0%, #FFF0E6 50%, #FFF5F0 100%);
+            padding: 120px 5% 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 150%;
+            background: var(--gradient);
+            opacity: 0.1;
+            border-radius: 50%;
+            transform: rotate(-15deg);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-illustration {
+            width: 100%;
+            max-width: 500px;
+            background: var(--gradient);
+            border-radius: 30px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 30px 60px rgba(255, 107, 53, 0.3);
+        }
+
+        .hero-illustration i {
+            font-size: 8rem;
+            margin-bottom: 20px;
+        }
+
+        .hero-illustration h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        /* Search Section */
+        .search-section {
+            background: white;
+            padding: 80px 5%;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .search-box {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        }
+
+        .search-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-input {
+            position: relative;
+        }
+
+        .search-input input,
+        .search-input select {
+            width: 100%;
+            padding: 15px 15px 15px 45px;
+            border: 2px solid #E5E7EB;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .search-input i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gray);
+        }
+
+        .search-input input:focus,
+        .search-input select:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        .search-btn {
+            width: 100%;
+            padding: 18px;
+            background: var(--gradient);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .search-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 5%;
+            background: #F9FAFB;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .service-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 100px 5%;
+            background: white;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Features */
+        .features {
+            padding: 100px 5%;
+            background: var(--gradient);
+            color: white;
+        }
+
+        .features .section-header h2,
+        .features .section-header p {
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-card i {
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            opacity: 0.9;
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 5%;
+            background: #F9FAFB;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .testimonial-info h4 {
+            font-size: 1.1rem;
+        }
+
+        .testimonial-info p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-stars {
+            color: var(--accent);
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            color: var(--dark);
+            line-height: 1.8;
+            font-style: italic;
+        }
+
+        /* CTA */
+        .cta {
+            padding: 100px 5%;
+            background: var(--gradient-blue);
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cta .btn {
+            padding: 18px 40px;
+            font-size: 1.1rem;
+        }
+
+        .cta .btn-white {
+            background: white;
+            color: var(--secondary);
+        }
+
+        .cta .btn-white:hover {
+            background: #F0F0F0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 5% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-illustration {
+                margin-top: 40px;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loader {
+            display: none;
+        }
+
+        /* Form styles */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #E5E7EB;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-hard-hat"></i>
+            Maha Tukang
+        </a>
+        <ul class="nav-links">
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#cara-kerja">Cara Kerja</a></li>
+            <li><a href="#fitur">Fitur</a></li>
+            <li><a href="#testimoni">Testimoni</a></li>
+        </ul>
+        <a href="#daftar" class="btn btn-primary">Daftar Gratis</a>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-robot"></i>
+                Powered by AI
+            </div>
+            <h1>Cari Tukang <span>Terbaik</span> dengan AI</h1>
+            <p>Platform marketplace jasa tukang berbasis AI pertama di Indonesia. Temukan tukang profesional untuk renovasi, pembangunan, dan perbaikan rumah dengan mudah, aman, dan terpercaya.</p>
+            <div class="hero-buttons">
+                <a href="#daftar" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                    Cari Tukang
+                </a>
+                <a href="#daftar-tukang" class="btn btn-outline">
+                    <i class="fas fa-user-plus"></i>
+                    Jadi Tukang
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10K+</div>
+                    <div class="stat-label">Tukang Terdaftar</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Proyek Selesai</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">Rating rata-rata</div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-illustration">
+                <i class="fas fa-tools"></i>
+                <h3>Solusi All-in-One</h3>
+                <p>Search • Book • Pay • Review</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-box">
+            <h2 style="text-align: center; margin-bottom: 25px; font-size: 1.5rem;">Cari Tukang Sekarang</h2>
+            <div class="search-row">
+                <div class="search-input">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Ketik layanan (contoh: cat rumah)" id="searchService">
+                </div>
+                <div class="search-input">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <select id="searchCity">
+                        <option value="">Pilih Kota</option>
+                        <option value="denpasar">Denpasar</option>
+                        <option value="badung">Badung</option>
+                        <option value="gianyar">Gianyar</option>
+                        <option value="singaraja">Singaraja</option>
+                        <option value="bangli">Bangli</option>
+                        <option value="klungkung">Klungkung</option>
+                        <option value="tabanan">Tabanan</option>
+                        <option value="jembrana">Jembrana</option>
+                        <option value="karangasem">Karangasem</option>
+                    </select>
+                </div>
+            </div>
+            <div class="search-row">
+                <div class="search-input">
+                    <i class="fas fa-wallet"></i>
+                    <select id="searchBudget">
+                        <option value="">Budget</option>
+                        <option value="1"> < Rp 500.000</option>
+                        <option value="2">Rp 500.000 - 2.000.000</option>
+                        <option value="3">Rp 2.000.000 - 5.000.000</option>
+                        <option value="4">Rp 5.000.000 - 10.000.000</option>
+                        <option value="5">> Rp 10.000.000</option>
+                    </select>
+                </div>
+                <div class="search-input">
+                    <i class="fas fa-star"></i>
+                    <select id="searchRating">
+                        <option value="">Rating</option>
+                        <option value="5">5 Bintang</option>
+                        <option value="4">4+ Bintang</option>
+                        <option value="3">3+ Bintang</option>
+                    </select>
+                </div>
+            </div>
+            <button class="search-btn" onclick="searchTukang()">
+                <i class="fas fa-search"></i>
+                Cari Tukang
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="layanan">
+        <div class="section-header">
+            <h2>Layanan Kami</h2>
+            <p>Temukan berbagai jasa pertukangan profesional untuk kebutuhan Anda</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card" onclick="searchCategory('renovasi')">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>Renovasi Rumah</h3>
+                <p>Renovasi total, partial, dan upgrade rumah Anda</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('listrik')">
+                <div class="service-icon">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <h3>Listrik</h3>
+                <p>Instalasi, perbaikan, dan upgrade sistem listrik</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('plumbing')">
+                <div class="service-icon">
+                    <i class="fas fa-faucet"></i>
+                </div>
+                <h3>Plumbing</h3>
+                <p>Pipa air, WC, wastafel, dan instalasi air</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('cat')">
+                <div class="service-icon">
+                    <i class="fas fa-paint-roller"></i>
+                </div>
+                <h3>Cat</h3>
+                <p>Cat interior dan eksterior rumah</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('keramik')">
+                <div class="service-icon">
+                    <i class="fas fa-th-large"></i>
+                </div>
+                <h3>Keramik</h3>
+                <p>Pasang keramik lantai dan dinding</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('atap')">
+                <div class="service-icon">
+                    <i class="fas fa-warehouse"></i>
+                </div>
+                <h3>Atap</h3>
+                <p>atap genteng, spandek, dan baja ringan</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('ac')">
+                <div class="service-icon">
+                    <i class="fas fa-snowflake"></i>
+                </div>
+                <h3>AC / Pendingin</h3>
+                <p>Pasang, service, dan isi ulang AC</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('pagar')">
+                <div class="service-icon">
+                    <i class="fas fa-border-all"></i>
+                </div>
+                <h3>Pagar</h3>
+                <p>Pagar besi, aluminium, dan kayu</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('dinding')">
+                <div class="service-icon">
+                    <i class="fas fa-layer-group"></i>
+                </div>
+                <h3>Dinding</h3>
+                <p>Bangun dinding, plester, dan acian</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('interior')">
+                <div class="service-icon">
+                    <i class="fas fa-couch"></i>
+                </div>
+                <h3>Interior</h3>
+                <p>Kitchen set, wardrobe, dan furniture</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('kanopi')">
+                <div class="service-icon">
+                    <i class="fas fa-umbrella"></i>
+                </div>
+                <h3>Kanopi</h3>
+                <p>Kanopi spandek, aluminium, dan kaca</p>
+            </div>
+            <div class="service-card" onclick="searchCategory('las')">
+                <div class="service-icon">
+                    <i class="fas fa-fire"></i>
+                </div>
+                <h3>Las / Welding</h3>
+                <p>Pekerjaan las profesional</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="cara-kerja">
+        <div class="section-header">
+            <h2>Cara Kerja</h2>
+            <p>Mulai dari cari tukang sampai pembayaran dalam 4 langkah mudah</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Cari & Pilih</h3>
+                <p>Pilih layanan dan lokasi Anda. AI akan rekomendasikan tukang terbaik</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Booking</h3>
+                <p>Hubungi tukang, negosiasi harga, dan booking tanggal kerja</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Kerja</h3>
+                <p>Tukang datang dan mengerjakan proyek Anda dengan garansi</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Bayar & Review</h3>
+                <p>Selesai puas? Bayar dan berikan review untuk tukang</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="fitur">
+        <div class="section-header">
+            <h2>Fitur Unggulan</h2>
+            <p>Kenapa harus pakai Maha Tukang?</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3><i class="fas fa-robot"></i> AI Recommendation</h3>
+                <p>Algoritma AI memilihkan tukang terbaik berdasarkan lokasi, budget, dan kebutuhan spesifik Anda</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-shield-alt"></i> Garansi</h3>
+                <p>Semua proyek dilindungi garansi. Kalau tidak puas, kami bantu mediasi dan refund</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-money-bill-wave"></i> Pembayaran Aman</h3>
+                <p>Sistem escrow memastikan uang aman sampai proyek selesai dan Anda puas</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-star"></i> Rating & Review</h3>
+                <p>Review asli dari pelanggan sebelumnya bantu Anda pilih tukang yang tepat</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-headset"></i> Support 24/7</h3>
+                <p>Tim support siap bantu via chat, phone, atau WhatsApp kapan saja</p>
+            </div>
+            <div class="feature-card">
+                <h3><i class="fas fa-chart-line"></i> Estimasi Cerdas</h3>
+                <p>AI memberikan estimasi biaya dan waktu pengerjaan yang akurat</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimoni">
+        <div class="section-header">
+            <h2>Testimoni</h2>
+            <p>Apa kata mereka yang sudah pakai Maha Tukang</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">WS</div>
+                    <div class="testimonial-info">
+                        <h4>Wayan Sudiarta</h4>
+                        <p>Denpasar</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"Sudah 3 kali pakai Maha Tukang untuk renovasi rumah. Tukangnya profesional, harga transparan, dan ada garansi. Recommended!"</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">KMD</div>
+                    <div class="testimonial-info">
+                        <h4>Ketut Maryadi</h4>
+                        <p>Badung</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">"AI-nya bagus banget, langsung dapat rekomendasi tukang yang sesuai budget. Proses booking sampai Bayar gampang banget."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-header">
+                    <div class="testimonial-avatar">NPM</div>
+                    <div class="testimonial-info">
+                        <h4>Nyoman Pradnyana</h4>
+                        <p>Gianyar</p>
+                    </div>
+                </div>
+                <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+                <p class="testimonial-text">"Sebagai tukang, daftar di Maha Tukang bantu saya dapat proyek lebih banyak. Sekarang order melimpah!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+        <h2>Siap Mulai Proyek Anda?</h2>
+        <p>Bergabung dengan ribuan pelanggan dan tukang profesional di platform kami</p>
+        <div class="cta-buttons">
+            <a href="#daftar" class="btn btn-white">
+                <i class="fas fa-search"></i>
+                Cari Tukang
+            </a>
+            <a href="#daftar-tukang" class="btn btn-outline" style="border-color: white; color: white;">
+                <i class="fas fa-user-plus"></i>
+                Daftar jadi Tukang
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4><i class="fas fa-hard-hat"></i> Maha Tukang</h4>
+                <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">Platform marketplace jasa tukang berbasis AI pertama di Indonesia.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#">Renovasi Rumah</a></li>
+                    <li><a href="#">Listrik</a></li>
+                    <li><a href="#">Plumbing</a></li>
+                    <li><a href="#">Cat</a></li>
+                    <li><a href="#">Interior</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bantuan</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Maha Tukang. All rights reserved. | Dibuat dengan ❤️ oleh i Made Purna Ananda</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/6281337558787?text=Halo%20Maha%20Tukang,%20saya%20mau%20tanya%20tentang%20jasa%20tukang" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Registration Modal -->
+    <div id="daftar" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; justify-content: center; align-items: center;">
+        <div style="background: white; padding: 40px; border-radius: 20px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto;">
+            <h2 style="margin-bottom: 20px;">Daftar Sekarang</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" placeholder="Masukkan nama lengkap" required>
+                </div>
+                <div class="form-group">
+                    <label>No. WhatsApp</label>
+                    <input type="tel" placeholder="08xxxxxxxxxx" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="email@contoh.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Daftar sebagai:</label>
+                    <select required>
+                        <option value="">Pilih tipe akun</option>
+                        <option value="pelanggan">Pelanggan</option>
+                        <option value="tukang">Tukang</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i>
+                    Daftar Sekarang
+                </button>
+            </form>
+            <button onclick="closeModal()" style="position: absolute; top: 20px; right: 20px; background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Search function
+        function searchTukang() {
+            const service = document.getElementById('searchService').value;
+            const city = document.getElementById('searchCity').value;
+            alert('Fitur pencarian lengkap sedang dalam pengembangan.\n\nUntuk sekarang, silakan hubungi kami via WhatsApp:\nhttps://wa.me/6281337558787');
+        }
+
+        // Category search
+        function searchCategory(category) {
+            document.getElementById('searchService').value = category;
+            alert(`Mencari tukang untuk layanan: ${category}\n\nHubungi kami via WhatsApp untuk booking langsung!`);
+        }
+
+        // Modal functions
+        document.querySelectorAll('a[href^="#daftar"]').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                document.getElementById('daftar').style.display = 'flex';
+            });
+        });
+
+        function closeModal() {
+            document.getElementById('daftar').style.display = 'none';
+        }
+
+        // Form submit
+        document.getElementById('registerForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Terima kasih! Data Anda sudah terdaftar.\nKami akan menghubungi Anda via WhatsApp.');
+            closeModal();
+        });
+
+        // Close modal on outside click
+        document.getElementById('daftar').addEventListener('click', (e) => {
+            if (e.target.id === 'daftar') {
+                closeModal();
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 5px 30px rgba(0,0,0,0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
