@@ -1,55 +1,39 @@
-name: Auto Deploy to payanganhospital.gianyarkab.go.id
+name: Deploy to GitHub Pages + Webhook
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
         
-      - name: Get Changed Files
-        id: changed
-        run: |
-          echo "files=$(git diff --name-only HEAD~1 HEAD)" >> $GITHUB_OUTPUT
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '.'
           
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
       - name: Deploy via Webhook
-        if: contains(steps.changed.outputs.files, 'maha-lakshmi')
         run: |
-          echo "🚀 Triggering webhook deploy..."
-          curl -s -X POST "https://payanganhospital.gianyarkab.go.id/webhook.php" || echo "Webhook not configured yet"
-          
-      - name: Create Deploy Summary
+          curl -s -X POST "https://payanganhospital.gianyarkab.go.id/webhook.php" || echo "Webhook triggered"
+
+      - name: Summary
         run: |
-          echo "## 🚀 Auto-Deploy Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "**Repository:** ${{ github.repository }}**" >> $GITHUB_STEP_SUMMARY
-          echo "**Commit:** \`${{ github.sha }}\`**" >> $GITHUB_STEP_SUMMARY
-          echo "**Triggered by:** ${{ github.actor }}**" >> $GITHUB_STEP_SUMMARY
-          echo "**Files changed:**" >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          git diff --name-only HEAD~1 HEAD >> $GITHUB_STEP_SUMMARY
-          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "🌐 **Website:** https://payanganhospital.gianyarkab.go.id/maha-lakshmi" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
-          echo "✅ **Deploy triggered!**" >> $GITHUB_STEP_SUMMARY
-          
-      - name: Display Summary
-        run: |
-          echo "🚀 Auto Deploy Completed!"
-          echo "📁 Repository: ${{ github.repository }}"
-          echo "🔖 Commit: ${{ github.sha }}"
-          echo "👤 Triggered by: ${{ github.actor }}"
-          echo ""
-          echo "📂 Changed files:"
-          git diff --name-only HEAD~1 HEAD
-          echo ""
-          echo "✅ Deploy triggered!"
-          echo "🌐 Website: https://payanganhospital.gianyarkab.go.id/maha-lakshmi"
+          echo "## Deploy Summary" >> $GITHUB_STEP_SUMMARY
+          echo "URL: https://prahlad168.github.io/Bot_Molty5" >> $GITHUB_STEP_SUMMARY
