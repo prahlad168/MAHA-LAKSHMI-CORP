@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { margin: 0; padding: 20px; font-family: Arial; background: #1a1a2e; display: flex; justify-content: center; align-items: center; min-height: 100vh; flex-direction: column; }
+        .btn {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #FF6B35, #E85A24);
+            border: none;
+            color: white;
+            font-size: 4rem;
+            cursor: pointer;
+            box-shadow: 0 10px 50px rgba(255,107,53,0.6);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        p { color: white; text-align: center; margin-top: 30px; font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+    <button class="btn" onclick="speak()">🔊</button>
+    <p>KLIK UNTUK DENGAR GAURANGA!</p>
+    <script>
+        function speak() {
+            const msg = new SpeechSynthesisUtterance("Ya, Pak Pur! Gaurangga siap menerima perintah!");
+            msg.lang = 'id-ID';
+            msg.rate = 0.95;
+            speechSynthesis.speak(msg);
+        }
+    </script>
+</body>
+</html>
