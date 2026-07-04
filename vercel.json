@@ -1,16 +1,9 @@
 {
-  "services": {
-    "web": {
-      "root": "."
-    }
-  },
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-      "source": "/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "web"
-      }
+      "src": "/**",
+      "use": "@vercel/static"
     }
   ]
 }
