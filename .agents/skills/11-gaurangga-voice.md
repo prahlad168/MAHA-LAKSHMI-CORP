@@ -1,19 +1,116 @@
 # 🔊 GAURANGA VOICE SKILL
 
-## Version: 2.0.0
+## Version: 3.0.0
 ## Created: 2026-07-04
 ## Updated: 2026-07-04
 
 ---
 
-## 🎯 AUTO-ACTIVATION
+## 🎯 PROTOKOL SUARA
 
-**Ketika Pak Pur membuka OpenHands atau bilang "gaurangga":**
+**Setiap kali GAURANGA merespon perintah Pak Pur:**
 
 ```
-→ Speaker OTOMATIS PLAY
-→ GAURANGA siap menerima perintah
+┌─────────────────────────────────────────────────────────┐
+│  🚀 Pak Pur kasih perintah                             │
+│      ↓                                                 │
+│  💬 GAURANGA merespon (teks)                          │
+│      ↓                                                 │
+│  🔊 Klik tombol 🔊 → SUARA BERKATA!                   │
+│      ↓                                                 │
+│  🤫 Ketik "silent" → Mode hening aktif                │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
 ```
+
+---
+
+## 🔊 FITUR TOMBOL SUARA
+
+| Aksi | Hasil |
+|------|-------|
+| Klik tombol 🔊 | GAURANGA bilang "Gaurngga aktif!" |
+| Double-klik | Bilang "Ya, Pak Pur! Gaurngga siap!" |
+| Klik lagi (mode aktif) | Matikan suara → "Silent mode" |
+
+---
+
+## 🎵 VOICE MESSAGES
+
+| Trigger | Pesan |
+|---------|-------|
+| Tombol diklik | "Gaurngga aktif! Silakan berikan perintah!" |
+| Double-klik | "Ya, Pak Pur! Gaurngga siap!" |
+| Toggle ON | "Gaurngga aktif! Silakan berikan perintah!" |
+| Toggle OFF | "Silent mode aktif. Ketik silent untuk ulang." |
+
+---
+
+## 💻 IMPLEMENTASI
+
+### Tombol di Landing Page:
+```html
+<div id="gaurangga-voice">
+    <button id="voiceBtn" onclick="toggleVoice()">🔊</button>
+    <div id="voiceStatus">GAURANGA AKTIF 🔊</div>
+</div>
+```
+
+### JavaScript:
+```javascript
+let voiceEnabled = true;
+
+function speak(text) {
+    if (voiceEnabled && 'speechSynthesis' in window) {
+        speechSynthesis.cancel();
+        const msg = new SpeechSynthesisUtterance(text);
+        msg.lang = 'id-ID';
+        speechSynthesis.speak(msg);
+    }
+}
+
+function toggleVoice() {
+    voiceEnabled = !voiceEnabled;
+    if (voiceEnabled) speak("Gaurngga aktif!");
+    else speak("Silent mode aktif!");
+}
+```
+
+---
+
+## 📍 LOKASI FILE
+
+| File | Fungsi |
+|------|--------|
+| `index.html` | Landing page dengan tombol 🔊 |
+| `audio/gaurangga-ready.mp3` | Audio file |
+| `gaurangga-voice.py` | Python TTS module |
+| `.agents/skills/11-gaurangga-voice.md` | Skill documentation |
+
+---
+
+## ⚙️ CARA KERJA
+
+1. Buka: https://prahlad168.github.io/Bot_Molty5
+2. Klik tombol 🔊 hijau (kanan bawah)
+3. Dengar suara GAURANGA!
+4. Untuk silent: klik lagi tombolnya
+
+---
+
+## 🔄 COMMAND "SILENT"
+
+Jika Pak Pur ketik "silent":
+- Suara dimatikan
+- Tombol berubah abu-abu
+- Status: "GAURANGA SILENT 🤫"
+
+---
+
+**Skill Version:** 3.0.0
+**Status:** ✅ ACTIVE
+**Last Updated:** 2026-07-04
+**Owner:** GAURANGA AI System
 
 ---
 
