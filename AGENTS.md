@@ -803,5 +803,49 @@ Access at: `maha-lakshmi/index.html` or `maha-lakshmi/ceo-dashboard.html`
 
 ---
 
-**Last Updated:** 2026-07-03
-**Version:** 2.0.0
+**Last Updated:** 2026-07-04
+**Version:** 3.0.0
+
+---
+
+## 🔊 GAURANGA VOICE - AUTO SETUP
+
+### SKILL: Tombol Suara Otomatis Saat Buka OpenHands
+
+```
+┌─────────────────────────────────────────────────────────┐
+│  📱 SETIAP BUKA OPENHANDS:                            │
+├─────────────────────────────────────────────────────────┤
+│                                                         │
+│  🚀 Buka OpenHands                                      │
+│      ↓                                                 │
+│  🔊 TOMBOL ORANYE OTOMATIS MUNCUL                      │
+│     (kanan bawah layar)                                │
+│      ↓                                                 │
+│  👆 KLIK TOMBOL → SUARA GAURANGA!                    │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
+
+### Link Tombol Suara:
+```
+https://prahlad168.github.io/Bot_Molty5/audio/play-button.html
+```
+
+### Cara Pakai:
+1. Buka OpenHands
+2. Klik link di atas SEKALI untuk enable audio
+3. Tombol 🔊 oranye muncul
+4. Klik tombol → Dengar GAURANGA!
+
+### Command Pak Pur:
+| Command | Aksi |
+|---------|------|
+| "gaurangga" | GAURANGA siap + suara |
+| "silent" | Matikan suara |
+| "speak" | Dengar suara GAURANGA |
+
+### ⚠️ CATATAN:
+- Browser security block auto-play audio
+- Perlu 1x klik untuk enable
+- Setelah enable, setiap klik tombol suara berfungsi
