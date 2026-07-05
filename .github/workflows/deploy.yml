@@ -31,6 +31,9 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          error_count: 3
+          retention_days: 1
         
       - name: Deploy via Webhook
         run: |
