@@ -1,0 +1,1564 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAURANGA - Real Time Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00f0ff;
+            --secondary: #ff006e;
+            --accent: #8338ec;
+            --success: #3a86ff;
+            --warning: #ffbe0b;
+            --danger: #ff0054;
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --bg-card-hover: #1a1a25;
+            --text-primary: #ffffff;
+            --text-secondary: #8b8b9a;
+            --border: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow-1 {
+            top: -200px;
+            left: -200px;
+            background: var(--primary);
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .bg-glow-2 {
+            bottom: -200px;
+            right: -200px;
+            background: var(--secondary);
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(100px, 100px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(-100px, -100px); }
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: rgba(10, 10, 15, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 800;
+            font-size: 20px;
+            color: var(--bg-dark);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shine 3s ease-in-out infinite;
+        }
+
+        @keyframes shine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .logo-text h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .logo-text span {
+            font-size: 12px;
+            color: var(--text-secondary);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .live-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .datetime {
+            text-align: right;
+        }
+
+        .datetime .date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--text-primary);
+        }
+
+        .datetime .time {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            color: var(--primary);
+        }
+
+        /* Main Container */
+        .main-container {
+            position: relative;
+            z-index: 1;
+            padding: 100px 40px 40px;
+            max-width: 1920px;
+            margin: 0 auto;
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 240, 255, 0.1);
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
+
+        .stat-card.warning::before {
+            background: linear-gradient(90deg, var(--warning), var(--secondary));
+        }
+
+        .stat-card.danger::before {
+            background: linear-gradient(90deg, var(--danger), var(--warning));
+        }
+
+        .stat-card.success::before {
+            background: linear-gradient(90deg, var(--success), var(--primary));
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card:nth-child(1) .stat-icon {
+            background: rgba(0, 240, 255, 0.15);
+            color: var(--primary);
+        }
+
+        .stat-card:nth-child(2) .stat-icon {
+            background: rgba(131, 56, 236, 0.15);
+            color: var(--accent);
+        }
+
+        .stat-card:nth-child(3) .stat-icon {
+            background: rgba(58, 134, 255, 0.15);
+            color: var(--success);
+        }
+
+        .stat-card:nth-child(4) .stat-icon {
+            background: rgba(255, 190, 11, 0.15);
+            color: var(--warning);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-card:nth-child(1) .stat-value { color: var(--primary); }
+        .stat-card:nth-child(2) .stat-value { color: var(--accent); }
+        .stat-card:nth-child(3) .stat-value { color: var(--success); }
+        .stat-card:nth-child(4) .stat-value { color: var(--warning); }
+
+        .stat-change {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+        }
+
+        .stat-change.up { color: var(--success); }
+        .stat-change.down { color: var(--danger); }
+
+        .stat-progress {
+            margin-top: 15px;
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .stat-progress-bar {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 1s ease;
+        }
+
+        .stat-card:nth-child(1) .stat-progress-bar { background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        .stat-card:nth-child(2) .stat-progress-bar { background: linear-gradient(90deg, var(--accent), var(--secondary)); }
+        .stat-card:nth-child(3) .stat-progress-bar { background: linear-gradient(90deg, var(--success), var(--primary)); }
+        .stat-card:nth-child(4) .stat-progress-bar { background: linear-gradient(90deg, var(--warning), var(--danger)); }
+
+        /* Main Grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+        }
+
+        /* Agent Performance Section */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .section-title-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 240, 255, 0.1);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .filter-tab {
+            padding: 8px 16px;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-tab:hover, .filter-tab.active {
+            background: rgba(0, 240, 255, 0.1);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        /* Agent List */
+        .agent-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .agent-item {
+            display: grid;
+            grid-template-columns: 50px 1fr 120px 100px 80px;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .agent-item:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(0, 240, 255, 0.3);
+            transform: translateX(5px);
+        }
+
+        .agent-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .agent-avatar.sales { background: linear-gradient(135deg, #00f0ff, #00a8b5); }
+        .agent-avatar.marketing { background: linear-gradient(135deg, #8338ec, #5a1f99); }
+        .agent-avatar.operations { background: linear-gradient(135deg, #3a86ff, #0056b3); }
+        .agent-avatar.support { background: linear-gradient(135deg, #ff006e, #b3004d); }
+        .agent-avatar.finance { background: linear-gradient(135deg, #ffbe0b, #cc9600); }
+
+        .agent-status {
+            position: absolute;
+            bottom: -3px;
+            right: -3px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 3px solid var(--bg-card);
+        }
+
+        .agent-status.active { background: var(--success); }
+        .agent-status.busy { background: var(--warning); }
+        .agent-status.idle { background: var(--text-secondary); }
+
+        .agent-info h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .agent-info p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .agent-task {
+            text-align: center;
+        }
+
+        .agent-task .task-name {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .agent-task .task-progress {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .agent-task .task-progress-bar {
+            height: 100%;
+            border-radius: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: width 0.5s ease;
+        }
+
+        .agent-revenue {
+            text-align: right;
+        }
+
+        .agent-revenue .amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--success);
+        }
+
+        .agent-revenue .target {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .agent-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .agent-badge.active {
+            background: rgba(58, 134, 255, 0.2);
+            color: var(--success);
+            border: 1px solid rgba(58, 134, 255, 0.3);
+        }
+
+        .agent-badge.working {
+            background: rgba(255, 190, 11, 0.2);
+            color: var(--warning);
+            border: 1px solid rgba(255, 190, 11, 0.3);
+        }
+
+        .agent-badge.waiting {
+            background: rgba(139, 139, 154, 0.2);
+            color: var(--text-secondary);
+            border: 1px solid rgba(139, 139, 154, 0.3);
+        }
+
+        /* Financial Chart */
+        .chart-container {
+            height: 300px;
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 250px;
+            padding: 0 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .chart-bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chart-bar {
+            width: 50px;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .chart-bar:hover {
+            transform: scaleY(1.05);
+            filter: brightness(1.2);
+        }
+
+        .chart-bar.revenue {
+            background: linear-gradient(180deg, var(--primary), rgba(0, 240, 255, 0.3));
+        }
+
+        .chart-bar.target {
+            background: linear-gradient(180deg, var(--accent), rgba(131, 56, 236, 0.3));
+        }
+
+        .chart-bar-label {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+        }
+
+        .chart-bar-value {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .chart-bar.revenue .chart-bar-value { color: var(--primary); }
+        .chart-bar.target .chart-bar-value { color: var(--accent); }
+
+        .chart-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 4px;
+        }
+
+        .legend-color.revenue { background: var(--primary); }
+        .legend-color.target { background: var(--accent); }
+
+        /* Activity Feed */
+        .activity-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .activity-feed::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .activity-feed::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .activity-feed::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 3px;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255,255,255,0.02);
+            border-radius: 12px;
+            transition: all 0.3s;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .activity-item:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .activity-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .activity-icon.revenue {
+            background: rgba(58, 134, 255, 0.2);
+            color: var(--success);
+        }
+
+        .activity-icon.task {
+            background: rgba(0, 240, 255, 0.2);
+            color: var(--primary);
+        }
+
+        .activity-icon.alert {
+            background: rgba(255, 190, 11, 0.2);
+            color: var(--warning);
+        }
+
+        .activity-icon.complete {
+            background: rgba(58, 134, 255, 0.2);
+            color: var(--success);
+        }
+
+        .activity-content {
+            flex: 1;
+        }
+
+        .activity-content p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .activity-content strong {
+            color: var(--primary);
+        }
+
+        .activity-time {
+            font-size: 12px;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Revenue Breakdown */
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .revenue-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .revenue-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .revenue-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .revenue-icon.saas { background: rgba(0, 240, 255, 0.15); color: var(--primary); }
+        .revenue-icon.services { background: rgba(131, 56, 236, 0.15); color: var(--accent); }
+        .revenue-icon.products { background: rgba(255, 0, 110, 0.15); color: var(--secondary); }
+        .revenue-icon.affiliate { background: rgba(255, 190, 11, 0.15); color: var(--warning); }
+
+        .revenue-details {
+            flex: 1;
+        }
+
+        .revenue-details h4 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .revenue-details .amount {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .revenue-percent {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Quick Stats */
+        .quick-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .quick-stat {
+            padding: 20px;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .quick-stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .quick-stat-label {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-secondary);
+            font-size: 13px;
+        }
+
+        .footer span {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .agent-item {
+                grid-template-columns: 50px 1fr 100px 60px;
+            }
+
+            .agent-task {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 0 20px;
+            }
+
+            .main-container {
+                padding: 100px 20px 20px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stat-value {
+                font-size: 28px;
+            }
+
+            .filter-tabs {
+                display: none;
+            }
+
+            .revenue-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Notification Toast */
+        .toast-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .toast {
+            padding: 15px 25px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            animation: toastIn 0.5s ease, toastOut 0.5s ease 2.5s forwards;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        @keyframes toastIn {
+            from {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes toastOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(100px);
+            }
+        }
+
+        .toast-icon {
+            font-size: 20px;
+        }
+
+        .toast-icon.success { color: var(--success); }
+        .toast-icon.warning { color: var(--warning); }
+        .toast-icon.info { color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">G</div>
+            <div class="logo-text">
+                <h1>GAURANGA</h1>
+                <span>Command Center</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span>LIVE</span>
+            </div>
+            <div class="datetime">
+                <div class="date" id="currentDate">2026-07-06</div>
+                <div class="time" id="currentTime">00:00:00</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-wallet"></i>
+                </div>
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-value" id="totalRevenue">Rp 0</div>
+                <div class="stat-change up">
+                    <i class="fas fa-arrow-up"></i>
+                    <span id="revenueChange">+0% dari target</span>
+                </div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" id="revenueProgress" style="width: 0%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card warning">
+                <div class="stat-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <div class="stat-label">Target Bulanan</div>
+                <div class="stat-value">Rp 100jt</div>
+                <div class="stat-change">
+                    <i class="fas fa-calendar"></i>
+                    <span id="daysRemaining">Hari tersisa: 25</span>
+                </div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 30%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card success">
+                <div class="stat-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="stat-label">Agent Aktif</div>
+                <div class="stat-value" id="activeAgents">6/60</div>
+                <div class="stat-change up">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Semua berjalan</span>
+                </div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 10%"></div>
+                </div>
+            </div>
+
+            <div class="stat-card danger">
+                <div class="stat-icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="stat-label">Task Hari Ini</div>
+                <div class="stat-value" id="tasksToday">0</div>
+                <div class="stat-change">
+                    <i class="fas fa-clock"></i>
+                    <span id="lastUpdate">Update: baru saja</span>
+                </div>
+                <div class="stat-progress">
+                    <div class="stat-progress-bar" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div class="left-column">
+                <!-- Agent Performance -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <div class="section-title-icon">
+                                <i class="fas fa-users-robot"></i>
+                            </div>
+                            <h2>AGENT PERFORMANCE</h2>
+                        </div>
+                        <div class="filter-tabs">
+                            <button class="filter-tab active" data-filter="all">Semua</button>
+                            <button class="filter-tab" data-filter="sales">Sales</button>
+                            <button class="filter-tab" data-filter="marketing">Marketing</button>
+                            <button class="filter-tab" data-filter="support">Support</button>
+                        </div>
+                    </div>
+
+                    <div class="agent-list" id="agentList">
+                        <!-- Agent items will be generated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Financial Overview -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <div class="section-title-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h2>FINANCIAL OVERVIEW</h2>
+                        </div>
+                    </div>
+
+                    <div class="revenue-grid">
+                        <div class="revenue-item">
+                            <div class="revenue-icon saas">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="revenue-details">
+                                <h4>SaaS Products</h4>
+                                <div class="amount" id="saasRevenue">Rp 0</div>
+                            </div>
+                            <div class="revenue-percent">30%</div>
+                        </div>
+
+                        <div class="revenue-item">
+                            <div class="revenue-icon services">
+                                <i class="fas fa-laptop-code"></i>
+                            </div>
+                            <div class="revenue-details">
+                                <h4>Freelance Services</h4>
+                                <div class="amount" id="servicesRevenue">Rp 0</div>
+                            </div>
+                            <div class="revenue-percent">25%</div>
+                        </div>
+
+                        <div class="revenue-item">
+                            <div class="revenue-icon products">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="revenue-details">
+                                <h4>Digital Products</h4>
+                                <div class="amount" id="productsRevenue">Rp 0</div>
+                            </div>
+                            <div class="revenue-percent">20%</div>
+                        </div>
+
+                        <div class="revenue-item">
+                            <div class="revenue-icon affiliate">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="revenue-details">
+                                <h4>Affiliate & Consulting</h4>
+                                <div class="amount" id="affiliateRevenue">Rp 0</div>
+                            </div>
+                            <div class="revenue-percent">25%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chart -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <div class="section-title-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h2>WEEKLY PROGRESS</h2>
+                        </div>
+                    </div>
+
+                    <div class="chart-container">
+                        <div class="chart-bars" id="chartBars">
+                            <!-- Chart bars will be generated by JavaScript -->
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <div class="legend-color revenue"></div>
+                                <span>Revenue</span>
+                            </div>
+                            <div class="legend-item">
+                                <div class="legend-color target"></div>
+                                <span>Target</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="right-column">
+                <!-- Quick Stats -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <div class="section-title-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h2>QUICK STATS</h2>
+                        </div>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="quick-stat">
+                            <div class="quick-stat-value" id="leadsGenerated">0</div>
+                            <div class="quick-stat-label">Leads Generated</div>
+                        </div>
+                        <div class="quick-stat">
+                            <div class="quick-stat-value" id="dealsClosed">0</div>
+                            <div class="quick-stat-label">Deals Closed</div>
+                        </div>
+                        <div class="quick-stat">
+                            <div class="quick-stat-value" id="contentCreated">0</div>
+                            <div class="quick-stat-label">Content Created</div>
+                        </div>
+                        <div class="quick-stat">
+                            <div class="quick-stat-value" id="supportTickets">0</div>
+                            <div class="quick-stat-label">Support Tickets</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity Feed -->
+                <div class="section-card">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <div class="section-title-icon">
+                                <i class="fas fa-activity"></i>
+                            </div>
+                            <h2>REAL-TIME ACTIVITY</h2>
+                        </div>
+                    </div>
+
+                    <div class="activity-feed" id="activityFeed">
+                        <!-- Activities will be generated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            GAURANGA AI Command Center v2.0 | Generated by <span>Agent Alpha</span> | © 2026
+        </div>
+    </main>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script>
+        // =============================================
+        // GAURANGA - Real Time Financial Dashboard
+        // =============================================
+
+        // Agent Data
+        const agents = [
+            {
+                id: 1,
+                name: 'SaaS Sales Agent',
+                category: 'sales',
+                task: 'Lead Research & Outreach',
+                progress: 75,
+                revenue: 0,
+                target: 30000000,
+                status: 'active',
+                icon: 'fa-cloud'
+            },
+            {
+                id: 2,
+                name: 'Content Marketing Agent',
+                category: 'marketing',
+                task: 'Weekly Content Creation',
+                progress: 60,
+                revenue: 0,
+                target: 0,
+                status: 'working',
+                icon: 'fa-pen-fancy'
+            },
+            {
+                id: 3,
+                name: 'SEO & Ads Agent',
+                category: 'marketing',
+                task: 'SEO & Ad Optimization',
+                progress: 40,
+                revenue: 0,
+                target: 0,
+                status: 'active',
+                icon: 'fa-search'
+            },
+            {
+                id: 4,
+                name: 'Customer Service Agent',
+                category: 'support',
+                task: 'Support Tickets',
+                progress: 90,
+                revenue: 0,
+                target: 0,
+                status: 'active',
+                icon: 'fa-headset'
+            },
+            {
+                id: 5,
+                name: 'Finance Agent',
+                category: 'operations',
+                task: 'Monthly Report',
+                progress: 30,
+                revenue: 0,
+                target: 0,
+                status: 'working',
+                icon: 'fa-calculator'
+            },
+            {
+                id: 6,
+                name: 'Daily Report Agent',
+                category: 'operations',
+                task: 'Generate Daily Report',
+                progress: 100,
+                revenue: 0,
+                target: 0,
+                status: 'active',
+                icon: 'fa-file-alt'
+            }
+        ];
+
+        // Activities Data
+        let activities = [
+            { type: 'task', message: 'Daily Report Agent <strong>membuat laporan progress</strong> untuk 2026-07-06', time: '06:00' },
+            { type: 'complete', message: 'Content Marketing Agent <strong>menyelesaikan</strong> 5 Instagram posts', time: '10:15' },
+            { type: 'revenue', message: 'Finance Agent <strong>mencatat transaksi</strong> baru: Rp 500.000', time: '11:30' },
+            { type: 'alert', message: 'SEO Agent <strong>menemukan</strong> 3 peluang keywords baru', time: '11:45' },
+            { type: 'task', message: 'SaaS Sales Agent <strong>Mengirim email</strong> ke 20 leads', time: '09:00' },
+        ];
+
+        // Financial Data (Simulated)
+        let financialData = {
+            totalRevenue: 0,
+            targetRevenue: 100000000,
+            saas: 0,
+            services: 0,
+            products: 0,
+            affiliate: 0,
+            leads: 0,
+            deals: 0,
+            content: 0,
+            tickets: 0,
+            tasksCompleted: 0
+        };
+
+        // Weekly Progress (Simulated)
+        const weeklyData = [
+            { day: 'Mon', revenue: 0, target: 3333000 },
+            { day: 'Tue', revenue: 0, target: 3333000 },
+            { day: 'Wed', revenue: 0, target: 3333000 },
+            { day: 'Thu', revenue: 0, target: 3333000 },
+            { day: 'Fri', revenue: 0, target: 3333000 },
+            { day: 'Sat', revenue: 0, target: 3333000 },
+            { day: 'Sun', revenue: 0, target: 3333000 }
+        ];
+
+        // Format currency
+        function formatCurrency(amount) {
+            if (amount >= 1000000) {
+                return 'Rp ' + (amount / 1000000).toFixed(1) + 'jt';
+            } else if (amount >= 1000) {
+                return 'Rp ' + (amount / 1000).toFixed(0) + 'rb';
+            }
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        // Format full currency
+        function formatFullCurrency(amount) {
+            return 'Rp ' + amount.toLocaleString('id-ID');
+        }
+
+        // Update clock
+        function updateClock() {
+            const now = new Date();
+            const dateEl = document.getElementById('currentDate');
+            const timeEl = document.getElementById('currentTime');
+            
+            const options = { year: 'numeric', month: 'short', day: 'numeric' };
+            dateEl.textContent = now.toLocaleDateString('id-ID', options).toUpperCase();
+            timeEl.textContent = now.toLocaleTimeString('id-ID');
+        }
+
+        // Calculate days remaining
+        function getDaysRemaining() {
+            const now = new Date();
+            const endOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+            return endOfMonth.getDate() - now.getDate();
+        }
+
+        // Render agents
+        function renderAgents(filter = 'all') {
+            const agentList = document.getElementById('agentList');
+            const filteredAgents = filter === 'all' 
+                ? agents 
+                : agents.filter(a => a.category === filter);
+
+            agentList.innerHTML = filteredAgents.map(agent => `
+                <div class="agent-item" data-category="${agent.category}">
+                    <div class="agent-avatar ${agent.category}">
+                        <i class="fas ${agent.icon}"></i>
+                        <div class="agent-status ${agent.status === 'active' ? 'active' : agent.status === 'working' ? 'busy' : 'idle'}"></div>
+                    </div>
+                    <div class="agent-info">
+                        <h4>${agent.name}</h4>
+                        <p>${agent.task}</p>
+                    </div>
+                    <div class="agent-task">
+                        <div class="task-name">Progress</div>
+                        <div class="task-progress">
+                            <div class="task-progress-bar" style="width: ${agent.progress}%"></div>
+                        </div>
+                    </div>
+                    <div class="agent-revenue">
+                        <div class="amount">${agent.target > 0 ? formatCurrency(agent.revenue) : '-'}</div>
+                        <div class="target">${agent.target > 0 ? '/ ' + formatCurrency(agent.target) : 'Task progress'}</div>
+                    </div>
+                    <div class="agent-badge ${agent.status}">${agent.status === 'active' ? 'Active' : agent.status === 'working' ? 'Working' : 'Waiting'}</div>
+                </div>
+            `).join('');
+        }
+
+        // Render activities
+        function renderActivities() {
+            const feed = document.getElementById('activityFeed');
+            feed.innerHTML = activities.map((activity, index) => `
+                <div class="activity-item" style="animation-delay: ${index * 0.1}s">
+                    <div class="activity-icon ${activity.type}">
+                        <i class="fas ${activity.type === 'revenue' ? 'fa-dollar-sign' : activity.type === 'task' ? 'fa-tasks' : activity.type === 'alert' ? 'fa-exclamation' : 'fa-check'}"></i>
+                    </div>
+                    <div class="activity-content">
+                        <p>${activity.message}</p>
+                        <span class="activity-time">${activity.time}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render chart
+        function renderChart() {
+            const chartBars = document.getElementById('chartBars');
+            const maxValue = Math.max(...weeklyData.map(d => d.target)) * 1.2;
+
+            chartBars.innerHTML = weeklyData.map(data => {
+                const revenueHeight = (data.revenue / maxValue) * 100;
+                const targetHeight = (data.target / maxValue) * 100;
+                
+                return `
+                    <div class="chart-bar-group">
+                        <div class="chart-bar revenue" style="height: ${revenueHeight}%">
+                            <span class="chart-bar-label">Revenue</span>
+                            <span class="chart-bar-value">${formatCurrency(data.revenue)}</span>
+                        </div>
+                        <div class="chart-bar target" style="height: ${targetHeight}%">
+                            <span class="chart-bar-value">${formatCurrency(data.target)}</span>
+                        </div>
+                        <span style="font-size: 12px; color: var(--text-secondary); margin-top: 40px;">${data.day}</span>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Update dashboard data
+        function updateDashboard() {
+            // Update stats
+            document.getElementById('totalRevenue').textContent = formatFullCurrency(financialData.totalRevenue);
+            document.getElementById('daysRemaining').textContent = 'Hari tersisa: ' + getDaysRemaining();
+            document.getElementById('activeAgents').textContent = '6/60';
+            document.getElementById('tasksToday').textContent = financialData.tasksCompleted;
+            document.getElementById('lastUpdate').textContent = 'Update: ' + new Date().toLocaleTimeString('id-ID');
+
+            // Update revenue breakdown
+            document.getElementById('saasRevenue').textContent = formatFullCurrency(financialData.saas);
+            document.getElementById('servicesRevenue').textContent = formatFullCurrency(financialData.services);
+            document.getElementById('productsRevenue').textContent = formatFullCurrency(financialData.products);
+            document.getElementById('affiliateRevenue').textContent = formatFullCurrency(financialData.affiliate + financialData.totalRevenue * 0.25);
+
+            // Update quick stats
+            document.getElementById('leadsGenerated').textContent = financialData.leads;
+            document.getElementById('dealsClosed').textContent = financialData.deals;
+            document.getElementById('contentCreated').textContent = financialData.content;
+            document.getElementById('supportTickets').textContent = financialData.tickets;
+
+            // Update progress bar
+            const progressPercent = (financialData.totalRevenue / financialData.targetRevenue) * 100;
+            document.getElementById('revenueProgress').style.width = progressPercent + '%';
+
+            // Update revenue change
+            const changeText = progressPercent > 0 ? `+${progressPercent.toFixed(1)}% dari target` : 'Menunggu revenue pertama';
+            document.getElementById('revenueChange').textContent = changeText;
+        }
+
+        // Show toast notification
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            
+            const iconMap = {
+                success: 'fa-check-circle',
+                warning: 'fa-exclamation-circle',
+                info: 'fa-info-circle'
+            };
+
+            toast.innerHTML = `
+                <i class="fas ${iconMap[type]} toast-icon ${type}"></i>
+                <span>${message}</span>
+            `;
+
+            container.appendChild(toast);
+
+            setTimeout(() => {
+                toast.remove();
+            }, 3000);
+        }
+
+        // Simulate data updates
+        function simulateUpdates() {
+            // Simulate random activity
+            const activityTypes = [
+                { type: 'task', message: '<strong>SaaS Agent</strong> mengirim email ke lead baru' },
+                { type: 'complete', message: '<strong>Marketing Agent</strong> menyelesaikan blog post' },
+                { type: 'revenue', message: '<strong>Finance Agent</strong> mencatat pembayaran Rp 500.000' },
+                { type: 'alert', message: '<strong>SEO Agent</strong> menemukan keyword baru' },
+                { type: 'task', message: '<strong>CS Agent</strong> menyelesaikan 3 tickets' },
+            ];
+
+            const randomActivity = activityTypes[Math.floor(Math.random() * activityTypes.length)];
+            const now = new Date();
+            
+            activities.unshift({
+                ...randomActivity,
+                time: now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })
+            });
+
+            if (activities.length > 10) {
+                activities.pop();
+            }
+
+            // Update financial data randomly
+            if (Math.random() > 0.7) {
+                const randomRevenue = Math.floor(Math.random() * 500000) + 100000;
+                financialData.totalRevenue += randomRevenue;
+                
+                const categories = ['saas', 'services', 'products'];
+                const randomCategory = categories[Math.floor(Math.random() * categories.length)];
+                financialData[randomCategory] += randomRevenue;
+
+                showToast(`Revenue baru: ${formatFullCurrency(randomRevenue)}`, 'success');
+            }
+
+            // Update quick stats
+            financialData.leads += Math.floor(Math.random() * 3);
+            financialData.tasksCompleted += Math.floor(Math.random() * 2);
+            financialData.content += Math.floor(Math.random() * 2);
+            financialData.tickets = Math.max(0, financialData.tickets + Math.floor(Math.random() * 3) - 1);
+
+            // Update weekly data (random day)
+            const todayIndex = now.getDay() === 0 ? 6 : now.getDay() - 1;
+            if (Math.random() > 0.5) {
+                weeklyData[todayIndex].revenue += Math.floor(Math.random() * 500000);
+            }
+
+            renderAgents(currentFilter);
+            renderActivities();
+            renderChart();
+            updateDashboard();
+        }
+
+        // Current filter
+        let currentFilter = 'all';
+
+        // Filter tabs event listeners
+        document.querySelectorAll('.filter-tab').forEach(tab => {
+            tab.addEventListener('click', function() {
+                document.querySelectorAll('.filter-tab').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderAgents(currentFilter);
+            });
+        });
+
+        // Initialize dashboard
+        function initDashboard() {
+            updateClock();
+            renderAgents();
+            renderActivities();
+            renderChart();
+            updateDashboard();
+
+            // Update clock every second
+            setInterval(updateClock, 1000);
+
+            // Simulate updates every 10 seconds
+            setInterval(simulateUpdates, 10000);
+
+            // Initial toast
+            setTimeout(() => {
+                showToast('Dashboard real-time aktif! Data akan update otomatis.', 'info');
+            }, 1000);
+        }
+
+        // Start dashboard
+        document.addEventListener('DOMContentLoaded', initDashboard);
+    </script>
+</body>
+</html>
