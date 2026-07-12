@@ -3,12 +3,72 @@
 **Version:** 1.0.0
 **Date:** 2026-07-12
 **CEO:** i Made Purna Ananda
-**WhatsApp:** 081337558787
-**Status:** ✅ **READY TO USE**
+**Status:** ⚠️ **NEEDS BUSINESS WHATSAPP**
 
 ---
 
-## 📋 WHATSAPP TEMPLATES
+## ⚠️ IMPORTANT: CEO PERSONAL vs BUSINESS WHATSAPP
+
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║                   IMPORTANT CLARIFICATION                           ║
+╠════════════════════════════════════════════════════════════════════════╣
+║                                                                    ║
+║  🔴 CEO PERSONAL WHATSAPP (081337558787):                        ║
+║     - Untuk CEO terima LAPORAN saja                              ║
+║     - BUKAN untuk kontak bisnis dengan customer                  ║
+║                                                                    ║
+║  🟢 BUSINESS WHATSAPP:                                           ║
+║     - Untuk customer service & sales contact                      ║
+║     - BUTUH: Number dedicated untuk bisnis                       ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📱 CEO PERSONAL WHATSAPP (FOR REPORTS ONLY)
+
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║        CEO PERSONAL WHATSAPP (NOT FOR CUSTOMERS)                 ║
+╠════════════════════════════════════════════════════════════════════════╣
+║  WhatsApp: 081337558787                                         ║
+║                                                                    ║
+║  ⚠️ PURPOSE: Receive daily reports & alerts ONLY                  ║
+║  ⚠️ NOT FOR: Customer inquiries, sales contact                  ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📱 BUSINESS WHATSAPP (NEEDED - FOR CUSTOMERS)
+
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║                 BUSINESS WHATSAPP (NEEDED)                        ║
+╠════════════════════════════════════════════════════════════════════════╣
+║                                                                    ║
+║  ⚠️ STATUS: ❌ NEED TO CREATE                                   ║
+║                                                                    ║
+║  YANG PERLU DIBUAT:                                               ║
+║  1. Siapkan nomor HP dedicated untuk bisnis                      ║
+║  2. Install WhatsApp Business App                                 ║
+║  3. Setup business profile dengan company info                    ║
+║  4. Setup auto-reply messages                                    ║
+║  5. Buat catalog produk                                          ║
+║                                                                    ║
+║  RECOMMENDED:                                                     ║
+║  - WhatsApp Business Number: [0812-XXXX-XXXX]                     ║
+║  - Company Name: MAHA LAKSHMI HOLDINGS                           ║
+║  - Address: Gianyar, Bali                                         ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📋 WHATSAPP TEMPLATES (FOR BUSINESS WHATSAPP)
 
 ### 1. BALI TRAVEL - PARTNERSHIP OUTREACH
 ```
@@ -32,7 +92,7 @@ Jual 1 tour Rp 1.000.000 → Dapat Rp 150.000
 Jual 10 tour/bulan → Passive income Rp 1.500.000!
 
 Mau diskusi partnership?
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 
 --
 Bali Travel
@@ -57,7 +117,7 @@ Portfolio: gianyartech.id
 
 Bisa diskusi kebutuhan digital bisnis Anda?
 
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 
 --
 Gianyar Tech
@@ -83,7 +143,7 @@ Target: sales naik, costs turun!
 
 Boleh diskusi strategi digital Anda?
 
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 
 --
 Bali Digital Agency
@@ -101,16 +161,16 @@ Follow up pesan saya sebelumnya tentang [product/service].
 
 Apakah Anda sudah punya waktu untuk mempertimbangkan?
 
-Ada pertanyaan? Saya siap bantu!
+Ada pertanyaan? Kami siap bantu!
 
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 
 --
 MAHA LAKSHMI
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-### 5. PAYMENT CONFIRMATION
+### 5. PAYMENT CONFIRMATION (Use Business WhatsApp)
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ✅ PEMBAYARAN DITERIMA
@@ -125,17 +185,17 @@ Detail:
 Receipt akan dikirim via email.
 
 Pertanyaan? Hubungi kami:
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 
 --
-BCA: 6485086645
-i Made Purna Ananda
+BCA: [BUSINESS ACCOUNT - PENDING]
+MAHA LAKSHMI HOLDINGS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 ---
 
-## 📞 SALES SCRIPTS
+## 📞 SALES SCRIPTS (FOR BUSINESS WHATSAPP)
 
 ### Script 1: Introduction
 ```
@@ -231,7 +291,7 @@ Kalau setuju, saya langsung prepare [next step]."
 Klik: [Link]
 
 --
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 ```
 
 ### 2. Flash Sale
@@ -246,7 +306,7 @@ Dari Rp [Old Price] → Rp [New Price]
 
 Buruan sebelum kehabisan!
 
-📱 wa.me/6281337558787
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 ```
 
 ### 3. Weekly Newsletter
@@ -264,7 +324,7 @@ Halo [Name]!
 [CTA Button]
 
 --
-BCA: 6485086645
+📱 wa.me/[BUSINESS-WHATSAPP-PENDING]
 ```
 
 ### 4. Event Invitation
@@ -282,7 +342,7 @@ Benefits:
 • [Benefit 2]
 • [Benefit 3]
 
-RSVP: wa.me/6281337558787
+RSVP: wa.me/[BUSINESS-WHATSAPP-PENDING]
 
 Gratis untuk 20 pendaftar pertama!
 ```
@@ -359,52 +419,74 @@ Sent → Delivered → Read → Replied → Qualified → Customer
 
 ## 🔧 SETUP INSTRUCTIONS
 
-### WhatsApp Business App
+### WhatsApp Business App (FOR BUSINESS NUMBER)
 1. Download WhatsApp Business
-2. Setup business profile
-3. Add catalog/products
-4. Setup auto-reply
-5. Create labels for leads
+2. Siapkan nomor dedicated (bukan 081337558787)
+3. Setup business profile
+4. Add catalog/products
+5. Setup auto-reply
+6. Create labels for leads
 
-### Auto-Reply Setup
-1. Go to Business Settings
-2. Click "Away Message" 
-3. Set schedule
-4. Write message template
-5. Enable
-
-### Broadcast List Setup
-1. Create broadcast lists by segment:
-   - Hot leads
-   - Warm leads
-   - Customers
-   - VIP
+### WhatsApp Reports (CEO Personal - 081337558787)
+1. Use 081337558787 ONLY for receiving reports
+2. Setup notification filters
+3. Archive business messages
+4. Keep separate from personal
 
 ---
 
 ## ✅ WHATSAPP READY CHECKLIST
 
-- [x] WhatsApp Business installed
-- [x] Business profile completed
-- [x] Catalog products added
-- [x] Auto-reply configured
-- [x] Templates created (5)
-- [x] Broadcast lists ready
-- [x] Quick replies setup
-- [x] Sales scripts ready (7)
-- [x] Analytics tracking ready
+- [ ] Business WhatsApp created (NOT 081337558787)
+- [ ] Business profile completed
+- [ ] Catalog products added
+- [ ] Auto-reply configured
+- [ ] Templates created (5)
+- [ ] Broadcast lists ready
+- [ ] Quick replies setup
+- [ ] Sales scripts ready (7)
+- [ ] Analytics tracking ready
 
 ---
 
 ## 📱 CONTACT INFO
 
-**WhatsApp:** 081337558787
-**Name:** Bali Travel / Gianyar Tech / Bali Digital
-**Status:** Ready to send messages!
+### CEO Personal (FOR REPORTS ONLY):
+| Info | Detail |
+|------|--------|
+| **WhatsApp** | 081337558787 |
+| **Purpose** | Reports only |
+| **NOT FOR** | Customer contact |
+
+### Business (FOR CUSTOMERS - NEED SETUP):
+| Info | Status |
+|------|--------|
+| **WhatsApp** | ❌ NEED TO CREATE |
+| **NOT** | 081337558787 |
 
 ---
 
-**Motto:** "TIADA KATA TERLAMBAT! HARI INI KITA JUAL!" 🔥
+## ⚠️ REMINDER
+
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║                        ⚠️ IMPORTANT ⚠️                             ║
+╠════════════════════════════════════════════════════════════════════════╣
+║                                                                    ║
+║  📱 Customer Service: Use BUSINESS WhatsApp (PENDING)              ║
+║  📱 CEO Reports: Use 081337558787 (PERSONAL)                     ║
+║                                                                    ║
+║  JANGAN gunakan 081337558787 untuk customer contact!               ║
+║  JANGAN gunakan 081337558787 untuk sales!                          ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+**Status:** ⚠️ **NEEDS BUSINESS WHATSAPP NUMBER**
+
+**Motto:** "Pisahkan personal dan bisnis untuk professional!" 📱
 
 ---
 

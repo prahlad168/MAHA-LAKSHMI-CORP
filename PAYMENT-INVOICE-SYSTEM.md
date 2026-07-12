@@ -3,43 +3,101 @@
 **Version:** 1.0.0
 **Date:** 2026-07-12
 **CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
-**Status:** ✅ **READY**
+**Status:** ✅ **READY - NEEDS BUSINESS ACCOUNTS**
 
 ---
 
-## 🏦 BANK DETAILS
+## ⚠️ IMPORTANT: CEO PERSONAL vs BUSINESS ACCOUNTS
 
 ```
-╔════════════════════════════════════════════════════════════════╗
-║                  PAYMENT INFORMATION                         ║
-╠════════════════════════════════════════════════════════════════╣
-║  Bank:        BCA (Bank Central Asia)                       ║
-║  Account:     6485086645                                    ║
-║  Name:        i Made Purna Ananda                           ║
-║  Branch:      Gianyar, Bali                                 ║
-╠════════════════════════════════════════════════════════════════╣
-║  📱 WhatsApp: 081337558787                                  ║
-║  📧 Email:    gaurangga168@gmail.com                        ║
-╚════════════════════════════════════════════════════════════════╝
+╔════════════════════════════════════════════════════════════════════════╗
+║                   IMPORTANT CLARIFICATION                           ║
+╠════════════════════════════════════════════════════════════════════════╣
+║                                                                    ║
+║  🔴 CEO PERSONAL (BCA 6485086645):                                ║
+║     - Untuk CEO terima 60% PROFIT SHARE saja                      ║
+║     - BUKAN untuk terima payment dari customer                   ║
+║                                                                    ║
+║  🔴 CEO PERSONAL WhatsApp (081337558787):                        ║
+║     - Untuk CEO terima LAPORAN saja                              ║
+║     - BUKAN untuk kontak bisnis dengan customer                  ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════════╝
 ```
 
 ---
 
-## 💵 PAYMENT METHODS
+## 🏦 CEO PERSONAL ACCOUNT (FOR PROFIT ONLY)
 
-| Method | Status | Details |
-|--------|--------|---------|
-| **BCA Transfer** | ✅ | 6485086645 |
-| **QRIS** | ✅ | Scan & Pay |
-| **Cash** | ✅ | Direct pickup |
-| **Meet in Person** | ✅ | By appointment |
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║           CEO PERSONAL ACCOUNT (NOT FOR BUSINESS)                 ║
+╠════════════════════════════════════════════════════════════════════════╣
+║  Bank:      BCA (Bank Central Asia)                            ║
+║  Account:   6485086645                                          ║
+║  Name:      i Made Purna Ananda                                 ║
+║                                                                    ║
+║  ⚠️ PURPOSE: Receive 60% profit share ONLY                       ║
+║  ⚠️ NOT FOR: Customer payments                                  ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## 📄 INVOICE TEMPLATES
+## 📱 CEO PERSONAL WHATSAPP (FOR REPORTS ONLY)
 
-### Invoice Template 1: Standard Service
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║        CEO PERSONAL WHATSAPP (NOT FOR CUSTOMERS)                 ║
+╠════════════════════════════════════════════════════════════════════════╣
+║  WhatsApp: 081337558787                                         ║
+║                                                                    ║
+║  ⚠️ PURPOSE: Receive daily reports & alerts ONLY                  ║
+║  ⚠️ NOT FOR: Customer inquiries, sales contact                  ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## ⚠️ BUSINESS ACCOUNTS - YANG PERLU DIBUAT
+
+> **PENTING: Butuh setup account BISNIS TERPISAH dari personal CEO!**
+
+### Yang Perlu Dibuat:
+
+| # | Account | Purpose | Status |
+|---|---------|---------|--------|
+| 1 | **Business Bank Account** | Terima payment dari customer | ❌ BUTUH |
+| 2 | **Business WhatsApp** | Kontak customer & sales | ❌ BUTUH |
+| 3 | **Business Email** | Komunikasi dengan client | ❌ BUTUH |
+| 4 | **Payment Gateway** | Online payment (Midtrans/Xendit) | ❌ BUTUH |
+
+### Business Account Recommendations:
+
+```
+╔════════════════════════════════════════════════════════════════════════╗
+║                   BUSINESS ACCOUNTS NEEDED                          ║
+╠════════════════════════════════════════════════════════════════════════╣
+║                                                                    ║
+║  🏦 BUSINESS BANK:                                                ║
+║     - BCA Bisnis / Mandiri Bisnis / BNI Bisnis                       ║
+║     - Untuk terima payment dari klien                            ║
+║                                                                    ║
+║  📱 BUSINESS WHATSAPP:                                           ║
+║     - Number dedicated untuk customer service                     ║
+║     - Contoh: 0812-XXXX-XXXX                                   ║
+║                                                                    ║
+║  💳 PAYMENT GATEWAY:                                            ║
+║     - Midtrans / Xendit / Doku                                   ║
+║     - Untuk online payment (CC, e-wallet, bank transfer)          ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════════╝
+```
+
+---
+
+## 📄 INVOICE TEMPLATE (FOR WHEN BUSINESS ACCOUNT READY)
+
 ```
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -56,7 +114,7 @@ Due Date: [DUE DATE]
 FROM:
 MAHA LAKSHMI HOLDINGS
 Gianyar, Bali, Indonesia
-Email: gaurangga168@gmail.com
+Email: [BUSINESS EMAIL - PENDING]
 
 TO:
 [CLIENT NAME]
@@ -66,11 +124,11 @@ TO:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 DESCRIPTION                    QTY    PRICE     AMOUNT
-────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────
 [Service 1]                  [X]    Rp XXX    Rp XXX
 [Service 2]                  [X]    Rp XXX    Rp XXX
 
-────────────────────────────────────────────────────────
+────────────────────────────────────────────────────────────────
                         Subtotal: Rp XXX
                         PPN (11%): Rp XXX
                         TOTAL: Rp XXX
@@ -78,9 +136,9 @@ DESCRIPTION                    QTY    PRICE     AMOUNT
 
 PAYMENT DETAILS:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Bank: BCA
-Account: 6485086645
-Name: i Made Purna Ananda
+Bank: [BUSINESS BANK - PENDING]
+Account: [BUSINESS ACCOUNT - PENDING]
+Name: [BUSINESS NAME - PENDING]
 
 QRIS: Scan QR code below
 
@@ -90,158 +148,14 @@ Payment due within 14 days of invoice date.
 Thank you for your business!
 
 --
-Generated by MAHA LAKSHMI HOLDINGS
-```
-
-### Invoice Template 2: Tour Package
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-              🏝️ BALI TRAVEL INVOICE
-              
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Invoice #: TRV-[YYYY]-[MM]-[NUMBER]
-Date: [DATE]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-TO:
-[CLIENT NAME]
-[CLIENT EMAIL]
-[PHONE]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-TOUR PACKAGE: [TOUR NAME]
-
-Date: [TOUR DATE]
-Participants: [X] persons
-Price per person: Rp XXX
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-DETAILS:
-• [Include 1]
-• [Include 2]
-• [Include 3]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-SUBTOTAL:           Rp XXX
-DISCOUNT (if any):  -Rp XXX
-PPN (11%):          Rp XXX
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TOTAL:              Rp XXX
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PAYMENT:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Bank: BCA
-Account: 6485086645
-Name: i Made Purna Ananda
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Please complete payment before [DUE DATE].
-
-Contact: wa.me/6281337558787
-
-Thank you for choosing Bali Travel! 🌴
-```
-
-### Invoice Template 3: SaaS/Product
-```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-              💻 SAAS INVOICE
-              
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Invoice #: SAAS-[YYYY]-[MM]-[NUMBER]
-Date: [DATE]
-Period: [MONTH/YEAR]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-TO:
-[CLIENT NAME]
-[COMPANY]
-[EMAIL]
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PRODUCT: [PRODUCT NAME]
-Plan: [PLAN NAME]
-Qty: 1
-
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Subscription Fee:     Rp XXX/month
-Setup Fee (one-time): Rp XXX
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Subtotal:            Rp XXX
-PPN (11%):           Rp XXX
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-TOTAL DUE:           Rp XXX
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-PAYMENT:
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Bank: BCA
-Account: 6485086645
-Name: i Made Purna Ananda
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-Auto-renewal: Active
-Next billing: [NEXT DATE]
-
-wa.me/6281337558787
+MAHA LAKSHMI HOLDINGS
 ```
 
 ---
 
-## 💳 QRIS PAYMENT SETUP
+## 📱 PAYMENT CONFIRMATION WHATSAPP (FOR BUSINESS WHATSAPP)
 
-```
-┌─────────────────────────────────────┐
-│                                     │
-│         [QR CODE HERE]              │
-│                                     │
-│   BCA - 6485086645                  │
-│   i Made Purna Ananda              │
-│                                     │
-│   SCAN TO PAY                      │
-│                                     │
-└─────────────────────────────────────┘
-```
-
----
-
-## 📊 PAYMENT TRACKING
-
-### Status Tracking
-| Status | Meaning |
-|--------|---------|
-| **UNPAID** | Invoice sent, awaiting payment |
-| **PARTIAL** | Partial payment received |
-| **PAID** | Full payment received |
-| **OVERDUE** | Payment past due date |
-| **CANCELLED** | Invoice cancelled |
-
-### Payment Tracking Table
-```
-| Invoice # | Client | Amount | Date | Due | Status |
-|-----------|--------|--------|------|-----|--------|
-| INV-2026-07-001 | Client A | Rp 5.000.000 | 2026-07-01 | 2026-07-15 | UNPAID |
-| INV-2026-07-002 | Client B | Rp 1.500.000 | 2026-07-05 | 2026-07-19 | PAID |
-| INV-2026-07-003 | Client C | Rp 3.000.000 | 2026-07-10 | 2026-07-24 | OVERDUE |
-```
-
----
-
-## 📱 PAYMENT CONFIRMATION WHATSAPP
-
-### Template 1: Invoice Sent
+### Template 1: Invoice Sent (Business WhatsApp)
 ```
 ✅ Invoice #[NUMBER] sudah dikirim!
 
@@ -249,14 +163,15 @@ Jumlah: Rp [AMOUNT]
 Due Date: [DATE]
 
 Silakan transfer ke:
-🏦 BCA: 6485086645
-a/n: i Made Purna Ananda
+🏦 Bank: [BUSINESS BANK]
+Account: [BUSINESS ACCOUNT]
+a/n: [BUSINESS NAME]
 
 Konfirmasi setelah transfer ya!
-📱 wa.me/6281337558787
+📱 [BUSINESS WHATSAPP - PENDING]
 ```
 
-### Template 2: Payment Received
+### Template 2: Payment Received (Business WhatsApp)
 ```
 ✅ Pembayaran Diterima!
 
@@ -269,7 +184,7 @@ Terima kasih! 🙏
 Invoice receipt akan dikirim via email.
 ```
 
-### Template 3: Reminder
+### Template 3: Reminder (Business WhatsApp)
 ```
 ⏰ Reminder: Invoice #[NUMBER]
 
@@ -277,153 +192,159 @@ Jumlah: Rp [AMOUNT]
 Due Date: [DATE]
 
 Silakan lakukan pembayaran ke:
-🏦 BCA: 6485086645
-a/n: i Made Purna Ananda
+🏦 [BUSINESS BANK]
+Account: [BUSINESS ACCOUNT]
 
 Jika sudah bayar, mohon konfirmasi ya!
 ```
 
-### Template 4: Overdue Notice
-```
-⚠️ OVERDUE PAYMENT NOTICE
-
-Invoice: #[NUMBER]
-Jumlah: Rp [AMOUNT]
-Due Date: [DATE]
-
-Mohon segera lakukan pembayaran.
-
-Jika ada kendala, silakan hubungi kami:
-📱 wa.me/6281337558787
-
-Terima kasih!
-```
-
 ---
 
-## 📋 INVOICE WORKFLOW
+## 💰 PROFIT DISTRIBUTION (CEO PERSONAL)
+
+### Flow:
 
 ```
-SALE CLOSED
-     │
-     ▼
-Generate Invoice
-     │
-     ▼
-Send to Client (WhatsApp + Email)
-     │
-     ▼
-Track Payment Status
-     │
-     ├── UNPAID → Reminder (Day 3, 7, 10)
-     │
-     ├── PAID → Mark Complete + Receipt
-     │
-     └── OVERDUE → Escalate to CEO
+CUSTOMER PAYS → BUSINESS ACCOUNT → CALCULATE PROFIT
+                                           │
+                        ┌──────────────────┼──────────────────┐
+                        ▼                  ▼                  ▼
+                   Owner (60%)      Reinvest (25%)     Team (10%)
+                        │                                    │
+                        ▼                                    ▼
+              BCA 6485086645                          Team Bonus
+             (CEO Personal)
+                                           │
+                                           ▼
+                                    CSR (5%)
 ```
 
----
-
-## 💰 PROFIT DISTRIBUTION
-
-### When Payment Received
+### Profit Table:
 
 | Revenue | Owner (60%) | Reinvest (25%) | Team (10%) | CSR (5%) |
-|---------|-------------|-----------------|------------|----------|
+|---------|-------------|-----------------|-------------|----------|
 | Rp 1.000.000 | Rp 600.000 | Rp 250.000 | Rp 100.000 | Rp 50.000 |
 | Rp 5.000.000 | Rp 3.000.000 | Rp 1.250.000 | Rp 500.000 | Rp 250.000 |
 | Rp 10.000.000 | Rp 6.000.000 | Rp 2.500.000 | Rp 1.000.000 | Rp 500.000 |
-| Rp 50.000.000 | Rp 30.000.000 | Rp 12.500.000 | Rp 5.000.000 | Rp 2.500.000 |
 
-### Transfer to CEO
+### Transfer to CEO Personal Account:
 ```
-Every payment received:
+When payment received:
 
-1. Mark invoice as PAID
+1. Customer pays to BUSINESS ACCOUNT
 2. Calculate profit distribution
-3. Transfer 60% to BCA 6485086645
-4. Log in financial records
+3. Transfer 60% to CEO PERSONAL BCA 6485086645
+4. Transfer 10% to Team Bonus account
+5. Transfer 5% to CSR account
+6. Keep 25% for Reinvestment
 ```
+
+---
+
+## 📊 PAYMENT TRACKING
+
+### Status:
+| Status | Meaning |
+|--------|---------|
+| **UNPAID** | Invoice sent, awaiting payment |
+| **PARTIAL** | Partial payment received |
+| **PAID** | Full payment received |
+| **OVERDUE** | Payment past due date |
+
+### Tracking Table:
+```
+| Invoice # | Client | Amount | Date | Due | Status |
+|-----------|--------|--------|------|-----|--------|
+| INV-2026-07-001 | Client A | Rp 5.000.000 | 2026-07-01 | 2026-07-15 | UNPAID |
+| INV-2026-07-002 | Client B | Rp 1.500.000 | 2026-07-05 | 2026-07-19 | PENDING |
+| INV-2026-07-003 | Client C | Rp 3.000.000 | 2026-07-10 | 2026-07-24 | PENDING |
+```
+
+---
+
+## ✅ CHECKLIST - BEFORE ACCEPTING PAYMENTS
+
+- [ ] Setup Business Bank Account (BCA Bisnis / Mandiri Bisnis)
+- [ ] Setup Business WhatsApp Number
+- [ ] Setup Business Email (info@maha-lakshmi.com)
+- [ ] Setup Payment Gateway (Midtrans)
+- [ ] Update all invoice templates with business accounts
+- [ ] Update WhatsApp scripts with business number
+
+---
+
+## 📋 NEXT STEPS TO ACCEPT PAYMENTS
+
+### Step 1: Open Business Bank Account
+1. Kunjungi cabang BCA/Mandiri/BNI terdekat
+2. Bawa KTP dan NPWP
+3. Katakan untuk "Buka rekening bisnis"
+4. Dapatkan nomor rekening bisnis
+
+### Step 2: Get Business WhatsApp
+1. Siapkan nomor HP dedicated untuk bisnis
+2. Install WhatsApp Business App
+3. Setup business profile
+4. Setup auto-reply
+
+### Step 3: Setup Payment Gateway (Optional)
+1. Daftar Midtrans (midtrans.com)
+2. Setup account
+3. Integrate ke website/invoice
+
+### Step 4: Update All Documents
+1. Update invoice templates
+2. Update WhatsApp scripts
+3. Update website payment info
+
+---
+
+## 📞 CONTACT INFO
+
+### CEO Personal (FOR REPORTS ONLY):
+| Info | Detail |
+|------|--------|
+| **Name** | i Made Purna Ananda |
+| **WhatsApp** | 081337558787 (Reports only) |
+| **Bank** | BCA |
+| **Account** | 6485086645 (Profit transfer only) |
+
+### Business (FOR CUSTOMERS - NEED SETUP):
+| Info | Status |
+|------|--------|
+| **Bank** | ❌ NEED TO CREATE |
+| **WhatsApp** | ❌ NEED TO CREATE |
+| **Email** | ❌ NEED TO CREATE |
 
 ---
 
 ## 🔧 AUTOMATION COMMANDS
 
-### Invoice Commands
+### Invoice Commands:
 ```
 /invoice [client] [amount] → Generate invoice
 /invoice list → Show all invoices
 /invoice paid [number] → Mark as paid
-/invoice overdue → Show overdue
-/invoice cancel [number] → Cancel invoice
 ```
 
-### Payment Commands
+### Profit Commands:
 ```
-/payment confirm → Confirm payment received
-/payment receipt [number] → Send receipt
-/payment reminder [number] → Send reminder
-/payment transfer [amount] → Transfer to BCA
+/profit calculate → Calculate profit distribution
+/profit transfer → Transfer to CEO personal BCA
 ```
 
-### Report Commands
+### Report Commands:
 ```
 /report invoices → Invoice summary
 /report revenue → Revenue report
-/report outstanding → Outstanding payments
-/report profit → Profit distribution
+/report profit → Profit distribution report
 ```
 
 ---
 
-## 📊 PAYMENT METRICS
+**Status:** ⚠️ **SYSTEM READY, NEEDS BUSINESS ACCOUNTS**
 
-### Targets
-| Metric | Target |
-|--------|--------|
-| Invoice Accuracy | 99.9% |
-| Payment On-time | 95% |
-| Collection Period | < 14 days |
-| Bad Debt | < 2% |
-
-### Dashboard Widgets
-```
-┌─────────────────────────────────────────┐
-│  💰 PAYMENT DASHBOARD                   │
-├─────────────────────────────────────────┤
-│  Outstanding:    Rp XXX               │
-│  Due This Week:  Rp XXX               │
-│  Overdue:        Rp XXX               │
-│  Collected:      Rp XXX               │
-│                                         │
-│  [██████████] XX% On-time Payment     │
-└─────────────────────────────────────────┘
-```
-
----
-
-## ✅ PAYMENT SYSTEM CHECKLIST
-
-- [x] Bank details configured
-- [x] QRIS setup ready
-- [x] Invoice templates created (3)
-- [x] WhatsApp payment confirmations (4)
-- [x] Payment tracking system
-- [x] Profit distribution calculated
-- [x] Automation commands ready
-
----
-
-## 📱 CONTACT FOR PAYMENTS
-
-**WhatsApp:** 081337558787
-**Bank:** BCA
-**Account:** 6485086645
-**Name:** i Made Purna Ananda
-
----
-
-**Motto:** "Setiap pembayaran = Langkah lebih dekat ke Rp 1B!" 💰
+**Motto:** "Setup business accounts dulu, baru bisa terima payment!" 💰
 
 ---
 
