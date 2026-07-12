@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📊 SurveyPro Papua Selatan - Survei Berbayar</title>
+    <meta name="description" content="SurveyPro Papua Selatan. Buat dan ikuti survei, dapat bayaran per survei. Pengiriman instan 24/7 untuk Papua Selatan.">
+    <meta name="keywords" content="Papua Selatan, SurveyPro, voucher game Papua Selatan, token listrik Papua Selatan, pulsa Papua Selatan">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ec4899;
+            --primary-dark: color-mix(in srgb, #ec4899 80%, black);
+            --secondary: #8b5cf6;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .province-badge {
+            background: rgba(255,255,255,0.1);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+        }
+        .btn {
+            background: #ec4899;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+        .btn:hover { background: var(--primary-dark); }
+        
+        .hero {
+            padding: 120px 0 60px;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(99,102,241,0.15) 0%, transparent 60%);
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero .province-highlight {
+            display: inline-block;
+            background: var(--bg-card);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            border: 2px solid #ec4899;
+        }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .region-bar {
+            background: var(--bg-card);
+            padding: 15px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .region-bar span {
+            background: #ec4899;
+            padding: 5px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .products { padding: 60px 0; }
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #ec4899;
+        }
+        .product-icon { font-size: 2.5rem; margin-bottom: 15px; }
+        .product-card h3 { margin-bottom: 8px; font-size: 1.1rem; }
+        .product-card p { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; }
+        .product-price { color: var(--secondary); font-weight: 700; font-size: 1.1rem; }
+        
+        .features { padding: 60px 0; background: rgba(30,41,59,0.3); }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .feature-icon { font-size: 2rem; margin-bottom: 15px; }
+        .feature-card h3 { margin-bottom: 8px; }
+        .feature-card p { color: var(--text-muted); font-size: 0.9rem; }
+        
+        .stats { padding: 40px 0; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .stat-item { padding: 20px; }
+        .stat-value { font-size: 2rem; font-weight: 800; color: #ec4899; }
+        .stat-label { color: var(--text-muted); font-size: 0.9rem; }
+        
+        .contact { padding: 60px 0; }
+        .contact-box {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .contact-box h2 { margin-bottom: 20px; }
+        .contact-box p { color: var(--text-muted); margin-bottom: 25px; }
+        .contact-icons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-icon {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: 0.3s;
+            color: white;
+            text-decoration: none;
+        }
+        .contact-icon:hover { background: #ec4899; }
+        
+        footer {
+            background: var(--bg-card);
+            padding: 30px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        footer p { color: var(--text-muted); font-size: 0.9rem; }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .header-inner { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <div class="logo">📊 SurveyPro</div>
+            <div class="province-badge">📍 Papua Selatan</div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <div class="province-highlight">📍 Melayani Seluruh Papua Selatan</div>
+            <h1>📊 SurveyPro <span>Papua Selatan</span></h1>
+            <p>Survei Berbayar. Tersedia 24/7 dengan pengiriman instan untuk seluruh Papua Selatan.</p>
+            <a href="#products" class="btn">Lihat Produk →</a>
+        </div>
+    </section>
+    
+    <div class="region-bar">
+        <div class="container">
+            <span>🏠 Region: Maluku-Papua</span>
+        </div>
+    </div>
+    
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">Produk & Layanan di Papua Selatan</h2>
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-icon">🎮</div>
+                    <h3>Buat Survei</h3>
+                    <p>Untuk Papua Selatan</p>
+                    <div class="product-price">Mulai Rp 15,000</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">⚡</div>
+                    <h3>Ikuti Survei</h3>
+                    <p>Untuk Papua Selatan</p>
+                    <div class="product-price">Mulai Rp 25,000</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">📱</div>
+                    <h3>Dapat Bayaran</h3>
+                    <p>Untuk Papua Selatan</p>
+                    <div class="product-price">Mulai Rp 35,000</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">💻</div>
+                    <h3>High Rewards</h3>
+                    <p>Untuk Papua Selatan</p>
+                    <div class="product-price">Mulai Rp 45,000</div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">🎁</div>
+                    <h3>Global Survey</h3>
+                    <p>Untuk Papua Selatan</p>
+                    <div class="product-price">Mulai Rp 55,000</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Kenapa Pilih Kami di Papua Selatan?</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Pengiriman Instan</h3>
+                    <p>Kode langsung dikirim dalam 5-30 menit setelah pembayaran</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>100% Aman</h3>
+                    <p>Transaksi aman dengan enkripsi 256-bit</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💬</div>
+                    <h3>Support 24/7</h3>
+                    <p>Tim kami siap membantu kapan saja di Papua Selatan</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Garansi</h3>
+                    <p>Garansi 100% atau refund jika ada masalah</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-value">100K+</div>
+                    <div class="stat-label">Transaksi di Indonesia</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">38</div>
+                    <div class="stat-label">Provinsi Coverage</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">99.9%</div>
+                    <div class="stat-label">Uptime</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-value">4.9/5</div>
+                    <div class="stat-label">Rating Customer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="contact">
+        <div class="container">
+            <div class="contact-box">
+                <h2>Hubungi Kami di Papua Selatan</h2>
+                <p>Tersedia untuk seluruh wilayah Papua Selatan. Hubungi kami sekarang!</p>
+                <div class="contact-icons">
+                    <a href="#" class="contact-icon">
+                        <span>💬</span>
+                        <span>WhatsApp</span>
+                    </a>
+                    <a href="#" class="contact-icon">
+                        <span>📱</span>
+                        <span>Telegram</span>
+                    </a>
+                    <a href="#" class="contact-icon">
+                        <span>📧</span>
+                        <span>Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 SurveyPro Indonesia. All rights reserved.</p>
+            <p style="margin-top: 10px;">🏦 BCA 6485086645 | An: i Made Purna Ananda</p>
+        </div>
+    </footer>
+</body>
+</html>

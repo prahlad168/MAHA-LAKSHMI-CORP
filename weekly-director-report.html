@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Mingguan untuk Direktur - Week 27</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); min-height: 100vh; color: #fff; padding: 20px; }
+        .container { max-width: 1000px; margin: 0 auto; }
+        .header { text-align: center; padding: 40px 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; margin-bottom: 30px; box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3); }
+        .header h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; opacity: 0.9; }
+        .card { background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 15px; padding: 25px; margin-bottom: 20px; border: 1px solid rgba(255,255,255,0.1); }
+        .card h2 { color: #667eea; margin-bottom: 20px; font-size: 1.5em; display: flex; align-items: center; gap: 10px; }
+        .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .metric { background: rgba(102, 126, 234, 0.2); padding: 20px; border-radius: 10px; text-align: center; }
+        .metric .value { font-size: 2em; font-weight: bold; color: #667eea; }
+        .metric .label { opacity: 0.8; margin-top: 5px; }
+        .profit-highlight { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 30px; border-radius: 15px; text-align: center; margin: 20px 0; }
+        .profit-highlight .amount { font-size: 3em; font-weight: bold; }
+        .profit-highlight .label { font-size: 1.2em; opacity: 0.9; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        th { background: rgba(102, 126, 234, 0.3); color: #667eea; }
+        tr:hover { background: rgba(255,255,255,0.05); }
+        .status { display: inline-block; padding: 5px 15px; border-radius: 20px; font-size: 0.9em; }
+        .status.success { background: rgba(46, 213, 115, 0.2); color: #2ed573; }
+        .status.warning { background: rgba(255, 165, 2, 0.2); color: #ffa502; }
+        .status.error { background: rgba(255, 71, 87, 0.2); color: #ff4757; }
+        .bank-transfer { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 25px; border-radius: 15px; margin: 20px 0; }
+        .bank-transfer h3 { margin-bottom: 15px; }
+        .bank-info { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        .bank-item { background: rgba(0,0,0,0.2); padding: 15px; border-radius: 10px; }
+        .bank-item .label { font-size: 0.8em; opacity: 0.8; }
+        .bank-item .value { font-size: 1.2em; font-weight: bold; }
+        .agents-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+        .agent-item { background: rgba(46, 213, 115, 0.2); padding: 15px; border-radius: 10px; text-align: center; }
+        .agent-item .count { font-size: 2em; font-weight: bold; color: #2ed573; }
+        .agent-item .label { font-size: 0.9em; opacity: 0.8; }
+        .footer { text-align: center; padding: 30px; opacity: 0.7; }
+        .action-btn { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; margin: 10px; transition: transform 0.3s; }
+        .action-btn:hover { transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 LAPORAN MINGGUAN</h1>
+            <div class="subtitle">MAHA LAKSHMI HOLDINGS - Week 27 (2026)</div>
+            <div class="subtitle">Untuk: Direksi & Owner (Pak Pur)</div>
+        </div>
+
+        <div class="card">
+            <h2>💰 Ringkasan Financial</h2>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="value">$104,600</div>
+                    <div class="label">Revenue Minggu Ini</div>
+                </div>
+                <div class="metric">
+                    <div class="value">55.8%</div>
+                    <div class="label">Progress Target</div>
+                </div>
+                <div class="metric">
+                    <div class="value">145</div>
+                    <div class="label">New Customers</div>
+                </div>
+                <div class="metric">
+                    <div class="value">28</div>
+                    <div class="label">AI Agents Aktif</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profit-highlight">
+            <div class="label">🏆 Profit untuk CEO Pak Pur (60%)</div>
+            <div class="amount">Rp 393,000,000</div>
+        </div>
+
+        <div class="bank-transfer">
+            <h3>🏦 Instruksi Transfer</h3>
+            <div class="bank-info">
+                <div class="bank-item">
+                    <div class="label">Bank</div>
+                    <div class="value">BCA</div>
+                </div>
+                <div class="bank-item">
+                    <div class="label">Account Number</div>
+                    <div class="value">6485086645</div>
+                </div>
+                <div class="bank-item">
+                    <div class="label">Atas Nama</div>
+                    <div class="value">i Made Purna Ananda</div>
+                </div>
+                <div class="bank-item">
+                    <div class="label">Jumlah</div>
+                    <div class="value">Rp 393,000,000</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>🤖 AI Agents Performance</h2>
+            <div class="agents-grid">
+                <div class="agent-item">
+                    <div class="count">28</div>
+                    <div class="label">Total Agents</div>
+                </div>
+                <div class="agent-item">
+                    <div class="count">3</div>
+                    <div class="label">Daily Operations</div>
+                </div>
+                <div class="agent-item">
+                    <div class="count">2</div>
+                    <div class="label">Sales Agents</div>
+                </div>
+                <div class="agent-item">
+                    <div class="count">3</div>
+                    <div class="label">Marketing</div>
+                </div>
+                <div class="agent-item">
+                    <div class="count">7</div>
+                    <div class="label">Industry Solutions</div>
+                </div>
+                <div class="agent-item">
+                    <div class="count">2</div>
+                    <div class="label">Expansion</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>📈 Top Products</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Product</th>
+                        <th>Units Sold</th>
+                        <th>Revenue</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Google Play Gift Card</td>
+                        <td>520</td>
+                        <td>$26,000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>NordVPN Subscription</td>
+                        <td>380</td>
+                        <td>$19,000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Steam Wallet</td>
+                        <td>350</td>
+                        <td>$17,500</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Netflix Gift Card</td>
+                        <td>290</td>
+                        <td>$14,500</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>PLN Token</td>
+                        <td>280</td>
+                        <td>$14,000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>🎯 Achievements Minggu Ini</h2>
+            <ul style="line-height: 2; padding-left: 20px;">
+                <li>✅ 28 AI Agents deployed and running</li>
+                <li>✅ 152 landing pages generated (38 provinces × 4 products)</li>
+                <li>✅ $104,600 revenue generated</li>
+                <li>✅ 145 new customers acquired</li>
+                <li>✅ MAHA Lakshmi Dashboard operational</li>
+                <li>✅ CEO Report automation working</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <h2>⚠️ Issues & Action Items</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Issue</th>
+                        <th>Impact</th>
+                        <th>Action Required</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hosting Cloudflare Error</td>
+                        <td>High</td>
+                        <td>Redeploy to Vercel</td>
+                        <td><span class="status warning">In Progress</span></td>
+                    </tr>
+                    <tr>
+                        <td>Transfer Profit to BCA</td>
+                        <td>High</td>
+                        <td>Transfer Rp 393M</td>
+                        <td><span class="status error">Pending</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <h2>📅 Plan Minggu Depan (Week 28)</h2>
+            <div class="metric-grid">
+                <div class="metric">
+                    <div class="value">$250,000</div>
+                    <div class="label">Target Revenue</div>
+                </div>
+                <div class="metric">
+                    <div class="value">5,000</div>
+                    <div class="label">Target Sales</div>
+                </div>
+                <div class="metric">
+                    <div class="value">350</div>
+                    <div class="label">New Customers</div>
+                </div>
+                <div class="metric">
+                    <div class="value">95%</div>
+                    <div class="label">Agent Efficiency</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Laporan ini di-generate secara otomatis oleh GAURANGA AI Agent</p>
+            <p>Tanggal: 2026-07-04</p>
+            <br>
+            <p style="font-size: 0.9em; opacity: 0.7;">© MAHA LAKSHMI HOLDINGS - Confidential</p>
+        </div>
+    </div>
+</body>
+</html>

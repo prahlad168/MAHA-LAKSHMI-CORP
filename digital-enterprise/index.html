@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎮 DigiMart - Digital Products Store | Voucher, Token, Pulsa</title>
+    <meta name="description" content="Buy game vouchers, electricity tokens, phone credit, data packages. Instant delivery worldwide. 24/7 Support.">
+    <meta name="keywords" content="game voucher, steam wallet, google play, token listrik, pln, pulsa, paket data, voucher">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #10b981;
+            --accent: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header */
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(20px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* Language Selector */
+        .lang-selector {
+            position: relative;
+            display: inline-block;
+        }
+        .lang-btn {
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .lang-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            min-width: 150px;
+            z-index: 100;
+        }
+        .lang-dropdown.show { display: block; }
+        .lang-option {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .lang-option:hover { background: var(--primary); }
+        
+        /* Hero */
+        .hero {
+            padding: 160px 0 80px;
+            text-align: center;
+            background: radial-gradient(ellipse at top, rgba(99,102,241,0.2) 0%, transparent 60%);
+        }
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .hero-badges {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .badge {
+            background: var(--bg-card);
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .badge i { color: var(--secondary); }
+        
+        /* Categories */
+        .categories {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        .category-card {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+        }
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(99,102,241,0.2);
+        }
+        .category-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .category-card h3 { font-size: 1.3rem; margin-bottom: 10px; }
+        .category-card p { color: var(--text-muted); font-size: 0.9rem; }
+        .category-price {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-top: 15px;
+        }
+        
+        /* Products */
+        .products {
+            padding: 80px 0;
+            background: rgba(30,41,59,0.3);
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .product-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary);
+        }
+        .product-img {
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .product-info { padding: 20px; }
+        .product-info h4 { margin-bottom: 8px; }
+        .product-info .price {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+        .product-info .original-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-size: 0.9rem;
+        }
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+        }
+        .btn:hover { background: var(--primary-dark); }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+        }
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 20px;
+        }
+        .feature-card h3 { margin-bottom: 10px; }
+        .feature-card p { color: var(--text-muted); }
+        
+        /* Countries */
+        .countries {
+            padding: 80px 0;
+            background: rgba(30,41,59,0.3);
+        }
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            text-align: center;
+        }
+        .country-item {
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 12px;
+            transition: 0.3s;
+        }
+        .country-item:hover {
+            transform: translateY(-3px);
+            background: var(--primary);
+        }
+        .country-flag { font-size: 2.5rem; margin-bottom: 8px; }
+        .country-name { font-size: 0.85rem; }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-card);
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer-col h4 { margin-bottom: 20px; color: var(--primary); }
+        .footer-col a {
+            display: block;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        .footer-col a:hover { color: var(--primary); }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+        }
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .payment-icon {
+            width: 50px;
+            height: 30px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        /* Animations */
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        .pulse { animation: pulse 2s infinite; }
+        
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .header-inner { padding: 15px; }
+        }
+        
+        /* Live indicator */
+        .live-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16,185,129,0.2);
+            color: var(--secondary);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        /* Stats */
+        .stats-bar {
+            background: var(--bg-card);
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .stats-inner {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .stat-item { text-align: center; }
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">🎮 DigiMart</div>
+            <nav class="nav-links">
+                <a href="#products" data-i18n="nav.products">Products</a>
+                <a href="#features" data-i18n="nav.features">Features</a>
+                <a href="#support" data-i18n="nav.support">Support</a>
+                <div class="lang-selector">
+                    <button class="lang-btn" onclick="toggleLang()">
+                        <i class="fas fa-globe"></i> <span id="currentLang">English</span>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-option" onclick="changeLang('en')">🇺🇸 English</div>
+                        <div class="lang-option" onclick="changeLang('id')">🇮🇩 Indonesia</div>
+                        <div class="lang-option" onclick="changeLang('zh')">🇨🇳 中文</div>
+                        <div class="lang-option" onclick="changeLang('es')">🇪🇸 Español</div>
+                        <div class="lang-option" onclick="changeLang('ar')">🇸🇦 العربية</div>
+                        <div class="lang-option" onclick="changeLang('hi')">🇮🇳 हिन्दी</div>
+                        <div class="lang-option" onclick="changeLang('th')">🇹🇭 ภาษาไทย</div>
+                        <div class="lang-option" onclick="changeLang('vi')">🇻🇳 Tiếng Việt</div>
+                        <div class="lang-option" onclick="changeLang('pt')">🇧🇷 Português</div>
+                        <div class="lang-option" onclick="changeLang('ru')">🇷🇺 Русский</div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="container stats-inner">
+            <div class="stat-item">
+                <div class="stat-value" id="statOrders">24,891</div>
+                <div class="stat-label" data-i18n="stats.orders">Orders Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">50+</div>
+                <div class="stat-label" data-i18n="stats.products">Products</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">190+</div>
+                <div class="stat-label" data-i18n="stats.countries">Countries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label" data-i18n="stats.support">Support</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <div class="live-badge">
+                <span class="live-dot"></span>
+                <span data-i18n="hero.live">24/7 Auto Delivery</span>
+            </div>
+            <h1 data-i18n="hero.title">Buy <span>Digital Products</span><br>Instantly Delivered</h1>
+            <p data-i18n="hero.subtitle">Game vouchers, electricity tokens, phone credit, data packages. Available worldwide with instant delivery and 24/7 support.</p>
+            <div class="hero-badges">
+                <span class="badge"><i class="fas fa-bolt"></i> <span data-i18n="hero.instant">Instant Delivery</span></span>
+                <span class="badge"><i class="fas fa-shield-alt"></i> <span data-i18n="hero.secure">100% Secure</span></span>
+                <span class="badge"><i class="fas fa-headset"></i> <span data-i18n="hero.support">24/7 Support</span></span>
+                <span class="badge"><i class="fas fa-globe"></i> <span data-i18n="hero.global">Global Coverage</span></span>
+            </div>
+            <a href="#products" class="btn pulse" style="display: inline-block; width: auto;">
+                <span data-i18n="hero.cta">Shop Now</span> <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+    
+    <!-- Categories -->
+    <section class="categories" id="categories">
+        <div class="container">
+            <h2 class="section-title" data-i18n="categories.title">Our Products</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="showProducts('games')">
+                    <div class="category-icon">🎮</div>
+                    <h3 data-i18n="cat.games">Game Vouchers</h3>
+                    <p data-i18n="cat.games.desc">Steam, Google Play, iTunes, Roblox, and more</p>
+                    <div class="category-price">From $1</div>
+                </div>
+                <div class="category-card" onclick="showProducts('electricity')">
+                    <div class="category-icon">⚡</div>
+                    <h3 data-i18n="cat.electricity">Electricity Token</h3>
+                    <p data-i18n="cat.electricity.desc">PLN, and other providers worldwide</p>
+                    <div class="category-price">From $2</div>
+                </div>
+                <div class="category-card" onclick="showProducts('phone')">
+                    <div class="category-icon">📱</div>
+                    <h3 data-i18n="cat.phone">Phone Credit & Data</h3>
+                    <p data-i18n="cat.phone.desc">Pulsa, Paket Data, Top-up</p>
+                    <div class="category-price">From $1</div>
+                </div>
+                <div class="category-card" onclick="showProducts('software')">
+                    <div class="category-icon">💻</div>
+                    <h3 data-i18n="cat.software">Software Licenses</h3>
+                    <p data-i18n="cat.software.desc">Office 365, Adobe, Netflix, Spotify</p>
+                    <div class="category-price">From $5</div>
+                </div>
+                <div class="category-card" onclick="showProducts('vouchers')">
+                    <div class="category-icon">🎁</div>
+                    <h3 data-i18n="cat.vouchers">Gift Vouchers</h3>
+                    <p data-i18n="cat.vouchers.desc">Amazon, PlayStation, Xbox, Nintendo</p>
+                    <div class="category-price">From $10</div>
+                </div>
+                <div class="category-card" onclick="showProducts('crypto')">
+                    <div class="category-icon">₿</div>
+                    <h3 data-i18n="cat.crypto">Crypto & Web3</h3>
+                    <p data-i18n="cat.crypto.desc">Gift cards, vouchers, and more</p>
+                    <div class="category-price">From $5</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Products -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title" data-i18n="products.title">Popular Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-img">🎮</div>
+                    <div class="product-info">
+                        <h4>Steam Wallet 100.000</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Indonesia Steam Wallet Code</p>
+                        <div style="margin: 10px 0;">
+                            <span class="original-price">$8.50</span>
+                            <span class="price">$7.99</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('steam-100k')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">⚡</div>
+                    <div class="product-info">
+                        <h4>Token LISTRIK 50.000</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">PLN Token 50K ID</p>
+                        <div style="margin: 10px 0;">
+                            <span class="price">$3.50</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('pln-50k')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">📱</div>
+                    <div class="product-info">
+                        <h4>Pulsa TELKOMSEL 25.000</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Telkomsel Credit 25K IDR</p>
+                        <div style="margin: 10px 0;">
+                            <span class="price">$1.60</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('tsel-25k')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🎁</div>
+                    <div class="product-info">
+                        <h4>Google Play $50</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Google Play Gift Card</p>
+                        <div style="margin: 10px 0;">
+                            <span class="original-price">$50</span>
+                            <span class="price">$47.50</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('gplay-50')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🎮</div>
+                    <div class="product-info">
+                        <h4>Roblox $25</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Roblox Gift Card</p>
+                        <div style="margin: 10px 0;">
+                            <span class="price">$23.75</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('roblox-25')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">📺</div>
+                    <div class="product-info">
+                        <h4>Netflix 1 Month</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Netflix Premium Account</p>
+                        <div style="margin: 10px 0;">
+                            <span class="original-price">$15.99</span>
+                            <span class="price">$12.99</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('netflix-1m')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🎵</div>
+                    <div class="product-info">
+                        <h4>Spotify Premium 1 Year</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Spotify Family Plan</p>
+                        <div style="margin: 10px 0;">
+                            <span class="original-price">$180</span>
+                            <span class="price">$149.99</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('spotify-1y')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-img">🖥️</div>
+                    <div class="product-info">
+                        <h4>Microsoft Office 365</h4>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">1 Year Subscription</p>
+                        <div style="margin: 10px 0;">
+                            <span class="original-price">$99.99</span>
+                            <span class="price">$79.99</span>
+                        </div>
+                        <button class="btn" onclick="orderProduct('office-365')" data-i18n="btn.buy">Buy Now</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features -->
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title" data-i18n="features.title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 data-i18n="feat.instant.title">Instant Delivery</h3>
+                    <p data-i18n="feat.instant.desc">Get your code immediately after payment. No waiting.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 data-i18n="feat.secure.title">100% Secure</h3>
+                    <p data-i18n="feat.secure.desc">Your payment is protected by 256-bit encryption.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-headset"></i></div>
+                    <h3 data-i18n="feat.support.title">24/7 Support</h3>
+                    <p data-i18n="feat.support.desc">Our team is always ready to help you anytime.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-tags"></i></div>
+                    <h3 data-i18n="feat.price.title">Best Prices</h3>
+                    <p data-i18n="feat.price.desc">We offer competitive prices with regular discounts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-globe"></i></div>
+                    <h3 data-i18n="feat.global.title">Global Coverage</h3>
+                    <p data-i18n="feat.global.desc">Available in 190+ countries and territories.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-undo"></i></div>
+                    <h3 data-i18n="feat.refund.title">Easy Refunds</h3>
+                    <p data-i18n="feat.refund.desc">Money-back guarantee within 24 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Countries -->
+    <section class="countries">
+        <div class="container">
+            <h2 class="section-title" data-i18n="countries.title">Available Worldwide</h2>
+            <div class="country-grid">
+                <div class="country-item"><div class="country-flag">🇮🇩</div><div class="country-name">Indonesia</div></div>
+                <div class="country-item"><div class="country-flag">🇺🇸</div><div class="country-name">USA</div></div>
+                <div class="country-item"><div class="country-flag">🇬🇧</div><div class="country-name">UK</div></div>
+                <div class="country-item"><div class="country-flag">🇦🇺</div><div class="country-name">Australia</div></div>
+                <div class="country-item"><div class="country-flag">🇸🇬</div><div class="country-name">Singapore</div></div>
+                <div class="country-item"><div class="country-flag">🇲🇾</div><div class="country-name">Malaysia</div></div>
+                <div class="country-item"><div class="country-flag">🇹🇭</div><div class="country-name">Thailand</div></div>
+                <div class="country-item"><div class="country-flag">🇻🇳</div><div class="country-name">Vietnam</div></div>
+                <div class="country-item"><div class="country-flag">🇵🇭</div><div class="country-name">Philippines</div></div>
+                <div class="country-item"><div class="country-flag">🇧🇷</div><div class="country-name">Brazil</div></div>
+                <div class="country-item"><div class="country-flag">🇮🇳</div><div class="country-name">India</div></div>
+                <div class="country-item"><div class="country-flag">🇨🇳</div><div class="country-name">China</div></div>
+                <div class="country-item"><div class="country-flag">🇯🇵</div><div class="country-name">Japan</div></div>
+                <div class="country-item"><div class="country-flag">🇰🇷</div><div class="country-name">Korea</div></div>
+                <div class="country-item"><div class="country-flag">🇩🇪</div><div class="country-name">Germany</div></div>
+                <div class="country-item"><div class="country-flag">🇫🇷</div><div class="country-name">France</div></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer id="support">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>🎮 DigiMart</h4>
+                    <p style="color: var(--text-muted);">Your trusted digital products store. Available 24/7 worldwide.</p>
+                    <div class="payment-methods">
+                        <div class="payment-icon">💳</div>
+                        <div class="payment-icon">PP</div>
+                        <div class="payment-icon">CR</div>
+                        <div class="payment-icon">BN</div>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.products">Products</h4>
+                    <a href="#" data-i18n="footer.games">Game Vouchers</a>
+                    <a href="#" data-i18n="footer.electricity">Electricity</a>
+                    <a href="#" data-i18n="footer.phone">Phone Credit</a>
+                    <a href="#" data-i18n="footer.software">Software</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.support">Support</h4>
+                    <a href="#" data-i18n="footer.faq">FAQ</a>
+                    <a href="#" data-i18n="footer.contact">Contact Us</a>
+                    <a href="#" data-i18n="footer.refund">Refund Policy</a>
+                    <a href="#" data-i18n="footer.terms">Terms of Service</a>
+                </div>
+                <div class="footer-col">
+                    <h4 data-i18n="footer.contact">Contact</h4>
+                    <a href="#"><i class="fas fa-envelope"></i> support@digimart.store</a>
+                    <a href="#"><i class="fab fa-whatsapp"></i> +62 812 XXXX XXXX</a>
+                    <a href="#"><i class="fab fa-telegram"></i> @digimart</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 DigiMart. <span data-i18n="footer.rights">All rights reserved.</span></p>
+                <p style="margin-top: 10px;">🏦 Bank: BCA 6485086645 | An: i Made Purna Ananda</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Translations
+        const translations = {
+            en: {
+                'nav.products': 'Products', 'nav.features': 'Features', 'nav.support': 'Support',
+                'hero.live': '24/7 Auto Delivery', 'hero.title': 'Buy <span>Digital Products</span><br>Instantly Delivered',
+                'hero.subtitle': 'Game vouchers, electricity tokens, phone credit, data packages. Available worldwide with instant delivery.',
+                'hero.instant': 'Instant Delivery', 'hero.secure': '100% Secure', 'hero.support': '24/7 Support', 'hero.global': 'Global Coverage',
+                'hero.cta': 'Shop Now',
+                'stats.orders': 'Orders Completed', 'stats.products': 'Products', 'stats.countries': 'Countries', 'stats.support': 'Support',
+                'categories.title': 'Our Products',
+                'cat.games': 'Game Vouchers', 'cat.games.desc': 'Steam, Google Play, iTunes, Roblox, and more',
+                'cat.electricity': 'Electricity Token', 'cat.electricity.desc': 'PLN, and other providers worldwide',
+                'cat.phone': 'Phone Credit & Data', 'cat.phone.desc': 'Pulsa, Paket Data, Top-up',
+                'cat.software': 'Software Licenses', 'cat.software.desc': 'Office 365, Adobe, Netflix, Spotify',
+                'cat.vouchers': 'Gift Vouchers', 'cat.vouchers.desc': 'Amazon, PlayStation, Xbox, Nintendo',
+                'cat.crypto': 'Crypto & Web3', 'cat.crypto.desc': 'Gift cards, vouchers, and more',
+                'products.title': 'Popular Products',
+                'features.title': 'Why Choose Us',
+                'feat.instant.title': 'Instant Delivery', 'feat.instant.desc': 'Get your code immediately after payment.',
+                'feat.secure.title': '100% Secure', 'feat.secure.desc': 'Your payment is protected by 256-bit encryption.',
+                'feat.support.title': '24/7 Support', 'feat.support.desc': 'Our team is always ready to help you anytime.',
+                'feat.price.title': 'Best Prices', 'feat.price.desc': 'Competitive prices with regular discounts.',
+                'feat.global.title': 'Global Coverage', 'feat.global.desc': 'Available in 190+ countries.',
+                'feat.refund.title': 'Easy Refunds', 'feat.refund.desc': 'Money-back guarantee within 24 hours.',
+                'countries.title': 'Available Worldwide',
+                'footer.products': 'Products', 'footer.support': 'Support', 'footer.games': 'Game Vouchers',
+                'footer.electricity': 'Electricity', 'footer.phone': 'Phone Credit', 'footer.software': 'Software',
+                'footer.faq': 'FAQ', 'footer.contact': 'Contact Us', 'footer.refund': 'Refund Policy',
+                'footer.terms': 'Terms of Service', 'footer.rights': 'All rights reserved.',
+                'btn.buy': 'Buy Now'
+            },
+            id: {
+                'nav.products': 'Produk', 'nav.features': 'Fitur', 'nav.support': 'Bantuan',
+                'hero.live': 'Pengiriman Otomatis 24/7', 'hero.title': 'Beli <span>Produk Digital</span><br>Pengiriman Instan',
+                'hero.subtitle': 'Voucher game, token listrik, pulsa, paket data. Tersedia worldwide dengan pengiriman instan.',
+                'hero.instant': 'Pengiriman Instan', 'hero.secure': '100% Aman', 'hero.support': 'Bantuan 24/7', 'hero.global': 'Jangkauan Global',
+                'hero.cta': 'Belanja Sekarang',
+                'stats.orders': 'Pesanan Selesai', 'stats.products': 'Produk', 'stats.countries': 'Negara', 'stats.support': 'Dukungan',
+                'categories.title': 'Produk Kami',
+                'cat.games': 'Voucher Game', 'cat.games.desc': 'Steam, Google Play, iTunes, Roblox, dan lainnya',
+                'cat.electricity': 'Token Listrik', 'cat.electricity.desc': 'PLN, dan provider lainnya worldwide',
+                'cat.phone': 'Pulsa & Paket Data', 'cat.phone.desc': 'Pulsa, Paket Data, Top-up',
+                'cat.software': 'Lisensi Software', 'cat.software.desc': 'Office 365, Adobe, Netflix, Spotify',
+                'cat.vouchers': 'Voucher Hadiah', 'cat.vouchers.desc': 'Amazon, PlayStation, Xbox, Nintendo',
+                'cat.crypto': 'Crypto & Web3', 'cat.crypto.desc': 'Gift card, voucher, dan lainnya',
+                'products.title': 'Produk Populer',
+                'features.title': 'Kenapa Memilih Kami',
+                'feat.instant.title': 'Pengiriman Instan', 'feat.instant.desc': 'Dapatkan kode segera setelah pembayaran.',
+                'feat.secure.title': '100% Aman', 'feat.secure.desc': 'Pembayaran dilindungi enkripsi 256-bit.',
+                'feat.support.title': 'Bantuan 24/7', 'feat.support.desc': 'Tim kami selalu siap membantu kapan saja.',
+                'feat.price.title': 'Harga Terbaik', 'feat.price.desc': 'Harga kompetitif dengan diskon reguler.',
+                'feat.global.title': 'Jangkauan Global', 'feat.global.desc': 'Tersedia di 190+ negara.',
+                'feat.refund.title': 'Refund Mudah', 'feat.refund.desc': 'Garansi uang kembali dalam 24 jam.',
+                'countries.title': 'Tersedia Di Seluruh Dunia',
+                'footer.products': 'Produk', 'footer.support': 'Bantuan', 'footer.games': 'Voucher Game',
+                'footer.electricity': 'Listrik', 'footer.phone': 'Pulsa', 'footer.software': 'Software',
+                'footer.faq': 'FAQ', 'footer.contact': 'Hubungi Kami', 'footer.refund': 'Kebijakan Refund',
+                'footer.terms': 'Syarat Layanan', 'footer.rights': 'Semua hak dilindungi.',
+                'btn.buy': 'Beli Sekarang'
+            },
+            zh: {
+                'nav.products': '产品', 'nav.features': '特点', 'nav.support': '支持',
+                'hero.live': '24/7自动交付', 'hero.title': '购买 <span>数字产品</span><br>即时交付',
+                'hero.subtitle': '游戏充值卡、电费代缴、手机充值、数据套餐。全球即时交付。',
+                'hero.instant': '即时交付', 'hero.secure': '100%安全', 'hero.support': '24/7支持', 'hero.global': '全球覆盖',
+                'hero.cta': '立即购买',
+                'stats.orders': '已完成订单', 'stats.products': '产品', 'stats.countries': '国家', 'stats.support': '支持',
+                'categories.title': '我们的产品',
+                'cat.games': '游戏充值卡', 'cat.games.desc': 'Steam、Google Play、iTunes、Roblox等',
+                'cat.electricity': '电费代缴', 'cat.electricity.desc': 'PLN及全球其他供应商',
+                'cat.phone': '手机充值', 'cat.phone.desc': '话费、数据套餐、充值',
+                'cat.software': '软件许可', 'cat.software.desc': 'Office 365、Adobe、Netflix、Spotify',
+                'cat.vouchers': '礼品卡', 'cat.vouchers.desc': 'Amazon、PlayStation、Xbox、Nintendo',
+                'cat.crypto': '加密货币', 'cat.crypto.desc': '礼品卡、优惠券等',
+                'products.title': '热门产品',
+                'features.title': '为什么选择我们',
+                'feat.instant.title': '即时交付', 'feat.instant.desc': '付款后立即获得代码。',
+                'feat.secure.title': '100%安全', 'feat.secure.desc': '支付受256位加密保护。',
+                'feat.support.title': '24/7支持', 'feat.support.desc': '我们的团队随时为您提供帮助。',
+                'feat.price.title': '最优价格', 'feat.price.desc': '有竞争力的价格和定期折扣。',
+                'feat.global.title': '全球覆盖', 'feat.global.desc': '覆盖190多个国家和地区。',
+                'feat.refund.title': '轻松退款', 'feat.refund.desc': '24小时内退款保证。',
+                'countries.title': '全球可用的',
+                'footer.products': '产品', 'footer.support': '支持', 'footer.games': '游戏充值卡',
+                'footer.electricity': '电费', 'footer.phone': '话费', 'footer.software': '软件',
+                'footer.faq': '常见问题', 'footer.contact': '联系我们', 'footer.refund': '退款政策',
+                'footer.terms': '服务条款', 'footer.rights': '版权所有。',
+                'btn.buy': '立即购买'
+            }
+        };
+        
+        // Language functions
+        let currentLang = 'en';
+        
+        function toggleLang() {
+            document.getElementById('langDropdown').classList.toggle('show');
+        }
+        
+        function changeLang(lang) {
+            currentLang = lang;
+            document.getElementById('currentLang').textContent = lang.toUpperCase();
+            document.getElementById('langDropdown').classList.remove('show');
+            
+            // Update page content
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Update HTML lang attribute
+            document.documentElement.lang = lang;
+        }
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.lang-selector')) {
+                document.getElementById('langDropdown').classList.remove('show');
+            }
+        });
+        
+        // Product functions
+        function showProducts(category) {
+            document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function orderProduct(productId) {
+            alert('Order: ' + productId + '\nRedirecting to checkout...');
+            // Redirect to checkout or open modal
+        }
+        
+        // Animate stats
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            if (!obj) return;
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                obj.innerHTML = Math.floor(progress * (end - start) + start).toLocaleString();
+                if (progress < 1) window.requestAnimationFrame(step);
+            };
+            window.requestAnimationFrame(step);
+        }
+        
+        // Init
+        animateValue('statOrders', 24891, 24891, 1000);
+    </script>
+</body>
+</html>

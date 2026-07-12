@@ -1,13 +1,108 @@
 {
-  "name": "gaurangga-hub",
+  "name": "maha-lakshmi-corp",
   "version": 2,
   "builds": [
     {
+      "src": "maha-lakshmi/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "maha-command-center/**",
+      "use": "@vercel/static"
+    },
+    {
       "src": "gaurangga-hub/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "digimart/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "airdrop/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "microtask/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "survey/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "progress/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "digital-enterprise/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "digimart.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "airdrop-hunter.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "micro-tasks.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "survey-platform.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "link-shortener.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "zero-budget-tracker.html",
       "use": "@vercel/static"
     }
   ],
   "routes": [
-    {"src": "/gaurangga-hub/(.*)", "dest": "gaurangga-hub/$1"}
+    {
+      "src": "/maha-lakshmi/(.*)",
+      "dest": "/maha-lakshmi/$1"
+    },
+    {
+      "src": "/maha-command-center/(.*)",
+      "dest": "/maha-command-center/$1"
+    },
+    {
+      "src": "/gaurangga-hub/(.*)",
+      "dest": "/gaurangga-hub/$1"
+    },
+    {
+      "src": "/digimart/(.*)",
+      "dest": "/digimart/$1"
+    },
+    {
+      "src": "/airdrop/(.*)",
+      "dest": "/airdrop/$1"
+    },
+    {
+      "src": "/microtask/(.*)",
+      "dest": "/microtask/$1"
+    },
+    {
+      "src": "/survey/(.*)",
+      "dest": "/survey/$1"
+    },
+    {
+      "src": "/progress/(.*)",
+      "dest": "/progress/$1"
+    },
+    {
+      "src": "/digital-enterprise/(.*)",
+      "dest": "/digital-enterprise/$1"
+    }
   ]
 }

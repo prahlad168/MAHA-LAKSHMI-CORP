@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Chat - Payangan Hospital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #0891b2;
+            --secondary: #06b6d4;
+            --accent: #22d3ee;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        body {
+            font-family: 'Sora', sans-serif;
+            background: linear-gradient(135deg, #0c4a6e 0%, #0f172a 100%);
+            min-height: 100vh;
+            color: #e2e8f0;
+            padding: 20px;
+        }
+        
+        .container { max-width: 600px; margin: 0 auto; }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; background: linear-gradient(135deg, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .header .subtitle { opacity: 0.7; margin-top: 10px; }
+        
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        
+        .chat-toggle {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 5px 25px rgba(8, 145, 178, 0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .chat-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 35px rgba(8, 145, 178, 0.5);
+        }
+        
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 380px;
+            max-width: calc(100vw - 40px);
+            height: 500px;
+            background: rgba(15, 23, 42, 0.98);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: slideUp 0.3s ease;
+        }
+        
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .chat-window.active { display: flex; }
+        
+        .chat-header {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .chat-avatar {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .chat-info h3 { color: #fff; font-size: 1.1rem; }
+        .chat-info p { color: rgba(255, 255, 255, 0.8); font-size: 0.85rem; }
+        
+        .chat-status {
+            width: 12px;
+            height: 12px;
+            background: var(--success);
+            border-radius: 50%;
+            margin-left: auto;
+            animation: blink 1.5s infinite;
+        }
+        
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        .chat-close {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        
+        .chat-close:hover { opacity: 1; }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .message {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 16px;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+        
+        .message.bot {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        
+        .message.user {
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: #fff;
+            border-bottom-right-radius: 4px;
+            align-self: flex-end;
+        }
+        
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.6;
+            margin-top: 5px;
+            display: block;
+        }
+        
+        .typing-indicator {
+            display: none;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 16px;
+            border-bottom-left-radius: 4px;
+            align-self: flex-start;
+        }
+        
+        .typing-indicator.active { display: flex; gap: 5px; }
+        
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+        
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        
+        @keyframes typing { 0%, 100% { transform: translateY(0); opacity: 0.5; } 50% { transform: translateY(-5px); opacity: 1; } }
+        
+        .chat-input-area {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 10px;
+        }
+        
+        .chat-input {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 12px 20px;
+            color: #fff;
+            font-family: 'Sora', sans-serif;
+            font-size: 0.95rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+        
+        .chat-input:focus {
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(8, 145, 178, 0.2);
+        }
+        
+        .chat-input::placeholder { color: rgba(255, 255, 255, 0.5); }
+        
+        .chat-send {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        
+        .chat-send:hover { transform: scale(1.1); }
+        .chat-send:active { transform: scale(0.95); }
+        
+        /* Quick Replies */
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        .quick-reply {
+            background: rgba(8, 145, 178, 0.2);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            color: var(--accent);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quick-reply:hover {
+            background: rgba(8, 145, 178, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        /* Preview Section */
+        .preview-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+        }
+        
+        .preview-section h2 { color: var(--accent); margin-bottom: 20px; font-family: 'Space Grotesk', sans-serif; }
+        
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .feature-icon { font-size: 2rem; }
+        .feature-title { font-weight: 600; margin-bottom: 3px; }
+        .feature-desc { font-size: 0.85rem; opacity: 0.7; }
+        
+        .badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+        
+        .badge-success { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+        
+        /* Instructions */
+        .instructions {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 20px;
+        }
+        
+        .instructions h2 { color: var(--accent); margin-bottom: 20px; }
+        
+        .code-block {
+            background: #000;
+            padding: 20px;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #22d3ee;
+        }
+        
+        .instructions ol { padding-left: 20px; line-height: 2; }
+        .instructions li { margin-bottom: 10px; }
+        
+        @media (max-width: 480px) {
+            .chat-window { width: calc(100vw - 30px); height: 450px; }
+            .header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏥 Live Chat Widget</h1>
+            <p class="subtitle">AI-powered Patient Support Chatbot</p>
+        </div>
+        
+        <!-- Preview -->
+        <div class="preview-section">
+            <h2>✨ Fitur Live Chat</h2>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <span class="feature-icon">🤖</span>
+                    <div>
+                        <div class="feature-title">AI Agent Response</div>
+                        <div class="feature-desc">Respon otomatis 24/7 oleh AI Agent</div>
+                    </div>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">💬</span>
+                    <div>
+                        <div class="feature-title">Quick Replies</div>
+                        <div class="feature-desc">Tombol cepat untuk pertanyaan umum</div>
+                    </div>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">⏰</span>
+                    <div>
+                        <div class="feature-title">24/7 Availability</div>
+                        <div class="feature-desc">Selalu online, tidak pernah offline</div>
+                    </div>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">📊</span>
+                    <div>
+                        <div class="feature-title">Chat History</div>
+                        <div class="feature-desc">Simpan riwayat percakapan</div>
+                    </div>
+                    <span class="badge badge-success">Active</span>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-icon">🔗</span>
+                    <div>
+                        <div class="feature-title">Integration Ready</div>
+                        <div class="feature-desc">Bisa connect ke WhatsApp, Telegram</div>
+                    </div>
+                    <span class="badge badge-success">Ready</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Instructions -->
+        <div class="instructions">
+            <h2>📋 Cara Integrasi ke Website</h2>
+            <ol>
+                <li><strong>Tambahkan kode berikut sebelum </strong> `</body>` di HTML:</li>
+            </ol>
+            <div class="code-block">
+&lt;!-- Live Chat Widget --&gt;
+&lt;script src="https://payanganhospital.gianyarkab.go.id/chat-widget.js"&gt;&lt;/script&gt;
+            </div>
+            <br>
+            <ol start="2">
+                <li><strong>Atau salin file</strong> `chat-widget.html` ke folder website</li>
+                <li><strong>Tambahkan di setiap halaman:</strong></li>
+            </ol>
+            <div class="code-block">
+&lt;iframe src="/chat-widget.html" style="position:fixed;bottom:20px;right:20px;width:380px;height:500px;border:none;z-index:9999;"&gt;&lt;/iframe&gt;
+            </div>
+        </div>
+        
+        <!-- Agent Config -->
+        <div class="instructions">
+            <h2>🤖 Agent Configuration</h2>
+            <div class="code-block">
+Agent Name: RS-Payangan-Chatbot
+Automation ID: d858be42-f181-4144-8d18-77be0fa590cb
+Schedule: 24/7 (Always On)
+Response Time: &lt; 5 seconds
+Knowledge: Hospital services, doctors, appointments
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Widget -->
+    <div class="chat-widget">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="chat-avatar">🏥</div>
+                <div class="chat-info">
+                    <h3>RS Payangan Assistant</h3>
+                    <p>Online • AI Agent</p>
+                </div>
+                <div class="chat-status"></div>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot">
+                    Selamat datang di Rumah Sakit Payangan! 👋<br><br>
+                    Saya adalah asisten virtual yang siap membantu Anda. Silakan tanyakan tentang:<br><br>
+                    • Jadwal dokter<br>
+                    • Pendaftaran online<br>
+                    • Layanan poli<br>
+                    • Informasi kamar<br>
+                    • Kontak RS
+                    <span class="message-time">Baru saja</span>
+                </div>
+            </div>
+            
+            <div class="quick-replies">
+                <button class="quick-reply" onclick="sendQuickReply('Jadwal dokter hari ini?')">📅 Jadwal Dokter</button>
+                <button class="quick-reply" onclick="sendQuickReply('Cara daftar online?')">📝 Daftar Online</button>
+                <button class="quick-reply" onclick="sendQuickReply('Nomor telepon RS?')">📞 Kontak</button>
+            </div>
+            
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            </div>
+            
+            <div class="chat-input-area">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Ketik pesan Anda..." onkeypress="handleKeyPress(event)">
+                <button class="chat-send" onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+        
+        <button class="chat-toggle" onclick="toggleChat()">💬</button>
+    </div>
+    
+    <script>
+        let chatOpen = false;
+        
+        function toggleChat() {
+            chatOpen = !chatOpen;
+            const chatWindow = document.getElementById('chatWindow');
+            chatWindow.classList.toggle('active', chatOpen);
+        }
+        
+        function handleKeyPress(e) {
+            if (e.key === 'Enter') sendMessage();
+        }
+        
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            if (!message) return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            // Show typing indicator
+            document.getElementById('typingIndicator').classList.add('active');
+            
+            // Simulate AI response
+            setTimeout(() => {
+                document.getElementById('typingIndicator').classList.remove('active');
+                const response = getAIResponse(message);
+                addMessage(response, 'bot');
+            }, 1500);
+        }
+        
+        function sendQuickReply(message) {
+            document.getElementById('chatInput').value = message;
+            sendMessage();
+        }
+        
+        function addMessage(text, type) {
+            const messages = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${type}`;
+            messageDiv.innerHTML = `${text}<span class="message-time">Baru saja</span>`;
+            messages.appendChild(messageDiv);
+            messages.scrollTop = messages.scrollHeight;
+        }
+        
+        function getAIResponse(message) {
+            const msg = message.toLowerCase();
+            
+            if (msg.includes('dokter') || msg.includes('jadwal')) {
+                return 'Berikut jadwal dokter hari ini:<br><br>🕐 <strong>Poli Umum:</strong> 08:00 - 14:00<br>🕐 <strong>Poli Anak:</strong> 09:00 - 15:00<br>🕐 <strong>Poli Jantung:</strong> 10:00 - 16:00<br><br>Untuk info lengkap, silakan visit <a href="/dokter.html">halaman dokter</a>';
+            }
+            
+            if (msg.includes('daftar') || msg.includes('online') || msg.includes('antrian')) {
+                return 'Untuk pendaftaran online, silakan:<br><br>1️⃣ Kunjungi <a href="/antrean.html">halaman antrean</a><br>2️⃣ Isi data diri<br>3️⃣ Pilih poli dan dokter<br>4️⃣ Dapatkan nomor antrean<br><br>Atau hubungi kami di <strong>0361 98087</strong>';
+            }
+            
+            if (msg.includes('telepon') || msg.includes('kontak') || msg.includes('hubungi')) {
+                return '📞 <strong>Kontak RS Payangan:</strong><br><br>Telepon: <strong>0361 98087</strong><br>HP: <strong>+62 361 9088087</strong><br>Email: <strong>info@rsupayangan.co.id</strong><br>Alamat: <strong>Jl. Raya Payangan, Gianyar, Bali</strong>';
+            }
+            
+            if (msg.includes('alamat') || msg.includes('lokasi') || msg.includes('alamat')) {
+                return '📍 <strong>Lokasi RS Payangan:</strong><br><br>Jl. Raya Payangan<br>Kecamatan Payangan<br>Kabupaten Gianyar<br>Bali 80572<br><br><a href="/kontak.html">Lihat peta</a>';
+            }
+            
+            if (msg.includes('igd') || msg.includes('darurat') || msg.includes('emergency')) {
+                return '🚨 <strong>Layanan IGD 24 Jam:</strong><br><br>IGD RS Payangan siap melayani pasien darurat kapan saja.<br><br>Telepon IGD: <strong>0361 98087 ext. 1</strong><br>Pelayanan: <strong>24 jam / 7 hari</strong>';
+            }
+            
+            if (msg.includes('kamar') || msg.includes('rawat inap')) {
+                return '🛏️ <strong>Informasi Kamar Rawat Inap:</strong><br><br>Kelas VIP: Tersedia<br>Kelas 1: Tersedia<br>Kelas 2: Tersedia<br>Kelas 3: Tersedia<br><br>Untuk ketersediaan, silakan hubungi <strong>0361 98087</strong>';
+            }
+            
+            if (msg.includes('poli') || msg.includes('layanan')) {
+                return '🏥 <strong>Layanan Poli RS Payangan:</strong><br><br>• Poli Umum<br>• Poli Anak<br>• Poli Jantung<br>• Poli Bedah<br>• Poli Gigi<br>• Poli Saraf<br>• Poli Orthopedic<br>• Poli Penyakit Dalam<br><br><a href="/poli-umum.html">Lihat semua poli</a>';
+            }
+            
+            return 'Terima kasih atas pertanyaannya! 🙏<br><br>Untuk informasi lebih lanjut, silakan:<br>• Kunjungi <a href="/">beranda</a> kami<br>• Hubungi <strong>0361 98087</strong><br>• Email ke <strong>info@rsupayangan.co.id</strong><br><br>Ada yang bisa saya bantu lagi?';
+        }
+    </script>
+</body>
+</html>
