@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MAHA LAKSHMI HOLDINGS - 10 Digital Companies in Gianyar, Bali. Target Rp 1 Billion/month dengan AI Agent System.">
+    <meta name="keywords" content="digital company, gianyar, bali, software, marketing, ecommerce, edtech, fintech, ai agent">
+    <meta name="author" content="i Made Purna Ananda">
+    <meta name="robots" content="index, follow">
+    <title>MAHA LAKSHMI HOLDINGS - 10 Digital Companies Gianyar Bali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366F1;
+            --primary-dark: #4F46E5;
+            --secondary: #10B981;
+            --accent: #F59E0B;
+            --dark: #1E1E4A;
+            --light: #FFFFFF;
+            --gray: #6B7280;
+            --gradient: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            --gradient-green: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F8FAFC;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 50%, #C7D2FE 100%);
+            padding: 120px 5% 80px;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 70%;
+            height: 150%;
+            background: var(--gradient);
+            opacity: 0.05;
+            border-radius: 50%;
+            transform: rotate(-15deg);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 1;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: white;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        /* Companies Grid */
+        .companies-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            font-size: 1.1rem;
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .company-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .company-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.15);
+        }
+
+        .company-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .company-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .company-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .company-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #E5E7EB;
+        }
+
+        .company-progress {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .company-target {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #E5E7EB;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s;
+        }
+
+        /* Target Section */
+        .target-section {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, var(--dark) 0%, #2D2D6A 100%);
+            color: white;
+        }
+
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .target-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .target-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .target-label {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 5%;
+            background: white;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: #F8FAFC;
+            padding: 20px 30px;
+            border-radius: 15px;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .contact-item strong {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .contact-item span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 5%;
+            text-align: center;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .companies-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Color Classes */
+        .bg-indigo { background: var(--gradient); }
+        .bg-green { background: var(--gradient-green); }
+        .bg-blue { background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%); }
+        .bg-purple { background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%); }
+        .bg-pink { background: linear-gradient(135deg, #EC4899 0%, #F472B6 100%); }
+        .bg-cyan { background: linear-gradient(135deg, #06B6D4 0%, #22D3EE 100%); }
+        .bg-orange { background: linear-gradient(135deg, #F97316 0%, #FB923C 100%); }
+        .bg-teal { background: linear-gradient(135deg, #14B8A6 0%, #2DD4BF 100%); }
+        .bg-rose { background: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%); }
+        .bg-amber { background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%); }
+
+        .text-indigo { color: #6366F1; }
+        .text-green { color: #10B981; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <i class="fas fa-crown"></i>
+            MAHA LAKSHMI
+        </a>
+        <ul class="nav-links">
+            <li><a href="#companies">Companies</a></li>
+            <li><a href="#target">Target</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-rocket"></i>
+                Target Rp 1 Billion/Bulan
+            </div>
+            <h1>10 Digital Companies<br><span>One Vision</span></h1>
+            <p>
+                MAHA LAKSHMI HOLDINGS mengelola 10 perusahaan digital di Gianyar, Bali. 
+                Semua didukung AI Agent System untuk maximize efficiency dan revenue.
+                Target: Rp 1.000.000.000/bulan.
+            </p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10</div>
+                    <div class="stat-label">Companies</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">60</div>
+                    <div class="stat-label">AI Agents</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1B</div>
+                    <div class="stat-label">Target/Bulan</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Companies -->
+    <section class="companies-section" id="companies">
+        <div class="section-header">
+            <h2>🏢 10 Digital Companies</h2>
+            <p>Setiap perusahaan punya tim AI Agents sendiri untuk maximize revenue</p>
+        </div>
+
+        <div class="companies-grid">
+            <!-- 1. Payangan Hospital -->
+            <div class="company-card" onclick="window.open('companys/01-gianyar-tech-solutions/index.html', '_blank')">
+                <div class="company-icon bg-indigo">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h3>🏥 Payangan Hospital AI</h3>
+                <p>Hospital Management System dengan AI. Sistem lengkap untuk RS dan klinik.</p>
+                <div class="company-meta">
+                    <span class="company-progress text-indigo">95% Ready</span>
+                    <span class="company-target">Target: Rp 10M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill bg-indigo" style="width: 95%"></div>
+                </div>
+            </div>
+
+            <!-- 2. Gianyar Tech Solutions -->
+            <div class="company-card" onclick="window.open('companys/01-gianyar-tech-solutions/index.html', '_blank')">
+                <div class="company-icon bg-green">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>💻 Gianyar Tech Solutions</h3>
+                <p>Software Development & SaaS Products. Web, Mobile, Custom Apps.</p>
+                <div class="company-meta">
+                    <span class="company-progress text-green">15% Progress</span>
+                    <span class="company-target">Target: Rp 10M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill bg-green" style="width: 15%"></div>
+                </div>
+            </div>
+
+            <!-- 3. Bali Digital Agency -->
+            <div class="company-card" onclick="window.open('companys/02-bali-digital-agency/index.html', '_blank')">
+                <div class="company-icon bg-blue">
+                    <i class="fas fa-bullhorn"></i>
+                </div>
+                <h3>📢 Bali Digital Agency</h3>
+                <p>Digital Marketing Agency. SEO, Social Media, Content, Ads.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #3B82F6">20% Progress</span>
+                    <span class="company-target">Target: Rp 10M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%; background: #3B82F6"></div>
+                </div>
+            </div>
+
+            <!-- 4. Gianyar E-Commerce -->
+            <div class="company-card" onclick="window.open('companys/03-gianyar-ecommerce/index.html', '_blank')">
+                <div class="company-icon bg-purple">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h3>🛒 Gianyar E-Commerce</h3>
+                <p>Online Marketplace untuk produk lokal Gianyar dan Bali.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #8B5CF6">12% Progress</span>
+                    <span class="company-target">Target: Rp 8M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 12%; background: #8B5CF6"></div>
+                </div>
+            </div>
+
+            <!-- 5. Bali EdTech -->
+            <div class="company-card" onclick="window.open('companys/04-bali-edtech/index.html', '_blank')">
+                <div class="company-icon bg-pink">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <h3>🎓 Bali EdTech</h3>
+                <p>Online Education Platform. Kursus digital dan e-learning.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #EC4899">10% Progress</span>
+                    <span class="company-target">Target: Rp 10M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%; background: #EC4899"></div>
+                </div>
+            </div>
+
+            <!-- 6. Gianyar Finance -->
+            <div class="company-card" onclick="window.open('companys/05-gianyar-finance/index.html', '_blank')">
+                <div class="company-icon bg-cyan">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3>💰 Gianyar Finance</h3>
+                <p>Financial Services & Fintech. Kalkulator, konsultasi, solusi keuangan.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #06B6D4">12% Progress</span>
+                    <span class="company-target">Target: Rp 15M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 12%; background: #06B6D4"></div>
+                </div>
+            </div>
+
+            <!-- 7. Bali Logistics -->
+            <div class="company-card" onclick="window.open('companys/06-bali-logistics/index.html', '_blank')">
+                <div class="company-icon bg-orange">
+                    <i class="fas fa-truck-fast"></i>
+                </div>
+                <h3>🚚 Bali Logistics</h3>
+                <p>Delivery & Shipping Services. Pengiriman cepat di Gianyar dan Bali.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #F97316">8% Progress</span>
+                    <span class="company-target">Target: Rp 8M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 8%; background: #F97316"></div>
+                </div>
+            </div>
+
+            <!-- 8. Gianyar FoodTech -->
+            <div class="company-card" onclick="window.open('companys/07-gianyar-foodtech/index.html', '_blank')">
+                <div class="company-icon bg-teal">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <h3>🍜 Gianyar FoodTech</h3>
+                <p>Food Delivery & Restaurant Tech. Pesan makanan online.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #14B8A6">8% Progress</span>
+                    <span class="company-target">Target: Rp 8M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 8%; background: #14B8A6"></div>
+                </div>
+            </div>
+
+            <!-- 9. Bali Travel -->
+            <div class="company-card" onclick="window.open('companys/08-bali-travel/index.html', '_blank')">
+                <div class="company-icon bg-rose">
+                    <i class="fas fa-plane"></i>
+                </div>
+                <h3>✈️ Bali Travel ⭐</h3>
+                <p>Tourism & Travel Services. Paket tour, guide lokal, booking.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #F43F5E">25% Progress ⭐</span>
+                    <span class="company-target">Target: Rp 10M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 25%; background: #F43F5E"></div>
+                </div>
+            </div>
+
+            <!-- 10. Gianyar Property -->
+            <div class="company-card" onclick="window.open('companys/09-gianyar-property/index.html', '_blank')">
+                <div class="company-icon bg-amber">
+                    <i class="fas fa-home"></i>
+                </div>
+                <h3>🏠 Gianyar Property</h3>
+                <p>Real Estate Services. Listing properti, agent, konsultasi.</p>
+                <div class="company-meta">
+                    <span class="company-progress" style="color: #F59E0B">10% Progress</span>
+                    <span class="company-target">Target: Rp 10M/bulan</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 10%; background: #F59E0B"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target -->
+    <section class="target-section" id="target">
+        <div class="section-header" style="color: white;">
+            <h2>💰 Revenue Target</h2>
+            <p>Profit Distribution: 60% Owner | 25% Reinvestasi | 10% Team | 5% CSR</p>
+        </div>
+
+        <div class="target-grid">
+            <div class="target-card">
+                <div class="target-number" style="color: #10B981;">60%</div>
+                <div class="target-label">Owner Share (BCA 6485086645)</div>
+            </div>
+            <div class="target-card">
+                <div class="target-number" style="color: #F59E0B;">Rp 600jt</div>
+                <div class="target-label">Per Bulan (dari Target 1B)</div>
+            </div>
+            <div class="target-card">
+                <div class="target-number" style="color: #6366F1;">Rp 7.2M</div>
+                <div class="target-label">Per Tahun (Target Owner)</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2>📞 Contact CEO</h2>
+            <p>i Made Purna Ananda - Pak Pur</p>
+        </div>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fab fa-whatsapp"></i>
+                <div>
+                    <strong>WhatsApp</strong>
+                    <span>0813 3755 8787</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-university"></i>
+                <div>
+                    <strong>Bank BCA</strong>
+                    <span>6485086645</span>
+                </div>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <div>
+                    <strong>GitHub</strong>
+                    <span>prahlad168</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 MAHA LAKSHMI HOLDINGS. All rights reserved.</p>
+        <p>Dibuat dengan ❤️ oleh i Made Purna Ananda | Didukung GAURANGA AI Agent</p>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <a href="https://wa.me/6281337558787?text=Halo%20Pak%20Pur,%20saya%20tertarik%20dengan%20MAHA%20LAKSHMI%20HOLDINGS" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Smooth Scroll -->
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Animate progress bars on scroll
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.querySelectorAll('.progress-fill').forEach(fill => {
+                        fill.style.width = fill.style.width;
+                    });
+                }
+            });
+        });
+
+        document.querySelectorAll('.company-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
