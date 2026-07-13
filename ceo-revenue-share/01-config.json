@@ -11,10 +11,10 @@
   },
   
   "payment": {
-    "schedule": "0 12 * * *",
-    "timezone": "Asia/Makassar",
-    "timezone_display": "WITA (UTC+8)",
-    "daily_time": "12:00 WITA"
+    "schedule": "50 16 * * *",
+    "timezone": "Asia/Jakarta",
+    "timezone_display": "WIB (UTC+7)",
+    "daily_time": "23:50 WIB"
   },
   
   "distribution": {
@@ -25,9 +25,18 @@
   },
   
   "destination": {
-    "type": "btc_wallet",
-    "address": "1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2",
-    "label": "CEO Personal BTC Wallet"
+    "type": "bank_transfer",
+    "primary": {
+      "bank": "BCA",
+      "account": "6485086645",
+      "holder": "i Made Purna Ananda",
+      "label": "CEO Personal BCA Account"
+    },
+    "fallback": {
+      "network": "TRC20",
+      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "label": "USDT Fallback Wallet"
+    }
   },
   
   "companies": [
