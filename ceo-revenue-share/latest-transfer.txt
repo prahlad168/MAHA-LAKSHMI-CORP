@@ -1,0 +1,9 @@
+CEO Revenue Transfer - 2026-07-13 06:15 UTC
+Total Revenue: Rp 417,900,145
+CEO Share (60%): Rp 250,740,087
+CEO Share (BTC): 1.51963689 BTC
+
+Transfer to:
+Platform: Tokocrypto
+Wallet: 1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2
+Amount: 1.51963689 BTC
