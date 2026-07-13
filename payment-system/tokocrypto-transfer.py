@@ -28,16 +28,14 @@ import os
 API_KEY = "d2050BeBEea0AbCB6bD44E4940b4776DDsWDYHAJ5FQK2exVsySNI0vTziRSfzKy"
 SECRET_KEY = "96d395c894166AbAdec4cEBd938a868fhPTxJYbbEwR7yvUyWd2RdYasHOU4Hl0e"
 
-# Wallet address tujuan (PAK PUR ISI ADDRESS USDT TRC20 PAK PUR)
-# Contoh: "TJYs...xxxx" (mulai dengan T untuk Tron/TRC20)
-RECIPIENT_WALLET = "ISI_ADDRESS_USDT_TRC20_PAK_PUR_DISINI"
+# Wallet address tujuan - USDT TRC20 Pak Pur
+RECIPIENT_WALLET = "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6"
 
-# Network (PASTIKAN BENAR!)
-# Untuk USDT di Tokocrypto gunakan TRC20 (lebih murah fee)
-NETWORK = "TRC20"  # Atau "ERC20" untuk Ethereum network
+# Network (TRC20 = Tron network, fee lebih murah)
+NETWORK = "TRC20"
 
 # Jumlah transfer (dalam USDT)
-AMOUNT = "50"  # Minimal 10 USDT biasanya
+AMOUNT = "50"  # ~Rp 750.000
 
 # ============================================
 # KODE DI BAWAH INI JANGAN DIUBAH
