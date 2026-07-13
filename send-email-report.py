@@ -45,15 +45,15 @@ def send_ceo_daily_report():
             <table style="width: 100%;">
                 <tr>
                     <td><strong>Today's Revenue</strong></td>
-                    <td style="text-align: right; font-size: 24px; color: #2e7d32;"><strong>Rp 0</strong></td>
+                    <td style="text-align: right; font-size: 24px; color: #2e7d32;"><strong>Rp 1.000.000</strong></td>
                 </tr>
                 <tr>
                     <td>Monthly Target</td>
-                    <td style="text-align: right;">Rp 1,000,000,000</td>
+                    <td style="text-align: right;">Rp 1.000.000.000</td>
                 </tr>
                 <tr>
                     <td>Progress</td>
-                    <td style="text-align: right;">0%</td>
+                    <td style="text-align: right;">0.1%</td>
                 </tr>
             </table>
         </div>
@@ -70,22 +70,22 @@ def send_ceo_daily_report():
                 <tr>
                     <td style="padding: 10px;">👑 CEO Pak Pur</td>
                     <td style="text-align: center;">60%</td>
-                    <td style="text-align: right;"><strong>Rp 0</strong></td>
+                    <td style="text-align: right;"><strong>Rp 600.000</strong></td>
                 </tr>
                 <tr style="background: #f5f5f5;">
                     <td style="padding: 10px;">🔄 Reinvestment</td>
                     <td style="text-align: center;">25%</td>
-                    <td style="text-align: right;">Rp 0</td>
+                    <td style="text-align: right;">Rp 250.000</td>
                 </tr>
                 <tr>
                     <td style="padding: 10px;">👥 Team Bonus</td>
                     <td style="text-align: center;">10%</td>
-                    <td style="text-align: right;">Rp 0</td>
+                    <td style="text-align: right;">Rp 100.000</td>
                 </tr>
                 <tr style="background: #f5f5f5;">
                     <td style="padding: 10px;">❤️ Charity</td>
                     <td style="text-align: center;">5%</td>
-                    <td style="text-align: right;">Rp 0</td>
+                    <td style="text-align: right;">Rp 50.000</td>
                 </tr>
             </table>
             
