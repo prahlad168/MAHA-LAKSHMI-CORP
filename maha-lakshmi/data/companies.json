@@ -1,0 +1,399 @@
+{
+  "last_updated": "2026-07-02T06:00:00+08:00",
+  "generated_at": "2026-07-02T17:25:00+08:00",
+  "is_live": true,
+  "auto_refresh_seconds": 30,
+  "companies": [
+    {
+      "id": 1,
+      "name": "Gianyar Tech Solutions",
+      "short": "GTS",
+      "niche": "Software Development & SaaS",
+      "status": "active",
+      "progress": 15,
+      "revenue": 0,
+      "target": 10000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Setup development environment",
+        "Create MVP requirements document",
+        "Complete market research",
+        "Design database schema"
+      ],
+      "doing_today": [
+        "Building core SaaS features",
+        "Coding user authentication",
+        "Implementing API endpoints",
+        "Designing dashboard UI"
+      ],
+      "next_tomorrow": [
+        "Deploy MVP to staging server",
+        "Setup payment gateway integration",
+        "Start beta testing with 5 users",
+        "Create user documentation"
+      ],
+      "blockers": [],
+      "metrics": {
+        "website_visits": 0,
+        "conversion_rate": 0,
+        "avg_session": "0 min"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Bali Digital Agency",
+      "short": "BDA",
+      "niche": "Web Development & Design",
+      "status": "active",
+      "progress": 20,
+      "revenue": 0,
+      "target": 10000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Create portfolio website template",
+        "Design service package brochures",
+        "Setup client inquiry form",
+        "Write 3 case studies"
+      ],
+      "doing_today": [
+        "Building portfolio website",
+        "Optimizing for SEO",
+        "Creating service landing pages",
+        "Setting up WhatsApp Business"
+      ],
+      "next_tomorrow": [
+        "Launch portfolio website",
+        "Start cold outreach to 50 businesses",
+        "Setup Google My Business",
+        "Create Instagram content"
+      ],
+      "blockers": [],
+      "metrics": {
+        "website_visits": 0,
+        "proposals_sent": 0,
+        "response_rate": "0%"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Gianyar E-commerce",
+      "short": "GEC",
+      "niche": "Online Marketplace",
+      "status": "active",
+      "progress": 12,
+      "revenue": 0,
+      "target": 8000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Select e-commerce platform (Shopify)",
+        "Research supplier partnerships",
+        "Define product categories",
+        "Create vendor application form"
+      ],
+      "doing_today": [
+        "Setting up Shopify store",
+        "Configuring payment methods",
+        "Creating vendor dashboard",
+        "Designing product page template"
+      ],
+      "next_tomorrow": [
+        "Onboard first 5 vendors",
+        "Upload 50 products",
+        "Setup shipping integration",
+        "Soft launch to test group"
+      ],
+      "blockers": [],
+      "metrics": {
+        "products_listed": 0,
+        "vendors_onboarded": 0,
+        "orders_placed": 0
+      }
+    },
+    {
+      "id": 4,
+      "name": "Bali EdTech",
+      "short": "BET",
+      "niche": "Online Education Platform",
+      "status": "active",
+      "progress": 10,
+      "revenue": 0,
+      "target": 10000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Define 5 course topics",
+        "Research target audience",
+        "Compare platforms (Teachable vs Kajabi)",
+        "Create course outline for first course"
+      ],
+      "doing_today": [
+        "Developing curriculum content",
+        "Recording video introductions",
+        "Designing learning path",
+        "Creating promotional materials"
+      ],
+      "next_tomorrow": [
+        "Complete first course (50% done)",
+        "Setup Teachable account",
+        "Create landing page",
+        "Start beta with 10 students"
+      ],
+      "blockers": [],
+      "metrics": {
+        "courses_created": 0,
+        "students_enrolled": 0,
+        "completion_rate": "0%"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Gianyar Finance",
+      "short": "GFN",
+      "niche": "Financial Services",
+      "status": "active",
+      "progress": 12,
+      "revenue": 0,
+      "target": 15000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Define service offerings",
+        "Research compliance requirements",
+        "Identify target market (SMEs)",
+        "Create financial calculator prototype"
+      ],
+      "doing_today": [
+        "Building loan calculator tool",
+        "Creating blog content calendar",
+        "Designing service landing page",
+        "Setting up consultation booking"
+      ],
+      "next_tomorrow": [
+        "Launch free calculator tool",
+        "Publish 3 educational articles",
+        "Start free consultation sessions",
+        "Build email list"
+      ],
+      "blockers": [],
+      "metrics": {
+        "tools_used": 0,
+        "consultations_booked": 0,
+        "leads_generated": 0
+      }
+    },
+    {
+      "id": 6,
+      "name": "Bali Logistics",
+      "short": "BLOG",
+      "niche": "Delivery & Shipping Services",
+      "status": "active",
+      "progress": 8,
+      "revenue": 0,
+      "target": 8000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Map delivery routes in Gianyar",
+        "Research partner courier services",
+        "Define pricing structure",
+        "Create operations workflow"
+      ],
+      "doing_today": [
+        "Building tracking system dashboard",
+        "Negotiating with courier partners",
+        "Creating merchant onboarding form",
+        "Designing tracking page"
+      ],
+      "next_tomorrow": [
+        "Sign partnership with 3 couriers",
+        "Onboard first 10 merchants",
+        "Test delivery routes",
+        "Soft launch in Gianyar area"
+      ],
+      "blockers": [],
+      "metrics": {
+        "courier_partners": 0,
+        "merchants_onboarded": 0,
+        "deliveries_completed": 0
+      }
+    },
+    {
+      "id": 7,
+      "name": "Gianyar FoodTech",
+      "short": "GFT",
+      "niche": "Food Delivery & Restaurant Tech",
+      "status": "active",
+      "progress": 8,
+      "revenue": 0,
+      "target": 8000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "List potential restaurant partners",
+        "Map delivery zones",
+        "Define commission rates (15%)",
+        "Create restaurant dashboard mockup"
+      ],
+      "doing_today": [
+        "Building restaurant management system",
+        "Creating menu integration API",
+        "Designing customer ordering app",
+        "Negotiating with first restaurants"
+      ],
+      "next_tomorrow": [
+        "Sign 5 restaurant partners",
+        "Setup payment integration",
+        "Test ordering flow",
+        "Beta launch to office workers"
+      ],
+      "blockers": [],
+      "metrics": {
+        "restaurants_signed": 0,
+        "menus_uploaded": 0,
+        "orders_completed": 0
+      }
+    },
+    {
+      "id": 8,
+      "name": "Bali Travel",
+      "short": "BTRAV",
+      "niche": "Tourism & Travel Services",
+      "status": "active",
+      "progress": 25,
+      "revenue": 0,
+      "target": 10000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Create 10 tour packages",
+        "Partner with 5 local guides",
+        "Setup booking system",
+        "Create landing page with booking form"
+      ],
+      "doing_today": [
+        "Marketing to travel agents",
+        "Creating tour itineraries",
+        "Setting up Google Business Profile",
+        "Building partnerships with hotels"
+      ],
+      "next_tomorrow": [
+        "First booking inquiries (target: 3)",
+        "Setup WhatsApp group for agents",
+        "Create promotional videos",
+        "List on Google Travel"
+      ],
+      "blockers": [],
+      "metrics": {
+        "tour_packages": 10,
+        "inquiries_received": 0,
+        "bookings_confirmed": 0
+      }
+    },
+    {
+      "id": 9,
+      "name": "Gianyar Property",
+      "short": "GPROP",
+      "niche": "Real Estate Services",
+      "status": "active",
+      "progress": 10,
+      "revenue": 0,
+      "target": 10000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Build property listings database",
+        "Recruit 5 property agents",
+        "Define commission structure (2.5%)",
+        "Create agent dashboard"
+      ],
+      "doing_today": [
+        "Taking property photographs",
+        "Creating virtual tour walkthroughs",
+        "Writing property descriptions",
+        "Building listings website"
+      ],
+      "next_tomorrow": [
+        "Publish first 20 listings",
+        "Launch agent training program",
+        "Start Facebook property ads",
+        "Partner with local banks"
+      ],
+      "blockers": [],
+      "metrics": {
+        "properties_listed": 0,
+        "viewings_scheduled": 0,
+        "deals_closed": 0
+      }
+    },
+    {
+      "id": 10,
+      "name": "Gianyar Consulting",
+      "short": "GCONS",
+      "niche": "Business & IT Consulting",
+      "status": "active",
+      "progress": 18,
+      "revenue": 0,
+      "target": 12000000,
+      "agents": 6,
+      "leads": 0,
+      "customers": 0,
+      "done_yesterday": [
+        "Define consulting service packages",
+        "Build expert team (3 consultants)",
+        "Create 5 case studies",
+        "Design proposal templates"
+      ],
+      "doing_today": [
+        "Building consulting proposal generator",
+        "Hosting free webinar series",
+        "LinkedIn outreach to SMEs",
+        "Creating lead magnet (e-book)"
+      ],
+      "next_tomorrow": [
+        "Close first paying client",
+        "Publish webinar recording",
+        "Get 3 testimonials",
+        "Scale to 5 active clients"
+      ],
+      "blockers": [],
+      "metrics": {
+        "webinars_hosted": 0,
+        "leads_from_webinar": 0,
+        "clients_served": 0
+      }
+    }
+  ],
+  "totals": {
+    "total_revenue": 0,
+    "total_target": 100000000,
+    "total_agents": 60,
+    "total_leads": 0,
+    "total_customers": 0,
+    "overall_progress": 13
+  },
+  "profit_distribution": {
+    "ceo_share_percent": 60,
+    "reinvest_percent": 25,
+    "agent_percent": 10,
+    "reserve_percent": 5,
+    "bank_account": "BCA 6485086645",
+    "account_name": "Prahlad"
+  },
+  "schedule": {
+    "daily_update": "06:00 WIB",
+    "profit_calculation": "23:00 WIB",
+    "auto_transfer": "06:00 WIB"
+  }
+}

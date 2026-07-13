@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GAURANGA - Audio Test</title>
+    <style>
+        body { font-family: Arial; padding: 50px; text-align: center; background: #1a1a2e; color: white; }
+        .btn { padding: 15px 30px; font-size: 18px; background: #FF6B35; color: white; border: none; border-radius: 10px; cursor: pointer; margin: 10px; }
+        .btn:hover { background: #E85A24; }
+        .status { margin-top: 20px; padding: 20px; background: #16213e; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🔊 GAURANGA VOICE TEST</h1>
+    <p>Click button untuk test suara GAURANGA</p>
+    
+    <button class="btn" onclick="speakReady()">🔊 GAURANGA READY</button>
+    <button class="btn" onclick="speakConfirm()">✅ CONFIRM</button>
+    <button class="btn" onclick="speakComplete()">🎯 COMPLETE</button>
+    
+    <div class="status" id="status">
+        <p>Status: Ready</p>
+    </div>
+    
+    <script>
+        let audioContext;
+        
+        function speakReady() {
+            speak("Ya, Pak Pur! Gaurangga siap menerima perintah!");
+            document.getElementById("status").innerHTML = "<p>Status: GAURANGA READY! 🔊</p>";
+        }
+        
+        function speakConfirm() {
+            speak("Baik, Pak Pur! Saya akan mengerjakan tugas ini!");
+            document.getElementById("status").innerHTML = "<p>Status: CONFIRMED! ✅</p>";
+        }
+        
+        function speakComplete() {
+            speak("Selesai, Pak Pur! Tugas sudah selesai!");
+            document.getElementById("status").innerHTML = "<p>Status: COMPLETE! 🎉</p>";
+        }
+        
+        function speak(text) {
+            // Use Web Speech API (no external dependencies)
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'id-ID';
+                utterance.rate = 0.95;
+                utterance.pitch = 1.1;
+                speechSynthesis.speak(utterance);
+            } else {
+                alert("Browser tidak support Text-to-Speech. Gunakan Chrome/Firefox.");
+            }
+        }
+        
+        // Auto-play on load
+        window.onload = function() {
+            setTimeout(() => {
+                speak("Ya, Pak Pur! Gaurangga siap menerima perintah!");
+            }, 1000);
+        };
+    </script>
+</body>
+</html>

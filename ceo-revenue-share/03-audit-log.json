@@ -1,0 +1,112 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-07-13",
+    "last_updated": "2026-07-13T14:25:59.856952",
+    "total_entries": 7
+  },
+  "entries": [
+    {
+      "timestamp": "2026-07-13T01:34:43.318202",
+      "action": "ADD_REVENUE",
+      "entry_id": "REV-20260713-001",
+      "amount": 1000000.0,
+      "currency": "IDR",
+      "amount_idr": 1000000.0,
+      "company": "Bali Travel",
+      "source": "WhatsApp Sales",
+      "status": "SUCCESS"
+    }
+  ],
+  "execution_log": [
+    {
+      "timestamp": "2026-07-13 01:32:40",
+      "action": "DAILY_EXECUTION",
+      "date": "2026-07-13",
+      "total_revenue": 0,
+      "ceo_share": 0.0,
+      "status": "SUCCESS",
+      "notes": "",
+      "reference": "RS-20260713-001"
+    },
+    {
+      "timestamp": "2026-07-13 01:34:47",
+      "action": "DAILY_EXECUTION",
+      "date": "2026-07-13",
+      "total_revenue": 1000000.0,
+      "ceo_share": 600000.0,
+      "status": "SUCCESS",
+      "notes": "",
+      "reference": "RS-20260713-001"
+    },
+    {
+      "timestamp": "2026-07-13 04:27:27",
+      "action": "DAILY_EXECUTION",
+      "date": "2026-07-13",
+      "total_revenue": 1000000.0,
+      "ceo_share": 600000.0,
+      "status": "SUCCESS",
+      "notes": "",
+      "reference": "RS-20260713-001"
+    },
+    {
+      "timestamp": "2026-07-13 06:54:26",
+      "action": "DAILY_EXECUTION",
+      "date": "2026-07-13",
+      "total_revenue": 1000000.0,
+      "ceo_share": 600000.0,
+      "status": "SUCCESS",
+      "notes": "",
+      "reference": "RS-20260713-001"
+    },
+    {
+      "timestamp": "2026-07-13 14:25:00",
+      "action": "DAILY_EXECUTION",
+      "date": "2026-07-13",
+      "total_revenue": 1000000.0,
+      "ceo_share": 600000.0,
+      "status": "SUCCESS",
+      "notes": "",
+      "reference": "RS-20260713-001"
+    },
+    {
+      "timestamp": "2026-07-13 14:25:59",
+      "action": "DAILY_EXECUTION",
+      "date": "2026-07-13",
+      "total_revenue": 1000000.0,
+      "ceo_share": 600000.0,
+      "status": "SUCCESS",
+      "notes": "",
+      "reference": "RS-20260713-001"
+    }
+  ],
+  "errors": [],
+  "ceo_share_payments": [
+    {
+      "timestamp": "2026-07-13 11:30:03",
+      "action": "CEO_BTC_TRANSFER",
+      "date": "2026-07-13",
+      "reference": "BTC-20260713113003",
+      "amount_idr": 600000.0,
+      "amount_btc": 0.00051732,
+      "amount_sats": 51732,
+      "network_fee_sats": 1000,
+      "btc_price": 1137824297,
+      "destination": "1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2",
+      "status": "PENDING_MANUAL",
+      "txid": null,
+      "notes": "Manual transfer required - no API configured"
+    },
+    {
+      "timestamp": "2026-07-13 11:37:51",
+      "action": "CEO_BCA_TRANSFER",
+      "date": "2026-07-13",
+      "reference": "BCA-20260713113751",
+      "amount_idr": 600000.0,
+      "amount_btc": null,
+      "destination": "BCA 6485086645",
+      "status": "PENDING_EXECUTION",
+      "notes": "BCA transfer - self transfer to CEO account"
+    }
+  ]
+}

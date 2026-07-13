@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔴 LIVE SALES DASHBOARD - MAHA LAKSHMI</title>
+    <meta http-equiv="refresh" content="60">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0f0f23 100%);
+            color: #00ff00;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 30px;
+            background: linear-gradient(135deg, #ff0000 0%, #ff6600 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 20px #ff0000; }
+            50% { transform: scale(1.02); box-shadow: 0 0 40px #ff6600; }
+        }
+        .header h1 { font-size: 2.5rem; color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); }
+        .live-indicator {
+            display: inline-block;
+            width: 15px; height: 15px;
+            background: #ff0000;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+            margin-right: 10px;
+        }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(0, 255, 0, 0.1);
+            border: 2px solid #00ff00;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .stat-card:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(0,255,0,0.5); }
+        .stat-card h3 { color: #00ff00; margin-bottom: 15px; font-size: 1.2rem; }
+        .stat-card .value { font-size: 3rem; font-weight: bold; color: #ffff00; }
+        .stat-card .target { color: #00ff00; margin-top: 10px; }
+        
+        .revenue-card {
+            background: linear-gradient(135deg, #ff0000 0%, #ff6600 100%);
+            border-color: #ff0000;
+        }
+        .revenue-card h3 { color: white; }
+        .revenue-card .value { color: #ffffff; font-size: 4rem; }
+        .revenue-card .target { color: #ffff00; }
+        
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .company-card {
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .company-card:hover { transform: translateY(-5px); box-shadow: 0 0 20px rgba(0,255,255,0.5); }
+        .company-card h4 { color: #00ffff; margin-bottom: 15px; font-size: 1.1rem; }
+        .company-card .revenue { font-size: 1.5rem; color: #ffff00; margin-bottom: 5px; }
+        .company-card .target { color: #00ff00; font-size: 0.9rem; }
+        .company-card .progress {
+            width: 100%; height: 8px;
+            background: #333;
+            border-radius: 4px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        .company-card .progress-bar { height: 100%; background: linear-gradient(90deg, #00ff00, #ffff00); transition: width 1s; }
+        
+        .sales-feed {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid #ff00ff;
+            border-radius: 15px;
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .sales-feed h3 { color: #ff00ff; margin-bottom: 15px; text-align: center; }
+        .sales-item {
+            background: rgba(255, 0, 255, 0.1);
+            border-left: 4px solid #ff00ff;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            animation: slideIn 0.5s ease;
+        }
+        @keyframes slideIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+        .sales-item .time { color: #888; font-size: 0.8rem; }
+        .sales-item .company { color: #00ffff; }
+        .sales-item .amount { color: #ffff00; font-weight: bold; }
+        .sales-item .status { color: #00ff00; }
+        
+        .timer {
+            text-align: center;
+            font-size: 2rem;
+            color: #ff0000;
+            margin: 20px 0;
+            animation: timerPulse 1s infinite;
+        }
+        @keyframes timerPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 255, 0, 0.1);
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+        .footer .bank { color: #ffff00; font-size: 1.5rem; margin: 10px 0; }
+        .footer .ceo { color: #00ff00; }
+        
+        .whatsapp-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 20px auto;
+            text-align: center;
+            animation: pulse 2s infinite;
+            box-shadow: 0 5px 25px rgba(37, 211, 102, 0.5);
+        }
+        .whatsapp-btn:hover { transform: scale(1.1); }
+        
+        .auto-refresh {
+            text-align: center;
+            color: #888;
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1><span class="live-indicator"></span>🔴 LIVE SALES DASHBOARD</h1>
+        <p style="color: white; margin-top: 10px;">MAHA LAKSHMI HOLDINGS - REAL TIME</p>
+        <p id="datetime" style="color: #ffff00; font-size: 1.2rem; margin-top: 10px;"></p>
+    </div>
+    
+    <div class="timer">
+        ⏰ NEXT UPDATE DALAM: <span id="countdown">60</span> DETIK
+    </div>
+    
+    <div class="stats-grid">
+        <div class="stat-card revenue-card">
+            <h3>💰 TOTAL REVENUE HARI INI</h3>
+            <div class="value" id="total-revenue">Rp 0</div>
+            <div class="target">TARGET: Rp 10.000.000.000</div>
+        </div>
+        <div class="stat-card">
+            <h3>📊 TOTAL DEALS</h3>
+            <div class="value" id="total-deals">0</div>
+            <div class="target">TARGET: 1000 deals</div>
+        </div>
+        <div class="stat-card">
+            <h3>📱 MESSAGES SENT</h3>
+            <div class="value" id="messages-sent">0</div>
+            <div class="target">TARGET: 10000</div>
+        </div>
+        <div class="stat-card">
+            <h3>📞 CALLS MADE</h3>
+            <div class="value" id="calls-made">0</div>
+            <div class="target">TARGET: 500</div>
+        </div>
+        <div class="stat-card">
+            <h3>💬 RESPONSES</h3>
+            <div class="value" id="responses">0</div>
+            <div class="target">RATE: 30%</div>
+        </div>
+        <div class="stat-card">
+            <h3>🎯 CONVERSION</h3>
+            <div class="value" id="conversion">0%</div>
+            <div class="target">TARGET: 10%</div>
+        </div>
+    </div>
+    
+    <h2 style="color: #00ffff; text-align: center; margin: 30px 0;">🏢 10 COMPANIES REVENUE</h2>
+    
+    <div class="companies-grid">
+        <div class="company-card">
+            <h4>🏥 1. Payangan Hospital AI</h4>
+            <div class="revenue">Rp <span id="rev-1">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-1">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-1" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>💻 2. Gianyar Tech Solutions</h4>
+            <div class="revenue">Rp <span id="rev-2">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-2">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-2" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>📢 3. Bali Digital Agency</h4>
+            <div class="revenue">Rp <span id="rev-3">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-3">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-3" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>🛒 4. Gianyar E-Commerce</h4>
+            <div class="revenue">Rp <span id="rev-4">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-4">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-4" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>🎓 5. Bali EdTech</h4>
+            <div class="revenue">Rp <span id="rev-5">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-5">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-5" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>💰 6. Gianyar Finance</h4>
+            <div class="revenue">Rp <span id="rev-6">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-6">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-6" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>🚚 7. Bali Logistics</h4>
+            <div class="revenue">Rp <span id="rev-7">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-7">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-7" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>🍜 8. Gianyar FoodTech</h4>
+            <div class="revenue">Rp <span id="rev-8">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-8">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-8" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>✈️ 9. Bali Travel ⭐</h4>
+            <div class="revenue">Rp <span id="rev-9">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-9">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-9" style="width: 0%"></div></div>
+        </div>
+        <div class="company-card">
+            <h4>🏠 10. Gianyar Property</h4>
+            <div class="revenue">Rp <span id="rev-10">0</span></div>
+            <div class="target">Target: Rp 1M | <span id="target-10">0</span>%</div>
+            <div class="progress"><div class="progress-bar" id="bar-10" style="width: 0%"></div></div>
+        </div>
+    </div>
+    
+    <h2 style="color: #ff00ff; text-align: center; margin: 30px 0;">📈 LIVE SALES FEED</h2>
+    
+    <div class="sales-feed" id="sales-feed">
+        <h3>🔴 REAL TIME ACTIVITY</h3>
+        <div id="feed-content">
+            <div class="sales-item">
+                <span class="time">[--:--:--]</span> - Waiting for sales activity...
+            </div>
+        </div>
+    </div>
+    
+    <div style="text-align: center; margin: 30px 0;">
+        <h3 style="color: white;">📱 START WHATSAPP SALES NOW!</h3>
+        <a href="https://wa.me/6281337558787?text=Halo%20Bali%20Travel,%20saya%20tertarik%20partnership%20tour%2015%25" class="whatsapp-btn" target="_blank">
+            💬 KIRIM WHATSAPP SEKARANG!
+        </a>
+    </div>
+    
+    <div class="footer">
+        <div class="bank">🏦 BCA: 6485086645</div>
+        <div class="ceo">👑 CEO: i Made Purna Ananda</div>
+        <div style="color: #888; margin-top: 10px;">WhatsApp: 081337558787 | GitHub: prahlad168/MAHA-LAKSHMI-CORP</div>
+        <div style="color: #ff0000; margin-top: 15px; font-size: 1.2rem;">🔥 TARGET: Rp 10 MILYAR HARI INI! 🔥</div>
+    </div>
+    
+    <div class="auto-refresh">
+        🔄 Auto-refresh setiap 60 detik | Last update: <span id="last-update">--:--:--</span>
+    </div>
+    
+    <script>
+        // Real-time data simulation
+        let salesData = {
+            totalRevenue: 0,
+            totalDeals: 0,
+            messagesSent: 0,
+            callsMade: 0,
+            responses: 0,
+            companies: [0,0,0,0,0,0,0,0,0,0]
+        };
+        
+        const companies = [
+            "Payangan Hospital AI",
+            "Gianyar Tech Solutions", 
+            "Bali Digital Agency",
+            "Gianyar E-Commerce",
+            "Bali EdTech",
+            "Gianyar Finance",
+            "Bali Logistics",
+            "Gianyar FoodTech",
+            "Bali Travel ⭐",
+            "Gianyar Property"
+        ];
+        
+        const salesFeed = document.getElementById('feed-content');
+        
+        function formatRupiah(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+        
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('datetime').textContent = now.toLocaleString('id-ID', { 
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            });
+            document.getElementById('last-update').textContent = now.toLocaleTimeString('id-ID');
+        }
+        
+        function updateCountdown() {
+            let seconds = 60;
+            const countdown = setInterval(() => {
+                seconds--;
+                document.getElementById('countdown').textContent = seconds;
+                if (seconds <= 0) clearInterval(countdown);
+            }, 1000);
+        }
+        
+        function updateDashboard() {
+            document.getElementById('total-revenue').textContent = 'Rp ' + formatRupiah(salesData.totalRevenue);
+            document.getElementById('total-deals').textContent = salesData.totalDeals;
+            document.getElementById('messages-sent').textContent = salesData.messagesSent;
+            document.getElementById('calls-made').textContent = salesData.callsMade;
+            document.getElementById('responses').textContent = salesData.responses;
+            
+            const convRate = salesData.messagesSent > 0 ? ((salesData.deals / salesData.messagesSent) * 100).toFixed(1) : 0;
+            document.getElementById('conversion').textContent = convRate + '%';
+            
+            for (let i = 0; i < 10; i++) {
+                document.getElementById('rev-' + (i+1)).textContent = formatRupiah(salesData.companies[i]);
+                const pct = Math.min(100, (salesData.companies[i] / 1000000) * 100);
+                document.getElementById('target-' + (i+1)).textContent = pct.toFixed(1);
+                document.getElementById('bar-' + (i+1)).style.width = pct + '%';
+            }
+            
+            updateTime();
+            updateCountdown();
+        }
+        
+        function addSalesItem(company, amount, status) {
+            const now = new Date();
+            const time = now.toLocaleTimeString('id-ID');
+            
+            const item = document.createElement('div');
+            item.className = 'sales-item';
+            item.innerHTML = `
+                <span class="time">[${time}]</span> - 
+                <span class="company">${company}</span> - 
+                <span class="amount">Rp ${formatRupiah(amount)}</span> - 
+                <span class="status">${status}</span>
+            `;
+            
+            salesFeed.insertBefore(item, salesFeed.firstChild);
+            
+            if (salesFeed.children.length > 20) {
+                salesFeed.removeChild(salesFeed.lastChild);
+            }
+        }
+        
+        // Simulasi aktivitas real-time
+        function simulateActivity() {
+            const random = Math.random();
+            
+            if (random < 0.3) {
+                salesData.messagesSent++;
+                const companyIdx = Math.floor(Math.random() * 10);
+                addSalesItem(companies[companyIdx], 0, '📱 Message Sent');
+            } else if (random < 0.5) {
+                salesData.callsMade++;
+                const companyIdx = Math.floor(Math.random() * 10);
+                addSalesItem(companies[companyIdx], 0, '📞 Call Made');
+            } else if (random < 0.6) {
+                salesData.responses++;
+                const companyIdx = Math.floor(Math.random() * 10);
+                addSalesItem(companies[companyIdx], 0, '💬 Response Received');
+            } else if (random < 0.8) {
+                const companyIdx = Math.floor(Math.random() * 10);
+                const amounts = [500000, 750000, 1000000, 1500000, 2500000];
+                const amount = amounts[Math.floor(Math.random() * amounts.length)];
+                
+                salesData.companies[companyIdx] += amount;
+                salesData.totalRevenue += amount;
+                salesData.totalDeals++;
+                
+                addSalesItem(companies[companyIdx], amount, '✅ DEAL CLOSED!');
+            }
+            
+            updateDashboard();
+        }
+        
+        // Update setiap 60 detik
+        setInterval(simulateActivity, 60000);
+        
+        // Initial update
+        updateDashboard();
+        
+        // Audio notification
+        function playSound() {
+            const audio = new Audio('data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2teleQYAKI/R7byMRAAELIHO9tiOTQAhjs3v2Y1LABGN0O3NjUsA');
+            audio.play().catch(() => {});
+        }
+    </script>
+</body>
+</html>

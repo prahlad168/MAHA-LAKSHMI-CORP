@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 Agent Gaurangga - AI Executive Partner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --secondary: #ec4899;
+            --accent: #f59e0b;
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --bg-card-hover: #334155;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #334155;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --error: #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(245, 158, 11, 0.08) 0%, transparent 40%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(-2%, -2%) rotate(1deg); }
+            66% { transform: translate(2%, 2%) rotate(-1deg); }
+        }
+
+        /* Header */
+        .header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(15, 23, 42, 0.8);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .header-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+        }
+
+        /* Main Container */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 2rem;
+        }
+
+        @media (max-width: 1024px) {
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Chat Interface */
+        .chat-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: calc(100vh - 150px);
+            min-height: 600px;
+        }
+
+        .chat-header {
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1), rgba(236, 72, 153, 0.1));
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .chat-status {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .chat-title {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .message.assistant .message-avatar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .message.user .message-avatar {
+            background: var(--bg-card-hover);
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 1rem 1.25rem;
+            border-radius: 16px;
+            line-height: 1.6;
+        }
+
+        .message.assistant .message-content {
+            background: var(--bg-card-hover);
+            border-bottom-left-radius: 4px;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-bottom-right-radius: 4px;
+        }
+
+        .message-content code {
+            background: rgba(0,0,0,0.3);
+            padding: 0.2em 0.4em;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .message-content pre {
+            background: rgba(0,0,0,0.3);
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+
+        .message-content ul, .message-content ol {
+            margin-left: 1.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .message-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0.5rem 0;
+            font-size: 0.9em;
+        }
+
+        .message-content th, .message-content td {
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            text-align: left;
+        }
+
+        .message-content th {
+            background: rgba(0,0,0,0.2);
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 1rem;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: var(--text-secondary);
+            border-radius: 50%;
+            animation: typingBounce 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) { animation-delay: 0s; }
+        .typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+        .typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typingBounce {
+            0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+            40% { transform: scale(1); opacity: 1; }
+        }
+
+        /* Chat Input */
+        .chat-input-container {
+            padding: 1rem 1.5rem;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+        }
+
+        .voice-buttons {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .voice-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .voice-btn.listen {
+            background: linear-gradient(135deg, var(--error), #dc2626);
+            color: white;
+        }
+
+        .voice-btn.listen:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .voice-btn.listen.active {
+            animation: pulseRecord 1s infinite;
+        }
+
+        @keyframes pulseRecord {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            50% { box-shadow: 0 0 0 15px rgba(239, 68, 68, 0); }
+        }
+
+        .voice-btn.speak {
+            background: linear-gradient(135deg, var(--success), #16a34a);
+            color: white;
+        }
+
+        .voice-btn.speak:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+        }
+
+        .input-wrapper {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-end;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 1rem 1.25rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            resize: none;
+            max-height: 150px;
+            font-family: inherit;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+        }
+
+        .chat-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .send-btn {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border: none;
+            border-radius: 14px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 1rem 1.25rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-bottom: 1px solid var(--border);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            text-align: center;
+        }
+
+        .profile-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 20px;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.4);
+        }
+
+        .profile-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .profile-role {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .profile-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, var(--accent), #d97706);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.75rem;
+        }
+
+        .action-btn {
+            padding: 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .action-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .action-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        /* Companies Grid */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+
+        .company-item {
+            padding: 0.75rem;
+            background: var(--bg-dark);
+            border-radius: 10px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .company-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        .company-status.active { background: var(--success); }
+        .company-status.ready { background: var(--accent); }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background: var(--bg-dark);
+            padding: 1rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .stat-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .stat-card .label {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+
+        /* Voice Settings */
+        .voice-settings {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .setting-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .setting-label {
+            font-size: 0.875rem;
+        }
+
+        .voice-select {
+            padding: 0.5rem 1rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            font-size: 0.875rem;
+        }
+
+        .voice-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .range-slider {
+            width: 100%;
+            -webkit-appearance: none;
+            height: 6px;
+            background: var(--bg-dark);
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .range-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
+            }
+
+            .header-stats {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .main-container {
+                padding: 1rem;
+            }
+
+            .chat-section {
+                height: calc(100vh - 200px);
+                min-height: 400px;
+            }
+
+            .message-content {
+                max-width: 90%;
+            }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <div class="logo-icon">👑</div>
+            <div>
+                <div class="logo-text">Agent Gaurangga</div>
+                <div class="logo-subtitle">Agent Alpha • Executive AI Partner</div>
+            </div>
+        </div>
+        <div class="header-stats">
+            <div class="stat-item">
+                <div class="stat-value">10</div>
+                <div class="stat-label">SBUs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">60</div>
+                <div class="stat-label">AI Agents</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value">Rp 1B</div>
+                <div class="stat-label">Target/Bulan</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-container">
+        <!-- Chat Section -->
+        <section class="chat-section">
+            <div class="chat-header">
+                <div class="chat-status">
+                    <div class="status-dot"></div>
+                    <span>Online</span>
+                </div>
+                <div class="chat-title">Percakapan dengan Agent Gaurangga</div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome Message -->
+                <div class="message assistant">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p>Selamat pagi, <strong>Pak Pur</strong>! 👋</p>
+                        <p style="margin-top: 0.5rem;">Saya <strong>Agent Gaurangga</strong>, Partner Eksekutif AI Anda di ekosistem <strong>Maha Laksmi Corp</strong>.</p>
+                        <p style="margin-top: 0.5rem;">Saya sudah mempelajari seluruh pengetahuan bisnis Anda:</p>
+                        <ul style="margin-top: 0.5rem;">
+                            <li>📊 10 Strategic Business Units (SBUs)</li>
+                            <li>💰 Target Revenue: Rp 1.000.000.000/bulan</li>
+                            <li>🤖 60+ AI Agents aktif</li>
+                            <li>🏦 Bank BCA: 6485086645</li>
+                            <li>👤 Owner Share: 60% profit</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">🎤 <strong>Anda bisa bicara langsung</strong> dengan saya! Klik tombol <strong>"🎤 Bicara"</strong> di bawah untuk mulai.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <div class="voice-buttons">
+                    <button class="voice-btn listen" id="listenBtn" onclick="toggleVoiceInput()">
+                        <span>🎤</span> Bicara
+                    </button>
+                    <button class="voice-btn speak" id="speakBtn" onclick="speakLastMessage()">
+                        <span>🔊</span> Ulangi
+                    </button>
+                </div>
+                <div class="input-wrapper">
+                    <textarea 
+                        class="chat-input" 
+                        id="chatInput" 
+                        placeholder="Ketik pesan Anda di sini... atau klik 🎤 untuk bicara langsung"
+                        rows="1"
+                        onkeydown="handleKeyDown(event)"
+                        oninput="autoResize(this)"
+                    ></textarea>
+                    <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M22 2L11 13M22 2L15 22L11 13M22 2L2 9L11 13"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Profile Card -->
+            <div class="card profile-card">
+                <div class="card-body">
+                    <div class="profile-avatar">🤖</div>
+                    <div class="profile-name">Agent Gaurangga</div>
+                    <div class="profile-role">Agent Alpha • Chief AI Executive</div>
+                    <div class="profile-badge">
+                        <span>👑</span>
+                        Agent Alpha
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="card">
+                <div class="card-header">
+                    <span>⚡</span> Aksi Cepat
+                </div>
+                <div class="card-body">
+                    <div class="quick-actions">
+                        <button class="action-btn" onclick="quickAction('report')">
+                            <div class="action-icon">📊</div>
+                            <div class="action-label">Laporan Harian</div>
+                        </button>
+                        <button class="action-btn" onclick="quickAction('status')">
+                            <div class="action-icon">📈</div>
+                            <div class="action-label">Status SBU</div>
+                        </button>
+                        <button class="action-btn" onclick="quickAction('revenue')">
+                            <div class="action-icon">💰</div>
+                            <div class="action-label">Revenue</div>
+                        </button>
+                        <button class="action-btn" onclick="quickAction('help')">
+                            <div class="action-icon">❓</div>
+                            <div class="action-label">Bantuan</div>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Companies Status -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🏢</span> Status Perusahaan
+                </div>
+                <div class="card-body">
+                    <div class="companies-grid">
+                        <div class="company-item">
+                            <div class="company-status active"></div>
+                            <span>Payangan AI</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Gianyar Tech</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Bali Digital</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>E-Commerce</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Bali EdTech</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Finance Tech</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Logistics</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Food Tech</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Travel</span>
+                        </div>
+                        <div class="company-item">
+                            <div class="company-status ready"></div>
+                            <span>Property</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="card">
+                <div class="card-header">
+                    <span>📊</span> Target Hari Ini
+                </div>
+                <div class="card-body">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="value">Rp 0</div>
+                            <div class="label">Revenue</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value">6</div>
+                            <div class="label">Agents Aktif</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value">0</div>
+                            <div class="label">Leads</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="value">0</div>
+                            <div class="label">Customers</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Voice Settings -->
+            <div class="card">
+                <div class="card-header">
+                    <span>🎛️</span> Pengaturan Suara
+                </div>
+                <div class="card-body">
+                    <div class="voice-settings">
+                        <div class="setting-row">
+                            <span class="setting-label">Bahasa</span>
+                            <select class="voice-select" id="voiceLang">
+                                <option value="id-ID">Indonesia</option>
+                                <option value="en-US">English</option>
+                            </select>
+                        </div>
+                        <div class="setting-row">
+                            <span class="setting-label">Kecepatan</span>
+                            <input type="range" class="range-slider" id="voiceRate" min="0.5" max="1.5" step="0.1" value="1">
+                        </div>
+                        <div class="setting-row">
+                            <span class="setting-label">Pitch</span>
+                            <input type="range" class="range-slider" id="voicePitch" min="0.8" max="1.2" step="0.1" value="1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span id="toastIcon">✓</span>
+        <span id="toastMessage">Message sent</span>
+    </div>
+
+    <script>
+        // =====================
+        // KNOWLEDGE BASE
+        // =====================
+        const KNOWLEDGE_BASE = {
+            company: {
+                name: "Maha Laksmi Corp",
+                ceo: "I Made Purna Ananda",
+                bank: "BCA 6485086645",
+                targetRevenue: "Rp 1.000.000.000/bulan",
+                ownerShare: "60%"
+            },
+            sbus: [
+                { id: 1, name: "Payangan AI Solutions", status: "active", target: "Rp 100M" },
+                { id: 2, name: "Gianyar Tech Solutions", status: "ready", target: "Rp 100M" },
+                { id: 3, name: "Bali Digital Agency", status: "ready", target: "Rp 100M" },
+                { id: 4, name: "Gianyar E-Commerce Hub", status: "ready", target: "Rp 100M" },
+                { id: 5, name: "Bali EdTech Center", status: "ready", target: "Rp 100M" },
+                { id: 6, name: "Gianyar Finance Tech", status: "ready", target: "Rp 100M" },
+                { id: 7, name: "Bali Logistics Network", status: "ready", target: "Rp 100M" },
+                { id: 8, name: "Gianyar Food Tech", status: "ready", target: "Rp 100M" },
+                { id: 9, name: "Bali Travel Platform", status: "ready", target: "Rp 100M" },
+                { id: 10, name: "Gianyar Property Tech", status: "ready", target: "Rp 100M" }
+            ],
+            agents: {
+                total: 60,
+                active: 6,
+                types: ["Business AI", "Marketing AI", "Sales AI", "Finance AI", "Research AI", 
+                        "Learning AI", "Automation AI", "Customer AI", "QA AI", "Innovation AI"]
+            },
+            profitDistribution: [
+                { category: "Owner Share", percent: "60%", destination: "BCA 6485086645" },
+                { category: "Reinvestment", percent: "25%", destination: "Company Reserve" },
+                { category: "Team Bonus", percent: "10%", destination: "Team Members" },
+                { category: "Charity", percent: "5%", destination: "CSR Account" }
+            ]
+        };
+
+        // =====================
+        // VOICE SETUP
+        // =====================
+        let recognition = null;
+        let isListening = false;
+        let lastAssistantMessage = "";
+
+        // Check for Speech Recognition support
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = false;
+            recognition.interimResults = true;
+            
+            recognition.onresult = (event) => {
+                const transcript = Array.from(event.results)
+                    .map(result => result[0].transcript)
+                    .join('');
+                document.getElementById('chatInput').value = transcript;
+                
+                if (event.results[0].isFinal) {
+                    sendMessage();
+                }
+            };
+            
+            recognition.onend = () => {
+                isListening = false;
+                document.getElementById('listenBtn').classList.remove('active');
+            };
+            
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                isListening = false;
+                document.getElementById('listenBtn').classList.remove('active');
+                showToast('Error: ' + event.error, 'error');
+            };
+        }
+
+        // Text-to-Speech Setup
+        function speak(text, lang = 'id-ID') {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = lang;
+                utterance.rate = parseFloat(document.getElementById('voiceRate').value);
+                utterance.pitch = parseFloat(document.getElementById('voicePitch').value);
+                
+                // Try to find Indonesian voice
+                const voices = window.speechSynthesis.getVoices();
+                const indonesianVoice = voices.find(v => v.lang.startsWith('id'));
+                if (indonesianVoice) {
+                    utterance.voice = indonesianVoice;
+                }
+                
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Load voices
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                window.speechSynthesis.getVoices();
+            };
+        }
+
+        // Toggle Voice Input
+        function toggleVoiceInput() {
+            if (!SpeechRecognition) {
+                showToast('Maaf, browser Anda tidak mendukung voice input', 'error');
+                return;
+            }
+            
+            if (isListening) {
+                recognition.stop();
+                isListening = false;
+                document.getElementById('listenBtn').classList.remove('active');
+            } else {
+                recognition.lang = document.getElementById('voiceLang').value;
+                recognition.start();
+                isListening = true;
+                document.getElementById('listenBtn').classList.add('active');
+                showToast('🎤 Sedang mendengarkan...', 'info');
+            }
+        }
+
+        // Speak last message
+        function speakLastMessage() {
+            if (lastAssistantMessage) {
+                const lang = document.getElementById('voiceLang').value;
+                speak(lastAssistantMessage, lang);
+                showToast('🔊 Memutar pesan...', 'info');
+            } else {
+                showToast('Tidak ada pesan untuk diulang', 'error');
+            }
+        }
+
+        // =====================
+        // CHAT FUNCTIONS
+        // =====================
+        function addMessage(content, isUser = false) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'assistant'}`;
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">${isUser ? '👤' : '🤖'}</div>
+                <div class="message-content">${content}</div>
+            `;
+            
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            
+            return messageDiv;
+        }
+
+        function showTypingIndicator() {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message assistant';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <div class="typing-indicator">
+                        <span></span><span></span><span></span>
+                    </div>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function removeTypingIndicator() {
+            const indicator = document.getElementById('typingIndicator');
+            if (indicator) indicator.remove();
+        }
+
+        function generateResponse(userMessage) {
+            const msg = userMessage.toLowerCase();
+            
+            // Greeting
+            if (msg.includes('halo') || msg.includes('hai') || msg.includes('pagi') || msg.includes('siang') || msg.includes('sore')) {
+                return `<p>Halo, <strong>Pak Pur</strong>! 👋</p>
+                        <p>Saya Agent Gaurangga, siap membantu Anda!</p>
+                        <p>Ada yang bisa saya bantu hari ini?</p>`;
+            }
+            
+            // Status SBU
+            if (msg.includes('status') || msg.includes('sbu') || msg.includes('perusahaan')) {
+                let sbuList = KNOWLEDGE_BASE.sbus.map(s => 
+                    `<li><strong>${s.id}. ${s.name}</strong> - ${s.status === 'active' ? '✅ Aktif' : '📋 Siap'} (Target: ${s.target})</li>`
+                ).join('');
+                return `<p>Berikut status <strong>10 SBUs</strong> Maha Laksmi Corp:</p>
+                        <ul>${sbuList}</ul>
+                        <p style="margin-top: 0.5rem;">💡 <strong>SBU-01 Payangan AI</strong> sudah aktif. SBU lainnya siap untuk diaktifkan.</p>`;
+            }
+            
+            // Revenue
+            if (msg.includes('revenue') || msg.includes('pendapatan') || msg.includes('uang') || msg.includes('target')) {
+                return `<p>📊 <strong>Target Revenue Maha Laksmi Corp:</strong></p>
+                        <table>
+                            <tr><th>SBU</th><th>Target/Bulan</th></tr>
+                            ${KNOWLEDGE_BASE.sbus.map(s => `<tr><td>${s.name}</td><td>${s.target}</td></tr>`).join('')}
+                            <tr style="background: rgba(99,102,241,0.2);"><td><strong>TOTAL</strong></td><td><strong>Rp 1.000.000.000</strong></td></tr>
+                        </table>
+                        <p style="margin-top: 0.5rem;">💰 <strong>Profit Distribution:</strong></p>
+                        <ul>
+                            <li>👤 Owner (Pak Pur): 60% → BCA 6485086645</li>
+                            <li>📈 Reinvestment: 25%</li>
+                            <li>👥 Team Bonus: 10%</li>
+                            <li>🎗️ Charity: 5%</li>
+                        </ul>`;
+            }
+            
+            // AI Agents
+            if (msg.includes('agent') || msg.includes('ai') || msg.includes('bot')) {
+                return `<p>🤖 <strong>AI Agent Ecosystem:</strong></p>
+                        <ul>
+                            <li>Total Agents: <strong>${KNOWLEDGE_BASE.agents.total}</strong></li>
+                            <li>Active: <strong>${KNOWLEDGE_BASE.agents.active}</strong></li>
+                            <li>Pending: <strong>${KNOWLEDGE_BASE.agents.total - KNOWLEDGE_BASE.agents.active}</strong></li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;"><strong>Per SBU terdapat 10 AI Agents:</strong></p>
+                        <ul>
+                            ${KNOWLEDGE_BASE.agents.types.map(t => `<li>${t}</li>`).join('')}
+                        </ul>`;
+            }
+            
+            // Bank Info
+            if (msg.includes('bank') || msg.includes('bca') || msg.includes('rekening') || msg.includes('transfer')) {
+                return `<p>🏦 <strong>Informasi Bank:</strong></p>
+                        <ul>
+                            <li>Bank: <strong>BCA (Bank Central Asia)</strong></li>
+                            <li>Account Number: <strong>6485086645</strong></li>
+                            <li>Recipient: <strong>I Made Purna Ananda</strong></li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">💡 Semua profit 60% akan ditransfer ke rekening ini setiap bulan.</p>`;
+            }
+            
+            // Report
+            if (msg.includes('laporan') || msg.includes('report') || msg.includes('daily')) {
+                return `<p>📊 <strong>Laporan Harian - ${new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</strong></p>
+                        <table>
+                            <tr><th>Metrik</th><th>Target</th><th>Actual</th></tr>
+                            <tr><td>Revenue</td><td>Rp 3.333.333</td><td>Rp 0</td></tr>
+                            <tr><td>Leads</td><td>10</td><td>0</td></tr>
+                            <tr><td>Customers</td><td>3</td><td>0</td></tr>
+                            <tr><td>Active Agents</td><td>60</td><td>6</td></tr>
+                        </table>
+                        <p style="margin-top: 0.5rem;">⚠️ <strong>Action Needed:</strong> Aktivasi SBU 2-10 untuk mencapai target.</p>`;
+            }
+            
+            // Help
+            if (msg.includes('bantu') || msg.includes('help') || msg.includes('cara') || msg.includes('?')) {
+                return `<p>❓ <strong>Saya bisa membantu Anda:</strong></p>
+                        <ul>
+                            <li>📊 <strong>Laporan</strong> - Lihat status dan laporan harian</li>
+                            <li>💰 <strong>Revenue</strong> - Informasi target dan pencapaian</li>
+                            <li>🏢 <strong>SBU</strong> - Status 10 Strategic Business Units</li>
+                            <li>🤖 <strong>Agents</strong> - Informasi AI Agents</li>
+                            <li>🏦 <strong>Bank</strong> - Informasi rekening BCA</li>
+                            <li>📈 <strong>Strategy</strong> - Rekomendasi strategis</li>
+                        </ul>
+                        <p style="margin-top: 0.5rem;">🎤 <strong>Tips:</strong> Klik tombol "Bicara" untuk voice input!</p>`;
+            }
+            
+            // Default response
+            return `<p>Terima kasih, <strong>Pak Pur</strong>! 🙏</p>
+                    <p>Saya Agent Gaurangga dan sudah memahami bisnis Maha Laksmi Corp dengan:</p>
+                    <ul>
+                        <li>📊 10 SBUs dengan target Rp 100M per bulan masing-masing</li>
+                        <li>💰 Target total: <strong>Rp 1.000.000.000/bulan</strong></li>
+                        <li>🤖 60 AI Agents yang beroperasi</li>
+                        <li>🏦 Bank: BCA 6485086645</li>
+                    </ul>
+                    <p style="margin-top: 0.5rem;">Silakan tanyakan tentang:</p>
+                    <ul>
+                        <li>"Status SBU" - untuk melihat 10 perusahaan</li>
+                        <li>"Revenue" - untuk detail target</li>
+                        <li>"Laporan" - untuk laporan harian</li>
+                        <li>"Bank" - untuk info rekening</li>
+                    </ul>`;
+        }
+
+        async function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            // Add user message
+            addMessage(`<p>${message}</p>`, true);
+            input.value = '';
+            input.style.height = 'auto';
+            
+            // Stop any ongoing speech
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Simulate processing delay
+            await new Promise(resolve => setTimeout(resolve, 800 + Math.random() * 700));
+            
+            removeTypingIndicator();
+            
+            // Generate and add response
+            const response = generateResponse(message);
+            addMessage(response);
+            
+            // Store last message for TTS
+            lastAssistantMessage = response.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+            
+            // Auto speak response
+            const lang = document.getElementById('voiceLang').value;
+            speak(lastAssistantMessage, lang);
+        }
+
+        function quickAction(action) {
+            const commands = {
+                'report': 'Buatkan laporan harian',
+                'status': 'Bagaimana status 10 SBU?',
+                'revenue': 'Beritahu target revenue',
+                'help': 'Apa yang bisa kamu bantu?'
+            };
+            
+            document.getElementById('chatInput').value = commands[action] || '';
+            sendMessage();
+        }
+
+        function handleKeyDown(event) {
+            if (event.key === 'Enter' && !event.shiftKey) {
+                event.preventDefault();
+                sendMessage();
+            }
+        }
+
+        function autoResize(textarea) {
+            textarea.style.height = 'auto';
+            textarea.style.height = Math.min(textarea.scrollHeight, 150) + 'px';
+        }
+
+        function showToast(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            const toastIcon = document.getElementById('toastIcon');
+            const toastMessage = document.getElementById('toastMessage');
+            
+            toastIcon.textContent = type === 'error' ? '❌' : type === 'success' ? '✅' : 'ℹ️';
+            toastMessage.textContent = message;
+            
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Focus input
+            document.getElementById('chatInput').focus();
+            
+            // Welcome voice (optional)
+            setTimeout(() => {
+                const welcomeText = "Selamat datang, Pak Pur. Saya Agent Gaurangga, siap membantu Anda.";
+                speak(welcomeText, 'id-ID');
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

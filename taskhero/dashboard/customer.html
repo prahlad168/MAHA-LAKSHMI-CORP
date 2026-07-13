@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - TaskHero</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background: white;
+            border-right: 1px solid #E2E8F0;
+            padding: 2rem 0;
+            position: fixed;
+            width: 260px;
+            height: 100vh;
+        }
+        
+        .sidebar-logo {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid #E2E8F0;
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-logo h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            color: #6366F1;
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.875rem 1.5rem;
+            color: #64748B;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: #EEF2FF;
+            color: #6366F1;
+            border-right: 3px solid #6366F1;
+        }
+        
+        .main-content {
+            margin-left: 260px;
+            padding: 2rem;
+            background: #F8FAFC;
+        }
+        
+        .welcome-banner {
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .booking-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+        }
+        
+        .booking-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .pro-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pro-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        
+        .pro-details h4 {
+            font-weight: 600;
+            color: #1E293B;
+        }
+        
+        .pro-details p {
+            font-size: 0.9rem;
+            color: #64748B;
+        }
+        
+        .rating {
+            color: #F59E0B;
+        }
+        
+        .quick-action {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid transparent;
+        }
+        
+        .quick-action:hover {
+            border-color: #6366F1;
+            transform: translateY(-4px);
+        }
+        
+        .quick-action i {
+            font-size: 2rem;
+            color: #6366F1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .quick-action h4 {
+            font-weight: 600;
+            color: #1E293B;
+        }
+        
+        @media (max-width: 1024px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2><span>🦸</span> TaskHero</h2>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                <li><a href="#"><i class="fas fa-calendar"></i> My Bookings</a></li>
+                <li><a href="#"><i class="fas fa-heart"></i> Favorite Pros</a></li>
+                <li><a href="#"><i class="fas fa-history"></i> History</a></li>
+                <li><a href="#"><i class="fas fa-credit-card"></i> Payments</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#" onclick="Auth.logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="welcome-banner">
+                <h1 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Welcome back, Sarah! 👋</h1>
+                <p style="opacity: 0.9;">Find trusted professionals for your next project</p>
+            </div>
+            
+            <!-- Quick Actions -->
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Quick Actions</h2>
+            <div class="dashboard-grid" style="margin-bottom: 2rem;">
+                <div class="quick-action" onclick="window.location.href='/book.html'">
+                    <i class="fas fa-search"></i>
+                    <h4>Find a Pro</h4>
+                    <p style="font-size: 0.85rem; color: #64748B;">Search for services</p>
+                </div>
+                <div class="quick-action">
+                    <i class="fas fa-plus-circle"></i>
+                    <h4>Book Again</h4>
+                    <p style="font-size: 0.85rem; color: #64748B;">Your last pro</p>
+                </div>
+                <div class="quick-action">
+                    <i class="fas fa-star"></i>
+                    <h4>Write Review</h4>
+                    <p style="font-size: 0.85rem; color: #64748B;">Rate your experience</p>
+                </div>
+                <div class="quick-action">
+                    <i class="fas fa-headset"></i>
+                    <h4>Get Support</h4>
+                    <p style="font-size: 0.85rem; color: #64748B;">24/7 help</p>
+                </div>
+            </div>
+            
+            <!-- Upcoming Bookings -->
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">Upcoming Bookings</h2>
+            
+            <div class="booking-card">
+                <div class="booking-header">
+                    <span class="badge badge-success">Confirmed</span>
+                    <span style="color: #64748B; font-size: 0.9rem;">Dec 18, 2024</span>
+                </div>
+                <div class="pro-info">
+                    <div class="pro-avatar">👨‍🔧</div>
+                    <div class="pro-details">
+                        <h4>John Smith - Plumbing</h4>
+                        <p>Leaking pipe repair</p>
+                    </div>
+                    <div class="rating" style="margin-left: auto;">
+                        <i class="fas fa-star"></i> 4.9
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem; color: #64748B; font-size: 0.9rem;">
+                    <span><i class="fas fa-clock"></i> 10:00 AM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Brooklyn, NY</span>
+                    <span><i class="fas fa-dollar-sign"></i> $120</span>
+                </div>
+                <div style="display: flex; gap: 0.75rem; margin-top: 1rem;">
+                    <button class="btn btn-secondary">Reschedule</button>
+                    <button class="btn btn-secondary">Cancel</button>
+                    <button class="btn btn-primary">Contact Pro</button>
+                </div>
+            </div>
+            
+            <div class="booking-card">
+                <div class="booking-header">
+                    <span class="badge badge-warning">Pending</span>
+                    <span style="color: #64748B; font-size: 0.9rem;">Dec 22, 2024</span>
+                </div>
+                <div class="pro-info">
+                    <div class="pro-avatar">👩‍🎨</div>
+                    <div class="pro-details">
+                        <h4>Emily Brown - Painting</h4>
+                        <p>Living room painting</p>
+                    </div>
+                    <div class="rating" style="margin-left: auto;">
+                        <i class="fas fa-star"></i> 4.9
+                    </div>
+                </div>
+                <div style="display: flex; gap: 1rem; color: #64748B; font-size: 0.9rem;">
+                    <span><i class="fas fa-clock"></i> 9:00 AM</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Manhattan, NY</span>
+                    <span><i class="fas fa-dollar-sign"></i> $350</span>
+                </div>
+                <div style="margin-top: 1rem;">
+                    <p style="font-size: 0.9rem; color: #F59E0B;">
+                        <i class="fas fa-info-circle"></i> Waiting for pro to confirm
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Recent Reviews -->
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem; margin-top: 2rem;">Your Reviews</h2>
+            
+            <div class="booking-card">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <h4 style="font-weight: 600;">Mike Wilson - Carpentry</h4>
+                        <p style="color: #64748B; font-size: 0.9rem;">Custom bookshelf installation</p>
+                    </div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                <p style="margin-top: 1rem; color: #334155;">"Amazing work! The bookshelf looks perfect and Mike was very professional. Would definitely book again!"</p>
+            </div>
+        </main>
+    </div>
+    
+    <script src="../js/app.js"></script>
+</body>
+</html>

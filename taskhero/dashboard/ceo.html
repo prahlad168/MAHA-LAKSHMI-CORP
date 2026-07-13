@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CEO Dashboard - TaskHero</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0F172A;
+            color: #E2E8F0;
+            min-height: 100vh;
+        }
+        
+        .ceo-header {
+            background: #1E293B;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .ceo-header h1 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .live-badge {
+            background: #EF4444;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .ceo-container {
+            padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        
+        .ceo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .ceo-card {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #334155;
+        }
+        
+        .ceo-card h3 {
+            color: #94A3B8;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .ceo-card .value {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+        
+        .ceo-card .change {
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+        
+        .change.up { color: #10B981; }
+        .change.down { color: #EF4444; }
+        
+        .value-primary { color: #6366F1; }
+        .value-success { color: #10B981; }
+        .value-warning { color: #F59E0B; }
+        .value-danger { color: #EF4444; }
+        
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .two-col {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .panel {
+            background: #1E293B;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #334155;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .panel-header h3 {
+            font-weight: 600;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 0.875rem;
+            text-align: left;
+            border-bottom: 1px solid #334155;
+        }
+        
+        th {
+            color: #94A3B8;
+            font-weight: 500;
+            font-size: 0.85rem;
+        }
+        
+        tr:hover {
+            background: rgba(99, 102, 241, 0.1);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 0.5rem;
+        }
+        
+        .dot-green { background: #10B981; }
+        .dot-yellow { background: #F59E0B; }
+        .dot-red { background: #EF4444; }
+        
+        .agent-status {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #0F172A;
+            border-radius: 12px;
+            margin-bottom: 0.75rem;
+        }
+        
+        .agent-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #6366F1, #8B5CF6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .agent-info {
+            flex: 1;
+        }
+        
+        .agent-info h4 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .agent-info p {
+            font-size: 0.8rem;
+            color: #94A3B8;
+        }
+        
+        .agent-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-active {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+        
+        .badge-processing {
+            background: rgba(245, 158, 11, 0.2);
+            color: #F59E0B;
+        }
+        
+        .activity-item {
+            display: flex;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid #334155;
+        }
+        
+        .activity-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(99, 102, 241, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6366F1;
+        }
+        
+        .activity-content {
+            flex: 1;
+        }
+        
+        .activity-content h4 {
+            font-size: 0.9rem;
+            margin-bottom: 0.25rem;
+        }
+        
+        .activity-content p {
+            font-size: 0.8rem;
+            color: #94A3B8;
+        }
+        
+        .activity-time {
+            font-size: 0.75rem;
+            color: #64748B;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: #334155;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 0.5rem;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .fill-primary { background: #6366F1; }
+        .fill-success { background: #10B981; }
+        .fill-warning { background: #F59E0B; }
+        
+        @media (max-width: 1200px) {
+            .ceo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="ceo-header">
+        <h1><span>🦸</span> TaskHero CEO Dashboard</h1>
+        <div class="header-right">
+            <span class="live-badge">● LIVE</span>
+            <span id="currentTime"></span>
+            <span>CEO: i Made Purna Ananda</span>
+        </div>
+    </header>
+    
+    <div class="ceo-container">
+        <!-- Key Metrics -->
+        <div class="ceo-grid">
+            <div class="ceo-card">
+                <h3>Total Revenue</h3>
+                <div class="value value-success">$425,000</div>
+                <div class="change up"><i class="fas fa-arrow-up"></i> +23% this month</div>
+            </div>
+            <div class="ceo-card">
+                <h3>Active Bookings</h3>
+                <div class="value value-primary">1,847</div>
+                <div class="change up"><i class="fas fa-arrow-up"></i> +18% vs last week</div>
+            </div>
+            <div class="ceo-card">
+                <h3>Total Professionals</h3>
+                <div class="value value-warning">12,450</div>
+                <div class="change up"><i class="fas fa-arrow-up"></i> +342 this week</div>
+            </div>
+            <div class="ceo-card">
+                <h3>Total Customers</h3>
+                <div class="value">89,230</div>
+                <div class="change up"><i class="fas fa-arrow-up"></i> +2,150 this week</div>
+            </div>
+        </div>
+        
+        <!-- Revenue & Performance -->
+        <div class="two-col">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-chart-line"></i> Revenue by Stream</h3>
+                    <select style="background: #334155; color: white; border: none; padding: 0.5rem; border-radius: 8px;">
+                        <option>This Month</option>
+                        <option>Last Month</option>
+                        <option>Last 3 Months</option>
+                    </select>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Revenue Stream</th>
+                            <th>Amount</th>
+                            <th>Target</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="status-dot dot-green"></span>Service Fees</td>
+                            <td>$170,000</td>
+                            <td>$200,000</td>
+                            <td>
+                                <div class="progress-bar"><div class="progress-fill fill-success" style="width: 85%;"></div></div>
+                                85%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="status-dot dot-green"></span>Premium Subscriptions</td>
+                            <td>$106,250</td>
+                            <td>$125,000</td>
+                            <td>
+                                <div class="progress-bar"><div class="progress-fill fill-success" style="width: 85%;"></div></div>
+                                85%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="status-dot dot-yellow"></span>Featured Listings</td>
+                            <td>$63,750</td>
+                            <td>$75,000</td>
+                            <td>
+                                <div class="progress-bar"><div class="progress-fill fill-warning" style="width: 85%;"></div></div>
+                                85%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="status-dot dot-yellow"></span>Promoted Services</td>
+                            <td>$51,000</td>
+                            <td>$60,000</td>
+                            <td>
+                                <div class="progress-bar"><div class="progress-fill fill-warning" style="width: 85%;"></div></div>
+                                85%
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="status-dot dot-green"></span>Enterprise API</td>
+                            <td>$34,000</td>
+                            <td>$40,000</td>
+                            <td>
+                                <div class="progress-bar"><div class="progress-fill fill-primary" style="width: 85%;"></div></div>
+                                85%
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-robot"></i> AI Agent Status</h3>
+                    <span class="badge-active">15 Active</span>
+                </div>
+                
+                <div class="agent-status">
+                    <div class="agent-avatar">🤖</div>
+                    <div class="agent-info">
+                        <h4>Pro Acquisition Agent</h4>
+                        <p>Processing 45 new applications</p>
+                    </div>
+                    <span class="agent-badge badge-active">Active</span>
+                </div>
+                
+                <div class="agent-status">
+                    <div class="agent-avatar">📢</div>
+                    <div class="agent-info">
+                        <h4>Marketing Agent</h4>
+                        <p>Creating 12 content pieces</p>
+                    </div>
+                    <span class="agent-badge badge-active">Active</span>
+                </div>
+                
+                <div class="agent-status">
+                    <div class="agent-avatar">🔍</div>
+                    <div class="agent-info">
+                        <h4>SEO Agent</h4>
+                        <p>Monitoring 2,340 keywords</p>
+                    </div>
+                    <span class="agent-badge badge-processing">Processing</span>
+                </div>
+                
+                <div class="agent-status">
+                    <div class="agent-avatar">💬</div>
+                    <div class="agent-info">
+                        <h4>Support Agent</h4>
+                        <p>Handling 23 tickets</p>
+                    </div>
+                    <span class="agent-badge badge-active">Active</span>
+                </div>
+                
+                <div class="agent-status">
+                    <div class="agent-avatar">💰</div>
+                    <div class="agent-info">
+                        <h4>Finance Agent</h4>
+                        <p>Processing 156 payouts</p>
+                    </div>
+                    <span class="agent-badge badge-active">Active</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Top Countries & Recent Activity -->
+        <div class="two-col">
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-globe"></i> Top Countries</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Country</th>
+                            <th>Bookings</th>
+                            <th>Revenue</th>
+                            <th>Growth</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🇺🇸 United States</td>
+                            <td>12,450</td>
+                            <td>$198,000</td>
+                            <td class="change up">+28%</td>
+                        </tr>
+                        <tr>
+                            <td>🇬🇧 United Kingdom</td>
+                            <td>5,230</td>
+                            <td>$82,000</td>
+                            <td class="change up">+22%</td>
+                        </tr>
+                        <tr>
+                            <td>🇨🇦 Canada</td>
+                            <td>3,890</td>
+                            <td>$61,000</td>
+                            <td class="change up">+19%</td>
+                        </tr>
+                        <tr>
+                            <td>🇦🇺 Australia</td>
+                            <td>2,340</td>
+                            <td>$45,000</td>
+                            <td class="change up">+25%</td>
+                        </tr>
+                        <tr>
+                            <td>🇩🇪 Germany</td>
+                            <td>1,890</td>
+                            <td>$39,000</td>
+                            <td class="change up">+15%</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="panel">
+                <div class="panel-header">
+                    <h3><i class="fas fa-bolt"></i> Recent Activity</h3>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-user-plus"></i></div>
+                    <div class="activity-content">
+                        <h4>New Professional Joined</h4>
+                        <p>John Smith - Electrician, New York</p>
+                    </div>
+                    <span class="activity-time">2m ago</span>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-check-circle"></i></div>
+                    <div class="activity-content">
+                        <h4>Booking Completed</h4>
+                        <p>Plumbing service - $120 earned</p>
+                    </div>
+                    <span class="activity-time">5m ago</span>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-star"></i></div>
+                    <div class="activity-content">
+                        <h4>5-Star Review</h4>
+                        <p>Sarah M. reviewed Mike W.</p>
+                    </div>
+                    <span class="activity-time">12m ago</span>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-credit-card"></i></div>
+                    <div class="activity-content">
+                        <h4>Payment Received</h4>
+                        <p>$350 - Booking #TH-45234</p>
+                    </div>
+                    <span class="activity-time">15m ago</span>
+                </div>
+                
+                <div class="activity-item">
+                    <div class="activity-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <div class="activity-content">
+                        <h4>Payout Processed</h4>
+                        <p>$280 to Emily Brown</p>
+                    </div>
+                    <span class="activity-time">18m ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Update time
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString();
+        }
+        updateTime();
+        setInterval(updateTime, 1000);
+        
+        // Voice greeting
+        speak('Welcome to TaskHero CEO Dashboard. All systems operational.');
+    </script>
+</body>
+</html>

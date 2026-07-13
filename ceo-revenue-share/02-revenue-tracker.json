@@ -1,0 +1,87 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-07-13",
+    "last_updated": "2026-07-13T01:34:43.317922",
+    "total_entries": 1,
+    "total_revenue_all_time": 1000000.0
+  },
+  "daily_revenue": {
+    "2026-07-13": {
+      "total": 1000000.0,
+      "by_source": {
+        "website": 0,
+        "marketplace": 0,
+        "payment_gateway": 0,
+        "direct_transfer": 0,
+        "whatsapp": 1000000.0,
+        "offline": 0
+      },
+      "by_company": {
+        "8": 1000000.0
+      },
+      "by_currency": {
+        "IDR": 1000000.0,
+        "USD": 0,
+        "EUR": 0
+      }
+    }
+  },
+  "monthly_summary": {
+    "2026-07": {
+      "total_revenue": 1000000.0,
+      "days_recorded": 1,
+      "daily_average": 1000000.0,
+      "highest_day": null,
+      "lowest_day": null,
+      "by_company": {},
+      "by_source": {},
+      "by_currency": {
+        "IDR": 0,
+        "USD": 0,
+        "EUR": 0
+      }
+    }
+  },
+  "company_daily": {
+    "1": {},
+    "2": {},
+    "3": {},
+    "4": {},
+    "5": {},
+    "6": {},
+    "7": {},
+    "8": {
+      "2026-07-13": 1000000.0
+    },
+    "9": {},
+    "10": {}
+  },
+  "sources_daily": {
+    "website": {},
+    "marketplace": {},
+    "payment_gateway": {},
+    "direct_transfer": {},
+    "whatsapp": {
+      "2026-07-13": 1000000.0
+    },
+    "offline": {}
+  },
+  "transactions": [
+    {
+      "id": "REV-20260713-001",
+      "date": "2026-07-13",
+      "company_id": 8,
+      "company_name": "Bali Travel",
+      "source": "whatsapp",
+      "source_name": "WhatsApp Sales",
+      "amount": 1000000.0,
+      "currency": "IDR",
+      "amount_idr": 1000000.0,
+      "description": "Test revenue from Bali Travel",
+      "created_at": "2026-07-13T01:34:43.317905",
+      "status": "recorded"
+    }
+  ],
+  "pending_entries": []
+}

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keuangan - MAHA AIOS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#1a5f5a;--primary-dark:#0d3d3a;--success:#22c55e;--warning:#f59e0b;--danger:#ef4444}
+        body{font-family:'Nunito',sans-serif;background:#f5f7fa}
+        .header{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:white;padding:25px 30px}
+        .header h1{font-family:'Playfair Display',serif;font-size:1.8rem;margin-bottom:5px}
+        .header p{opacity:0.9;font-size:0.9rem}
+        .container{max-width:1400px;margin:0 auto;padding:25px}
+        .date-badge{background:rgba(255,255,255,0.2);padding:8px 15px;border-radius:20px;display:inline-block;margin-top:10px;font-size:0.85rem}
+        .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:30px}
+        .kpi-card{background:white;border-radius:15px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,0.05);text-align:center}
+        .kpi-icon{width:55px;height:55px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin:0 auto 15px;color:white}
+        .kpi-value{font-size:1.8rem;font-weight:700;color:var(--primary)}
+        .kpi-label{color:#64748b;font-size:0.85rem;margin-top:5px}
+        .kpi-change{font-size:0.8rem;margin-top:5px}
+        .positive{color:var(--success)}
+        .negative{color:var(--danger)}
+        .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:25px}
+        .card{background:white;border-radius:15px;padding:25px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+        .card-title{font-size:1.1rem;font-weight:700;color:#1e293b;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+        .table{width:100%;border-collapse:collapse}
+        .table th{text-align:left;padding:12px 15px;background:#f8fafc;color:#64748b;font-size:0.8rem;text-transform:uppercase;border-bottom:2px solid #e2e8f0}
+        .table td{padding:15px;border-bottom:1px solid #e2e8f0}
+        .status{inline-block;padding:5px 12px;border-radius:20px;font-size:0.75rem;font-weight:600}
+        .status-paid{background:#dcfce7;color:#166534}
+        .status-pending{background:#fef3c7;color:#92400e}
+        .status-overdue{background:#fef2f2;color:#991b1b}
+        .progress-container{background:#e2e8f0;height:25px;border-radius:12px;overflow:hidden;margin:15px 0}
+        .progress-bar{height:100%;border-radius:12px;display:flex;align-items:center;justify-content:center;color:white;font-size:0.8rem;font-weight:600}
+        .summary-row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #e2e8f0}
+        .summary-row:last-child{border-bottom:none;font-weight:700;color:var(--primary)}
+        .quick-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:20px}
+        .action-btn{background:var(--primary);color:white;padding:15px;border-radius:10px;text-align:center;text-decoration:none;transition:all 0.3s}
+        .action-btn:hover{background:var(--primary-dark);transform:translateY(-2px)}
+        .action-btn i{font-size:1.3rem;display:block;margin-bottom:8px}
+        .action-btn span{font-size:0.85rem;font-weight:600}
+        .alert-box{background:linear-gradient(135deg,#fef3c7,#fde68a);border-radius:12px;padding:20px;margin-bottom:20px;border-left:4px solid var(--warning)}
+        .alert-box h4{color:#92400e;margin-bottom:5px}
+        .alert-box p{color:#a16207;font-size:0.9rem}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>💰 Laporan Keuangan Hari Ini</h1>
+        <p>MAHA LAKSHMI HOLDINGS</p>
+        <div class="date-badge"><i class="fas fa-calendar"></i> <?php echo date('d F Y, l'); ?></div>
+    </div>
+    
+    <div class="container">
+        <!-- KPI Cards -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:linear-gradient(135deg,#22c55e,#16a34a)"><i class="fas fa-wallet"></i></div>
+                <div class="kpi-value">Rp 0</div>
+                <div class="kpi-label">💵 Saldo Wallet</div>
+                <div class="kpi-change positive"><i class="fas fa-arrow-up"></i> Belum ada transaksi</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:linear-gradient(135deg,#3b82f6,#2563eb)"><i class="fas fa-university"></i></div>
+                <div class="kpi-value">Rp 0</div>
+                <div class="kpi-label">🏦 Saldo Bank BCA</div>
+                <div class="kpi-change"><i class="fas fa-info-circle"></i> 6485086645</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:linear-gradient(135deg,#f59e0b,#d97706)"><i class="fas fa-arrow-down"></i></div>
+                <div class="kpi-value">Rp 0</div>
+                <div class="kpi-label">📥 Total Income Hari Ini</div>
+                <div class="kpi-change">-</div>
+            </div>
+            <div class="kpi-card">
+                <div class="kpi-icon" style="background:linear-gradient(135deg,#ef4444,#dc2626)"><i class="fas fa-arrow-up"></i></div>
+                <div class="kpi-value">Rp 0</div>
+                <div class="kpi-label">📤 Total Expense Hari Ini</div>
+                <div class="kpi-change">-</div>
+            </div>
+        </div>
+        
+        <!-- Alert -->
+        <div class="alert-box">
+            <h4>⚠️ Belum Ada Data Keuangan</h4>
+            <p>Silakan input data keuangan pertama Anda untuk melihat laporan lengkap.</p>
+        </div>
+        
+        <!-- Target Progress -->
+        <div class="card" style="margin-bottom:25px">
+            <div class="card-title"><i class="fas fa-bullseye" style="color:var(--warning)"></i> Target Bulanan</div>
+            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;text-align:center">
+                <div>
+                    <div style="font-size:1.5rem;font-weight:700;color:var(--primary)">Rp 1.000.000.000</div>
+                    <div style="color:#64748b;font-size:0.85rem">Target Bulanan</div>
+                </div>
+                <div>
+                    <div style="font-size:1.5rem;font-weight:700;color:var(--success)">Rp 0</div>
+                    <div style="color:#64748b;font-size:0.85rem">Tercapai</div>
+                </div>
+                <div>
+                    <div style="font-size:1.5rem;font-weight:700;color:var(--danger)">0%</div>
+                    <div style="color:#64748b;font-size:0.85rem">Progress</div>
+                </div>
+            </div>
+            <div class="progress-container">
+                <div class="progress-bar" style="width:0%;background:#e2e8f0">0% dari target Rp 1M</div>
+            </div>
+        </div>
+        
+        <div class="grid-2">
+            <!-- Recent Transactions -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-history" style="color:var(--primary)"></i> Transaksi Terbaru</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Tanggal</th>
+                            <th>Deskripsi</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" style="text-align:center;color:#64748b;padding:30px">
+                                <i class="fas fa-inbox" style="font-size:2rem;display:block;margin-bottom:10px;opacity:0.5"></i>
+                                Belum ada transaksi
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Invoice Status -->
+            <div class="card">
+                <div class="card-title"><i class="fas fa-file-invoice" style="color:var(--primary)"></i> Status Invoice</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Invoice</th>
+                            <th>Client</th>
+                            <th>Jumlah</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="4" style="text-align:center;color:#64748b;padding:30px">
+                                <i class="fas fa-file-invoice-dollar" style="font-size:2rem;display:block;margin-bottom:10px;opacity:0.5"></i>
+                                Belum ada invoice
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="card" style="margin-top:25px">
+            <div class="card-title"><i class="fas fa-bolt" style="color:var(--warning)"></i> Aksi Cepat</div>
+            <div class="quick-actions">
+                <a href="#" class="action-btn"><i class="fas fa-plus-circle"></i><span>Tambah Income</span></a>
+                <a href="#" class="action-btn"><i class="fas fa-minus-circle"></i><span>Tambah Expense</span></a>
+                <a href="#" class="action-btn"><i class="fas fa-file-invoice-dollar"></i><span>Buat Invoice</span></a>
+                <a href="#" class="action-btn"><i class="fas fa-download"></i><span>Export Laporan</span></a>
+            </div>
+        </div>
+        
+        <!-- Profit Distribution -->
+        <div class="card" style="margin-top:25px">
+            <div class="card-title"><i class="fas fa-chart-pie" style="color:var(--primary)"></i> Distribusi Profit</div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center">
+                <div style="background:#f0fdf4;padding:20px;border-radius:10px">
+                    <div style="font-size:2rem;margin-bottom:10px">👑</div>
+                    <div style="font-weight:700;color:#166534;font-size:1.2rem">60%</div>
+                    <div style="color:#64748b;font-size:0.85rem">Owner Share</div>
+                    <div style="color:#166534;font-size:0.8rem;margin-top:5px">BCA 6485086645</div>
+                </div>
+                <div style="background:#eff6ff;padding:20px;border-radius:10px">
+                    <div style="font-size:2rem;margin-bottom:10px">🔄</div>
+                    <div style="font-weight:700;color:#1e40af;font-size:1.2rem">25%</div>
+                    <div style="color:#64748b;font-size:0.85rem">Reinvestasi</div>
+                    <div style="color:#64748b;font-size:0.8rem;margin-top:5px">Company Reserve</div>
+                </div>
+                <div style="background:#fef3c7;padding:20px;border-radius:10px">
+                    <div style="font-size:2rem;margin-bottom:10px">👥</div>
+                    <div style="font-weight:700;color:#92400e;font-size:1.2rem">10%</div>
+                    <div style="color:#64748b;font-size:0.85rem">Team Bonus</div>
+                    <div style="color:#64748b;font-size:0.8rem;margin-top:5px">Distribusi Tim</div>
+                </div>
+                <div style="background:#fdf2f8;padding:20px;border-radius:10px">
+                    <div style="font-size:2rem;margin-bottom:10px">❤️</div>
+                    <div style="font-weight:700;color:#9d174d;font-size:1.2rem">5%</div>
+                    <div style="color:#64748b;font-size:0.85rem">Charity/CSR</div>
+                    <div style="color:#64748b;font-size:0.8rem;margin-top:5px">Donasi</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

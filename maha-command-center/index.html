@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 MAHA AI COMMAND CENTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f5a;
+            --primary-light: #2d8a84;
+            --secondary: #c9a86c;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --sidebar-width: 280px;
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--light);
+            color: #333;
+            overflow: hidden;
+        }
+        
+        /* Layout */
+        .app-container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: var(--sidebar-width);
+            background: linear-gradient(180deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .sidebar-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .sidebar-header .ceo-badge {
+            background: var(--secondary);
+            color: var(--dark);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        
+        .sidebar-nav {
+            flex: 1;
+            padding: 15px 0;
+            overflow-y: auto;
+        }
+        
+        .nav-section {
+            margin-bottom: 15px;
+        }
+        
+        .nav-section-title {
+            padding: 8px 20px;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.5);
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-left-color: var(--secondary);
+        }
+        
+        .nav-item i {
+            width: 24px;
+            margin-right: 12px;
+            text-align: center;
+        }
+        
+        .nav-item .badge {
+            margin-left: auto;
+            background: var(--danger);
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.65rem;
+        }
+        
+        .nav-item .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            margin-left: auto;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: var(--sidebar-width);
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        /* Top Bar */
+        .top-bar {
+            background: white;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-bottom: 1px solid #e5e7eb;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .search-box {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: var(--light);
+            border-radius: 10px;
+            padding: 10px 15px;
+            max-width: 500px;
+        }
+        
+        .search-box input {
+            flex: 1;
+            border: none;
+            background: transparent;
+            outline: none;
+            font-size: 0.9rem;
+        }
+        
+        .search-box i {
+            color: #999;
+            margin-right: 10px;
+        }
+        
+        .top-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .top-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: none;
+            background: var(--light);
+            color: var(--primary);
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s;
+        }
+        
+        .top-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .top-btn .notification-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 18px;
+            height: 18px;
+            background: var(--danger);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 5px 15px;
+            background: var(--light);
+            border-radius: 30px;
+        }
+        
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            padding: 25px;
+            overflow-y: auto;
+        }
+        
+        /* CEO Home Grid */
+        .ceo-home {
+            display: none;
+        }
+        
+        .ceo-home.active {
+            display: block;
+        }
+        
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 25px;
+        }
+        
+        /* KPI Cards */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .kpi-card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+        
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        
+        .kpi-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 1.3rem;
+        }
+        
+        .kpi-icon.revenue { background: linear-gradient(135deg, var(--success), #16a34a); color: white; }
+        .kpi-icon.profit { background: linear-gradient(135deg, var(--secondary), #d4a96a); color: white; }
+        .kpi-icon.wallet { background: linear-gradient(135deg, var(--info), #2563eb); color: white; }
+        .kpi-icon.bank { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: white; }
+        .kpi-icon.alert { background: linear-gradient(135deg, var(--danger), #dc2626); color: white; }
+        .kpi-icon.approval { background: linear-gradient(135deg, var(--warning), #d97706); color: white; }
+        
+        .kpi-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .kpi-label {
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .kpi-trend {
+            font-size: 0.7rem;
+            margin-top: 5px;
+        }
+        
+        .kpi-trend.up { color: var(--success); }
+        .kpi-trend.down { color: var(--danger); }
+        
+        /* Sections */
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--dark);
+        }
+        
+        .section-title i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Company Grid */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+        }
+        
+        .company-card {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .company-card:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .company-card:hover .company-status {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .company-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            color: white;
+            font-size: 1.3rem;
+        }
+        
+        .company-name {
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+        
+        .company-status {
+            font-size: 0.7rem;
+            color: #666;
+        }
+        
+        .company-progress {
+            margin-top: 10px;
+        }
+        
+        .progress-bar {
+            height: 4px;
+            background: #e5e7eb;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+            border-radius: 2px;
+        }
+        
+        /* Two Column Layout */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        
+        /* Alert List */
+        .alert-list {
+            list-style: none;
+        }
+        
+        .alert-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .alert-item:last-child {
+            border-bottom: none;
+        }
+        
+        .alert-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 0.9rem;
+        }
+        
+        .alert-icon.critical { background: #fee2e2; color: var(--danger); }
+        .alert-icon.warning { background: #fef3c2; color: var(--warning); }
+        .alert-icon.info { background: #dbeafe; color: var(--info); }
+        .alert-icon.success { background: #dcfce7; color: var(--success); }
+        
+        .alert-content {
+            flex: 1;
+        }
+        
+        .alert-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+        
+        .alert-time {
+            font-size: 0.7rem;
+            color: #999;
+        }
+        
+        /* Approval Cards */
+        .approval-list {
+            list-style: none;
+        }
+        
+        .approval-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #eee;
+            gap: 15px;
+        }
+        
+        .approval-item:last-child {
+            border-bottom: none;
+        }
+        
+        .approval-type {
+            width: 45px;
+            height: 45px;
+            background: var(--light);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .approval-info {
+            flex: 1;
+        }
+        
+        .approval-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 3px;
+        }
+        
+        .approval-meta {
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .approval-actions {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .approval-btn {
+            padding: 8px 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .approval-btn.approve {
+            background: var(--success);
+            color: white;
+        }
+        
+        .approval-btn.reject {
+            background: #fee2e2;
+            color: var(--danger);
+        }
+        
+        .approval-btn:hover {
+            opacity: 0.8;
+        }
+        
+        /* Command Bar */
+        .command-bar {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            border-radius: 15px;
+            padding: 25px;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .command-bar h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 15px;
+        }
+        
+        .command-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .command-input input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 10px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        
+        .command-input input::placeholder {
+            color: #999;
+        }
+        
+        .command-input button {
+            padding: 15px 25px;
+            background: var(--secondary);
+            border: none;
+            border-radius: 10px;
+            color: var(--dark);
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .command-input button:hover {
+            background: white;
+        }
+        
+        .command-examples {
+            margin-top: 15px;
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+        
+        .command-examples span {
+            background: rgba(255,255,255,0.2);
+            padding: 4px 10px;
+            border-radius: 5px;
+            margin-right: 8px;
+            cursor: pointer;
+        }
+        
+        .command-examples span:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+        
+        .quick-action {
+            background: var(--light);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .quick-action:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .quick-action i {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        .quick-action:hover i {
+            color: white;
+        }
+        
+        .quick-action span {
+            display: block;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Top Lists */
+        .top-list {
+            list-style: none;
+        }
+        
+        .top-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .top-item:last-child {
+            border-bottom: none;
+        }
+        
+        .top-rank {
+            width: 30px;
+            height: 30px;
+            background: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-right: 12px;
+            font-size: 0.8rem;
+        }
+        
+        .top-rank.gold { background: #fef3c2; color: #d97706; }
+        .top-rank.silver { background: #f3f4f6; color: #6b7280; }
+        .top-rank.bronze { background: #fed7aa; color: #ea580c; }
+        
+        .top-info {
+            flex: 1;
+        }
+        
+        .top-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .top-meta {
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .top-value {
+            text-align: right;
+        }
+        
+        .top-value .amount {
+            font-weight: 700;
+            color: var(--success);
+        }
+        
+        .top-value .trend {
+            font-size: 0.7rem;
+            color: var(--success);
+        }
+        
+        /* Dashboard Views */
+        .dashboard-view {
+            display: none;
+        }
+        
+        .dashboard-view.active {
+            display: block;
+        }
+        
+        /* Charts Grid */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 25px;
+            margin-bottom: 25px;
+        }
+        
+        .chart-container {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .chart-title {
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chart-title i {
+            color: var(--primary);
+        }
+        
+        /* AI Assistant */
+        .ai-assistant {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            z-index: 200;
+        }
+        
+        .ai-btn {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+            transition: all 0.3s;
+        }
+        
+        .ai-btn:hover {
+            transform: scale(1.1);
+        }
+        
+        .ai-chat {
+            position: absolute;
+            bottom: 75px;
+            right: 0;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: none;
+        }
+        
+        .ai-chat.active {
+            display: block;
+        }
+        
+        .ai-chat-header {
+            padding: 15px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .ai-chat-header h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .ai-chat-body {
+            height: 300px;
+            overflow-y: auto;
+            padding: 20px;
+        }
+        
+        .ai-message {
+            margin-bottom: 15px;
+        }
+        
+        .ai-message.bot {
+            text-align: left;
+        }
+        
+        .ai-message.user {
+            text-align: right;
+        }
+        
+        .ai-message .bubble {
+            display: inline-block;
+            padding: 10px 15px;
+            border-radius: 15px;
+            max-width: 80%;
+            font-size: 0.85rem;
+        }
+        
+        .ai-message.bot .bubble {
+            background: var(--light);
+            border-bottom-left-radius: 5px;
+        }
+        
+        .ai-message.user .bubble {
+            background: var(--primary);
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+        
+        .ai-chat-input {
+            padding: 15px;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .ai-chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #eee;
+            border-radius: 25px;
+            outline: none;
+        }
+        
+        .ai-chat-input button {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        
+        /* Notification Panel */
+        .notification-panel {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 30px rgba(0,0,0,0.1);
+            z-index: 300;
+            transition: right 0.3s;
+        }
+        
+        .notification-panel.active {
+            right: 0;
+        }
+        
+        .notification-header {
+            padding: 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .notification-header h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .notification-body {
+            height: calc(100vh - 70px);
+            overflow-y: auto;
+        }
+        
+        .notification-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .notification-item:hover {
+            background: var(--light);
+        }
+        
+        .notification-item.unread {
+            background: #f0fdf4;
+        }
+        
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            float: left;
+        }
+        
+        .notification-content {
+            overflow: hidden;
+        }
+        
+        .notification-title {
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 3px;
+        }
+        
+        .notification-text {
+            font-size: 0.75rem;
+            color: #666;
+        }
+        
+        .notification-time {
+            font-size: 0.65rem;
+            color: #999;
+            margin-top: 5px;
+        }
+        
+        /* Live Clock */
+        .live-clock {
+            font-family: 'Fira Code', monospace;
+            font-size: 0.85rem;
+            color: var(--primary);
+            background: var(--light);
+            padding: 5px 12px;
+            border-radius: 5px;
+        }
+        
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 250;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1400px) {
+            .kpi-grid { grid-template-columns: repeat(3, 1fr); }
+            .company-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar { width: 80px; }
+            .sidebar-header h1, .sidebar-header .ceo-badge, .nav-item span { display: none; }
+            .nav-item { justify-content: center; padding: 15px; }
+            .nav-item i { margin: 0; }
+            .main-content { margin-left: 80px; }
+            .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+            .two-col { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h1>👑 MACC</h1>
+                <span class="ceo-badge">CEO: Prahlad</span>
+            </div>
+            
+            <div class="sidebar-nav">
+                <div class="nav-section">
+                    <div class="nav-section-title">Main</div>
+                    <div class="nav-item active" data-view="ceo-home">
+                        <i class="fas fa-home"></i>
+                        <span>CEO Home</span>
+                    </div>
+                    <div class="nav-item" data-view="executive">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Executive</span>
+                    </div>
+                    <div class="nav-item" data-view="companies">
+                        <i class="fas fa-building"></i>
+                        <span>Companies</span>
+                    </div>
+                    <div class="nav-item" data-view="finance">
+                        <i class="fas fa-coins"></i>
+                        <span>Finance</span>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">Operations</div>
+                    <div class="nav-item" data-view="sales">
+                        <i class="fas fa-handshake"></i>
+                        <span>Sales</span>
+                    </div>
+                    <div class="nav-item" data-view="marketing">
+                        <i class="fas fa-bullhorn"></i>
+                        <span>Marketing</span>
+                    </div>
+                    <div class="nav-item" data-view="projects">
+                        <i class="fas fa-tasks"></i>
+                        <span>Projects</span>
+                    </div>
+                    <div class="nav-item" data-view="clients">
+                        <i class="fas fa-users"></i>
+                        <span>Clients</span>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">AI & Automation</div>
+                    <div class="nav-item" data-view="agents">
+                        <i class="fas fa-robot"></i>
+                        <span>AI Agents</span>
+                        <span class="badge">60</span>
+                    </div>
+                    <div class="nav-item" data-view="automation">
+                        <i class="fas fa-cogs"></i>
+                        <span>Automation</span>
+                        <span class="status-dot"></span>
+                    </div>
+                    <div class="nav-item" data-view="knowledge">
+                        <i class="fas fa-brain"></i>
+                        <span>Knowledge</span>
+                    </div>
+                </div>
+                
+                <div class="nav-section">
+                    <div class="nav-section-title">System</div>
+                    <div class="nav-item" data-view="security">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Security</span>
+                    </div>
+                    <div class="nav-item" data-view="audit">
+                        <i class="fas fa-history"></i>
+                        <span>Audit Log</span>
+                    </div>
+                    <div class="nav-item" data-view="settings">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search SOP, Agent, Project, Knowledge..." id="globalSearch">
+                </div>
+                
+                <span class="live-clock" id="liveClock">--:--:-- WIB</span>
+                
+                <div class="top-actions">
+                    <button class="top-btn" onclick="toggleNotifications()">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                    <button class="top-btn" onclick="toggleCommandBar()">
+                        <i class="fas fa-terminal"></i>
+                    </button>
+                </div>
+                
+                <div class="user-profile">
+                    <div class="user-avatar">P</div>
+                    <div>
+                        <strong>Prahlad</strong>
+                        <div style="font-size: 0.7rem; color: #666;">CEO</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- CEO Home View -->
+                <div class="dashboard-view ceo-home active" id="ceo-home">
+                    <!-- Command Bar -->
+                    <div class="command-bar" id="mainCommandBar">
+                        <h3><i class="fas fa-terminal"></i> Command Center</h3>
+                        <div class="command-input">
+                            <input type="text" placeholder="Ketik perintah... contoh: 'Show today's revenue' atau 'Create new AI Agent'" id="commandInput">
+                            <button onclick="executeCommand()">Execute</button>
+                        </div>
+                        <div class="command-examples">
+                            Contoh: 
+                            <span onclick="fillCommand('Show today revenue')">Show revenue</span>
+                            <span onclick="fillCommand('Create new AI Agent')">Create agent</span>
+                            <span onclick="fillCommand('Generate weekly report')">Generate report</span>
+                            <span onclick="fillCommand('Analyze companies')">Analyze</span>
+                        </div>
+                    </div>
+                    
+                    <!-- KPI Grid -->
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue">
+                                <i class="fas fa-coins"></i>
+                            </div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Today's Revenue</div>
+                            <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> +0%</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Today's Profit</div>
+                            <div class="kpi-trend up"><i class="fas fa-arrow-up"></i> +0%</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon wallet">
+                                <i class="fas fa-wallet"></i>
+                            </div>
+                            <div class="kpi-value">Rp 2.5M</div>
+                            <div class="kpi-label">Wallet</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Bank (BCA)</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="kpi-value">3</div>
+                            <div class="kpi-label">Critical Alerts</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon approval">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="kpi-value">5</div>
+                            <div class="kpi-label">Pending Approval</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quick Actions -->
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-bolt"></i> Quick Actions</h2>
+                        </div>
+                        <div class="quick-actions">
+                            <div class="quick-action" onclick="navigateTo('companies')">
+                                <i class="fas fa-building"></i>
+                                <span>10 Companies</span>
+                            </div>
+                            <div class="quick-action" onclick="navigateTo('agents')">
+                                <i class="fas fa-robot"></i>
+                                <span>AI Agents</span>
+                            </div>
+                            <div class="quick-action" onclick="navigateTo('projects')">
+                                <i class="fas fa-tasks"></i>
+                                <span>Projects</span>
+                            </div>
+                            <div class="quick-action" onclick="showApprovals()">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Approvals</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Two Column -->
+                    <div class="two-col">
+                        <!-- Left Column -->
+                        <div>
+                            <!-- Companies Overview -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <h2 class="section-title"><i class="fas fa-building"></i> 10 Companies Overview</h2>
+                                    <a href="#" class="view-all" onclick="navigateTo('companies'); return false;">View All</a>
+                                </div>
+                                <div class="company-grid">
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">🏥</div>
+                                        <div class="company-name">Payangan AI</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+                                            <small>25%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">💻</div>
+                                        <div class="company-name">Gianyar Tech</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 15%"></div></div>
+                                            <small>15%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">🎨</div>
+                                        <div class="company-name">Bali Digital</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 20%"></div></div>
+                                            <small>20%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">🛒</div>
+                                        <div class="company-name">Gianyar E-Com</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 12%"></div></div>
+                                            <small>12%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">📚</div>
+                                        <div class="company-name">Bali EdTech</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
+                                            <small>10%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">💰</div>
+                                        <div class="company-name">Gianyar Finance</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 12%"></div></div>
+                                            <small>12%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">🚚</div>
+                                        <div class="company-name">Bali Logistics</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 8%"></div></div>
+                                            <small>8%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">🍔</div>
+                                        <div class="company-name">Gianyar Food</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 8%"></div></div>
+                                            <small>8%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">✈️</div>
+                                        <div class="company-name">Bali Travel</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 25%"></div></div>
+                                            <small>25%</small>
+                                        </div>
+                                    </div>
+                                    <div class="company-card" onclick="navigateTo('companies')">
+                                        <div class="company-icon">🏠</div>
+                                        <div class="company-name">Gianyar Property</div>
+                                        <div class="company-status">Active ✅</div>
+                                        <div class="company-progress">
+                                            <div class="progress-bar"><div class="progress-fill" style="width: 10%"></div></div>
+                                            <small>10%</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Top Performance -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <h2 class="section-title"><i class="fas fa-trophy"></i> Top Performance</h2>
+                                </div>
+                                <div class="two-col">
+                                    <div>
+                                        <h4 style="font-size: 0.85rem; margin-bottom: 15px; color: var(--primary);">
+                                            <i class="fas fa-star"></i> Top Companies
+                                        </h4>
+                                        <ul class="top-list">
+                                            <li class="top-item">
+                                                <span class="top-rank gold">1</span>
+                                                <div class="top-info">
+                                                    <div class="top-name">Bali Travel</div>
+                                                    <div class="top-meta">Tourism & Travel</div>
+                                                </div>
+                                                <div class="top-value">
+                                                    <div class="amount">25%</div>
+                                                    <div class="trend">Progress</div>
+                                                </div>
+                                            </li>
+                                            <li class="top-item">
+                                                <span class="top-rank silver">2</span>
+                                                <div class="top-info">
+                                                    <div class="top-name">Payangan AI</div>
+                                                    <div class="top-meta">Healthcare</div>
+                                                </div>
+                                                <div class="top-value">
+                                                    <div class="amount">25%</div>
+                                                    <div class="trend">Progress</div>
+                                                </div>
+                                            </li>
+                                            <li class="top-item">
+                                                <span class="top-rank bronze">3</span>
+                                                <div class="top-info">
+                                                    <div class="top-name">Bali Digital Agency</div>
+                                                    <div class="top-meta">Marketing</div>
+                                                </div>
+                                                <div class="top-value">
+                                                    <div class="amount">20%</div>
+                                                    <div class="trend">Progress</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div>
+                                        <h4 style="font-size: 0.85rem; margin-bottom: 15px; color: var(--primary);">
+                                            <i class="fas fa-fire"></i> Top Agents
+                                        </h4>
+                                        <ul class="top-list">
+                                            <li class="top-item">
+                                                <span class="top-rank gold">1</span>
+                                                <div class="top-info">
+                                                    <div class="top-name">GAURANGA CEO</div>
+                                                    <div class="top-meta">Active now</div>
+                                                </div>
+                                            </li>
+                                            <li class="top-item">
+                                                <span class="top-rank silver">2</span>
+                                                <div class="top-info">
+                                                    <div class="top-name">Sales Agent</div>
+                                                    <div class="top-meta">Lead gen</div>
+                                                </div>
+                                            </li>
+                                            <li class="top-item">
+                                                <span class="top-rank bronze">3</span>
+                                                <div class="top-info">
+                                                    <div class="top-name">Content Agent</div>
+                                                    <div class="top-meta">Creating content</div>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Right Column -->
+                        <div>
+                            <!-- Critical Alerts -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <h2 class="section-title"><i class="fas fa-exclamation-circle"></i> Critical Alerts</h2>
+                                </div>
+                                <ul class="alert-list">
+                                    <li class="alert-item">
+                                        <div class="alert-icon critical">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">No Revenue Generated</div>
+                                            <div class="alert-time">2 hours ago</div>
+                                        </div>
+                                    </li>
+                                    <li class="alert-item">
+                                        <div class="alert-icon warning">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">Low Lead Generation</div>
+                                            <div class="alert-time">5 hours ago</div>
+                                        </div>
+                                    </li>
+                                    <li class="alert-item">
+                                        <div class="alert-icon warning">
+                                            <i class="fas fa-globe"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">9/10 Websites Not Deployed</div>
+                                            <div class="alert-time">1 day ago</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Pending Approvals -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <h2 class="section-title"><i class="fas fa-clock"></i> Pending Approvals</h2>
+                                    <a href="#" class="view-all" onclick="showApprovals(); return false;">View All</a>
+                                </div>
+                                <ul class="approval-list">
+                                    <li class="approval-item">
+                                        <div class="approval-type">💰</div>
+                                        <div class="approval-info">
+                                            <div class="approval-title">Budget Request - Marketing</div>
+                                            <div class="approval-meta">Rp 5.000.000 • HR Agent</div>
+                                        </div>
+                                        <div class="approval-actions">
+                                            <button class="approval-btn approve"><i class="fas fa-check"></i></button>
+                                            <button class="approval-btn reject"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="approval-item">
+                                        <div class="approval-type">🤖</div>
+                                        <div class="approval-info">
+                                            <div class="approval-title">New AI Agent Creation</div>
+                                            <div class="approval-meta">Sales Agent v2 • AI Factory</div>
+                                        </div>
+                                        <div class="approval-actions">
+                                            <button class="approval-btn approve"><i class="fas fa-check"></i></button>
+                                            <button class="approval-btn reject"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </li>
+                                    <li class="approval-item">
+                                        <div class="approval-type">📄</div>
+                                        <div class="approval-info">
+                                            <div class="approval-title">SOP Update Request</div>
+                                            <div class="approval-meta">Sales SOP v2.1 • Finance Agent</div>
+                                        </div>
+                                        <div class="approval-actions">
+                                            <button class="approval-btn approve"><i class="fas fa-check"></i></button>
+                                            <button class="approval-btn reject"><i class="fas fa-times"></i></button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <!-- Opportunities -->
+                            <div class="section">
+                                <div class="section-header">
+                                    <h2 class="section-title"><i class="fas fa-lightbulb"></i> New Opportunities</h2>
+                                </div>
+                                <ul class="alert-list">
+                                    <li class="alert-item">
+                                        <div class="alert-icon success">
+                                            <i class="fas fa-handshake"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">3 New Hot Leads</div>
+                                            <div class="alert-time">Potential: Rp 50M</div>
+                                        </div>
+                                    </li>
+                                    <li class="alert-item">
+                                        <div class="alert-icon info">
+                                            <i class="fas fa-rocket"></i>
+                                        </div>
+                                        <div class="alert-content">
+                                            <div class="alert-title">Bali Travel - Ready to Launch</div>
+                                            <div class="alert-time">Deploy to start revenue</div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Executive Dashboard -->
+                <div class="dashboard-view" id="executive">
+                    <h1 class="page-title">Executive Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fas fa-coins"></i></div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Total Revenue</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-chart-line"></i></div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Net Profit</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon wallet"><i class="fas fa-wallet"></i></div>
+                            <div class="kpi-value">Rp 2.5M</div>
+                            <div class="kpi-label">Cash Position</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-arrow-up"></i></div>
+                            <div class="kpi-value">0%</div>
+                            <div class="kpi-label">Growth</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon approval"><i class="fas fa-bullseye"></i></div>
+                            <div class="kpi-value">15%</div>
+                            <div class="kpi-label">KPI Achievement</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-chart-pie"></i></div>
+                            <div class="kpi-value">0%</div>
+                            <div class="kpi-label">Margin</div>
+                        </div>
+                    </div>
+                    
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <div class="chart-title"><i class="fas fa-chart-area"></i> Revenue Trend</div>
+                            <div style="height: 250px; background: var(--light); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #999;">
+                                Chart placeholder - Revenue over time
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <div class="chart-title"><i class="fas fa-chart-bar"></i> Revenue by Company</div>
+                            <div style="height: 250px; background: var(--light); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #999;">
+                                Chart placeholder - Company breakdown
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Companies View -->
+                <div class="dashboard-view" id="companies">
+                    <h1 class="page-title">Company Dashboard</h1>
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-building"></i> All 10 Companies</h2>
+                        </div>
+                        <div class="company-grid" style="grid-template-columns: repeat(5, 1fr);">
+                            <!-- Companies will be rendered by JS -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Finance View -->
+                <div class="dashboard-view" id="finance">
+                    <h1 class="page-title">Finance Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fas fa-arrow-down"></i></div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Total Income</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-arrow-up"></i></div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Total Expense</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-coins"></i></div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Net Profit</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-university"></i></div>
+                            <div class="kpi-value">BCA 6485086645</div>
+                            <div class="kpi-label">CEO Bank Account</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-calculator"></i> Profit Distribution</h2>
+                        </div>
+                        <div class="kpi-grid" style="grid-template-columns: repeat(4, 1fr);">
+                            <div class="kpi-card">
+                                <div class="kpi-icon profit"><i class="fas fa-user"></i></div>
+                                <div class="kpi-value">60%</div>
+                                <div class="kpi-label">CEO Share (BCA)</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-icon bank"><i class="fas fa-sync"></i></div>
+                                <div class="kpi-value">25%</div>
+                                <div class="kpi-label">Reinvestment</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-icon wallet"><i class="fas fa-robot"></i></div>
+                                <div class="kpi-value">10%</div>
+                                <div class="kpi-label">AI Agents</div>
+                            </div>
+                            <div class="kpi-card">
+                                <div class="kpi-icon approval"><i class="fas fa-piggy-bank"></i></div>
+                                <div class="kpi-value">5%</div>
+                                <div class="kpi-label">Reserve</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sales View -->
+                <div class="dashboard-view" id="sales">
+                    <h1 class="page-title">Sales Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-users"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Total Leads</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fas fa-file-invoice"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Proposals</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-handshake"></i></div>
+                            <div class="kpi-value">0%</div>
+                            <div class="kpi-label">Win Rate</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-coins"></i></div>
+                            <div class="kpi-value">Rp 0</div>
+                            <div class="kpi-label">Pipeline Value</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Marketing View -->
+                <div class="dashboard-view" id="marketing">
+                    <h1 class="page-title">Marketing Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-globe"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Website Traffic</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fab fa-instagram"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Social Followers</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-envelope"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Email Subscribers</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-search"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">SEO Keywords</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Agents View -->
+                <div class="dashboard-view" id="agents">
+                    <h1 class="page-title">AI Agent Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-robot"></i></div>
+                            <div class="kpi-value">60</div>
+                            <div class="kpi-label">Total Agents</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fas fa-check-circle"></i></div>
+                            <div class="kpi-value">6</div>
+                            <div class="kpi-label">Active Agents</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-cogs"></i></div>
+                            <div class="kpi-value">54</div>
+                            <div class="kpi-label">Pending Setup</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-tasks"></i></div>
+                            <div class="kpi-value">0</div>
+                            <div class="kpi-label">Tasks Running</div>
+                        </div>
+                    </div>
+                    
+                    <div class="section">
+                        <div class="section-header">
+                            <h2 class="section-title"><i class="fas fa-robot"></i> Active Agents</h2>
+                        </div>
+                        <div class="company-grid" style="grid-template-columns: repeat(3, 1fr);">
+                            <div class="company-card">
+                                <div class="company-icon">👑</div>
+                                <div class="company-name">GAURANGA CEO</div>
+                                <div class="company-status">🟢 Active</div>
+                            </div>
+                            <div class="company-card">
+                                <div class="company-icon">💰</div>
+                                <div class="company-name">SaaS Sales Agent</div>
+                                <div class="company-status">🟢 Active</div>
+                            </div>
+                            <div class="company-card">
+                                <div class="company-icon">📝</div>
+                                <div class="company-name">Content Marketing</div>
+                                <div class="company-status">🟢 Active</div>
+                            </div>
+                            <div class="company-card">
+                                <div class="company-icon">🔍</div>
+                                <div class="company-name">SEO & Ads Agent</div>
+                                <div class="company-status">🟢 Active</div>
+                            </div>
+                            <div class="company-card">
+                                <div class="company-icon">🎧</div>
+                                <div class="company-name">Customer Service</div>
+                                <div class="company-status">🟢 Active</div>
+                            </div>
+                            <div class="company-card">
+                                <div class="company-icon">💵</div>
+                                <div class="company-name">Finance Agent</div>
+                                <div class="company-status">🟢 Active</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Automation View -->
+                <div class="dashboard-view" id="automation">
+                    <h1 class="page-title">Automation Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-play-circle"></i></div>
+                            <div class="kpi-value">6</div>
+                            <div class="kpi-label">Running Workflows</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fas fa-check-double"></i></div>
+                            <div class="kpi-value">100%</div>
+                            <div class="kpi-label">Success Rate</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-clock"></i></div>
+                            <div class="kpi-value">2.5h</div>
+                            <div class="kpi-label">Time Saved Today</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-sync"></i></div>
+                            <div class="kpi-value">60</div>
+                            <div class="kpi-label">Total Needed</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Knowledge View -->
+                <div class="dashboard-view" id="knowledge">
+                    <h1 class="page-title">Knowledge Dashboard</h1>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-icon bank"><i class="fas fa-book"></i></div>
+                            <div class="kpi-value">500+</div>
+                            <div class="kpi-label">Knowledge Entries</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon revenue"><i class="fas fa-file-alt"></i></div>
+                            <div class="kpi-value">50+</div>
+                            <div class="kpi-label">SOPs</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon profit"><i class="fas fa-terminal"></i></div>
+                            <div class="kpi-value">100+</div>
+                            <div class="kpi-label">AI Prompts</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-icon alert"><i class="fas fa-brain"></i></div>
+                            <div class="kpi-value">10+</div>
+                            <div class="kpi-label">AI Agents</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Other Views (placeholder) -->
+                <div class="dashboard-view" id="projects">
+                    <h1 class="page-title">Project Dashboard</h1>
+                    <div class="section">
+                        <p style="color: #666;">Project management interface coming soon...</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-view" id="clients">
+                    <h1 class="page-title">Client Dashboard</h1>
+                    <div class="section">
+                        <p style="color: #666;">Client management interface coming soon...</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-view" id="security">
+                    <h1 class="page-title">Security Center</h1>
+                    <div class="section">
+                        <p style="color: #666;">Security monitoring interface coming soon...</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-view" id="audit">
+                    <h1 class="page-title">Audit Log</h1>
+                    <div class="section">
+                        <p style="color: #666;">Audit trail interface coming soon...</p>
+                    </div>
+                </div>
+                
+                <div class="dashboard-view" id="settings">
+                    <h1 class="page-title">Settings</h1>
+                    <div class="section">
+                        <p style="color: #666;">Configuration interface coming soon...</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- AI Assistant -->
+    <div class="ai-assistant">
+        <div class="ai-chat" id="aiChat">
+            <div class="ai-chat-header">
+                <h4><i class="fas fa-robot"></i> CEO Digital Assistant</h4>
+                <button onclick="toggleAIChat()" style="background:none;border:none;color:white;cursor:pointer;">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="ai-chat-body">
+                <div class="ai-message bot">
+                    <div class="bubble">Halo, CEO! Saya adalah AI Assistant Anda. Ada yang bisa saya bantu hari ini?</div>
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" placeholder="Ketik pertanyaan..." id="aiInput">
+                <button onclick="sendAIMessage()"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+        <button class="ai-btn" onclick="toggleAIChat()">
+            <i class="fas fa-robot"></i>
+        </button>
+    </div>
+    
+    <!-- Notification Panel -->
+    <div class="notification-panel" id="notificationPanel">
+        <div class="notification-header">
+            <h3><i class="fas fa-bell"></i> Notifications</h3>
+            <button onclick="toggleNotifications()" style="background:none;border:none;cursor:pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="notification-body">
+            <div class="notification-item unread">
+                <div class="notification-icon" style="background:#fee2e2;color:#ef4444;">
+                    <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Critical: No Revenue</div>
+                    <div class="notification-text">Semua perusahaan belum menghasilkan revenue</div>
+                    <div class="notification-time">2 hours ago</div>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon" style="background:#fef3c2;color:#f59e0b;">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Low Lead Generation</div>
+                    <div class="notification-text">3 hot leads butuh follow up</div>
+                    <div class="notification-time">5 hours ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon" style="background:#dbeafe;color:#3b82f6;">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Agent Update</div>
+                    <div class="notification-text">GAURANGA CEO agent updated</div>
+                    <div class="notification-time">1 day ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon" style="background:#dcfce7;color:#22c55e;">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Automation Complete</div>
+                    <div class="notification-text">Daily report generated successfully</div>
+                    <div class="notification-time">1 day ago</div>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon" style="background:#dcfce7;color:#22c55e;">
+                    <i class="fas fa-sync"></i>
+                </div>
+                <div class="notification-content">
+                    <div class="notification-title">Webhook Deployed</div>
+                    <div class="notification-text">Payangan Hospital auto-deploy active</div>
+                    <div class="notification-time">2 days ago</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="closeAllPanels()"></div>
+    
+    <script>
+        // Companies Data
+        const companies = [
+            { id: 1, name: 'Payangan Hospital AI', short: 'Payangan AI', niche: 'Healthcare SaaS', progress: 25, status: 'active', icon: '🏥' },
+            { id: 2, name: 'Gianyar Tech Solutions', short: 'Gianyar Tech', niche: 'Software Development', progress: 15, status: 'active', icon: '💻' },
+            { id: 3, name: 'Bali Digital Agency', short: 'Bali Digital', niche: 'Digital Marketing', progress: 20, status: 'active', icon: '🎨' },
+            { id: 4, name: 'Gianyar E-Commerce Hub', short: 'Gianyar E-Com', niche: 'Online Marketplace', progress: 12, status: 'active', icon: '🛒' },
+            { id: 5, name: 'Bali EdTech Center', short: 'Bali EdTech', niche: 'Education Tech', progress: 10, status: 'active', icon: '📚' },
+            { id: 6, name: 'Gianyar Finance Tech', short: 'Gianyar Finance', niche: 'Financial Services', progress: 12, status: 'active', icon: '💰' },
+            { id: 7, name: 'Bali Logistics Network', short: 'Bali Logistics', niche: 'Delivery & Logistics', progress: 8, status: 'active', icon: '🚚' },
+            { id: 8, name: 'Gianyar Food Tech', short: 'Gianyar Food', niche: 'Food Technology', progress: 8, status: 'active', icon: '🍔' },
+            { id: 9, name: 'Bali Travel Platform', short: 'Bali Travel', niche: 'Tourism & Travel', progress: 25, status: 'active', icon: '✈️' },
+            { id: 10, name: 'Gianyar Property Tech', short: 'Gianyar Property', niche: 'Real Estate', progress: 10, status: 'active', icon: '🏠' }
+        ];
+        
+        // Live Clock
+        function updateClock() {
+            const now = new Date();
+            const options = { hour: '2-digit', minute: '2-digit', second: '2-digit', timeZone: 'Asia/Jakarta' };
+            document.getElementById('liveClock').textContent = now.toLocaleTimeString('id-ID', options) + ' WIB';
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+        
+        // Navigation
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const view = item.getAttribute('data-view');
+                navigateTo(view);
+            });
+        });
+        
+        function navigateTo(view) {
+            // Update nav
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.getAttribute('data-view') === view) {
+                    item.classList.add('active');
+                }
+            });
+            
+            // Update views
+            document.querySelectorAll('.dashboard-view').forEach(v => {
+                v.classList.remove('active');
+            });
+            document.getElementById(view).classList.add('active');
+            
+            closeAllPanels();
+        }
+        
+        // Command Bar
+        function executeCommand() {
+            const input = document.getElementById('commandInput').value;
+            if (!input) return;
+            
+            alert('Command executed: ' + input);
+            document.getElementById('commandInput').value = '';
+        }
+        
+        function fillCommand(cmd) {
+            document.getElementById('commandInput').value = cmd;
+        }
+        
+        // AI Chat
+        function toggleAIChat() {
+            document.getElementById('aiChat').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+        
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const message = input.value;
+            if (!message) return;
+            
+            const body = document.querySelector('.ai-chat-body');
+            
+            // Add user message
+            body.innerHTML += `
+                <div class="ai-message user">
+                    <div class="bubble">${message}</div>
+                </div>
+            `;
+            
+            input.value = '';
+            
+            // Simulate AI response
+            setTimeout(() => {
+                let response = 'Terima kasih atas pertanyaannya, CEO! Saya akan membantu Anda.';
+                
+                if (message.toLowerCase().includes('revenue') || message.toLowerCase().includes('pendapatan')) {
+                    response = 'Saat ini total revenue masih Rp 0. Prioritas utama adalah men-deploy websites untuk 10 perusahaan dan memulai lead generation.';
+                } else if (message.toLowerCase().includes('priority') || message.toLowerCase().includes('prioritas')) {
+                    response = 'Prioritas hari ini:\n1. Deploy Bali Travel website\n2. Setup 54 AI agents baru\n3. Mulai cold outreach\n4. Follow up 3 hot leads';
+                } else if (message.toLowerCase().includes('company') || message.toLowerCase().includes('perusahaan')) {
+                    response = '10 companies aktif:\n• Bali Travel & Payangan AI - 25% progress\n• Bali Digital Agency - 20%\n• Gianyar Tech - 15%\n• Lainnya - 8-12%';
+                }
+                
+                body.innerHTML += `
+                    <div class="ai-message bot">
+                        <div class="bubble">${response.replace(/\n/g, '<br>')}</div>
+                    </div>
+                `;
+                
+                body.scrollTop = body.scrollHeight;
+            }, 1000);
+        }
+        
+        // Notifications
+        function toggleNotifications() {
+            document.getElementById('notificationPanel').classList.toggle('active');
+            document.getElementById('overlay').classList.toggle('active');
+        }
+        
+        function showApprovals() {
+            navigateTo('ceo-home');
+            alert('Opening approval center...');
+        }
+        
+        function closeAllPanels() {
+            document.getElementById('notificationPanel').classList.remove('active');
+            document.getElementById('aiChat').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        }
+        
+        // Global Search
+        document.getElementById('globalSearch').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const query = e.target.value;
+                if (query) {
+                    alert('Searching for: ' + query);
+                }
+            }
+        });
+        
+        // Approval buttons
+        document.querySelectorAll('.approval-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const action = btn.classList.contains('approve') ? 'Approved' : 'Rejected';
+                alert(action + '!');
+                btn.closest('.approval-item').style.opacity = '0.5';
+            });
+        });
+    </script>
+</body>
+</html>

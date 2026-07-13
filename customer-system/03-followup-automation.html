@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Follow-Up Automation</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f0f2f5; color: #1c1e21; min-height: 100vh; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px; }
+        h1 { text-align: center; color: #1877f2; margin-bottom: 30px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .card { background: white; border-radius: 16px; padding: 25px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .card h2 { color: #1877f2; margin-bottom: 15px; font-size: 1.3rem; }
+        .timeline-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #e4e6eb; }
+        .timeline-item:last-child { border-bottom: none; }
+        .day-badge { background: #1877f2; color: white; padding: 8px 15px; border-radius: 20px; font-weight: 600; min-width: 80px; text-align: center; }
+        .day-badge.followup { background: #f59e0b; }
+        .day-badge.promo { background: #10b981; }
+        .day-badge.upsell { background: #8b5cf6; }
+        .day-badge.loyalty { background: #ec4899; }
+        .content h4 { margin-bottom: 5px; }
+        .content p { color: #65676b; font-size: 0.9rem; }
+        .status { display: inline-block; padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .status.pending { background: #fff3cd; color: #856404; }
+        .status.sent { background: #d4edda; color: #155724; }
+        .status.done { background: #cce5ff; color: #004085; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: 600; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-size: 1rem; }
+        button { background: #1877f2; color: white; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; font-size: 1rem; }
+        button:hover { background: #166fe5; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e4e6eb; }
+        th { background: #f0f2f5; font-weight: 600; }
+        .action-btn { padding: 6px 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 0.85rem; }
+        .action-btn.send { background: #10b981; color: white; }
+        .action-btn.edit { background: #f59e0b; color: white; }
+        .stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .stat-box { background: white; padding: 20px; border-radius: 12px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .stat-box h3 { font-size: 2rem; color: #1877f2; }
+        .stat-box p { color: #65676b; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Customer Follow-Up Automation System</h1>
+        
+        <div class="stats-row">
+            <div class="stat-box"><h3 id="totalCustomers">0</h3><p>Total Customer</p></div>
+            <div class="stat-box"><h3 id="pendingFollowup">0</h3><p>Pending Follow-up</p></div>
+            <div class="stat-box"><h3 id="repeatOrders">0</h3><p>Repeat Orders</p></div>
+            <div class="stat-box"><h3 id="conversionRate">0%</h3><p>Conversion Rate</p></div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <h2>📅 Timeline Follow-Up</h2>
+                <div class="timeline-item">
+                    <div class="day-badge">Day 0</div>
+                    <div class="content">
+                        <h4>Welcome Message</h4>
+                        <p>Kirim thank you + produk info + tunggu review</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="day-badge followup">Day 3</div>
+                    <div class="content">
+                        <h4>First Follow-Up</h4>
+                        <p>"Produk sudah sampai? Ada pertanyaan?"</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="day-badge promo">Day 7</div>
+                    <div class="content">
+                        <h4>Review Request + Promo</h4>
+                        <p>Minta review + info promo member</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="day-badge upsell">Day 14</div>
+                    <div class="content">
+                        <h4>Upsell Offer</h4>
+                        <p>Rekomendasi produk terkait + discount</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="day-badge loyalty">Day 30</div>
+                    <div class="content">
+                        <h4>Loyalty Check</h4>
+                        <p>"Miss you" + exclusive offer untuk repeat order</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <h2>➕ Add New Customer</h2>
+                <div class="form-group">
+                    <label>Nama Customer</label>
+                    <input type="text" id="custName" placeholder="Nama lengkap">
+                </div>
+                <div class="form-group">
+                    <label>WhatsApp</label>
+                    <input type="text" id="custWa" placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Produk yang Dibeli</label>
+                    <select id="custProduct">
+                        <option value="">Pilih produk...</option>
+                        <option value="Landing Page">Landing Page</option>
+                        <option value="Company Profile">Company Profile</option>
+                        <option value="E-Commerce">E-Commerce</option>
+                        <option value="SEO Package">SEO Package</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="Kursus Online">Kursus Online</option>
+                        <option value="Konsultasi">Konsultasi</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tanggal Pembelian</label>
+                    <input type="date" id="custDate">
+                </div>
+                <button onclick="addCustomer()">➕ Tambah Customer</button>
+            </div>
+            
+            <div class="card" style="grid-column: span 2;">
+                <h2>📊 Customer List</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>WhatsApp</th>
+                            <th>Produk</th>
+                            <th>Tanggal</th>
+                            <th>Follow-up</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customerTable">
+                        <tr><td colspan="7" style="text-align:center;color:#999;">Belum ada customer</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let customers = [];
+        let pendingCount = 0;
+        let repeatCount = 0;
+        
+        function addCustomer() {
+            const name = document.getElementById('custName').value;
+            const wa = document.getElementById('custWa').value;
+            const product = document.getElementById('custProduct').value;
+            const date = document.getElementById('custDate').value;
+            
+            if (!name || !wa || !product || !date) {
+                alert('Mohon isi semua field!');
+                return;
+            }
+            
+            const customer = {
+                id: Date.now(),
+                name, wa, product, date,
+                followup: {
+                    day3: false,
+                    day7: false,
+                    day14: false,
+                    day30: false
+                },
+                repeat: false
+            };
+            
+            customers.push(customer);
+            pendingCount++;
+            updateStats();
+            renderTable();
+            clearForm();
+        }
+        
+        function sendFollowup(id, day) {
+            const customer = customers.find(c => c.id === id);
+            if (customer) {
+                customer.followup[`day${day}`] = true;
+                pendingCount--;
+                if (day === 30) repeatCount++;
+                updateStats();
+                renderTable();
+                
+                // Open WhatsApp
+                const msg = getFollowupMessage(customer, day);
+                window.open(`https://wa.me/62${customer.wa}?text=${encodeURIComponent(msg)}`, '_blank');
+            }
+        }
+        
+        function getFollowupMessage(customer, day) {
+            const messages = {
+                3: `Halo ${customer.name}! 👋
+
+Barang pesanan "${customer.product}" sudah sampai dengan baik?
+
+Kami ingin memastikan semuanya puas. Ada pertanyaan atau perlu bantuan?
+
+Terima kasih! 🙏`,
+                7: `Halo ${customer.name}! ✨
+
+Bagaimana pendapat Anda tentang "${customer.product}"?
+
+Jika puas, bolehkan kami minta review di Google? Sangat membantu bisnis kami!
+
+Sebagai apresiasi, kami juga tawarkan:
+🎁 KEANGGOTAAN MEMBER - Diskon 20% untuk order berikutnya!
+
+Mau jadi member? Kostenlos! 😊`,
+                14: `Halo ${customer.name}! 👋
+
+Berdasarkan pembelian "${customer.product}" Anda, kami ada rekomendasi produk yang mungkin Anda butuhkan:
+
+📦 PRODUK TERKAIT:
+• Upgrade ke Premium Package
+• Add-on Services
+• Bundle Deal
+
+🔥 PROMO KHUSUS:
+Diskon 15% + Free Konsultasi
+
+Tertarik? Balas pesan ini ya!`,
+                30: `Halo ${customer.name}! 💕
+
+Kami kangen Anda! 😊
+
+Sudah sebulan sejak pembelian "${customer.product}" Anda. Apakah ada yang bisa kami bantu lagi?
+
+🎁 MEMBER EXCLUSIVE:
+• Diskon 25% untuk repeat order
+• Priority service
+• Free update
+
+Ayo order lagi! Link order: [INSERT_LINK]
+
+Terima kasih sudah kepercayaan Anda! 🙏`
+            };
+            return messages[day];
+        }
+        
+        function updateStats() {
+            document.getElementById('totalCustomers').textContent = customers.length;
+            document.getElementById('pendingFollowup').textContent = pendingCount;
+            document.getElementById('repeatOrders').textContent = repeatCount;
+            document.getElementById('conversionRate').textContent = customers.length > 0 ? Math.round((repeatCount/customers.length)*100) + '%' : '0%';
+        }
+        
+        function renderTable() {
+            const tbody = document.getElementById('customerTable');
+            if (customers.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#999;">Belum ada customer</td></tr>';
+                return;
+            }
+            
+            tbody.innerHTML = customers.map(c => {
+                const nextFollowup = !c.followup.day3 ? 'Day 3' : (!c.followup.day7 ? 'Day 7' : (!c.followup.day14 ? 'Day 14' : (!c.followup.day30 ? 'Day 30' : 'Done')));
+                const status = !c.followup.day3 ? 'pending' : (c.repeat ? 'done' : 'sent');
+                return `
+                    <tr>
+                        <td>${c.name}</td>
+                        <td>${c.wa}</td>
+                        <td>${c.product}</td>
+                        <td>${c.date}</td>
+                        <td>${nextFollowup}</td>
+                        <td><span class="status ${status}">${status === 'pending' ? '⏳ Pending' : (status === 'done' ? '✅ Repeat' : '📤 Sent')}</span></td>
+                        <td>
+                            ${!c.followup.day3 ? '<button class="action-btn send" onclick="sendFollowup(' + c.id + ',3)">Day 3</button>' : ''}
+                            ${c.followup.day3 && !c.followup.day7 ? '<button class="action-btn send" onclick="sendFollowup(' + c.id + ',7)">Day 7</button>' : ''}
+                            ${c.followup.day7 && !c.followup.day14 ? '<button class="action-btn send" onclick="sendFollowup(' + c.id + ',14)">Day 14</button>' : ''}
+                            ${c.followup.day14 && !c.followup.day30 ? '<button class="action-btn send" onclick="sendFollowup(' + c.id + ',30)">Day 30</button>' : ''}
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+        
+        function clearForm() {
+            document.getElementById('custName').value = '';
+            document.getElementById('custWa').value = '';
+            document.getElementById('custProduct').value = '';
+            document.getElementById('custDate').value = '';
+        }
+    </script>
+</body>
+</html>

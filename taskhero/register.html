@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - TaskHero</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/taskhero/css/style.css">
+    <style>
+        .auth-page {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+        
+        .auth-left {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+            color: white;
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .auth-left h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .auth-left p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-features {
+            list-style: none;
+        }
+        
+        .auth-features li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+        
+        .auth-features i {
+            width: 24px;
+            color: #10B981;
+        }
+        
+        .auth-right {
+            padding: 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+        }
+        
+        .auth-logo {
+            margin-bottom: 2rem;
+        }
+        
+        .auth-logo h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            color: #6366F1;
+        }
+        
+        .auth-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .auth-tab {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: #F1F5F9;
+            color: #64748B;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .auth-tab.active {
+            background: #6366F1;
+            color: white;
+        }
+        
+        .auth-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #1E293B;
+        }
+        
+        .auth-form > p {
+            color: #64748B;
+            margin-bottom: 2rem;
+        }
+        
+        .name-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        
+        .divider {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            color: #64748B;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #E2E8F0;
+        }
+        
+        .social-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-btn {
+            flex: 1;
+            padding: 0.875rem;
+            border: 2px solid #E2E8F0;
+            background: white;
+            border-radius: 8px;
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        
+        .social-btn span {
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .social-btn:hover {
+            border-color: #6366F1;
+            background: #F8FAFC;
+        }
+        
+        .pro-benefits {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .pro-benefits h4 {
+            margin-bottom: 1rem;
+        }
+        
+        .pro-benefits ul {
+            list-style: none;
+        }
+        
+        .pro-benefits li {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .auth-page {
+                grid-template-columns: 1fr;
+            }
+            
+            .auth-left {
+                display: none;
+            }
+            
+            .auth-right {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-page">
+        <!-- Left Side -->
+        <div class="auth-left">
+            <h1>Join the TaskHero Community</h1>
+            <p>Whether you need help with home repairs or want to offer your professional services, TaskHero is the place for you.</p>
+            
+            <ul class="auth-features">
+                <li><i class="fas fa-check-circle"></i> Get matched with verified professionals in minutes</li>
+                <li><i class="fas fa-check-circle"></i> Book with confidence - satisfaction guaranteed</li>
+                <li><i class="fas fa-check-circle"></i> Access to 50,000+ skilled professionals</li>
+                <li><i class="fas fa-check-circle"></i> 24/7 customer support</li>
+                <li><i class="fas fa-check-circle"></i> Transparent pricing - no hidden fees</li>
+            </ul>
+        </div>
+        
+        <!-- Right Side -->
+        <div class="auth-right">
+            <div class="auth-logo">
+                <h2><span>🦸</span> TaskHero</h2>
+            </div>
+            
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="switchTab('customer')">Find a Pro</button>
+                <button class="auth-tab" onclick="switchTab('pro')">Become a Pro</button>
+            </div>
+            
+            <!-- Customer Form -->
+            <form class="auth-form" id="customerForm">
+                <h3>Create Your Account</h3>
+                <p>Find trusted professionals for your home</p>
+                
+                <div class="name-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="password" placeholder="Create a password (min 8 characters)" required minlength="8">
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+1 (555) 000-0000" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>City</label>
+                    <input type="text" id="city" placeholder="New York" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                    <i class="fas fa-user-plus"></i> Create Account
+                </button>
+            </form>
+            
+            <!-- Pro Form -->
+            <form class="auth-form" id="proForm" style="display: none;">
+                <h3>Join as a Professional</h3>
+                <p>Start earning by offering your skills</p>
+                
+                <div class="pro-benefits">
+                    <h4>🎉 Pro Benefits:</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Set your own rates and schedule</li>
+                        <li><i class="fas fa-check"></i> Get matched with local customers</li>
+                        <li><i class="fas fa-check"></i> Weekly direct deposits</li>
+                        <li><i class="fas fa-check"></i> Marketing and lead generation included</li>
+                    </ul>
+                </div>
+                
+                <div class="name-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Doe" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="+1 (555) 000-0000" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Primary Service</label>
+                    <select required>
+                        <option value="">Select your service</option>
+                        <option value="plumbing">Plumbing</option>
+                        <option value="electrical">Electrical</option>
+                        <option value="carpentry">Carpentry</option>
+                        <option value="painting">Painting</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="ac">AC/Heating</option>
+                        <option value="gardening">Gardening</option>
+                        <option value="renovation">Renovation</option>
+                        <option value="handyman">Handyman (General)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Years of Experience</label>
+                    <select required>
+                        <option value="">Select experience</option>
+                        <option value="1-2">1-2 years</option>
+                        <option value="3-5">3-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-success btn-lg" style="width: 100%;">
+                    <i class="fas fa-rocket"></i> Apply as Pro
+                </button>
+            </form>
+            
+            <div class="divider">or continue with</div>
+            
+            <div class="social-buttons">
+                <button class="social-btn">
+                    <i class="fab fa-google"></i>
+                    <span>Google</span>
+                </button>
+                <button class="social-btn">
+                    <i class="fab fa-apple"></i>
+                    <span>Apple</span>
+                </button>
+                <button class="social-btn">
+                    <i class="fab fa-facebook-f"></i>
+                    <span>Facebook</span>
+                </button>
+            </div>
+            
+            <p style="text-align: center; margin-top: 2rem; color: #64748B; font-size: 0.9rem;">
+                Already have an account? <a href="#" style="color: #6366F1; font-weight: 600;">Sign in</a>
+            </p>
+            
+            <p style="text-align: center; margin-top: 1rem; color: #94A3B8; font-size: 0.8rem;">
+                By signing up, you agree to our <a href="#" style="color: #6366F1;">Terms</a> and <a href="#" style="color: #6366F1;">Privacy Policy</a>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.auth-tab');
+            const customerForm = document.getElementById('customerForm');
+            const proForm = document.getElementById('proForm');
+            
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            if (tab === 'customer') {
+                tabs[0].classList.add('active');
+                customerForm.style.display = 'block';
+                proForm.style.display = 'none';
+            } else {
+                tabs[1].classList.add('active');
+                customerForm.style.display = 'none';
+                proForm.style.display = 'block';
+            }
+        }
+        
+        document.getElementById('customerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const city = document.getElementById('city').value;
+            
+            Auth.register({
+                name: `${firstName} ${lastName}`,
+                email,
+                phone,
+                city,
+                type: 'customer'
+            });
+            
+            UI.toast('Account created! Welcome to TaskHero! 🎉', 'success');
+            speak('Welcome to TaskHero! Your account has been created successfully.');
+            
+            setTimeout(() => {
+                window.location.href = '/taskhero/dashboard/customer.html';
+            }, 1500);
+        });
+        
+        document.getElementById('proForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            UI.toast('Application submitted! We\'ll review and get back to you.', 'success');
+            speak('Your pro application has been submitted. We will review it shortly.');
+        });
+    </script>
+    
+    <script src="/taskhero/js/app.js"></script>
+</body>
+</html>

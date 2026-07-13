@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Dashboard - TaskHero</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dashboard-layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            background: linear-gradient(135deg, #1E293B 0%, #334155 100%);
+            color: white;
+            padding: 2rem 0;
+            position: fixed;
+            width: 260px;
+            height: 100vh;
+        }
+        
+        .sidebar-logo {
+            padding: 0 1.5rem 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-logo h2 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 0.25rem;
+        }
+        
+        .sidebar-nav a {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.875rem 1.5rem;
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            background: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        .sidebar-nav a i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            margin-left: 260px;
+            padding: 2rem;
+            background: #F8FAFC;
+        }
+        
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1E293B;
+        }
+        
+        .earnings-card {
+            background: linear-gradient(135deg, #6366F1 0%, #4F46E5 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .earnings-card h3 {
+            opacity: 0.9;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        
+        .earnings-card .amount {
+            font-size: 3rem;
+            font-weight: 800;
+        }
+        
+        .earnings-card .meta {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1rem;
+            opacity: 0.9;
+        }
+        
+        .job-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border: 1px solid #E2E8F0;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 1rem;
+        }
+        
+        .job-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1E293B;
+        }
+        
+        .job-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #10B981;
+        }
+        
+        .job-meta {
+            display: flex;
+            gap: 1.5rem;
+            color: #64748B;
+            font-size: 0.9rem;
+        }
+        
+        .job-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .job-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .availability-toggle {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .toggle {
+            position: relative;
+            width: 50px;
+            height: 26px;
+            background: #E2E8F0;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .toggle.active {
+            background: #10B981;
+        }
+        
+        .toggle::after {
+            content: '';
+            position: absolute;
+            width: 22px;
+            height: 22px;
+            background: white;
+            border-radius: 50%;
+            top: 2px;
+            left: 2px;
+            transition: all 0.3s;
+        }
+        
+        .toggle.active::after {
+            left: 26px;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        .status-available {
+            background: #D1FAE5;
+            color: #065F46;
+        }
+        
+        .status-busy {
+            background: #FEF3C7;
+            color: #92400E;
+        }
+        
+        .status-offline {
+            background: #E2E8F0;
+            color: #64748B;
+        }
+        
+        @media (max-width: 1024px) {
+            .dashboard-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                display: none;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <h2><span>🦸</span> TaskHero</h2>
+                <p style="opacity: 0.7; font-size: 0.9rem; margin-top: 0.5rem;">Pro Dashboard</p>
+            </div>
+            
+            <ul class="sidebar-nav">
+                <li><a href="#" class="active"><i class="fas fa-home"></i> Overview</a></li>
+                <li><a href="#"><i class="fas fa-calendar-check"></i> Bookings</a></li>
+                <li><a href="#"><i class="fas fa-clock"></i> Availability</a></li>
+                <li><a href="#"><i class="fas fa-star"></i> Reviews</a></li>
+                <li><a href="#"><i class="fas fa-wallet"></i> Earnings</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i> Settings</a></li>
+                <li><a href="#"><i class="fas fa-question-circle"></i> Help</a></li>
+                <li><a href="#" onclick="Auth.logout()"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+        
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="page-header">
+                <div>
+                    <h1>Welcome back, John! 👋</h1>
+                    <p style="color: #64748B;">Here's what's happening with your business</p>
+                </div>
+                <button class="btn btn-primary" onclick="speak('You have 3 new booking requests. Check your bookings to accept or decline.')">
+                    <i class="fas fa-bell"></i> 3 New Requests
+                </button>
+            </div>
+            
+            <!-- Earnings Card -->
+            <div class="earnings-card">
+                <h3>This Month's Earnings</h3>
+                <div class="amount">$4,250.00</div>
+                <div class="meta">
+                    <span><i class="fas fa-arrow-up"></i> +15% from last month</span>
+                    <span>•</span>
+                    <span>32 jobs completed</span>
+                </div>
+            </div>
+            
+            <!-- Availability Toggle -->
+            <div class="availability-toggle">
+                <span style="font-weight: 600;">Your Status:</span>
+                <div class="toggle active" onclick="this.classList.toggle('active')"></div>
+                <span class="status-badge status-available">Available for Jobs</span>
+            </div>
+            
+            <!-- Stats Grid -->
+            <div class="dashboard-grid" style="margin-bottom: 2rem;">
+                <div class="stat-card">
+                    <h3>Pending Requests</h3>
+                    <div class="value">3</div>
+                    <p class="change" style="color: #F59E0B;">Requires attention</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Completed Jobs</h3>
+                    <div class="value">32</div>
+                    <p class="change">This month</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Average Rating</h3>
+                    <div class="value">4.9 ★</div>
+                    <p class="change">234 reviews</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Response Rate</h3>
+                    <div class="value">98%</div>
+                    <p class="change">Last 30 days</p>
+                </div>
+            </div>
+            
+            <!-- Booking Requests -->
+            <h2 style="font-size: 1.25rem; margin-bottom: 1rem;">New Booking Requests</h2>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3>Plumbing Repair - Leaking Pipe</h3>
+                        <div class="job-meta" style="margin-top: 0.5rem;">
+                            <span><i class="fas fa-map-marker-alt"></i> Brooklyn, NY</span>
+                            <span><i class="fas fa-calendar"></i> Tomorrow, 10:00 AM</span>
+                            <span><i class="fas fa-clock"></i> ~2 hours</span>
+                        </div>
+                    </div>
+                    <div class="job-price">$120</div>
+                </div>
+                <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 1rem;">
+                    Customer needs help fixing a leaking pipe under the kitchen sink. Tools and parts provided.
+                </p>
+                <div class="job-actions">
+                    <button class="btn btn-success" onclick="acceptJob(1)">
+                        <i class="fas fa-check"></i> Accept
+                    </button>
+                    <button class="btn btn-secondary" onclick="declineJob(1)">
+                        <i class="fas fa-times"></i> Decline
+                    </button>
+                    <button class="btn btn-secondary" onclick="viewDetails(1)">
+                        <i class="fas fa-eye"></i> Details
+                    </button>
+                </div>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3>Bathroom Installation</h3>
+                        <div class="job-meta" style="margin-top: 0.5rem;">
+                            <span><i class="fas fa-map-marker-alt"></i> Manhattan, NY</span>
+                            <span><i class="fas fa-calendar"></i> Dec 20, 2:00 PM</span>
+                            <span><i class="fas fa-clock"></i> ~4 hours</span>
+                        </div>
+                    </div>
+                    <div class="job-price">$280</div>
+                </div>
+                <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 1rem;">
+                    Install new bathroom faucet and showerhead. Customer has already purchased the fixtures.
+                </p>
+                <div class="job-actions">
+                    <button class="btn btn-success" onclick="acceptJob(2)">
+                        <i class="fas fa-check"></i> Accept
+                    </button>
+                    <button class="btn btn-secondary" onclick="declineJob(2)">
+                        <i class="fas fa-times"></i> Decline
+                    </button>
+                    <button class="btn btn-secondary" onclick="viewDetails(2)">
+                        <i class="fas fa-eye"></i> Details
+                    </button>
+                </div>
+            </div>
+            
+            <div class="job-card">
+                <div class="job-header">
+                    <div>
+                        <h3>Emergency Pipe Fix</h3>
+                        <div class="job-meta" style="margin-top: 0.5rem;">
+                            <span><i class="fas fa-map-marker-alt"></i> Queens, NY</span>
+                            <span><i class="fas fa-calendar"></i> Today, ASAP</span>
+                            <span><i class="fas fa-clock"></i> ~1 hour</span>
+                        </div>
+                    </div>
+                    <div class="job-price">$95</div>
+                </div>
+                <p style="color: #64748B; font-size: 0.9rem; margin-bottom: 1rem;">
+                    🚨 URGENT: Burst pipe causing water damage. Need immediate assistance.
+                </p>
+                <div class="job-actions">
+                    <button class="btn btn-success" onclick="acceptJob(3)">
+                        <i class="fas fa-check"></i> Accept
+                    </button>
+                    <button class="btn btn-secondary" onclick="declineJob(3)">
+                        <i class="fas fa-times"></i> Decline
+                    </button>
+                    <button class="btn btn-secondary" onclick="viewDetails(3)">
+                        <i class="fas fa-eye"></i> Details
+                    </button>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirm Payment</h2>
+                <button class="modal-close" onclick="UI.modal('paymentModal', false)">&times;</button>
+            </div>
+            <p style="margin-bottom: 1.5rem;">Amount to pay: <strong id="paymentAmount">$0.00</strong></p>
+            <div style="background: #F1F5F9; padding: 1.5rem; border-radius: 12px; margin-bottom: 1.5rem;">
+                <p style="font-size: 0.9rem; color: #64748B; margin-bottom: 1rem;">
+                    <i class="fas fa-info-circle"></i> Demo Mode: Click "Pay Now" to simulate payment
+                </p>
+                <button class="btn btn-primary btn-lg" style="width: 100%;" onclick="confirmDemoPayment()">
+                    <i class="fab fa-stripe"></i> Pay Now
+                </button>
+            </div>
+            <p style="text-align: center; font-size: 0.85rem; color: #64748B;">
+                <i class="fas fa-lock"></i> Secured by Stripe. Your payment info is encrypted.
+            </p>
+        </div>
+    </div>
+    
+    <script src="../js/app.js"></script>
+    <script src="../api/stripe.js"></script>
+    <script>
+        // Check if logged in
+        if (!Auth.isLoggedIn()) {
+            window.location.href = '/';
+        }
+        
+        function acceptJob(jobId) {
+            UI.toast('Job accepted! Customer has been notified.', 'success');
+            speak('Job accepted. Customer has been notified.');
+        }
+        
+        function declineJob(jobId) {
+            UI.toast('Job declined.', 'error');
+        }
+        
+        function viewDetails(jobId) {
+            alert('Job details would open here.');
+        }
+    </script>
+</body>
+</html>

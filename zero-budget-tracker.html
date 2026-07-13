@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Zero Budget Business Tracker - MAHA Lakshmi</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --purple: #8b5cf6;
+            --bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', -apple-system, sans-serif;
+            background: var(--bg);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 1400px; margin: 0 auto; }
+        
+        /* Header */
+        .header {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .header h1 { color: #1f2937; font-size: 2rem; margin-bottom: 10px; }
+        .header .subtitle { color: #6b7280; font-size: 1.1rem; }
+        .zero-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-card {
+            background: white;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .stat-value { font-size: 2rem; font-weight: bold; color: #1f2937; }
+        .stat-label { color: #6b7280; font-size: 0.85rem; margin-top: 5px; }
+        .stat-card.success .stat-value { color: var(--success); }
+        .stat-card.warning .stat-value { color: var(--warning); }
+        .stat-card.danger .stat-value { color: var(--danger); }
+        
+        /* Company Cards */
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+        }
+        .company-card {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        .company-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f3f4f6;
+        }
+        .company-name { font-size: 1.3rem; font-weight: bold; color: #1f2937; }
+        .company-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .status-ready { background: #d1fae5; color: #065f46; }
+        .status-progress { background: #fef3c7; color: #92400e; }
+        .status-pending { background: #e5e7eb; color: #374151; }
+        
+        /* Progress Bar */
+        .progress-section { margin-bottom: 20px; }
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #6b7280;
+        }
+        .progress-bar {
+            background: #e5e7eb;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+        .fill-high { background: linear-gradient(90deg, var(--success), #34d399); }
+        .fill-medium { background: linear-gradient(90deg, var(--warning), #fbbf24); }
+        .fill-low { background: linear-gradient(90deg, var(--primary), #60a5fa); }
+        
+        /* Checklist */
+        .checklist { margin-top: 15px; }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            background: #f9fafb;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .checklist-item:hover { background: #f3f4f6; }
+        .checklist-item.checked { background: #d1fae5; }
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #d1d5db;
+            border-radius: 6px;
+            margin-right: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .checklist-item.checked .check-box {
+            background: var(--success);
+            border-color: var(--success);
+            color: white;
+        }
+        .check-text { flex: 1; color: #374151; }
+        .check-time { color: #9ca3af; font-size: 0.8rem; }
+        
+        /* Quick Actions */
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .action-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: var(--primary);
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s;
+            gap: 8px;
+        }
+        .action-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 20px rgba(37,99,235,0.3); }
+        .action-btn.green { background: var(--success); }
+        .action-btn.green:hover { box-shadow: 0 5px 20px rgba(16,185,129,0.3); }
+        .action-btn.purple { background: var(--purple); }
+        .action-btn.purple:hover { box-shadow: 0 5px 20px rgba(139,92,246,0.3); }
+        
+        /* Revenue Targets */
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .revenue-item {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .revenue-week { font-size: 0.8rem; color: #6b7280; }
+        .revenue-target { font-size: 1.5rem; font-weight: bold; color: #1f2937; }
+        .revenue-actual { font-size: 0.9rem; color: #9ca3af; margin-top: 5px; }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .companies-grid { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.5rem; }
+        }
+        
+        /* Animation */
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .pulse { animation: pulse 2s infinite; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 ZERO BUDGET BUSINESS TRACKER</h1>
+            <p class="subtitle">MAHA Lakshmi Holdings - 10 Companies, Zero Rupiah Modal</p>
+            <span class="zero-badge">💰 BUDGET: Rp 0 | ⏰ TIME: SEKARANG</span>
+        </div>
+        
+        <!-- Overall Stats -->
+        <div class="stats-grid">
+            <div class="stat-card success">
+                <div class="stat-value" id="totalRevenue">Rp 0</div>
+                <div class="stat-label">Total Revenue</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Active Companies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Total Leads</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">0</div>
+                <div class="stat-label">Bookings/Clients</div>
+            </div>
+            <div class="stat-card warning">
+                <div class="stat-value">Day 1</div>
+                <div class="stat-label">Current Phase</div>
+            </div>
+        </div>
+        
+        <!-- Priority Instructions -->
+        <div class="company-card" style="margin-bottom: 20px; background: linear-gradient(135deg, #10b981, #059669); color: white;">
+            <h2 style="margin-bottom: 15px;">🎯 PRIORITY SEKARANG: Fokus ke 3 Perusahaan Ini</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                <div>
+                    <h3>🥇 1. Bali Travel</h3>
+                    <p>Target: First booking 7 hari</p>
+                    <p>Sudah ada: 10 tour packages, 5 guide partners</p>
+                </div>
+                <div>
+                    <h3>🥈 2. Gianyar Consulting</h3>
+                    <p>Target: First client 14 hari</p>
+                    <p>Sudah ada: 3 consultants, 5 case studies</p>
+                </div>
+                <div>
+                    <h3>🥉 3. Bali Digital Agency</h3>
+                    <p>Target: First project 21 hari</p>
+                    <p>Sudah ada: Portfolio template, service packages</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Company 1: Bali Travel -->
+        <div class="companies-grid">
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">🏖️ Bali Travel Gianyar</span>
+                    <span class="company-status status-ready">🥇 PRIORITY 1</span>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>25%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-high" style="width: 25%;"></div>
+                    </div>
+                </div>
+                
+                <p style="color: #6b7280; margin: 15px 0; font-size: 0.9rem;">
+                    ✅ Yang sudah ada: 10 tour packages, 5 guide partners, booking system<br>
+                    ❌ Yang perlu dibuat: Landing page, Instagram, WhatsApp Business
+                </p>
+                
+                <h4 style="margin: 15px 0 10px;">📋 TODAY - Complete All (45 menit)</h4>
+                <div class="checklist">
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">WhatsApp Business setup</span>
+                        <span class="check-time">5 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Carrd landing page (balitravel.carrd.co)</span>
+                        <span class="check-time">15 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Instagram setup & posting pertama</span>
+                        <span class="check-time">10 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">DM 10 orang (template tersedia)</span>
+                        <span class="check-time">15 menit</span>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <a href="https://business.whatsapp.com" target="_blank" class="action-btn green">📱 WhatsApp Business</a>
+                    <a href="https://carrd.co" target="_blank" class="action-btn">🌐 Carrd.co (Free)</a>
+                    <a href="https://unsplash.com" target="_blank" class="action-btn purple">📸 Free Images</a>
+                </div>
+                
+                <div class="revenue-grid">
+                    <div class="revenue-item">
+                        <div class="revenue-week">Morning Trek</div>
+                        <div class="revenue-target">Rp 500rb</div>
+                        <div class="revenue-actual">per pax</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-week">Full Day Tour</div>
+                        <div class="revenue-target">Rp 1.25jt</div>
+                        <div class="revenue-actual">per pax</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-week">Week 1 Target</div>
+                        <div class="revenue-target" style="color: var(--success);">Rp 2jt</div>
+                        <div class="revenue-actual">4 bookings</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Company 2: Gianyar Consulting -->
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">💼 Gianyar Consulting</span>
+                    <span class="company-status status-ready">🥈 PRIORITY 2</span>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>18%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-medium" style="width: 18%;"></div>
+                    </div>
+                </div>
+                
+                <p style="color: #6b7280; margin: 15px 0; font-size: 0.9rem;">
+                    ✅ Yang sudah ada: 3 consultants, 5 case studies, service packages<br>
+                    ❌ Yang perlu dibuat: LinkedIn profile, WhatsApp Business, content
+                </p>
+                
+                <h4 style="margin: 15px 0 10px;">📋 TODAY - Complete All (30 menit)</h4>
+                <div class="checklist">
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Optimize LinkedIn profile</span>
+                        <span class="check-time">10 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">WhatsApp Business setup</span>
+                        <span class="check-time">5 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Post 3 LinkedIn articles</span>
+                        <span class="check-time">10 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">WhatsApp DM 10 prospects</span>
+                        <span class="check-time">15 menit</span>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <a href="https://linkedin.com" target="_blank" class="action-btn">💼 LinkedIn</a>
+                    <a href="https://business.whatsapp.com" target="_blank" class="action-btn green">📱 WhatsApp</a>
+                    <a href="https://forms.google.com" target="_blank" class="action-btn purple">📝 Google Form</a>
+                </div>
+                
+                <div class="revenue-grid">
+                    <div class="revenue-item">
+                        <div class="revenue-week">Quick Consultation</div>
+                        <div class="revenue-target">FREE</div>
+                        <div class="revenue-actual">30 min</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-week">Topic Consulting</div>
+                        <div class="revenue-target">Rp 1.5jt</div>
+                        <div class="revenue-actual">per session</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-week">Week 2 Target</div>
+                        <div class="revenue-target" style="color: var(--success);">Rp 2jt</div>
+                        <div class="revenue-actual">1-2 clients</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Company 3: Bali Digital Agency -->
+            <div class="company-card">
+                <div class="company-header">
+                    <span class="company-name">🎨 Bali Digital Agency</span>
+                    <span class="company-status status-progress">🥉 PRIORITY 3</span>
+                </div>
+                
+                <div class="progress-section">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>20%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill fill-low" style="width: 20%;"></div>
+                    </div>
+                </div>
+                
+                <p style="color: #6b7280; margin: 15px 0; font-size: 0.9rem;">
+                    ✅ Yang sudah ada: Portfolio template, 3 case studies, service packages<br>
+                    ❌ Yang perlu dibuat: Carrd portfolio, Instagram, Canva setup
+                </p>
+                
+                <h4 style="margin: 15px 0 10px;">📋 TODAY - Complete All (45 menit)</h4>
+                <div class="checklist">
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Carrd portfolio website</span>
+                        <span class="check-time">20 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Instagram setup</span>
+                        <span class="check-time">10 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">WhatsApp Business</span>
+                        <span class="check-time">5 menit</span>
+                    </div>
+                    <div class="checklist-item" onclick="toggle(this)">
+                        <div class="check-box"></div>
+                        <span class="check-text">Canva brand kit setup</span>
+                        <span class="check-time">10 menit</span>
+                    </div>
+                </div>
+                
+                <div class="quick-actions">
+                    <a href="https://carrd.co" target="_blank" class="action-btn">🌐 Carrd.co</a>
+                    <a href="https://canva.com" target="_blank" class="action-btn purple">🎨 Canva (Free)</a>
+                    <a href="https://instagram.com" target="_blank" class="action-btn green">📸 Instagram</a>
+                </div>
+                
+                <div class="revenue-grid">
+                    <div class="revenue-item">
+                        <div class="revenue-week">Logo Design</div>
+                        <div class="revenue-target">Rp 500rb</div>
+                        <div class="revenue-actual">mulai dari</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-week">Landing Page</div>
+                        <div class="revenue-target">Rp 3jt</div>
+                        <div class="revenue-actual">mulai dari</div>
+                    </div>
+                    <div class="revenue-item">
+                        <div class="revenue-week">Week 3 Target</div>
+                        <div class="revenue-target" style="color: var(--success);">Rp 3jt</div>
+                        <div class="revenue-actual">1 project</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Quick Links Section -->
+        <div class="company-card" style="margin-top: 20px;">
+            <h2 style="margin-bottom: 20px;">🔗 Quick Access - Free Tools</h2>
+            <div class="quick-actions">
+                <a href="https://carrd.co" target="_blank" class="action-btn">🌐 Carrd.co<br><small>Landing Page Gratis</small></a>
+                <a href="https://canva.com" target="_blank" class="action-btn purple">🎨 Canva<br><small>Design Tools Gratis</small></a>
+                <a href="https://business.whatsapp.com" target="_blank" class="action-btn green">📱 WhatsApp Business<br><small>CRM Gratis</small></a>
+                <a href="https://linkedin.com" target="_blank" class="action-btn">💼 LinkedIn<br><small>B2B Lead Generation</small></a>
+                <a href="https://forms.google.com" target="_blank" class="action-btn green">📝 Google Forms<br><small>Lead Collection</small></a>
+                <a href="https://unsplash.com" target="_blank" class="action-btn purple">📸 Unsplash<br><small>Free Images</small></a>
+            </div>
+        </div>
+        
+        <!-- Timeline -->
+        <div class="company-card" style="margin-top: 20px;">
+            <h2 style="margin-bottom: 20px;">📅 21-Day Zero Budget Timeline</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                <div style="background: #d1fae5; padding: 20px; border-radius: 12px;">
+                    <h3 style="color: #065f46;">Week 1</h3>
+                    <p style="color: #047857; margin: 10px 0;">🏖️ Bali Travel Focus</p>
+                    <ul style="color: #065f46; font-size: 0.9rem;">
+                        <li>Deploy landing page</li>
+                        <li>Instagram 100 followers</li>
+                        <li>50 WhatsApp contacts</li>
+                        <li>First booking target</li>
+                    </ul>
+                </div>
+                <div style="background: #fef3c7; padding: 20px; border-radius: 12px;">
+                    <h3 style="color: #92400e;">Week 2</h3>
+                    <p style="color: #b45309; margin: 10px 0;">💼 + Consulting Focus</p>
+                    <ul style="color: #92400e; font-size: 0.9rem;">
+                        <li>LinkedIn authority</li>
+                        <li>500 connections</li>
+                        <li>5 consultations</li>
+                        <li>First client target</li>
+                    </ul>
+                </div>
+                <div style="background: #dbeafe; padding: 20px; border-radius: 12px;">
+                    <h3 style="color: #1e40af;">Week 3</h3>
+                    <p style="color: #1d4ed8; margin: 10px 0;">🎨 + Digital Agency</p>
+                    <ul style="color: #1e40af; font-size: 0.9rem;">
+                        <li>Portfolio live</li>
+                        <li>50 businesses contacted</li>
+                        <li>10 discovery calls</li>
+                        <li>First project target</li>
+                    </ul>
+                </div>
+                <div style="background: #f3e8ff; padding: 20px; border-radius: 12px;">
+                    <h3 style="color: #7c3aed;">Month End</h3>
+                    <p style="color: #6d28d9; margin: 10px 0;">🎯 Revenue Target</p>
+                    <ul style="color: #7c3aed; font-size: 0.9rem;">
+                        <li>Bali Travel: Rp 10jt</li>
+                        <li>Consulting: Rp 5jt</li>
+                        <li>Digital Agency: Rp 5jt</li>
+                        <li><strong>Total: Rp 20jt+</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>🚀 ZERO BUDGET BUSINESS TRACKER - MAHA Lakshmi Holdings</p>
+            <p>🎯 Principle: "Effort replaces capital" | Last updated: 2026-07-03</p>
+            <p style="margin-top: 10px;">💡 JALANKAN SEKARANG, BUKAN BESOK!</p>
+        </div>
+    </div>
+    
+    <script>
+        function toggle(element) {
+            element.classList.toggle('checked');
+            const box = element.querySelector('.check-box');
+            box.innerHTML = element.classList.contains('checked') ? '✓' : '';
+            
+            // Save to localStorage
+            saveProgress();
+        }
+        
+        function saveProgress() {
+            const items = document.querySelectorAll('.checklist-item');
+            const data = [];
+            items.forEach(item => {
+                data.push(item.classList.contains('checked'));
+            });
+            localStorage.setItem('zeroBudgetProgress', JSON.stringify(data));
+        }
+        
+        function loadProgress() {
+            const saved = localStorage.getItem('zeroBudgetProgress');
+            if (saved) {
+                const data = JSON.parse(saved);
+                const items = document.querySelectorAll('.checklist-item');
+                items.forEach((item, index) => {
+                    if (data[index]) {
+                        item.classList.add('checked');
+                        item.querySelector('.check-box').innerHTML = '✓';
+                    }
+                });
+            }
+        }
+        
+        // Load on page load
+        loadProgress();
+        
+        // Update revenue display
+        function updateRevenue() {
+            const saved = localStorage.getItem('revenueData');
+            if (saved) {
+                const data = JSON.parse(saved);
+                document.getElementById('totalRevenue').textContent = 'Rp ' + data.total.toLocaleString('id-ID');
+            }
+        }
+        updateRevenue();
+    </script>
+</body>
+</html>

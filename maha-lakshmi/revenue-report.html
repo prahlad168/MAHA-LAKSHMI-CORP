@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laporan Pendapatan - MAHA LAKSHMI HOLDINGS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
+        }
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        .date {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+        .card .value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card .target {
+            color: #4ade80;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .card .current {
+            color: #f87171;
+            font-size: 0.9em;
+        }
+        .status-red { color: #f87171; }
+        .status-green { color: #4ade80; }
+        .status-yellow { color: #fbbf24; }
+        .section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        th {
+            background: rgba(102, 126, 234, 0.2);
+            color: #667eea;
+            font-weight: 600;
+        }
+        tr:hover {
+            background: rgba(255,255,255,0.05);
+        }
+        .priority-list {
+            list-style: none;
+        }
+        .priority-list li {
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        .priority-list li strong {
+            color: #667eea;
+        }
+        .profit-box {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .profit-box .amount {
+            font-size: 3em;
+            font-weight: bold;
+        }
+        .profit-box .label {
+            opacity: 0.9;
+        }
+        .action-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        .action-btn:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            text-align: center;
+            padding: 30px;
+            opacity: 0.7;
+        }
+        .highlight {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 15px 0;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 10px;
+            transition: width 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 LAPORAN PENDAPATAN</h1>
+            <h2>MAHA LAKSHMI HOLDINGS</h2>
+            <p>CEO: i Made Purna Ananda</p>
+            <div class="date">📅 11 Juli 2026</div>
+        </div>
+
+        <div class="summary">
+            <div class="card">
+                <h3>💰 Total Revenue</h3>
+                <div class="value status-red">Rp 0</div>
+                <div class="target">Target: Rp 1.000.000.000/bulan</div>
+                <div class="current">Progress: 0%</div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+            </div>
+            <div class="card">
+                <h3>🏢 Active Companies</h3>
+                <div class="value status-green">10</div>
+                <div class="target">Target: 10 companies</div>
+                <div class="current">Progress: 100% ✅</div>
+            </div>
+            <div class="card">
+                <h3>🤖 Active AI Agents</h3>
+                <div class="value status-yellow">6</div>
+                <div class="target">Target: 60 agents</div>
+                <div class="current">Progress: 10%</div>
+            </div>
+            <div class="card">
+                <h3>📊 Companies Ready</h3>
+                <div class="value status-green">1</div>
+                <div class="target">Bali Travel: 25%</div>
+                <div class="current">Paling dekat ke revenue!</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🏢 Status 10 Perusahaan (SBU)</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Perusahaan</th>
+                        <th>Target/Bulan</th>
+                        <th>Progress</th>
+                        <th>Revenue</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Payangan Hospital</td>
+                        <td>Rp 100.000.000</td>
+                        <td>95%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-green">✅ Ready</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Gianyar Tech Solutions</td>
+                        <td>Rp 100.000.000</td>
+                        <td>15%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Bali Digital Agency</td>
+                        <td>Rp 100.000.000</td>
+                        <td>20%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Gianyar E-Commerce</td>
+                        <td>Rp 100.000.000</td>
+                        <td>12%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Bali EdTech</td>
+                        <td>Rp 100.000.000</td>
+                        <td>10%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Gianyar Finance</td>
+                        <td>Rp 100.000.000</td>
+                        <td>12%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Bali Logistics</td>
+                        <td>Rp 100.000.000</td>
+                        <td>8%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>Gianyar FoodTech</td>
+                        <td>Rp 100.000.000</td>
+                        <td>8%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>Bali Travel ⭐</strong></td>
+                        <td>Rp 100.000.000</td>
+                        <td>25%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-green">⭐ Paling Siap</span></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Gianyar Property</td>
+                        <td>Rp 100.000.000</td>
+                        <td>10%</td>
+                        <td class="status-red">Rp 0</td>
+                        <td><span class="status-yellow">🔄 Setup</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="highlight">
+                <strong>Total Target:</strong> Rp 1.000.000.000/bulan &nbsp;|&nbsp; 
+                <strong>Total Current:</strong> <span class="status-red">Rp 0</span>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>📈 Target Timeline</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Timeline</th>
+                        <th>Target Holding</th>
+                        <th>Target/Company</th>
+                        <th>Estimasi Profit Pak Pur (60%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bulan 1</td>
+                        <td>Rp 10.000.000</td>
+                        <td>Rp 1.000.000</td>
+                        <td>Rp 6.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Bulan 3</td>
+                        <td>Rp 60.000.000</td>
+                        <td>Rp 6.000.000</td>
+                        <td>Rp 36.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Bulan 6</td>
+                        <td>Rp 100.000.000</td>
+                        <td>Rp 10.000.000</td>
+                        <td>Rp 60.000.000</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bulan 12</strong></td>
+                        <td><strong>Rp 1.000.000.000</strong></td>
+                        <td><strong>Rp 100.000.000</strong></td>
+                        <td><strong>Rp 600.000.000</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>💵 Profit Distribution</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kategori</th>
+                        <th>Persentase</th>
+                        <th>Penerima</th>
+                        <th>Amount (dari Rp 100M revenue)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>👑 Owner (Pak Pur)</strong></td>
+                        <td>60%</td>
+                        <td>BCA 6485086645</td>
+                        <td class="status-green"><strong>Rp 60.000.000</strong></td>
+                    </tr>
+                    <tr>
+                        <td>Reinvestment</td>
+                        <td>25%</td>
+                        <td>Company Reserve</td>
+                        <td>Rp 25.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Team Bonus</td>
+                        <td>10%</td>
+                        <td>Team Members</td>
+                        <td>Rp 10.000.000</td>
+                    </tr>
+                    <tr>
+                        <td>Charity/CSR</td>
+                        <td>5%</td>
+                        <td>Donasi</td>
+                        <td>Rp 5.000.000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>🚀 Priority Actions - Bali Travel (Paling Siap!)</h2>
+            <ul class="priority-list">
+                <li>
+                    <strong>Yang Sudah Selesai:</strong><br>
+                    ✅ 10 tour packages siap<br>
+                    ✅ 5 local guides partners<br>
+                    ✅ Booking system ready<br>
+                    ✅ Landing page template ada
+                </li>
+                <li>
+                    <strong>Yang Perlu Dilakukan SEKARANG:</strong><br>
+                    1️⃣ Deploy landing page<br>
+                    2️⃣ Share ke travel agents<br>
+                    3️⃣ Post ke Instagram<br>
+                    4️⃣ Target: First booking dalam 3 hari
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>🎯 Action Plan Roadmap</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Periode</th>
+                        <th>Target Revenue</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Minggu 1-2</td>
+                        <td>Setup</td>
+                        <td>Deploy landing pages, setup WhatsApp</td>
+                    </tr>
+                    <tr>
+                        <td>Minggu 3-4</td>
+                        <td>Rp 1.000.000</td>
+                        <td>First 5 customers</td>
+                    </tr>
+                    <tr>
+                        <td>Bulan 2</td>
+                        <td>Rp 10.000.000</td>
+                        <td>Scale successful companies</td>
+                    </tr>
+                    <tr>
+                        <td>Bulan 3</td>
+                        <td>Rp 60.000.000</td>
+                        <td>Add more revenue streams</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="profit-box">
+            <div class="label">💰 Estimasi Profit Bulanan untuk Pak Pur</div>
+            <div class="amount">Rp 60.000.000</div>
+            <div>(saat target Rp 100.000.000/company tercapai)</div>
+        </div>
+
+        <div class="section" style="text-align: center;">
+            <h2>🏦 Info Bank Transfer</h2>
+            <div class="highlight">
+                <strong>Bank:</strong> BCA<br>
+                <strong>Account:</strong> 6485086645<br>
+                <strong>Name:</strong> i Made Purna Ananda
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>🤖 Report Generated by: <strong>GAURANGA AI Agent</strong></p>
+            <p>📅 Tanggal: 11 Juli 2026</p>
+            <p>💪 Motto: "Setiap masalah pasti ada solusinya!"</p>
+            <br>
+            <p><em>MAHA LAKSHMI HOLDINGS - Building Digital Empire Together! 🚀</em></p>
+        </div>
+    </div>
+</body>
+</html>

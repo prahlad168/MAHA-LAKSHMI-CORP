@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianyar Property Tech - Jual Beli Sewa Property di Gianyar & Bali</title>
+    <meta name="description" content="Gianyar Property Tech - Platform property untuk Gianyar dan Bali. Jual, beli, dan sewa tanah, rumah, villa, dan commercial property. Free valuation!">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#7c3aed;--primary-dark:#6d28d9;--success:#10b981;--dark:#0f172a;--gray:#64748b;--light:#f5f3ff;--white:#fff}
+        body{font-family:'Inter',sans-serif;background:var(--white);color:var(--dark);line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .btn{padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;cursor:pointer;border:none;font-size:1rem}
+        .btn-primary{background:var(--primary);color:var(--white)}.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+        .btn-success{background:var(--success);color:var(--white)}.btn-success:hover{transform:translateY(-2px)}
+        .btn-white{background:var(--white);color:var(--primary)}.btn-white:hover{background:var(--light)}
+        
+        .navbar{background:var(--white);padding:15px 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+        .nav-content{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.5rem;font-weight:800;color:var(--primary)}.logo span{color:var(--dark)}
+        .nav-links{display:flex;gap:30px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--gray);font-weight:500;transition:.3s}
+        .nav-links a:hover{color:var(--primary)}
+        
+        .hero{background:linear-gradient(135deg,#4c1d95 0%,#5b21b6 100%);color:var(--white);padding:150px 0 100px;text-align:center}
+        .hero-content{max-width:800px;margin:0 auto}
+        .badge{background:rgba(124,58,237,.3);color:#ddd6fe;padding:8px 16px;border-radius:50px;font-size:.875rem;font-weight:500;display:inline-block;margin-bottom:20px}
+        .hero h1{font-size:3.5rem;font-weight:800;line-height:1.2;margin-bottom:20px}
+        .hero p{font-size:1.25rem;color:#ddd6fe;margin-bottom:30px}
+        .hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+        .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+        .stat{text-align:center}
+        .stat-number{font-size:3rem;font-weight:800;color:#ddd6fe}
+        .stat-label{color:#c4b5fd;font-size:.875rem;margin-top:5px}
+        
+        .section{padding:80px 0}
+        .section-alt{background:var(--light)}
+        .section-header{text-align:center;margin-bottom:50px}
+        .section-header h2{font-size:2.5rem;font-weight:700;margin-bottom:10px}
+        .section-header p{color:var(--gray);font-size:1.125rem}
+        
+        .search-box{background:var(--white);padding:30px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1);max-width:900px;margin:-80px auto 50px;position:relative;z-index:10}
+        .search-form{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:end}
+        .form-group{display:flex;flex-direction:column;gap:5px}
+        .form-group label{font-weight:600;font-size:.75rem;color:var(--dark)}
+        .form-group select,.form-group input{padding:10px;border:2px solid #e2e8f0;border-radius:8px;font-size:.875rem}
+        .search-form .btn{height:45px}
+        
+        .properties-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+        .property-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:.3s}
+        .property-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(124,58,237,.2)}
+        .property-img{height:220px;background:linear-gradient(135deg,#ddd6fe,#c4b5fd);display:flex;align-items:center;justify-content:center;font-size:5rem;position:relative}
+        .property-badge{position:absolute;top:15px;left:15px;background:var(--primary);color:var(--white);padding:5px 12px;border-radius:5px;font-size:.75rem;font-weight:600}
+        .property-type{position:absolute;top:15px;right:15px;background:var(--white);color:var(--dark);padding:5px 10px;border-radius:5px;font-size:.75rem;font-weight:600}
+        .property-content{padding:20px}
+        .property-location{color:var(--primary);font-size:.875rem;font-weight:500;margin-bottom:5px}
+        .property-content h3{font-size:1.25rem;font-weight:600;margin-bottom:10px}
+        .property-features{display:flex;gap:15px;margin-bottom:15px;color:var(--gray);font-size:.875rem}
+        .property-features span{display:flex;align-items:center;gap:5px}
+        .property-footer{display:flex;justify-content:space-between;align-items:center;padding-top:15px;border-top:1px solid #e2e8f0}
+        .property-price{font-size:1.25rem;font-weight:700;color:var(--primary)}
+        .property-agent{display:flex;align-items:center;gap:8px;font-size:.875rem;color:var(--gray)}
+        .property-agent img{width:30px;height:30px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem}
+        
+        .categories-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .category-card{background:var(--white);padding:30px;border-radius:16px;text-align:center;transition:.3s;cursor:pointer;border:2px solid transparent}
+        .category-card:hover{border-color:var(--primary);transform:translateY(-5px)}
+        .category-icon{font-size:3rem;margin-bottom:15px}
+        .category-card h4{font-size:1.125rem;font-weight:600;margin-bottom:5px}
+        .category-card p{color:var(--gray);font-size:.875rem}
+        
+        .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+        .feature-card{background:var(--white);padding:30px;border-radius:16px;text-align:center}
+        .feature-icon{width:70px;height:70px;background:linear-gradient(135deg,var(--primary),#a78bfa);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--white);margin:0 auto 15px}
+        .feature-card h4{font-size:1.125rem;font-weight:600;margin-bottom:8px}
+        .feature-card p{color:var(--gray);font-size:.9375rem}
+        
+        .valuation{background:var(--primary);color:var(--white);padding:60px;border-radius:20px;text-align:center}
+        .valuation h3{font-size:2rem;font-weight:700;margin-bottom:15px}
+        .valuation p{opacity:.9;margin-bottom:30px}
+        .valuation-form{display:flex;gap:15px;max-width:600px;margin:0 auto}
+        .valuation-form input{flex:1;padding:15px;border:none;border-radius:10px;font-size:1rem}
+        .valuation-form button{flex-shrink:0}
+        
+        .cta{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);text-align:center;padding:100px 0}
+        .cta h2{font-size:2.5rem;font-weight:700;margin-bottom:15px}
+        .cta p{font-size:1.125rem;opacity:.9;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto}
+        
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+        .contact-item{display:flex;align-items:center;gap:15px;margin-bottom:25px}
+        .contact-item i{width:50px;height:50px;background:var(--light);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.25rem}
+        .contact-item h4{font-size:1rem;margin-bottom:3px}
+        .contact-item p{color:var(--gray);font-size:.9375rem}
+        .contact-form{display:flex;flex-direction:column;gap:15px}
+        .contact-form input,.contact-form textarea,.contact-form select{padding:15px;border:1px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:1rem}
+        .contact-form textarea{min-height:150px;resize:vertical}
+        
+        .footer{background:var(--dark);color:var(--white);padding:60px 0 30px}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+        .footer-brand p{color:#94a3b8;margin-top:15px;line-height:1.7}
+        .footer h4{font-size:1rem;font-weight:600;margin-bottom:15px}
+        .footer ul{list-style:none}
+        .footer ul li{margin-bottom:10px}
+        .footer ul a{color:#94a3b8;text-decoration:none;transition:.3s}
+        .footer ul a:hover{color:var(--white)}
+        .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);color:#64748b;font-size:.875rem}
+        
+        .whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.75rem;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;text-decoration:none;transition:.3s}
+        .whatsapp-float:hover{transform:scale(1.1)}
+        
+        @media(max-width:768px){
+            .hero h1{font-size:2.25rem}
+            .hero-stats,.properties-grid,.categories-grid,.features-grid{grid-template-columns:1fr}
+            .nav-links{display:none}
+            .search-form{grid-template-columns:1fr}
+            .valuation-form{flex-direction:column}
+            .contact-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Gianyar<span>Property</span></div>
+            <ul class="nav-links">
+                <li><a href="#properties">Properti</a></li>
+                <li><a href="#categories">Kategori</a></li>
+                <li><a href="#features">Keuntungan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <a href="https://wa.me/6281337558787" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami
+            </a>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="badge">🏠 Property Platform #1 di Gianyar, Bali</span>
+            <h1>Temukan Property Impian Anda di Gianyar & Bali</h1>
+            <p>Jual, beli, dan sewa tanah, rumah, villa, dan commercial property dengan mudah dan aman.</p>
+            <div class="hero-btns">
+                <a href="#properties" class="btn btn-primary">
+                    <i class="fas fa-search"></i> Cari Properti
+                </a>
+                <a href="https://wa.me/6281337558787?text=Halo,%20saya%20ingin%20jual%20property%20di%20Gianyar" class="btn btn-white">
+                    <i class="fas fa-tags"></i> Jual Property
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-number">1000+</div><div class="stat-label">Listing</div></div>
+                <div class="stat"><div class="stat-number">500+</div><div class="stat-label">Agent</div></div>
+                <div class="stat"><div class="stat-number">200+</div><div class="stat-label">Transactions</div></div>
+                <div class="stat"><div class="stat-number">4.9</div><div class="stat-label">Rating</div></div>
+            </div>
+        </div>
+    </section>
+    
+    <div class="container">
+        <div class="search-box">
+            <form class="search-form">
+                <div class="form-group">
+                    <label>Lokasi</label>
+                    <select>
+                        <option>Semua Lokasi</option>
+                        <option>Gianyar</option>
+                        <option>Ubud</option>
+                        <option>Denpasar</option>
+                        <option>Badung</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tipe</label>
+                    <select>
+                        <option>Semua Tipe</option>
+                        <option>Rumah</option>
+                        <option>Villa</option>
+                        <option>Tanah</option>
+                        <option>Commercial</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Status</label>
+                    <select>
+                        <option>Jual</option>
+                        <option>Sewa</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Harga Min</label>
+                    <select>
+                        <option>No Min</option>
+                        <option>Rp 100jt</option>
+                        <option>Rp 500jt</option>
+                        <option>Rp 1M</option>
+                        <option>Rp 5M</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Harga Max</label>
+                    <select>
+                        <option>No Max</option>
+                        <option>Rp 500jt</option>
+                        <option>Rp 1M</option>
+                        <option>Rp 5M</option>
+                        <option>Rp 10M+</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+    
+    <section class="section" id="properties">
+        <div class="container">
+            <div class="section-header">
+                <h2>Properti Terbaru</h2>
+                <p>Pilihan terbaik yang baru masuk pasar</p>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-img">🏡<span class="property-badge">PREMIUM</span><span class="property-type">DIJUAL</span></div>
+                    <div class="property-content">
+                        <div class="property-location">📍 Ubud, Gianyar</div>
+                        <h3>Villa Modern 3 Kamar dengan Pool</h3>
+                        <div class="property-features">
+                            <span>🛏️ 3 KT</span>
+                            <span>🚿 2 KM</span>
+                            <span>📐 250 m²</span>
+                            <span>🏝️ 500 m²</span>
+                        </div>
+                        <div class="property-footer">
+                            <div class="property-price">Rp 3.5M</div>
+                            <div class="property-agent">
+                                <span>👤</span>
+                                <span>Agen Properti</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img">🏠<span class="property-badge">HOT</span><span class="property-type">DIJUAL</span></div>
+                    <div class="property-content">
+                        <div class="property-location">📍 Tegallalang, Gianyar</div>
+                        <h3>Tanah Strategis 1000m² View Sawah</h3>
+                        <div class="property-features">
+                            <span>📐 1000 m²</span>
+                            <span>🛖 SHM</span>
+                            <span>🚗 Akses Jalan</span>
+                        </div>
+                        <div class="property-footer">
+                            <div class="property-price">Rp 1.8M</div>
+                            <div class="property-agent">
+                                <span>👤</span>
+                                <span>Agen Properti</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img">🏢<span class="property-badge">INVESTASI</span><span class="property-type">DISEWA</span></div>
+                    <div class="property-content">
+                        <div class="property-location">📍 Gianyar Kota</div>
+                        <h3>Ruko Strategis 2 Lantai di Jalan Utama</h3>
+                        <div class="property-features">
+                            <span>📐 150 m²</span>
+                            <span>🏪 Komersial</span>
+                            <span>🚗 Parkir</span>
+                        </div>
+                        <div class="property-footer">
+                            <div class="property-price">Rp 25jt/thn</div>
+                            <div class="property-agent">
+                                <span>👤</span>
+                                <span>Agen Properti</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section section-alt" id="categories">
+        <div class="container">
+            <div class="section-header">
+                <h2>Jelajahi Kategori</h2>
+                <p>Temukan properti sesuai kebutuhan Anda</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-icon">🏡</div>
+                    <h4>Rumah</h4>
+                    <p>500+ listing</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏰</div>
+                    <h4>Villa</h4>
+                    <p>200+ listing</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏝️</div>
+                    <h4>Tanah</h4>
+                    <p>300+ listing</p>
+                </div>
+                <div class="category-card">
+                    <div class="category-icon">🏪</div>
+                    <h4>Commercial</h4>
+                    <p>100+ listing</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kenapa Pilih Gianyar Property?</h2>
+                <p>Keuntungan bertransaksi dengan kami</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
+                    <h4>100% Verified</h4>
+                    <p>Semua listing sudah diverifikasi legalitas dan kondisinya.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                    <h4>Free Valuation</h4>
+                    <p>Dapat penilaian harga market untuk properti Anda secara gratis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Transaksi Aman</h4>
+                    <p>Escrow payment dan legal assistance untuk transaksi aman.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-user-tie"></i></div>
+                    <h4>Agent Profesional</h4>
+                    <p>500+ agent bersertifikat siap membantu Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <div class="valuation">
+                <h3>🎯 Tahu Berapa Harga Property Anda?</h3>
+                <p>Masukkan alamat email dan nomor WhatsApp, kami akan kirimkan valuasi gratis!</p>
+                <form class="valuation-form">
+                    <input type="email" placeholder="Email Anda" required>
+                    <input type="tel" placeholder="WhatsApp" required>
+                    <button type="submit" class="btn btn-white">Valuasi Gratis</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Ingin Jual atau Sewakan Property?</h2>
+            <p>Gratis listing! Tanpa biaya apapun sampai property Anda terjual/disewa.</p>
+            <a href="https://wa.me/6281337558787?text=Halo,%20saya%20ingin%20menawarkan%20property%20di%20Gianyar%20Property%20Tech" class="btn btn-white">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami
+            </a>
+        </div>
+    </section>
+    
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <p>Tim kami siap membantu 24/7</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><h4>Alamat</h4><p>Jl. Mayor Widoyo, Gianyar, Bali</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div><h4>Telepon</h4><p>+62 813 3755 8787</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><h4>Email</h4><p>info@gianyarproperty.id</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div><h4>WhatsApp</h4><p>+62 813 3755 8787</p></div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nama Lengkap" required>
+                    <select required>
+                        <option value="">Tujuan</option>
+                        <option value="buy">Ingin Beli</option>
+                        <option value="sell">Ingin Jual</option>
+                        <option value="rent">Ingin Sewa</option>
+                        <option value="list">Ingin Listing</option>
+                        <option value="valuation">Valuasi Property</option>
+                    </select>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="WhatsApp" required>
+                    <textarea placeholder="Ceritakan kebutuhan property Anda"></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+                        <i class="fas fa-paper-plane"></i> Kirim & Konsultasi
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Gianyar<span>Property</span></div>
+                    <p>Property platform terpercaya di Gianyar dan Bali. Jual, beli, dan sewa property dengan mudah dan aman.</p>
+                </div>
+                <div>
+                    <h4>Properti</h4>
+                    <ul>
+                        <li><a href="#">Rumah</a></li>
+                        <li><a href="#">Villa</a></li>
+                        <li><a href="#">Tanah</a></li>
+                        <li><a href="#">Commercial</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ikuti Kami</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Gianyar Property Tech. Bagian dari MAHA LAKSHMI HOLDINGS.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/6281337558787" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

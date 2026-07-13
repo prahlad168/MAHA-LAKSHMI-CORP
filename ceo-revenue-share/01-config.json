@@ -1,0 +1,188 @@
+{
+  "version": "1.0.0",
+  "created": "2026-07-13",
+  "last_updated": "2026-07-13T12:00:00+08:00",
+  
+  "ceo": {
+    "name": "i Made Purna Ananda",
+    "short_name": "Pak Pur",
+    "whatsapp": "081337558787",
+    "email": "gaurangga168@gmail.com"
+  },
+  
+  "payment": {
+    "schedule": "50 16 * * *",
+    "timezone": "Asia/Jakarta",
+    "timezone_display": "WIB (UTC+7)",
+    "daily_time": "23:50 WIB"
+  },
+  
+  "distribution": {
+    "ceo_share_percent": 60,
+    "reinvest_percent": 25,
+    "team_bonus_percent": 10,
+    "csr_percent": 5
+  },
+  
+  "destination": {
+    "type": "bank_transfer",
+    "primary": {
+      "bank": "BCA",
+      "account": "6485086645",
+      "holder": "i Made Purna Ananda",
+      "label": "CEO Personal BCA Account"
+    },
+    "fallback": {
+      "network": "TRC20",
+      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "label": "USDT Fallback Wallet"
+    }
+  },
+  
+  "companies": [
+    {
+      "id": 1,
+      "name": "Payangan AI Solutions",
+      "short": "PAYANGAN-AI",
+      "niche": "Hospital AI System",
+      "target_monthly": 10000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 2,
+      "name": "Gianyar Tech Solutions",
+      "short": "GIANYAR-TECH",
+      "niche": "Software Development",
+      "target_monthly": 10000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 3,
+      "name": "Bali Digital Agency",
+      "short": "BALI-DIGITAL",
+      "niche": "Digital Marketing",
+      "target_monthly": 10000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 4,
+      "name": "Gianyar E-Commerce",
+      "short": "GIANYAR-ECOM",
+      "niche": "Online Marketplace",
+      "target_monthly": 8000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 5,
+      "name": "Bali EdTech",
+      "short": "BALI-EDTECH",
+      "niche": "Online Education",
+      "target_monthly": 10000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 6,
+      "name": "Gianyar Finance",
+      "short": "GIANYAR-FIN",
+      "niche": "Financial Services",
+      "target_monthly": 15000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 7,
+      "name": "Bali Logistics",
+      "short": "BALI-LOGISTICS",
+      "niche": "Delivery Services",
+      "target_monthly": 8000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 8,
+      "name": "Bali Travel",
+      "short": "BALI-TRAVEL",
+      "niche": "Tourism Services",
+      "target_monthly": 10000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 9,
+      "name": "Gianyar Property",
+      "short": "GIANYAR-PROP",
+      "niche": "Real Estate",
+      "target_monthly": 10000000,
+      "current_revenue": 0
+    },
+    {
+      "id": 10,
+      "name": "Gianyar FoodTech",
+      "short": "GIANYAR-FOOD",
+      "niche": "Food Delivery",
+      "target_monthly": 8000000,
+      "current_revenue": 0
+    }
+  ],
+  
+  "total_target_monthly": 99000000,
+  
+  "data_sources": [
+    {
+      "name": "Website Direct Sales",
+      "enabled": true,
+      "type": "manual"
+    },
+    {
+      "name": "Marketplace",
+      "enabled": true,
+      "type": "manual"
+    },
+    {
+      "name": "Payment Gateway",
+      "enabled": true,
+      "type": "manual"
+    },
+    {
+      "name": "Direct Bank Transfer",
+      "enabled": true,
+      "type": "manual"
+    },
+    {
+      "name": "WhatsApp Sales",
+      "enabled": true,
+      "type": "manual"
+    },
+    {
+      "name": "Offline Sales",
+      "enabled": true,
+      "type": "manual"
+    }
+  ],
+  
+  "currencies": {
+    "default": "IDR",
+    "supported": ["IDR", "USD", "EUR"],
+    "exchange_rates": {
+      "USD_TO_IDR": 16500,
+      "EUR_TO_IDR": 18000
+    }
+  },
+  
+  "automation": {
+    "enabled": true,
+    "schedule": "0 12 * * *",
+    "auto_execute": false,
+    "send_notification": true,
+    "update_dashboard": true
+  },
+  
+  "reports": {
+    "daily_folder": "ceo-revenue-share/DAILY-REPORTS",
+    "format": "markdown",
+    "include_charts": false
+  },
+  
+  "audit": {
+    "enabled": true,
+    "log_file": "ceo-revenue-share/03-audit-log.json",
+    "keep_days": 365
+  }
+}

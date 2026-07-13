@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Logistics Network - Jasa Pengiriman & Supply Chain Bali</title>
+    <meta name="description" content="Bali Logistics Network - Jasa pengiriman express, cargo, dan supply chain solution untuk Gianyar dan seluruh Bali. Tracking real-time. Harga kompetitif!">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#dc2626;--primary-dark:#b91c1c;--success:#10b981;--dark:#0f172a;--gray:#64748b;--light:#fef2f2;--white:#fff}
+        body{font-family:'Inter',sans-serif;background:var(--white);color:var(--dark);line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .btn{padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;cursor:pointer;border:none;font-size:1rem}
+        .btn-primary{background:var(--primary);color:var(--white)}.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+        .btn-success{background:var(--success);color:var(--white)}.btn-success:hover{transform:translateY(-2px)}
+        .btn-white{background:var(--white);color:var(--primary)}.btn-white:hover{background:var(--light)}
+        
+        .navbar{background:var(--white);padding:15px 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+        .nav-content{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.5rem;font-weight:800;color:var(--primary)}.logo span{color:var(--dark)}
+        .nav-links{display:flex;gap:30px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--gray);font-weight:500;transition:.3s}
+        .nav-links a:hover{color:var(--primary)}
+        
+        .hero{background:linear-gradient(135deg,#7f1d1d 0%,#991b1b 100%);color:var(--white);padding:150px 0 100px;text-align:center}
+        .hero-content{max-width:800px;margin:0 auto}
+        .badge{background:rgba(220,38,38,.3);color:#fca5a5;padding:8px 16px;border-radius:50px;font-size:.875rem;font-weight:500;display:inline-block;margin-bottom:20px}
+        .hero h1{font-size:3.5rem;font-weight:800;line-height:1.2;margin-bottom:20px}
+        .hero p{font-size:1.25rem;color:#fecaca;margin-bottom:30px}
+        .hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+        .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+        .stat{text-align:center}
+        .stat-number{font-size:3rem;font-weight:800;color:#fca5a5}
+        .stat-label{color:#fecaca;font-size:.875rem;margin-top:5px}
+        
+        .section{padding:80px 0}
+        .section-alt{background:var(--light)}
+        .section-header{text-align:center;margin-bottom:50px}
+        .section-header h2{font-size:2.5rem;font-weight:700;margin-bottom:10px}
+        .section-header p{color:var(--gray);font-size:1.125rem}
+        
+        .tracking-box{background:var(--white);padding:40px;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.1);max-width:600px;margin:0 auto 50px}
+        .tracking-box h3{font-size:1.5rem;margin-bottom:20px;text-align:center}
+        .tracking-form{display:flex;gap:10px}
+        .tracking-form input{flex:1;padding:15px;border:2px solid #e2e8f0;border-radius:10px;font-size:1rem}
+        .tracking-form button{flex-shrink:0}
+        
+        .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+        .service-card{background:var(--white);padding:35px;border-radius:20px;text-align:center;box-shadow:0 4px 20px rgba(0,0,0,.08);transition:.3s;border:2px solid transparent}
+        .service-card:hover{border-color:var(--primary);transform:translateY(-5px)}
+        .service-icon{width:80px;height:80px;background:linear-gradient(135deg,var(--primary),#f87171);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 20px}
+        .service-card h3{font-size:1.25rem;font-weight:600;margin-bottom:10px}
+        .service-card p{color:var(--gray);font-size:.9375rem;margin-bottom:20px}
+        .service-price{font-size:1.5rem;font-weight:700;color:var(--primary)}
+        .service-price span{font-size:.875rem;color:var(--gray);font-weight:400}
+        
+        .coverage-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+        .coverage-card{background:var(--white);padding:25px;border-radius:16px;text-align:center;border:2px solid var(--light)}
+        .coverage-card:hover{border-color:var(--primary)}
+        .coverage-icon{font-size:2rem;margin-bottom:10px}
+        .coverage-card h4{font-size:1rem;font-weight:600;margin-bottom:5px}
+        .coverage-card p{color:var(--gray);font-size:.875rem}
+        
+        .features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+        .feature-card{background:var(--white);padding:30px;border-radius:16px;text-align:center}
+        .feature-icon{width:70px;height:70px;background:var(--light);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2rem;color:var(--primary);margin:0 auto 15px}
+        .feature-card h4{font-size:1.125rem;font-weight:600;margin-bottom:8px}
+        .feature-card p{color:var(--gray);font-size:.9375rem}
+        
+        .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+        .pricing-card{background:var(--white);padding:40px;border-radius:20px;text-align:center;border:2px solid var(--light);transition:.3s}
+        .pricing-card:hover{border-color:var(--primary);transform:translateY(-5px)}
+        .pricing-card.popular{border-color:var(--primary);background:var(--light)}
+        .pricing-card{position:relative}
+        .pricing-card h3{font-size:1.5rem;margin-bottom:5px}
+        .pricing-card .subtitle{color:var(--gray);font-size:.875rem;margin-bottom:20px}
+        .pricing-card .price{font-size:2.5rem;font-weight:800;color:var(--primary);margin:20px 0}
+        .pricing-card .price span{font-size:1rem;color:var(--gray);font-weight:400}
+        .pricing-card ul{list-style:none;text-align:left;margin:20px 0}
+        .pricing-card ul li{padding:10px 0;border-bottom:1px solid #e2e8f0}
+        .pricing-card ul li i{color:var(--success);margin-right:10px}
+        
+        .cta{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);text-align:center;padding:100px 0}
+        .cta h2{font-size:2.5rem;font-weight:700;margin-bottom:15px}
+        .cta p{font-size:1.125rem;opacity:.9;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto}
+        
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px}
+        .contact-item{display:flex;align-items:center;gap:15px;margin-bottom:25px}
+        .contact-item i{width:50px;height:50px;background:var(--light);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.25rem}
+        .contact-item h4{font-size:1rem;margin-bottom:3px}
+        .contact-item p{color:var(--gray);font-size:.9375rem}
+        .contact-form{display:flex;flex-direction:column;gap:15px}
+        .contact-form input,.contact-form textarea,.contact-form select{padding:15px;border:1px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:1rem}
+        .contact-form textarea{min-height:150px;resize:vertical}
+        
+        .footer{background:var(--dark);color:var(--white);padding:60px 0 30px}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+        .footer-brand p{color:#94a3b8;margin-top:15px;line-height:1.7}
+        .footer h4{font-size:1rem;font-weight:600;margin-bottom:15px}
+        .footer ul{list-style:none}
+        .footer ul li{margin-bottom:10px}
+        .footer ul a{color:#94a3b8;text-decoration:none;transition:.3s}
+        .footer ul a:hover{color:var(--white)}
+        .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);color:#64748b;font-size:.875rem}
+        
+        .whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.75rem;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;text-decoration:none;transition:.3s}
+        .whatsapp-float:hover{transform:scale(1.1)}
+        
+        @media(max-width:768px){
+            .hero h1{font-size:2.25rem}
+            .hero-stats,.services-grid,.coverage-grid,.features-grid,.pricing-grid{grid-template-columns:1fr}
+            .nav-links{display:none}
+            .contact-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+            .tracking-form{flex-direction:column}
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Bali<span>Logistics</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#coverage">Cakupan</a></li>
+                <li><a href="#pricing">Harga</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <a href="https://wa.me/6281337558787" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami
+            </a>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="badge">🚚 Logistics #1 di Gianyar, Bali</span>
+            <h1>Solusi Pengiriman Terpercaya untuk Bisnis Anda</h1>
+            <p>Jasa pengiriman express, cargo, dan supply chain solution dengan tracking real-time dan harga kompetitif.</p>
+            <div class="hero-btns">
+                <a href="#services" class="btn btn-primary">
+                    <i class="fas fa-shipping-fast"></i> Lihat Layanan
+                </a>
+                <a href="#tracking" class="btn btn-white">
+                    <i class="fas fa-search"></i> Lacak Paket
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-number">10K+</div><div class="stat-label">Paket/Hari</div></div>
+                <div class="stat"><div class="stat-number">99%</div><div class="stat-label">On-Time</div></div>
+                <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Kota Coverage</div></div>
+                <div class="stat"><div class="stat-number">24/7</div><div class="stat-label">Tracking</div></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="tracking">
+        <div class="container">
+            <div class="tracking-box">
+                <h3>🔍 Lacak Paket Anda</h3>
+                <div class="tracking-form">
+                    <input type="text" placeholder="Masukkan nomor resi (contoh: BLN123456789)">
+                    <button class="btn btn-primary">Lacak</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section section-alt" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Layanan Kami</h2>
+                <p>Pilih layanan yang sesuai dengan kebutuhan pengiriman Anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Express Delivery</h3>
+                    <p>Pengiriman same-day dan next-day untuk paket urgent ke seluruh Bali.</p>
+                    <div class="service-price">Mulai Rp 15rb <span>/ kg</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📦</div>
+                    <h3>Regular Cargo</h3>
+                    <p>Pengiriman standar 2-5 hari kerja dengan harga ekonomis.</p>
+                    <div class="service-price">Mulai Rp 8rb <span>/ kg</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚢</div>
+                    <h3>Sea Freight</h3>
+                    <p>Pengiriman kontainer via laut untuk volume besar dengan harga terbaik.</p>
+                    <div class="service-price">Mulai Rp 5rb <span>/ kg</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🏭</div>
+                    <h3>Warehousing</h3>
+                    <p>Penyimpanan barang di gudang kami dengan sistem manajemen modern.</p>
+                    <div class="service-price">Mulai Rp 50rb <span>/ m³ / bulan</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h3>Return Service</h3>
+                    <p>Layanan pengambilan return/cabang dari customer Anda.</p>
+                    <div class="service-price">Mulai Rp 10rb <span>/ kg</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Fulfillment</h3>
+                    <p>Solusi complete: storage, packing, labeling, dan shipping.</p>
+                    <div class="service-price">Mulai Rp 20rb <span>/ order</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="coverage">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cakupan Area</h2>
+                <p>Kami menjangkau seluruh wilayah Bali dan Indonesia</p>
+            </div>
+            <div class="coverage-grid">
+                <div class="coverage-card">
+                    <div class="coverage-icon">🏝️</div>
+                    <h4>Gianyar</h4>
+                    <p>Denpasar, Ubud, Sanur</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">🌅</div>
+                    <h4>Badung</h4>
+                    <p>Kuta, Seminyak, Canggu</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">🌴</div>
+                    <h4>Tabanan</h4>
+                    <p>Tanah Lot, Mengwi</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">🏔️</div>
+                    <h4>Buleleng</h4>
+                    <p>Singaraja, Lovina</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">🗻</div>
+                    <h4>Bangli</h4>
+                    <p>Pendemo, Kintamani</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">🌺</div>
+                    <h4>Klungkung</h4>
+                    <p>Semarapura, Nusa Penida</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">🏖️</div>
+                    <h4>Jembrana</h4>
+                    <p>Negara, Gilimanuk</p>
+                </div>
+                <div class="coverage-card">
+                    <div class="coverage-icon">✈️</div>
+                    <h4>All Indonesia</h4>
+                    <p>Via cargo partner</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section section-alt" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Harga Layanan</h2>
+                <p>Harga transparan tanpa biaya tersembunyi</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-truck"></i></div>
+                    <h4>Same Day</h4>
+                    <p>Pengiriman dalam 8 jam. Max 10kg.</p>
+                    <p style="color:var(--primary);font-weight:700">Rp 35.000</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-shipping-fast"></i></div>
+                    <h4>Next Day</h4>
+                    <p>Sampai besok sebelum jam 5 sore.</p>
+                    <p style="color:var(--primary);font-weight:700">Rp 18.000</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-box"></i></div>
+                    <h4>Regular 2-3 Days</h4>
+                    <p>Ekonomi 2-3 hari kerja.</p>
+                    <p style="color:var(--primary);font-weight:700">Rp 12.000</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon"><i class="fas fa-warehouse"></i></div>
+                    <h4>Cargo / 5+ Days</h4>
+                    <p>Untuk paket besar & berat.</p>
+                    <p style="color:var(--primary);font-weight:700">Rp 8.000/kg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Butuh Solusi Logistik untuk Bisnis Anda?</h2>
+            <p>Konsultasi gratis dengan tim kami. Dapatkan penawaran terbaik untuk kebutuhan shipping Anda.</p>
+            <a href="https://wa.me/6281337558787?text=Halo,%20saya%20butuh%20jasa%20logistik%20dari%20Bali%20Logistics%20Network" class="btn btn-white">
+                <i class="fab fa-whatsapp"></i> Chat Sekarang
+            </a>
+        </div>
+    </section>
+    
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <p>Tim kami siap membantu 24/7</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><h4>Alamat</h4><p>Jl. Legundi, Gianyar, Bali</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div><h4>Telepon</h4><p>+62 813 3755 8787</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><h4>Email</h4><p>info@balilogistics.id</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div><h4>WhatsApp</h4><p>+62 813 3755 8787</p></div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nama Bisnis" required>
+                    <input type="number" placeholder="Perkiraan Volume/Hari" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="WhatsApp" required>
+                    <select required>
+                        <option value="">Jenis Layanan</option>
+                        <option value="express">Express Delivery</option>
+                        <option value="regular">Regular Cargo</option>
+                        <option value="warehousing">Warehousing</option>
+                        <option value="fulfillment">Fulfillment</option>
+                        <option value="full">Paket Lengkap</option>
+                    </select>
+                    <textarea placeholder="Ceritakan kebutuhan logistik Anda"></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+                        <i class="fas fa-paper-plane"></i> Kirim & Konsultasi
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Bali<span>Logistics</span></div>
+                    <p>Jasa pengiriman terpercaya di Gianyar dan Bali. Solusi lengkap untuk kebutuhan logistics bisnis Anda.</p>
+                </div>
+                <div>
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#">Express Delivery</a></li>
+                        <li><a href="#">Regular Cargo</a></li>
+                        <li><a href="#">Warehousing</a></li>
+                        <li><a href="#">Fulfillment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Karir</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ikuti Kami</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-tiktok"></i> TikTok</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Bali Logistics Network. Bagian dari MAHA LAKSHMI HOLDINGS.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/6281337558787" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>

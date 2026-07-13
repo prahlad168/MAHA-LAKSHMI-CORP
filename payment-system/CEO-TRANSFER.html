@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏦 CEO Transfer - MAHA LAKSHMI HOLDINGS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 500px;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .amount-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+        }
+        
+        .amount-label {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 5px;
+        }
+        
+        .amount-value {
+            font-size: 42px;
+            font-weight: bold;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .info-item {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .info-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .info-value {
+            font-weight: bold;
+            color: #333;
+            font-size: 16px;
+        }
+        
+        .info-value.bank {
+            color: #0066cc;
+        }
+        
+        .copy-btn {
+            background: #e9ecef;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: #dee2e6;
+        }
+        
+        .transfer-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            color: white;
+            border: none;
+            padding: 18px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+        
+        .transfer-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,114,255,0.4);
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #856404;
+        }
+        
+        .warning-icon {
+            margin-right: 5px;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 12px;
+            border-top: 1px solid #eee;
+        }
+        
+        .success-msg {
+            display: none;
+            text-align: center;
+            padding: 40px;
+        }
+        
+        .success-msg.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        
+        .success-title {
+            font-size: 24px;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+        
+        .success-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .timer {
+            font-size: 14px;
+            color: #999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🏦 CEO TRANSFER</h1>
+            <p>MAHA LAKSHMI HOLDINGS</p>
+        </div>
+        
+        <div class="content" id="transferForm">
+            <div class="amount-box">
+                <div class="amount-label">Jumlah Transfer</div>
+                <div class="amount-value">Rp 600.000</div>
+            </div>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">Bank</span>
+                    <span class="info-value bank">BCA</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Nomor Rekening</span>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span class="info-value">6485086645</span>
+                        <button class="copy-btn" onclick="copyText('6485086645')">📋 Copy</button>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Nama Penerima</span>
+                    <span class="info-value">i Made Purna Ananda</span>
+                </div>
+                <div class="info-item">
+                    <span class="info-label">Reference</span>
+                    <span class="info-value">CEO-20260713</span>
+                </div>
+            </div>
+            
+            <!-- BCA Mobile Deep Link -->
+            <a href="bca://transfer?recipient=6485086645&amount=600000&description=CEO%20Revenue%20Share" class="transfer-btn" onclick="showSuccess()">
+                🚀 Transfer via BCA Mobile
+            </a>
+            
+            <!-- Alternative: Copy for manual transfer -->
+            <button class="transfer-btn" style="margin-top: 15px; background: #6c757d;" onclick="showBCAInstructions()">
+                📱 Buka BCA Mobile
+            </button>
+            
+            <div class="warning">
+                <span class="warning-icon">⚠️</span>
+                <strong>Penting:</strong> Pastikan nominal transfer sesuai dengan jumlah yang tertera. Biaya transfer mungkin dikenakan sesuai kebijakan bank.
+            </div>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="success-msg" id="successMsg">
+            <div class="success-icon">✅</div>
+            <div class="success-title">Transfer Berhasil!</div>
+            <div class="success-text">
+                Pembayaran CEO Revenue Share<br>
+                <strong>Rp 600.000</strong><br>
+                ke BCA 6485086645<br>
+                telah dikonfirmasi.
+            </div>
+            <div class="timer">Mengalihkan...</div>
+        </div>
+        
+        <div class="footer">
+            Generated by GAURANGA AI<br>
+            MAHA LAKSHMI HOLDINGS<br>
+            © 2026
+        </div>
+    </div>
+    
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Nomor rekening berhasil disalin!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        function showSuccess() {
+            setTimeout(() => {
+                document.getElementById('transferForm').style.display = 'none';
+                document.getElementById('successMsg').classList.add('show');
+                
+                // Countdown redirect
+                let seconds = 3;
+                const timerEl = document.querySelector('.timer');
+                
+                const countdown = setInterval(() => {
+                    seconds--;
+                    timerEl.textContent = `Mengalihkan dalam ${seconds} detik...`;
+                    
+                    if (seconds <= 0) {
+                        clearInterval(countdown);
+                        timerEl.textContent = 'Memuat dashboard...';
+                    }
+                }, 1000);
+            }, 500);
+        }
+        
+        function showBCAInstructions() {
+            alert('Buka aplikasi BCA Mobile Anda, lalu:\n\n1. Pilih menu "m-Transfer"\n2. Pilih "Transfer ke BCA"\n3. Masukkan nomor rekening: 6485086645\n4. Masukkan jumlah: 600000\n5. Konfirmasi dengan PIN');
+        }
+    </script>
+</body>
+</html>

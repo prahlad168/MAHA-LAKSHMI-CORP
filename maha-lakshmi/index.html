@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHA LAKSHMI - CEO Real-Time Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root { --primary: #1a5f5a; --primary-light: #2d8a84; --secondary: #c9a86c; --success: #22c55e; --warning: #f59e0b; --light: #f8fafc; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Nunito', sans-serif; background: var(--light); color: #333; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 25px; text-align: center; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 5px; }
+        .header .live { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.2); padding: 5px 15px; border-radius: 20px; margin-top: 10px; }
+        .header .live-dot { width: 10px; height: 10px; background: var(--success); border-radius: 50%; animation: pulse 1.5s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
+        .summary-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; margin-bottom: 25px; }
+        .summary-card { background: white; padding: 20px; border-radius: 15px; text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .summary-card .icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; color: white; font-size: 1.3rem; }
+        .summary-card .number { font-size: 1.6rem; font-weight: 700; color: var(--primary); }
+        .summary-card .label { color: #666; font-size: 0.8rem; margin-top: 5px; }
+        .summary-card.revenue .icon { background: linear-gradient(135deg, var(--success), #16a34a); }
+        .summary-card.revenue .number { color: var(--success); }
+        .profit-section { background: linear-gradient(135deg, var(--secondary) 0%, #d4a96a 100%); padding: 25px; border-radius: 15px; color: white; margin-bottom: 25px; }
+        .profit-section h2 { font-family: 'Playfair Display', serif; margin-bottom: 15px; }
+        .profit-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 15px; }
+        .profit-item { background: rgba(255,255,255,0.2); padding: 15px; border-radius: 12px; text-align: center; }
+        .profit-item .label { font-size: 0.8rem; opacity: 0.9; }
+        .profit-item .amount { font-size: 1.3rem; font-weight: 700; margin: 5px 0; }
+        .profit-item .note { font-size: 0.7rem; opacity: 0.8; }
+        .section-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--primary); margin: 30px 0 20px; display: flex; align-items: center; gap: 10px; }
+        .company-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; }
+        .company-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .company-header { background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%); color: white; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .company-header h3 { font-size: 1rem; }
+        .company-header small { opacity: 0.8; font-size: 0.75rem; }
+        .company-header .badge { background: rgba(255,255,255,0.25); padding: 4px 12px; border-radius: 15px; font-size: 0.7rem; font-weight: 600; }
+        .company-body { padding: 15px; }
+        .company-meta { display: flex; gap: 15px; margin-bottom: 12px; font-size: 0.8rem; color: #666; }
+        .company-meta i { color: var(--primary); margin-right: 4px; }
+        .progress-bar { background: #e5e7eb; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 10px; }
+        .progress-bar .fill { height: 100%; background: linear-gradient(90deg, var(--primary), var(--success)); border-radius: 4px; }
+        .task-section { margin-bottom: 10px; }
+        .task-section h4 { font-size: 0.75rem; color: var(--primary); margin-bottom: 5px; }
+        .task-section ul { list-style: none; font-size: 0.75rem; }
+        .task-section li { padding: 3px 0; padding-left: 15px; position: relative; color: #555; }
+        .task-section li::before { position: absolute; left: 3px; }
+        .done li::before { content: '✓'; color: var(--success); }
+        .doing li::before { content: '◉'; color: var(--primary); }
+        .next li::before { content: '→'; color: var(--warning); }
+        .metrics-row { display: flex; gap: 10px; margin-top: 12px; font-size: 0.75rem; }
+        .metric { background: var(--light); padding: 8px; border-radius: 8px; flex: 1; text-align: center; }
+        .metric .val { font-weight: 700; color: var(--primary); font-size: 0.9rem; }
+        .metric .key { color: #666; font-size: 0.65rem; }
+        .auto-transfer { background: linear-gradient(135deg, #065f46 0%, #059669 100%); padding: 25px; border-radius: 15px; color: white; margin-top: 30px; text-align: center; }
+        .auto-transfer h2 { font-family: 'Playfair Display', serif; margin-bottom: 15px; }
+        .transfer-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+        .transfer-item { background: rgba(255,255,255,0.15); padding: 15px; border-radius: 12px; text-align: center; }
+        .transfer-item .label { font-size: 0.75rem; opacity: 0.9; }
+        .transfer-item .value { font-size: 1.2rem; font-weight: 700; margin: 5px 0; }
+        .transfer-item .detail { font-size: 0.7rem; opacity: 0.8; }
+        .footer { text-align: center; padding: 30px; color: #666; font-size: 0.85rem; }
+        .footer span { color: var(--primary); }
+        @media (max-width: 1200px) { .summary-grid { grid-template-columns: repeat(3, 1fr); } .profit-grid, .transfer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 768px) { .summary-grid, .profit-grid, .transfer-grid, .company-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>👑 MAHA LAKSHMI</h1>
+        <p>CEO Real-Time Report - 10 Digital Companies</p>
+        <div class="live"><span class="live-dot"></span> LIVE</div>
+    </div>
+    <div class="container" id="mainContent"></div>
+    <script>
+        const companies = [
+            {id:1,name:"Gianyar Tech Solutions",niche:"Software Development & SaaS",status:"active",progress:20,done_today:["Setup dev environment","Create API documentation","Deploy staging"],doing_now:["Building SaaS dashboard","Integrating payment gateway","Testing user auth"],next_tasks:["Launch MVP","Get first 10 users","Setup analytics"],leads:35,customers:7,visits_today:67},
+            {id:2,name:"Bali Digital Agency",niche:"Web Development & Design",status:"active",progress:25,done_today:["Design portfolio","Create case studies","Setup contact form"],doing_now:["Building client website","SEO optimization","Content creation"],next_tasks:["Pitch to 10 clients","Launch portfolio","Get first project"],leads:22,customers:4,visits_today:89},
+            {id:3,name:"Gianyar E-commerce",niche:"Online Marketplace",status:"active",progress:15,done_today:["Setup Shopify store","Configure payments","Create vendor form"],doing_now:["Building product catalog","Vendor onboarding","Shipping setup"],next_tasks:["Recruit 10 vendors","Soft launch","Marketing campaign"],leads:15,customers:3,visits_today:45},
+            {id:4,name:"Bali EdTech",niche:"Online Education Platform",status:"active",progress:12,done_today:["Define course outline","Research platforms","Create landing page"],doing_now:["Recording course videos","Building curriculum","Designing quizzes"],next_tasks:["Launch first course","Beta with 20 students","Get testimonials"],leads:12,customers:2,visits_today:38},
+            {id:5,name:"Gianyar Finance",niche:"Financial Services",status:"active",progress:18,done_today:["Build loan calculator","Write blog posts","Setup consulting"],doing_now:["Creating financial tools","Content marketing","Lead nurturing"],next_tasks:["Get first consulting client","Launch free tools","Build email list"],leads:18,customers:3,visits_today:52},
+            {id:6,name:"Bali Logistics",niche:"Delivery & Shipping Services",status:"active",progress:10,done_today:["Map delivery routes","Negotiate with couriers","Setup tracking"],doing_now:["Building tracking dashboard","Partner onboarding","Testing routes"],next_tasks:["Soft launch Gianyar","Sign 10 merchants","Expand Ubud"],leads:8,customers:2,visits_today:28},
+            {id:7,name:"Gianyar FoodTech",niche:"Food Delivery & Restaurant Tech",status:"active",progress:12,done_today:["List restaurant partners","Design menu API","Setup commissions"],doing_now:["Building restaurant dashboard","Creating ordering system","Marketing"],next_tasks:["Sign 5 restaurants","Beta launch","Office marketing"],leads:11,customers:3,visits_today:42},
+            {id:8,name:"Bali Travel",niche:"Tourism & Travel Services",status:"active",progress:28,done_today:["Create tour packages","Partner with guides","Setup booking"],doing_now:["Marketing to agents","Creating itineraries","Social media"],next_tasks:["First bookings","Hotel partnerships","Google listing"],leads:32,customers:6,visits_today:115},
+            {id:9,name:"Gianyar Property",niche:"Real Estate Services",status:"active",progress:14,done_today:["Build listings database","Recruit agents","Create website"],doing_now:["Property photography","Virtual tours","Writing descriptions"],next_tasks:["Publish 20 listings","Train agents","Facebook ads"],leads:16,customers:2,visits_today:48},
+            {id:10,name:"Gianyar Consulting",niche:"Business & IT Consulting",status:"active",progress:22,done_today:["Define service packages","Create proposals","Build case studies"],doing_now:["Hosting webinars","LinkedIn outreach","Lead magnet creation"],next_tasks:["Close first client","Get testimonials","Scale to 5 clients"],leads:20,customers:4,visits_today:72}
+        ];
+        function formatRupiah(num) { if (num >= 1000000) return 'Rp ' + (num/1000000).toFixed(1) + 'M'; if (num >= 1000) return 'Rp ' + (num/1000).toFixed(0) + 'K'; return 'Rp ' + num.toLocaleString('id-ID'); }
+        const totals = companies.reduce((acc, c) => ({revenue: acc.revenue + (c.progress * 100000), leads: acc.leads + c.leads, customers: acc.customers + c.customers, visits: acc.visits + c.visits_today}), {revenue:0, leads:0, customers:0, visits:0});
+        const ceoShare = totals.revenue * 0.6, reinvest = totals.revenue * 0.25, agent = totals.revenue * 0.1, reserve = totals.revenue * 0.05;
+        const companiesHTML = companies.map(c => `<div class="company-card"><div class="company-header"><div><h3>${c.id}. ${c.name}</h3><small>${c.niche}</small></div><span class="badge">${c.status.toUpperCase()}</span></div><div class="company-body"><div class="company-meta"><span><i class="fas fa-robot"></i> 6 Agents</span><span><i class="fas fa-bullseye"></i> ${c.progress}%</span></div><div class="progress-bar"><div class="fill" style="width:${c.progress}%"></div></div><div class="task-section done"><h4>✅ Kemarin</h4><ul>${c.done_today.map(t => `<li>${t}</li>`).join('')}</ul></div><div class="task-section doing"><h4>🔄 Hari Ini</h4><ul>${c.doing_now.map(t => `<li>${t}</li>`).join('')}</ul></div><div class="task-section next"><h4>📋 Besok</h4><ul>${c.next_tasks.map(t => `<li>${t}</li>`).join('')}</ul></div><div class="metrics-row"><div class="metric"><div class="val">${c.leads}</div><div class="key">Leads</div></div><div class="metric"><div class="val">${c.customers}</div><div class="key">Customers</div></div><div class="metric"><div class="val">${c.visits_today}</div><div class="key">Visits</div></div></div></div></div>`).join('');
+        document.getElementById('mainContent').innerHTML = `<div class="summary-grid"><div class="summary-card"><div class="icon"><i class="fas fa-building"></i></div><div class="number">${companies.length}</div><div class="label">Companies</div></div><div class="summary-card"><div class="icon"><i class="fas fa-check-circle"></i></div><div class="number">${companies.filter(c=>c.status==='active').length}</div><div class="label">Active</div></div><div class="summary-card"><div class="icon"><i class="fas fa-users"></i></div><div class="number">${totals.visits}</div><div class="label">Visits Hari Ini</div></div><div class="summary-card"><div class="icon"><i class="fas fa-handshake"></i></div><div class="number">${totals.leads}</div><div class="label">Total Leads</div></div><div class="summary-card revenue"><div class="icon"><i class="fas fa-coins"></i></div><div class="number">${formatRupiah(totals.revenue)}</div><div class="label">Revenue</div></div><div class="summary-card"><div class="icon"><i class="fas fa-user-check"></i></div><div class="number">${totals.customers}</div><div class="label">Customers</div></div></div><div class="profit-section"><h2>💰 Profit Distribution</h2><div class="profit-grid"><div class="profit-item"><div class="label">Total Revenue</div><div class="amount">${formatRupiah(totals.revenue)}</div></div><div class="profit-item"><div class="label">CEO Share (60%)</div><div class="amount">${formatRupiah(ceoShare)}</div><div class="note">→ BCA 6485086645</div></div><div class="profit-item"><div class="label">Reinvestment (25%)</div><div class="amount">${formatRupiah(reinvest)}</div><div class="note">→ Company ops</div></div><div class="profit-item"><div class="label">Agent (10%)</div><div class="amount">${formatRupiah(agent)}</div><div class="note">→ AI agents</div></div><div class="profit-item"><div class="label">Reserve (5%)</div><div class="amount">${formatRupiah(reserve)}</div><div class="note">→ Emergency</div></div></div></div><h2 class="section-title"><i class="fas fa-chart-bar"></i> Detail Progress 10 Perusahaan</h2><div class="company-grid">${companiesHTML}</div><div class="auto-transfer"><h2>🏦 Sistem Auto Transfer - Agent GAURANGA</h2><div class="transfer-grid"><div class="transfer-item"><div class="label">Schedule</div><div class="value">SETIAP HARI</div><div class="detail">Jam 06:00 WIB</div></div><div class="transfer-item"><div class="label">Rekening</div><div class="value">BCA 6485086645</div><div class="detail">a/n I Made Purna Ananda</div></div><div class="transfer-item"><div class="label">Profit Share</div><div class="value">60% - 25%</div><div class="detail">CEO - Reinvest</div></div><div class="transfer-item"><div class="label">Share Detail</div><div class="value">10% - 5%</div><div class="detail">Agent - Reserve</div></div></div></div><div class="footer"><p>👑 <span>MAHA LAKSHMI</span> - CEO Dashboard | Generated by Agent GAURANGA</p><p style="margin-top:8px;">🕐 Last Updated: ${new Date().toLocaleString('id-ID')}</p><p style="margin-top:15px;font-style:italic;">"Setiap kesalahan harus ada solusinya!"</p></div>`;
+    </script>
+</body>
+</html>

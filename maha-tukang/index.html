@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHA TUKANG - Platform Marketplace Jasa Tukang Berbasis AI</title>
+    <meta name="description" content="Platform marketplace jasa tukang berbasis AI pertama di Indonesia. Temukan tukang profesional untuk renovasi, pembangunan, dan perbaikan rumah.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2A;
+            --secondary: #1E3A5F;
+            --accent: #FFD23F;
+            --bg-light: #FFF8F5;
+            --text-dark: #1A1A2E;
+            --text-light: #6B7280;
+            --success: #10B981;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        .navbar {
+            background: white;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .hero {
+            padding: 8rem 2rem 4rem;
+            text-align: center;
+            background: linear-gradient(135deg, #FFF8F5 0%, #FFE8DC 100%);
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .hero-badge {
+            background: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.1;
+            max-width: 800px;
+        }
+        .hero h1 span {
+            color: var(--primary);
+        }
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 2rem;
+        }
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .search-section {
+            background: white;
+            padding: 3rem 2rem;
+            margin-top: -2rem;
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            z-index: 10;
+        }
+        .search-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .search-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .form-group label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+        }
+        .form-group select,
+        .form-group input {
+            padding: 0.75rem 1rem;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .form-group select:focus,
+        .form-group input:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .services {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .service-card {
+            background: var(--bg-light);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .how-it-works {
+            padding: 5rem 2rem;
+            background: var(--secondary);
+            color: white;
+        }
+        .how-it-works .section-header h2 {
+            color: white;
+        }
+        .how-it-works .section-header p {
+            color: rgba(255,255,255,0.7);
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .step {
+            text-align: center;
+            position: relative;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin: 0 auto 1.5rem;
+        }
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .step p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        .features {
+            padding: 5rem 2rem;
+            background: white;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-radius: 12px;
+            background: var(--bg-light);
+        }
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--success);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .feature-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        .feature-content p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .cta {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+            color: white;
+        }
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .cta p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+            font-size: 1.1rem;
+            padding: 1rem 2rem;
+        }
+        .cta .btn:hover {
+            background: var(--accent);
+        }
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 2rem;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-col a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 0.9rem;
+        }
+        .voice-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(255,107,53,0.4);
+            font-size: 1.5rem;
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .voice-btn:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            width: 60px;
+            height: 60px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+            z-index: 999;
+        }
+        .whatsapp-float a {
+            color: white;
+            font-size: 1.8rem;
+            text-decoration: none;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .stats {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-icon">🔧</div>
+                <span>MAHA TUKANG</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#layanan">Layanan</a></li>
+                <li><a href="#cara-kerja">Cara Kerja</a></li>
+                <li><a href="#fitur">Fitur</a></li>
+                <li><a href="#kontak">Kontak</a></li>
+            </ul>
+            <a href="https://wa.me/6281337558787" class="btn btn-primary">Hubungi Kami</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-badge">🚀 Platform AI Pertama di Indonesia</div>
+        <h1>Cari Tukang <span>Terbaik</span> dengan AI</h1>
+        <p>Platform marketplace jasa tukang berbasis AI pertama di Indonesia. Temukan tukang profesional untuk renovasi, pembangunan, dan perbaikan rumah dengan mudah, aman, dan terpercaya.</p>
+        <div class="hero-buttons">
+            <a href="#cari" class="btn btn-primary">🔍 Cari Tukang</a>
+            <a href="#daftar" class="btn btn-outline">📝 Daftar jadi Tukang</a>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-number">10K+</div>
+                <div class="stat-label">Tukang Terdaftar</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">50K+</div>
+                <div class="stat-label">Proyek Selesai</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">4.9</div>
+                <div class="stat-label">Rating Rata-rata</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support Aktif</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-section" id="cari">
+        <div class="search-container">
+            <div class="search-grid">
+                <div class="form-group">
+                    <label>📍 Pilih Kota</label>
+                    <select>
+                        <option value="">Pilih Kota</option>
+                        <option value="denpasar">Denpasar</option>
+                        <option value="badung">Badung</option>
+                        <option value="gianyar">Gianyar</option>
+                        <option value="singaraja">Singaraja</option>
+                        <option value="bangli">Bangli</option>
+                        <option value="klungkung">Klungkung</option>
+                        <option value="tabanan">Tabanan</option>
+                        <option value="jembrana">Jembrana</option>
+                        <option value="karangasem">Karangasem</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>💰 Budget</label>
+                    <select>
+                        <option value="">Pilih Budget</option>
+                        <option value="500k">< Rp 500.000</option>
+                        <option value="500k-2jt">Rp 500.000 - 2.000.000</option>
+                        <option value="2jt-5jt">Rp 2.000.000 - 5.000.000</option>
+                        <option value="5jt-10jt">Rp 5.000.000 - 10.000.000</option>
+                        <option value="10jt+">> Rp 10.000.000</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>⭐ Rating</label>
+                    <select>
+                        <option value="">Pilih Rating</option>
+                        <option value="5">5 Bintang</option>
+                        <option value="4+">4+ Bintang</option>
+                        <option value="3+">3+ Bintang</option>
+                    </select>
+                </div>
+            </div>
+            <a href="https://wa.me/6281337558787?text=Halo,%20saya%20ingin%20cari%20tukang" class="btn btn-primary" style="width: 100%; justify-content: center;">
+                🔍 Cari Tukang Sekarang
+            </a>
+        </div>
+    </section>
+
+    <section class="services" id="layanan">
+        <div class="section-header">
+            <h2>Layanan Kami</h2>
+            <p>Temukan berbagai jasa pertukangan profesional untuk kebutuhan Anda</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Renovasi Rumah</h3>
+                <p>Renovasi total, partial, dan upgrade rumah Anda</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⚡</div>
+                <h3>Listrik</h3>
+                <p>Instalasi, perbaikan, dan upgrade sistem listrik</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚿</div>
+                <h3>Plumbing</h3>
+                <p>Pipa air, WC, wastafel, dan instalasi air</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎨</div>
+                <h3>Cat</h3>
+                <p>Cat interior dan eksterior rumah</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧱</div>
+                <h3>Keramik</h3>
+                <p>Pasang keramik lantai dan dinding</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Atap</h3>
+                <p>Atap genteng, spandek, dan baja ringan</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">❄️</div>
+                <h3>AC / Pendingin</h3>
+                <p>Pasang, service, dan isi ulang AC</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚪</div>
+                <h3>Pagar</h3>
+                <p>Pagar besi, aluminium, dan kayu</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🧱</div>
+                <h3>Dinding</h3>
+                <p>Bangun dinding, plester, dan acian</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🍳</div>
+                <h3>Interior</h3>
+                <p>Kitchen set, wardrobe, dan furniture</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">⛺</div>
+                <h3>Kanopi</h3>
+                <p>Kanopi spandek, aluminium, dan kaca</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔩</div>
+                <h3>Las / Welding</h3>
+                <p>Pekerjaan las profesional</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works" id="cara-kerja">
+        <div class="section-header">
+            <h2>Cara Kerja</h2>
+            <p>Mulai dari cari tukang sampai pembayaran dalam 4 langkah mudah</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Cari & Pilih</h3>
+                <p>Pilih layanan dan lokasi Anda. AI akan rekomendasikan tukang terbaik</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Booking</h3>
+                <p>Hubungi tukang, negosiasi harga, dan booking tanggal kerja</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Kerja</h3>
+                <p>Tukang datang dan mengerjakan proyek Anda dengan garansi</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Bayar & Review</h3>
+                <p>Selesai puas? Bayar dan berikan review untuk tukang</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="fitur">
+        <div class="section-header">
+            <h2>Fitur Unggulan</h2>
+            <p>Kenapa harus pakai Maha Tukang?</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <div class="feature-content">
+                    <h3>AI Recommendation</h3>
+                    <p>Algoritma AI memilihkan tukang terbaik berdasarkan lokasi, budget, dan kebutuhan spesifik Anda</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🛡️</div>
+                <div class="feature-content">
+                    <h3>Garansi</h3>
+                    <p>Semua proyek dilindungi garansi. Kalau tidak puas, kami bantu mediasi dan refund</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <div class="feature-content">
+                    <h3>Pembayaran Aman</h3>
+                    <p>Sistem escrow memastikan uang aman sampai proyek selesai dan Anda puas</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⭐</div>
+                <div class="feature-content">
+                    <h3>Rating & Review</h3>
+                    <p>Review asli dari pelanggan sebelumnya bantu Anda pilih tukang yang tepat</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💬</div>
+                <div class="feature-content">
+                    <h3>Support 24/7</h3>
+                    <p>Tim support siap bantu via chat, phone, atau WhatsApp kapan saja</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <div class="feature-content">
+                    <h3>Estimasi Cerdas</h3>
+                    <p>AI memberikan estimasi biaya dan waktu pengerjaan yang akurat</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="daftar">
+        <h2>Siap Mulai Proyek Anda?</h2>
+        <p>Bergabung dengan ribuan pelanggan dan tukang profesional di platform kami</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="https://wa.me/6281337558787?text=Halo,%20saya%20ingin%20cari%20tukang" class="btn">🔍 Cari Tukang</a>
+            <a href="https://wa.me/6281337558787?text=Halo,%20saya%20ingin%20daftar%20jadi%20tukang" class="btn">📝 Daftar jadi Tukang</a>
+        </div>
+    </section>
+
+    <footer id="kontak">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>🔧 MAHA TUKANG</h4>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                    Platform marketplace jasa tukang berbasis AI pertama di Indonesia.
+                </p>
+                <p style="color: var(--primary); margin-top: 1rem; font-weight: 600;">
+                    💬 WhatsApp: 0813-3755-8787
+                </p>
+            </div>
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="#layanan">Renovasi Rumah</a></li>
+                    <li><a href="#layanan">Listrik</a></li>
+                    <li><a href="#layanan">Plumbing</a></li>
+                    <li><a href="#layanan">Cat</a></li>
+                    <li><a href="#layanan">Interior</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Perusahaan</h4>
+                <ul>
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Karir</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Kontak</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Bantuan</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Syarat & Ketentuan</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Hubungi Kami</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MAHA TUKANG. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <button class="voice-btn" onclick="speak('Selamat datang di MAHA TUKANG! Platform marketplace jasa tukang berbasis AI pertama di Indonesia.')" title="Dengarkan">
+        🔊
+    </button>
+
+    <div class="whatsapp-float">
+        <a href="https://wa.me/6281337558787" target="_blank">💬</a>
+    </div>
+
+    <script>
+        function speak(text) {
+            if ('speechSynthesis' in window) {
+                speechSynthesis.cancel();
+                const msg = new SpeechSynthesisUtterance(text);
+                msg.lang = 'id-ID';
+                msg.rate = 0.9;
+                speechSynthesis.speak(msg);
+            }
+        }
+    </script>
+</body>
+</html>

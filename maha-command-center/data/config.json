@@ -1,0 +1,457 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "last_updated": "2026-07-03T03:15:00Z",
+    "generated_by": "GAURANGA CEO Agent"
+  },
+  "ceo": {
+    "name": "Prahlad",
+    "title": "Chief Executive Officer",
+    "bank": {
+      "name": "BCA",
+      "account": "6485086645",
+      "account_name": "I Made Purna Ananda"
+    },
+    "contact": {
+      "email": "ceo@mahalakshmi.id",
+      "phone": "+62-812-xxxx-xxxx"
+    }
+  },
+  "holding": {
+    "name": "MAHA LAKSHMI HOLDINGS",
+    "target_revenue": 1000000000,
+    "currency": "IDR",
+    "timezone": "Asia/Jakarta"
+  },
+  "profit_distribution": {
+    "ceo_share_percent": 60,
+    "reinvest_percent": 25,
+    "agent_percent": 10,
+    "reserve_percent": 5
+  },
+  "companies": [
+    {
+      "id": 1,
+      "name": "Payangan Hospital AI",
+      "short_name": "Payangan AI",
+      "niche": "Healthcare SaaS",
+      "domain": "payanganhospital.gianyarkab.go.id",
+      "progress": 25,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 6,
+      "website_deployed": true
+    },
+    {
+      "id": 2,
+      "name": "Gianyar Tech Solutions",
+      "short_name": "Gianyar Tech",
+      "niche": "Software Development",
+      "domain": "gianyartech.id",
+      "progress": 15,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 3,
+      "name": "Bali Digital Agency",
+      "short_name": "Bali Digital",
+      "niche": "Digital Marketing",
+      "domain": "balidigital.id",
+      "progress": 20,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 4,
+      "name": "Gianyar E-Commerce Hub",
+      "short_name": "Gianyar E-Com",
+      "niche": "Online Marketplace",
+      "domain": "gianyarmart.id",
+      "progress": 12,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 5,
+      "name": "Bali EdTech Center",
+      "short_name": "Bali EdTech",
+      "niche": "Education Tech",
+      "domain": "baliedu.id",
+      "progress": 10,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 6,
+      "name": "Gianyar Finance Tech",
+      "short_name": "Gianyar Finance",
+      "niche": "Financial Services",
+      "domain": "gianyarfinance.id",
+      "progress": 12,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 7,
+      "name": "Bali Logistics Network",
+      "short_name": "Bali Logistics",
+      "niche": "Delivery & Logistics",
+      "domain": "balilogistics.id",
+      "progress": 8,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 8,
+      "name": "Gianyar Food Tech",
+      "short_name": "Gianyar Food",
+      "niche": "Food Technology",
+      "domain": "gianyarfood.id",
+      "progress": 8,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 9,
+      "name": "Bali Travel Platform",
+      "short_name": "Bali Travel",
+      "niche": "Tourism & Travel",
+      "domain": "balitravel.id",
+      "progress": 25,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    },
+    {
+      "id": 10,
+      "name": "Gianyar Property Tech",
+      "short_name": "Gianyar Property",
+      "niche": "Real Estate",
+      "domain": "gianyarproperty.id",
+      "progress": 10,
+      "status": "active",
+      "revenue_target": 100000000,
+      "revenue_current": 0,
+      "leads": 0,
+      "customers": 0,
+      "agents_count": 0,
+      "website_deployed": false
+    }
+  ],
+  "agents": {
+    "active": [
+      {
+        "id": "gaurangi-ceo",
+        "name": "GAURANGA CEO",
+        "type": "ceo",
+        "company": "All",
+        "status": "active",
+        "current_task": "Strategic decisions",
+        "performance_score": 95
+      },
+      {
+        "id": "saas-sales",
+        "name": "SaaS Sales Agent",
+        "type": "sales",
+        "company": "Payangan Hospital",
+        "status": "active",
+        "current_task": "Lead generation",
+        "performance_score": 88
+      },
+      {
+        "id": "content-marketing",
+        "name": "Content Marketing Agent",
+        "type": "marketing",
+        "company": "Payangan Hospital",
+        "status": "active",
+        "current_task": "Creating content",
+        "performance_score": 85
+      },
+      {
+        "id": "seo-ads",
+        "name": "SEO & Ads Agent",
+        "type": "marketing",
+        "company": "Payangan Hospital",
+        "status": "active",
+        "current_task": "Optimizing SEO",
+        "performance_score": 82
+      },
+      {
+        "id": "customer-service",
+        "name": "Customer Service Agent",
+        "type": "support",
+        "company": "Payangan Hospital",
+        "status": "active",
+        "current_task": "Handling tickets",
+        "performance_score": 90
+      },
+      {
+        "id": "finance",
+        "name": "Finance Agent",
+        "type": "finance",
+        "company": "Payangan Hospital",
+        "status": "active",
+        "current_task": "Financial reporting",
+        "performance_score": 92
+      }
+    ],
+    "total_configured": 6,
+    "total_required": 60
+  },
+  "automations": {
+    "active": [
+      {
+        "id": "daily-report",
+        "name": "Daily Progress Report",
+        "schedule": "0 6 * * *",
+        "timezone": "Asia/Jakarta",
+        "status": "active",
+        "last_run": "2026-07-03T00:26:44Z"
+      },
+      {
+        "id": "saas-sales",
+        "name": "SaaS Sales Agent",
+        "schedule": "0 9 * * 1-5",
+        "timezone": "Asia/Jakarta",
+        "status": "active",
+        "last_run": null
+      },
+      {
+        "id": "content-marketing",
+        "name": "Content Marketing Agent",
+        "schedule": "0 10 * * 1",
+        "timezone": "Asia/Jakarta",
+        "status": "active",
+        "last_run": null
+      },
+      {
+        "id": "seo-ads",
+        "name": "SEO & Ads Agent",
+        "schedule": "0 11 * * 4",
+        "timezone": "Asia/Jakarta",
+        "status": "active",
+        "last_run": null
+      },
+      {
+        "id": "customer-service",
+        "name": "Customer Service Report",
+        "schedule": "0 14 * * 5",
+        "timezone": "Asia/Jakarta",
+        "status": "active",
+        "last_run": null
+      },
+      {
+        "id": "finance",
+        "name": "Finance Monthly Report",
+        "schedule": "0 9 1 * *",
+        "timezone": "Asia/Jakarta",
+        "status": "active",
+        "last_run": null
+      }
+    ],
+    "total_active": 6,
+    "total_required": 60
+  },
+  "revenue_targets": {
+    "total": 1000000000,
+    "by_stream": {
+      "saas": 300000000,
+      "services": 250000000,
+      "digital": 200000000,
+      "consulting": 150000000,
+      "affiliate": 100000000
+    },
+    "by_company": 100000000
+  },
+  "financial": {
+    "total_revenue": 0,
+    "total_expense": 0,
+    "net_profit": 0,
+    "cash_position": 2500000,
+    "wallet_balance": 2500000,
+    "bank_balance": 0
+  },
+  "alerts": [
+    {
+      "id": 1,
+      "type": "critical",
+      "title": "No Revenue Generated",
+      "description": "All 10 companies have Rp 0 revenue",
+      "created_at": "2026-07-03T01:00:00Z"
+    },
+    {
+      "id": 2,
+      "type": "warning",
+      "title": "Low Lead Generation",
+      "description": "3 hot leads need follow up",
+      "created_at": "2026-07-03T05:00:00Z"
+    },
+    {
+      "id": 3,
+      "type": "warning",
+      "title": "9/10 Websites Not Deployed",
+      "description": "Most companies lack online presence",
+      "created_at": "2026-07-02T12:00:00Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": 1,
+      "type": "budget",
+      "title": "Marketing Budget Request",
+      "from": "HR Agent",
+      "amount": 5000000,
+      "purpose": "Website deployment & initial ads",
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "id": 2,
+      "type": "agent",
+      "title": "New AI Agent Creation",
+      "from": "AI Factory",
+      "amount": 0,
+      "purpose": "Sales Agent v2",
+      "priority": "medium",
+      "status": "pending"
+    },
+    {
+      "id": 3,
+      "type": "sop",
+      "title": "SOP Update Request",
+      "from": "Finance Agent",
+      "amount": 0,
+      "purpose": "Sales SOP v2.1",
+      "priority": "low",
+      "status": "pending"
+    }
+  ],
+  "notifications": [
+    {
+      "id": 1,
+      "priority": "critical",
+      "title": "Critical: No Revenue",
+      "text": "Semua perusahaan belum menghasilkan revenue",
+      "time": "2 hours ago",
+      "read": false
+    },
+    {
+      "id": 2,
+      "priority": "high",
+      "title": "Low Lead Generation",
+      "text": "3 hot leads butuh follow up",
+      "time": "5 hours ago",
+      "read": false
+    },
+    {
+      "id": 3,
+      "priority": "medium",
+      "title": "Agent Update",
+      "text": "GAURANGA CEO agent updated",
+      "time": "1 day ago",
+      "read": true
+    },
+    {
+      "id": 4,
+      "priority": "low",
+      "title": "Automation Complete",
+      "text": "Daily report generated successfully",
+      "time": "1 day ago",
+      "read": true
+    },
+    {
+      "id": 5,
+      "priority": "low",
+      "title": "Webhook Deployed",
+      "text": "Payangan Hospital auto-deploy active",
+      "time": "2 days ago",
+      "read": true
+    }
+  ],
+  "opportunities": [
+    {
+      "id": 1,
+      "title": "3 New Hot Leads",
+      "potential": 50000000,
+      "status": "open",
+      "company": "Multiple"
+    },
+    {
+      "id": 2,
+      "title": "Bali Travel - Ready to Launch",
+      "potential": 10000000,
+      "status": "ready",
+      "company": "Bali Travel"
+    }
+  ],
+  "kpis": {
+    "revenue": {
+      "target": 1000000000,
+      "current": 0,
+      "achievement": 0
+    },
+    "companies": {
+      "target": 10,
+      "active": 10,
+      "progress": 100
+    },
+    "agents": {
+      "target": 60,
+      "active": 6,
+      "progress": 10
+    },
+    "leads": {
+      "monthly_target": 100,
+      "current": 0,
+      "achievement": 0
+    },
+    "customers": {
+      "monthly_target": 50,
+      "current": 0,
+      "achievement": 0
+    }
+  }
+}

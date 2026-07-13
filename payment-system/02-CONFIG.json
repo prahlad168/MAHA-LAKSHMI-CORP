@@ -1,0 +1,46 @@
+{
+  "version": "1.0.0",
+  "created": "2026-07-13",
+  "last_updated": "2026-07-13T11:50:00+08:00",
+  
+  "ceo": {
+    "name": "i Made Purna Ananda",
+    "short_name": "Pak Pur",
+    "whatsapp": "081337558787",
+    "email": "gaurangga168@gmail.com"
+  },
+  
+  "flip_api": {
+    "enabled": true,
+    "api_url": "https://flip.id/api/transfer",
+    "api_key": "YOUR_FLIP_API_KEY",
+    "webhook_url": "",
+    "fee_per_transfer": 2500,
+    "status": "NOT_CONFIGURED"
+  },
+  
+  "transfer": {
+    "auto_enabled": false,
+    "schedule": "0 12 * * *",
+    "timezone": "Asia/Jakarta",
+    "destination": {
+      "bank": "BCA",
+      "bank_code": "BCA",
+      "account_number": "6485086645",
+      "account_name": "i Made Purna Ananda"
+    }
+  },
+  
+  "distribution": {
+    "ceo_share_percent": 60,
+    "reinvest_percent": 25,
+    "team_bonus_percent": 10,
+    "csr_percent": 5
+  },
+  
+  "status": {
+    "api_configured": false,
+    "balance_sufficient": false,
+    "ready_for_transfer": false
+  }
+}

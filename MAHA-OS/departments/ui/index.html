@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Departments - MAHA AIOS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --primary: #1a5f5a; --primary-dark: #0d3d3a; --secondary: #c9a86c; }
+        body { font-family: 'Nunito', sans-serif; background: #f5f7fa; min-height: 100vh; }
+        .header { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 25px 30px; }
+        .header h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; }
+        .header p { opacity: 0.9; font-size: 0.9rem; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 25px; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 30px; }
+        .stat-card { background: white; border-radius: 15px; padding: 20px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .stat-value { font-size: 2rem; font-weight: 700; color: var(--primary); }
+        .stat-label { color: #64748b; font-size: 0.85rem; margin-top: 5px; }
+        .tree { background: white; border-radius: 15px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        .tree-title { font-size: 1.2rem; font-weight: 700; color: #1e293b; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        .dept-item { padding: 15px; border: 1px solid #e2e8f0; border-radius: 10px; margin-bottom: 10px; transition: all 0.3s; }
+        .dept-item:hover { border-color: var(--primary); box-shadow: 0 4px 15px rgba(26,95,90,0.1); }
+        .dept-header { display: flex; align-items: center; gap: 15px; cursor: pointer; }
+        .dept-icon { width: 45px; height: 45px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: white; }
+        .dept-info h4 { font-size: 1rem; color: #1e293b; margin-bottom: 3px; }
+        .dept-info p { font-size: 0.8rem; color: #64748b; }
+        .dept-badge { margin-left: auto; background: #f1f5f9; padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; color: #64748b; }
+        .children { margin-left: 40px; margin-top: 10px; padding-left: 20px; border-left: 2px solid #e2e8f0; }
+        .level-1 { margin-left: 0; }
+        .level-2 .dept-icon { width: 38px; height: 38px; font-size: 1.1rem; }
+        .level-3 .dept-icon { width: 32px; height: 32px; font-size: 1rem; }
+        .loading { text-align: center; padding: 50px; color: #64748b; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏢 MAHA Department Structure</h1>
+        <p>Organizational hierarchy and team management</p>
+    </div>
+    
+    <div class="container">
+        <div class="stats" id="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalDepts">10</div>
+                <div class="stat-label">Total Departments</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="rootDepts">5</div>
+                <div class="stat-label">Corporate Divisions</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">3</div>
+                <div class="stat-label">Hierarchy Levels</div>
+            </div>
+        </div>
+        
+        <div class="tree">
+            <div class="tree-title"><i class="fas fa-sitemap" style="color: var(--primary);"></i> Organizational Hierarchy</div>
+            <div id="deptTree">
+                <div class="loading"><i class="fas fa-spinner fa-spin"></i> Loading...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const API = '/MAHA-OS/departments/api/departments.php';
+        
+        async function loadDepartments() {
+            try {
+                const res = await fetch(API);
+                const data = await res.json();
+                if (data.success) {
+                    renderHierarchy(data.data);
+                    updateStats(data.data);
+                }
+            } catch (err) {
+                console.error('Error:', err);
+                document.getElementById('deptTree').innerHTML = '<div class="loading">Error loading data</div>';
+            }
+        }
+        
+        function renderHierarchy(depts) {
+            const roots = depts.filter(d => !d.parent_id);
+            document.getElementById('deptTree').innerHTML = roots.map(d => renderDept(d, depts, 1)).join('');
+        }
+        
+        function renderDept(dept, allDepts, level) {
+            const children = allDepts.filter(d => d.parent_id === dept.id);
+            const hasChildren = children.length > 0;
+            
+            let html = '<div class="dept-item level-' + level + '">';
+            html += '<div class="dept-header">';
+            html += '<div class="dept-icon" style="background:' + dept.color + ';">' + dept.icon + '</div>';
+            html += '<div class="dept-info">';
+            html += '<h4>' + dept.short_name + '</h4>';
+            html += '<p>' + dept.name + '</p>';
+            html += '</div>';
+            html += '<span class="dept-badge">' + (dept.staff_count || 0) + ' staff</span>';
+            html += '</div>';
+            
+            if (hasChildren) {
+                html += '<div class="children">';
+                children.forEach(child => {
+                    html += renderDept(child, allDepts, level + 1);
+                });
+                html += '</div>';
+            }
+            
+            html += '</div>';
+            return html;
+        }
+        
+        function updateStats(depts) {
+            document.getElementById('totalDepts').textContent = depts.length;
+            document.getElementById('rootDepts').textContent = depts.filter(d => !d.parent_id).length;
+        }
+        
+        loadDepartments();
+    </script>
+</body>
+</html>

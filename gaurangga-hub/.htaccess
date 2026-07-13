@@ -1,0 +1,3 @@
+# Redirect to GAURANGA Hub
+RewriteEngine On
+RewriteRule ^$ /gaurangga-hub/ [L,R=301]

@@ -1,0 +1,17 @@
+{
+  "name": "maha-lakshmi-corp",
+  "version": 2,
+  "builds": [
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "**/*.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {"src": "/(.*)", "dest": "/$1"}
+  ]
+}

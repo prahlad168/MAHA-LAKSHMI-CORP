@@ -1,0 +1,81 @@
+{
+  "global_leads": {
+    "indonesia": [
+      {"name": "Four Seasons Resort Sayan", "type": "hotel", "country": "Indonesia", "value": 5000000, "status": "new"},
+      {"name": "Viceroy Bali", "type": "hotel", "country": "Indonesia", "value": 5000000, "status": "new"},
+      {"name": "AYANA Resort Bali", "type": "hotel", "country": "Indonesia", "value": 10000000, "status": "new"},
+      {"name": "Bali Easy Go Tours", "type": "agency", "country": "Indonesia", "value": 5000000, "status": "new"},
+      {"name": "Nusapenida.com", "type": "agency", "country": "Indonesia", "value": 3000000, "status": "new"},
+      {"name": "Garuda Indonesia", "type": "airline", "country": "Indonesia", "value": 15000000, "status": "new"},
+      {"name": "Bank Bali", "type": "finance", "country": "Indonesia", "value": 20000000, "status": "new"},
+      {"name": "RSUP Sanglah", "type": "hospital", "country": "Indonesia", "value": 15000000, "status": "new"},
+      {"name": "Universitas Udayana", "type": "education", "country": "Indonesia", "value": 10000000, "status": "new"},
+      {"name": "Tokopedia", "type": "tech", "country": "Indonesia", "value": 25000000, "status": "new"}
+    ],
+    "thailand": [
+      {"name": "Minor International", "type": "hotel", "country": "Thailand", "value": 15000000, "status": "new"},
+      {"name": "Central Group", "type": "retail", "country": "Thailand", "value": 20000000, "status": "new"},
+      {"name": "PTT Oil", "type": "energy", "country": "Thailand", "value": 25000000, "status": "new"},
+      {"name": "Bangkok Hospital", "type": "hospital", "country": "Thailand", "value": 15000000, "status": "new"},
+      {"name": "SCB Bank", "type": "finance", "country": "Thailand", "value": 20000000, "status": "new"}
+    ],
+    "singapore": [
+      {"name": "DBS Bank", "type": "finance", "country": "Singapore", "value": 30000000, "status": "new"},
+      {"name": "Grab Holdings", "type": "tech", "country": "Singapore", "value": 25000000, "status": "new"},
+      {"name": "Raffles Hotel", "type": "hotel", "country": "Singapore", "value": 20000000, "status": "new"},
+      {"name": "Singtel", "type": "telecom", "country": "Singapore", "value": 20000000, "status": "new"},
+      {"name": "Keppel Corp", "type": "conglomerate", "country": "Singapore", "value": 30000000, "status": "new"}
+    ],
+    "malaysia": [
+      {"name": "Petronas", "type": "energy", "country": "Malaysia", "value": 30000000, "status": "new"},
+      {"name": "Maybank", "type": "finance", "country": "Malaysia", "value": 25000000, "status": "new"},
+      {"name": "AirAsia", "type": "airline", "country": "Malaysia", "value": 15000000, "status": "new"},
+      {"name": "Sunway Group", "type": "conglomerate", "country": "Malaysia", "value": 20000000, "status": "new"},
+      {"name": "IHH Healthcare", "type": "hospital", "country": "Malaysia", "value": 15000000, "status": "new"}
+    ],
+    "usa": [
+      {"name": "Google", "type": "tech", "country": "USA", "value": 50000000, "status": "new"},
+      {"name": "Microsoft", "type": "tech", "country": "USA", "value": 50000000, "status": "new"},
+      {"name": "Amazon", "type": "tech", "country": "USA", "value": 50000000, "status": "new"},
+      {"name": "Meta", "type": "tech", "country": "USA", "value": 40000000, "status": "new"},
+      {"name": "Apple", "type": "tech", "country": "USA", "value": 50000000, "status": "new"}
+    ],
+    "japan": [
+      {"name": "Toyota", "type": "automotive", "country": "Japan", "value": 50000000, "status": "new"},
+      {"name": "Sony", "type": "tech", "country": "Japan", "value": 40000000, "status": "new"},
+      {"name": "SoftBank", "type": "tech", "country": "Japan", "value": 45000000, "status": "new"},
+      {"name": "Rakuten", "type": "ecommerce", "country": "Japan", "value": 35000000, "status": "new"},
+      {"name": "NTT Data", "type": "tech", "country": "Japan", "value": 30000000, "status": "new"}
+    ],
+    "australia": [
+      {"name": "Commonwealth Bank", "type": "finance", "country": "Australia", "value": 25000000, "status": "new"},
+      {"name": "Telstra", "type": "telecom", "country": "Australia", "value": 20000000, "status": "new"},
+      {"name": "Woolworths", "type": "retail", "country": "Australia", "value": 20000000, "status": "new"},
+      {"name": "BHP", "type": "mining", "country": "Australia", "value": 30000000, "status": "new"},
+      {"name": "Qantas", "type": "airline", "country": "Australia", "value": 15000000, "status": "new"}
+    ],
+    "uk": [
+      {"name": "HSBC", "type": "finance", "country": "UK", "value": 40000000, "status": "new"},
+      {"name": "BP", "type": "energy", "country": "UK", "value": 35000000, "status": "new"},
+      {"name": "Unilever", "type": "fmcg", "country": "UK", "value": 30000000, "status": "new"},
+      {"name": "AstraZeneca", "type": "pharma", "country": "UK", "value": 35000000, "status": "new"},
+      {"name": "Shell", "type": "energy", "country": "UK", "value": 40000000, "status": "new"}
+    ],
+    "uae": [
+      {"name": "Emirates", "type": "airline", "country": "UAE", "value": 25000000, "status": "new"},
+      {"name": "DP World", "type": "logistics", "country": "UAE", "value": 30000000, "status": "new"},
+      {"name": "Mubadala", "type": "investment", "country": "UAE", "value": 40000000, "status": "new"},
+      {"name": "ADNOC", "type": "energy", "country": "UAE", "value": 45000000, "status": "new"},
+      {"name": "Emaar", "type": "realestate", "country": "UAE", "value": 35000000, "status": "new"}
+    ]
+  },
+  "stats": {
+    "total_leads": 60,
+    "total_value": 1200000000,
+    "by_region": {
+      "indonesia": {"count": 10, "value": 110000000},
+      "asean": {"count": 20, "value": 275000000},
+      "global": {"count": 30, "value": 815000000}
+    }
+  }
+}

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 MAHA AI Command Center - Preview</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+        .preview-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #1a5f5a, #c9a86c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+        .subtitle {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .feature {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .feature h3 {
+            color: #1a5f5a;
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+        }
+        .feature p {
+            color: #666;
+            margin: 0;
+            font-size: 0.85rem;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1a5f5a, #2d8a84);
+            color: white;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(26, 95, 90, 0.4);
+        }
+        .status {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f0fdf4;
+            border-radius: 10px;
+        }
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        .tag {
+            display: inline-block;
+            background: #22c55e;
+            color: white;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="preview-card">
+        <div class="logo">👑</div>
+        <h1>MAHA AI COMMAND CENTER</h1>
+        <p class="subtitle">NASA Mission Control untuk Perusahaan Digital Anda</p>
+        
+        <div class="features">
+            <div class="feature">
+                <h3>💰 CEO Home</h3>
+                <p>Revenue, profit, cash position dalam satu view</p>
+            </div>
+            <div class="feature">
+                <h3>🏢 10 Companies</h3>
+                <p>Pantau semua SBU dari satu dashboard</p>
+            </div>
+            <div class="feature">
+                <h3>🤖 60 AI Agents</h3>
+                <p>Monitor performa semua agent</p>
+            </div>
+            <div class="feature">
+                <h3>⚡ Automations</h3>
+                <p>60 workflows berjalan otomatis</p>
+            </div>
+            <div class="feature">
+                <h3>💬 Command Bar</h3>
+                <p>Natural language untuk kontrol</p>
+            </div>
+            <div class="feature">
+                <h3>🔔 Notifications</h3>
+                <p>Priority-based alert system</p>
+            </div>
+        </div>
+        
+        <a href="index.html" class="btn">🚀 Buka Dashboard</a>
+        
+        <div class="status">
+            <div class="status-item">
+                <span>🏥 Companies Active</span>
+                <span><strong>10 / 10</strong> <span class="tag">100%</span></span>
+            </div>
+            <div class="status-item">
+                <span>🤖 AI Agents</span>
+                <span><strong>6 / 60</strong> <span class="tag" style="background:#f59e0b;">10%</span></span>
+            </div>
+            <div class="status-item">
+                <span>⚡ Automations</span>
+                <span><strong>6 / 60</strong> <span class="tag" style="background:#f59e0b;">10%</span></span>
+            </div>
+            <div class="status-item">
+                <span>💰 Revenue Today</span>
+                <span><strong>Rp 0</strong> <span class="tag" style="background:#ef4444;">CRITICAL</span></span>
+            </div>
+        </div>
+        
+        <p style="margin-top: 30px; color: #999; font-size: 0.85rem;">
+            <strong>CEO:</strong> Prahlad | 
+            <strong>Bank:</strong> BCA 6485086645 | 
+            <strong>Target:</strong> Rp 1.000.000.000/bulan
+        </p>
+    </div>
+</body>
+</html>

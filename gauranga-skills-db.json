@@ -1,0 +1,506 @@
+{
+  "skills": {
+    "gauranga_ceo_strategy": {
+      "agent_id": "gauranga_ceo",
+      "agent_name": "GAURANGA CEO",
+      "skill_name": "strategy",
+      "level": 5,
+      "experience": 9,
+      "total_xp": 428,
+      "last_used": "2026-07-11T13:32:03.964412",
+      "created": "2026-07-11T11:01:42.579959"
+    },
+    "gauranga_ceo_leadership": {
+      "agent_id": "gauranga_ceo",
+      "agent_name": "GAURANGA CEO",
+      "skill_name": "leadership",
+      "level": 5,
+      "experience": 11,
+      "total_xp": 441,
+      "last_used": "2026-07-11T13:32:03.964423",
+      "created": "2026-07-11T11:01:42.579970"
+    },
+    "gauranga_ceo_decision_making": {
+      "agent_id": "gauranga_ceo",
+      "agent_name": "GAURANGA CEO",
+      "skill_name": "decision_making",
+      "level": 5,
+      "experience": 11,
+      "total_xp": 429,
+      "last_used": "2026-07-11T13:32:03.964432",
+      "created": "2026-07-11T11:01:42.579978"
+    },
+    "gauranga_ceo_resource_allocation": {
+      "agent_id": "gauranga_ceo",
+      "agent_name": "GAURANGA CEO",
+      "skill_name": "resource_allocation",
+      "level": 5,
+      "experience": 6,
+      "total_xp": 419,
+      "last_used": "2026-07-11T13:32:03.964438",
+      "created": "2026-07-11T11:01:42.579984"
+    },
+    "gauranga_ceo_risk_management": {
+      "agent_id": "gauranga_ceo",
+      "agent_name": "GAURANGA CEO",
+      "skill_name": "risk_management",
+      "level": 5,
+      "experience": 19,
+      "total_xp": 450,
+      "last_used": "2026-07-11T13:32:03.964443",
+      "created": "2026-07-11T11:01:42.579989"
+    },
+    "saas_sales_cold_outreach": {
+      "agent_id": "saas_sales",
+      "agent_name": "SaaS Sales Agent",
+      "skill_name": "cold_outreach",
+      "level": 5,
+      "experience": 10,
+      "total_xp": 435,
+      "last_used": "2026-07-11T13:32:03.964478",
+      "created": "2026-07-11T11:01:42.580017"
+    },
+    "saas_sales_demo_scheduling": {
+      "agent_id": "saas_sales",
+      "agent_name": "SaaS Sales Agent",
+      "skill_name": "demo_scheduling",
+      "level": 5,
+      "experience": 16,
+      "total_xp": 456,
+      "last_used": "2026-07-11T13:32:03.964483",
+      "created": "2026-07-11T11:01:42.580023"
+    },
+    "saas_sales_negotiation": {
+      "agent_id": "saas_sales",
+      "agent_name": "SaaS Sales Agent",
+      "skill_name": "negotiation",
+      "level": 5,
+      "experience": 18,
+      "total_xp": 443,
+      "last_used": "2026-07-11T13:32:03.964488",
+      "created": "2026-07-11T11:01:42.580028"
+    },
+    "saas_sales_closing": {
+      "agent_id": "saas_sales",
+      "agent_name": "SaaS Sales Agent",
+      "skill_name": "closing",
+      "level": 5,
+      "experience": 14,
+      "total_xp": 450,
+      "last_used": "2026-07-11T13:32:03.964493",
+      "created": "2026-07-11T11:01:42.580033"
+    },
+    "saas_sales_crm_management": {
+      "agent_id": "saas_sales",
+      "agent_name": "SaaS Sales Agent",
+      "skill_name": "crm_management",
+      "level": 5,
+      "experience": 6,
+      "total_xp": 423,
+      "last_used": "2026-07-11T13:32:03.964498",
+      "created": "2026-07-11T11:01:42.580037"
+    },
+    "content_marketing_seo_writing": {
+      "agent_id": "content_marketing",
+      "agent_name": "Content Marketing Agent",
+      "skill_name": "seo_writing",
+      "level": 5,
+      "experience": 6,
+      "total_xp": 437,
+      "last_used": "2026-07-11T13:32:03.964537",
+      "created": "2026-07-11T11:01:42.580074"
+    },
+    "content_marketing_video_scripting": {
+      "agent_id": "content_marketing",
+      "agent_name": "Content Marketing Agent",
+      "skill_name": "video_scripting",
+      "level": 5,
+      "experience": 7,
+      "total_xp": 421,
+      "last_used": "2026-07-11T13:32:03.964552",
+      "created": "2026-07-11T11:01:42.580079"
+    },
+    "content_marketing_social_content": {
+      "agent_id": "content_marketing",
+      "agent_name": "Content Marketing Agent",
+      "skill_name": "social_content",
+      "level": 5,
+      "experience": 13,
+      "total_xp": 437,
+      "last_used": "2026-07-11T13:32:03.964557",
+      "created": "2026-07-11T11:01:42.580084"
+    },
+    "content_marketing_email_copywriting": {
+      "agent_id": "content_marketing",
+      "agent_name": "Content Marketing Agent",
+      "skill_name": "email_copywriting",
+      "level": 5,
+      "experience": 16,
+      "total_xp": 440,
+      "last_used": "2026-07-11T13:32:03.964562",
+      "created": "2026-07-11T11:01:42.580089"
+    },
+    "content_marketing_copywriting": {
+      "agent_id": "content_marketing",
+      "agent_name": "Content Marketing Agent",
+      "skill_name": "copywriting",
+      "level": 5,
+      "experience": 16,
+      "total_xp": 434,
+      "last_used": "2026-07-11T13:32:03.964569",
+      "created": "2026-07-11T11:01:42.580097"
+    },
+    "seo_ads_google_ads": {
+      "agent_id": "seo_ads",
+      "agent_name": "SEO & Ads Agent",
+      "skill_name": "google_ads",
+      "level": 5,
+      "experience": 9,
+      "total_xp": 447,
+      "last_used": "2026-07-11T13:32:03.964597",
+      "created": "2026-07-11T11:01:42.580122"
+    },
+    "seo_ads_facebook_ads": {
+      "agent_id": "seo_ads",
+      "agent_name": "SEO & Ads Agent",
+      "skill_name": "facebook_ads",
+      "level": 5,
+      "experience": 15,
+      "total_xp": 430,
+      "last_used": "2026-07-11T13:32:03.964606",
+      "created": "2026-07-11T11:01:42.580130"
+    },
+    "seo_ads_seo_optimization": {
+      "agent_id": "seo_ads",
+      "agent_name": "SEO & Ads Agent",
+      "skill_name": "seo_optimization",
+      "level": 5,
+      "experience": 7,
+      "total_xp": 432,
+      "last_used": "2026-07-11T13:32:03.964611",
+      "created": "2026-07-11T11:01:42.580145"
+    },
+    "seo_ads_keyword_research": {
+      "agent_id": "seo_ads",
+      "agent_name": "SEO & Ads Agent",
+      "skill_name": "keyword_research",
+      "level": 5,
+      "experience": 5,
+      "total_xp": 418,
+      "last_used": "2026-07-11T13:32:03.964615",
+      "created": "2026-07-11T11:01:42.580152"
+    },
+    "seo_ads_conversion_optimization": {
+      "agent_id": "seo_ads",
+      "agent_name": "SEO & Ads Agent",
+      "skill_name": "conversion_optimization",
+      "level": 5,
+      "experience": 5,
+      "total_xp": 441,
+      "last_used": "2026-07-11T13:32:03.964620",
+      "created": "2026-07-11T11:01:42.580159"
+    },
+    "customer_service_ticket_management": {
+      "agent_id": "customer_service",
+      "agent_name": "Customer Service Agent",
+      "skill_name": "ticket_management",
+      "level": 5,
+      "experience": 20,
+      "total_xp": 458,
+      "last_used": "2026-07-11T13:32:03.964647",
+      "created": "2026-07-11T11:01:42.580190"
+    },
+    "customer_service_response_templates": {
+      "agent_id": "customer_service",
+      "agent_name": "Customer Service Agent",
+      "skill_name": "response_templates",
+      "level": 5,
+      "experience": 5,
+      "total_xp": 434,
+      "last_used": "2026-07-11T13:32:03.964652",
+      "created": "2026-07-11T11:01:42.580198"
+    },
+    "customer_service_escalation": {
+      "agent_id": "customer_service",
+      "agent_name": "Customer Service Agent",
+      "skill_name": "escalation",
+      "level": 5,
+      "experience": 9,
+      "total_xp": 432,
+      "last_used": "2026-07-11T13:32:03.964657",
+      "created": "2026-07-11T11:01:42.580209"
+    },
+    "customer_service_satisfaction_survey": {
+      "agent_id": "customer_service",
+      "agent_name": "Customer Service Agent",
+      "skill_name": "satisfaction_survey",
+      "level": 5,
+      "experience": 11,
+      "total_xp": 426,
+      "last_used": "2026-07-11T13:32:03.964662",
+      "created": "2026-07-11T11:01:42.580222"
+    },
+    "customer_service_faq_management": {
+      "agent_id": "customer_service",
+      "agent_name": "Customer Service Agent",
+      "skill_name": "faq_management",
+      "level": 5,
+      "experience": 12,
+      "total_xp": 429,
+      "last_used": "2026-07-11T13:32:03.964667",
+      "created": "2026-07-11T11:01:42.580229"
+    },
+    "finance_invoicing": {
+      "agent_id": "finance",
+      "agent_name": "Finance Agent",
+      "skill_name": "invoicing",
+      "level": 5,
+      "experience": 14,
+      "total_xp": 431,
+      "last_used": "2026-07-11T13:32:03.964697",
+      "created": "2026-07-11T11:01:42.580274"
+    },
+    "finance_expense_tracking": {
+      "agent_id": "finance",
+      "agent_name": "Finance Agent",
+      "skill_name": "expense_tracking",
+      "level": 5,
+      "experience": 8,
+      "total_xp": 440,
+      "last_used": "2026-07-11T13:32:03.964706",
+      "created": "2026-07-11T11:01:42.580283"
+    },
+    "finance_financial_reporting": {
+      "agent_id": "finance",
+      "agent_name": "Finance Agent",
+      "skill_name": "financial_reporting",
+      "level": 5,
+      "experience": 11,
+      "total_xp": 432,
+      "last_used": "2026-07-11T13:32:03.964713",
+      "created": "2026-07-11T11:01:42.580293"
+    },
+    "finance_tax_compliance": {
+      "agent_id": "finance",
+      "agent_name": "Finance Agent",
+      "skill_name": "tax_compliance",
+      "level": 5,
+      "experience": 15,
+      "total_xp": 430,
+      "last_used": "2026-07-11T13:32:03.964718",
+      "created": "2026-07-11T11:01:42.580301"
+    },
+    "finance_profit_calculation": {
+      "agent_id": "finance",
+      "agent_name": "Finance Agent",
+      "skill_name": "profit_calculation",
+      "level": 5,
+      "experience": 12,
+      "total_xp": 426,
+      "last_used": "2026-07-11T13:32:03.964723",
+      "created": "2026-07-11T11:01:42.580308"
+    },
+    "hr_recruitment_recruitment": {
+      "agent_id": "hr_recruitment",
+      "agent_name": "HR & Recruitment Agent",
+      "skill_name": "recruitment",
+      "level": 5,
+      "experience": 18,
+      "total_xp": 423,
+      "last_used": "2026-07-11T13:32:03.964751",
+      "created": "2026-07-11T11:01:42.580337"
+    },
+    "hr_recruitment_interviewing": {
+      "agent_id": "hr_recruitment",
+      "agent_name": "HR & Recruitment Agent",
+      "skill_name": "interviewing",
+      "level": 5,
+      "experience": 12,
+      "total_xp": 447,
+      "last_used": "2026-07-11T13:32:03.964756",
+      "created": "2026-07-11T11:01:42.580345"
+    },
+    "hr_recruitment_onboarding": {
+      "agent_id": "hr_recruitment",
+      "agent_name": "HR & Recruitment Agent",
+      "skill_name": "onboarding",
+      "level": 5,
+      "experience": 13,
+      "total_xp": 445,
+      "last_used": "2026-07-11T13:32:03.964760",
+      "created": "2026-07-11T11:01:42.580355"
+    },
+    "hr_recruitment_performance_review": {
+      "agent_id": "hr_recruitment",
+      "agent_name": "HR & Recruitment Agent",
+      "skill_name": "performance_review",
+      "level": 5,
+      "experience": 10,
+      "total_xp": 449,
+      "last_used": "2026-07-11T13:32:03.964768",
+      "created": "2026-07-11T11:01:42.580362"
+    },
+    "hr_recruitment_training": {
+      "agent_id": "hr_recruitment",
+      "agent_name": "HR & Recruitment Agent",
+      "skill_name": "training",
+      "level": 5,
+      "experience": 15,
+      "total_xp": 444,
+      "last_used": "2026-07-11T13:32:03.964784",
+      "created": "2026-07-11T11:01:42.580369"
+    },
+    "project_manager_task_management": {
+      "agent_id": "project_manager",
+      "agent_name": "Project Manager Agent",
+      "skill_name": "task_management",
+      "level": 5,
+      "experience": 7,
+      "total_xp": 431,
+      "last_used": "2026-07-11T13:32:03.964812",
+      "created": "2026-07-11T11:01:42.580400"
+    },
+    "project_manager_timeline_tracking": {
+      "agent_id": "project_manager",
+      "agent_name": "Project Manager Agent",
+      "skill_name": "timeline_tracking",
+      "level": 5,
+      "experience": 20,
+      "total_xp": 443,
+      "last_used": "2026-07-11T13:32:03.964817",
+      "created": "2026-07-11T11:01:42.580405"
+    },
+    "project_manager_resource_allocation": {
+      "agent_id": "project_manager",
+      "agent_name": "Project Manager Agent",
+      "skill_name": "resource_allocation",
+      "level": 5,
+      "experience": 8,
+      "total_xp": 426,
+      "last_used": "2026-07-11T13:32:03.964822",
+      "created": "2026-07-11T11:01:42.580409"
+    },
+    "project_manager_risk_management": {
+      "agent_id": "project_manager",
+      "agent_name": "Project Manager Agent",
+      "skill_name": "risk_management",
+      "level": 5,
+      "experience": 5,
+      "total_xp": 426,
+      "last_used": "2026-07-11T13:32:03.964827",
+      "created": "2026-07-11T11:01:42.580414"
+    },
+    "project_manager_quality_control": {
+      "agent_id": "project_manager",
+      "agent_name": "Project Manager Agent",
+      "skill_name": "quality_control",
+      "level": 5,
+      "experience": 6,
+      "total_xp": 434,
+      "last_used": "2026-07-11T13:32:03.964831",
+      "created": "2026-07-11T11:01:42.580418"
+    },
+    "social_media_instagram": {
+      "agent_id": "social_media",
+      "agent_name": "Social Media Agent",
+      "skill_name": "instagram",
+      "level": 5,
+      "experience": 19,
+      "total_xp": 449,
+      "last_used": "2026-07-11T13:32:03.964862",
+      "created": "2026-07-11T11:01:42.580447"
+    },
+    "social_media_tiktok": {
+      "agent_id": "social_media",
+      "agent_name": "Social Media Agent",
+      "skill_name": "tiktok",
+      "level": 5,
+      "experience": 7,
+      "total_xp": 423,
+      "last_used": "2026-07-11T13:32:03.964867",
+      "created": "2026-07-11T11:01:42.580465"
+    },
+    "social_media_linkedin": {
+      "agent_id": "social_media",
+      "agent_name": "Social Media Agent",
+      "skill_name": "linkedin",
+      "level": 5,
+      "experience": 20,
+      "total_xp": 453,
+      "last_used": "2026-07-11T13:32:03.964875",
+      "created": "2026-07-11T11:01:42.580473"
+    },
+    "social_media_engagement": {
+      "agent_id": "social_media",
+      "agent_name": "Social Media Agent",
+      "skill_name": "engagement",
+      "level": 5,
+      "experience": 14,
+      "total_xp": 447,
+      "last_used": "2026-07-11T13:32:03.964882",
+      "created": "2026-07-11T11:01:42.580481"
+    },
+    "social_media_community_management": {
+      "agent_id": "social_media",
+      "agent_name": "Social Media Agent",
+      "skill_name": "community_management",
+      "level": 5,
+      "experience": 7,
+      "total_xp": 429,
+      "last_used": "2026-07-11T13:32:03.964887",
+      "created": "2026-07-11T11:01:42.580489"
+    },
+    "email_marketing_list_management": {
+      "agent_id": "email_marketing",
+      "agent_name": "Email Marketing Agent",
+      "skill_name": "list_management",
+      "level": 5,
+      "experience": 12,
+      "total_xp": 445,
+      "last_used": "2026-07-11T13:32:03.964918",
+      "created": "2026-07-11T11:01:42.580522"
+    },
+    "email_marketing_sequence_automation": {
+      "agent_id": "email_marketing",
+      "agent_name": "Email Marketing Agent",
+      "skill_name": "sequence_automation",
+      "level": 5,
+      "experience": 6,
+      "total_xp": 424,
+      "last_used": "2026-07-11T13:32:03.964923",
+      "created": "2026-07-11T11:01:42.580529"
+    },
+    "email_marketing_ab_testing": {
+      "agent_id": "email_marketing",
+      "agent_name": "Email Marketing Agent",
+      "skill_name": "ab_testing",
+      "level": 5,
+      "experience": 16,
+      "total_xp": 437,
+      "last_used": "2026-07-11T13:32:03.964928",
+      "created": "2026-07-11T11:01:42.580539"
+    },
+    "email_marketing_segmentation": {
+      "agent_id": "email_marketing",
+      "agent_name": "Email Marketing Agent",
+      "skill_name": "segmentation",
+      "level": 5,
+      "experience": 7,
+      "total_xp": 428,
+      "last_used": "2026-07-11T13:32:03.964932",
+      "created": "2026-07-11T11:01:42.580551"
+    },
+    "email_marketing_deliverability": {
+      "agent_id": "email_marketing",
+      "agent_name": "Email Marketing Agent",
+      "skill_name": "deliverability",
+      "level": 5,
+      "experience": 12,
+      "total_xp": 441,
+      "last_used": "2026-07-11T13:32:03.964940",
+      "created": "2026-07-11T11:01:42.580558"
+    }
+  },
+  "total_upgrades": 0,
+  "last_updated": "2026-07-11T13:32:03.997921"
+}
