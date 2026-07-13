@@ -1,0 +1,6 @@
+title: MAHA LAKSHMI HOLDINGS
+description: CEO Revenue Dashboard
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
