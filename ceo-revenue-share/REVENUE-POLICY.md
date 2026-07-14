@@ -109,14 +109,25 @@
 
 ### Transfer Methods:
 
-#### Priority 1: Bank Transfer (BCA)
+#### ✅ Priority 1: Midtrans Payment Gateway (AUTO-SETTLEMENT)
+```
+Gateway: Midtrans
+Merchant ID: M525420288
+Settlement: Otomatis ke rekening BCA
+Status: 🟠 ACTIVE
+
+Flow Revenue:
+Client Bayar → Midtrans → Settlement BCA → Pak Pur Terima
+```
+
+#### Priority 2: Bank Transfer (BCA) - Manual
 ```
 Bank: PT Bank Central Asia Tbk. (BCA)
 Account: 6485086645
 Holder: i made purna ananda
 ```
 
-#### Priority 2: Cryptocurrency (USDT)
+#### Priority 3: Cryptocurrency (USDT) - Manual
 ```
 Network: TRC-20 (Tron)
 Address: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
