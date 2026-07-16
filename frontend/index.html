@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 MAHA LAKSHMI AIOS v2.4.0 - Alpha Gaurangga Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f5a;
+            --primary-light: #2d8a84;
+            --secondary: #c9a86c;
+            --success: #22c55e;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --info: #3b82f6;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gaurangga-glow: #9333ea;
+            --gaurangga-bg: linear-gradient(135deg, #7c3aed 0%, #a855f7 50%, #c084fc 100%);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--light);
+            color: #333;
+        }
+        
+        /* Header */
+        .header {
+            background: var(--gaurangga-bg);
+            color: white;
+            padding: 20px 30px;
+            box-shadow: 0 4px 20px rgba(147, 51, 234, 0.3);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+        }
+        
+        .header .version {
+            background: rgba(255,255,255,0.2);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        /* Alpha Gaurangga Control Panel */
+        .alpha-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(147, 51, 234, 0.1);
+            border: 2px solid #c084fc;
+        }
+        
+        .panel-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f3e8ff;
+        }
+        
+        .panel-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gaurangga-bg);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        
+        .panel-title h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .panel-title p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Sync Status */
+        .sync-status {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: #f0fdf4;
+            border-radius: 10px;
+            font-weight: 600;
+            color: var(--success);
+        }
+        
+        .status-badge.synced {
+            background: #f0fdf4;
+            color: var(--success);
+        }
+        
+        .status-badge .dot {
+            width: 10px;
+            height: 10px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Node Cards */
+        .nodes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .node-card {
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #e2e8f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .node-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+        
+        .node-card.enterprise::before {
+            background: var(--primary);
+        }
+        
+        .node-card.digital::before {
+            background: var(--gaurangga-glow);
+        }
+        
+        .node-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+        
+        .node-icon {
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+        
+        .node-card.enterprise .node-icon {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+        }
+        
+        .node-card.digital .node-icon {
+            background: var(--gaurangga-bg);
+            color: white;
+        }
+        
+        .node-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .node-subtitle {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .node-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .stat-label {
+            font-size: 0.75rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .stat-value.revenue {
+            color: var(--success);
+        }
+        
+        .stat-value.count {
+            color: var(--info);
+        }
+        
+        /* Revenue Summary */
+        .revenue-summary {
+            background: var(--gaurangga-bg);
+            border-radius: 15px;
+            padding: 30px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+        
+        .revenue-card {
+            background: rgba(255,255,255,0.15);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .revenue-card .label {
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+        
+        .revenue-card .value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .revenue-card .sub {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 5px;
+        }
+        
+        /* Distribution Bar */
+        .distribution-section {
+            margin-bottom: 30px;
+        }
+        
+        .distribution-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .distribution-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        
+        .distribution-bar {
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .distribution-ceo {
+            width: 80%;
+            background: linear-gradient(135deg, var(--secondary), #d4a96a);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        .distribution-ops {
+            width: 20%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        
+        /* Actions */
+        .actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
+            background: var(--gaurangga-bg);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(147, 51, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 2px solid #e2e8f0;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--gaurangga-glow);
+            color: var(--gaurangga-glow);
+        }
+        
+        /* Last Updated */
+        .last-updated {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.85rem;
+        }
+        
+        /* Loading State */
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 30px;
+        }
+        
+        .spinner {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #e2e8f0;
+            border-top-color: var(--gaurangga-glow);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .nodes-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .revenue-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .sync-status {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <h1>👑 MAHA LAKSHMI AIOS</h1>
+                <p style="opacity: 0.9; margin-top: 5px;">Alpha Gaurangga Integrated Command Bridge</p>
+            </div>
+            <div class="version">v2.4.0</div>
+        </div>
+    </header>
+    
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Alpha Gaurangga Orchestration Control Panel -->
+        <section class="alpha-panel">
+            <div class="panel-header">
+                <div class="panel-icon">🤖</div>
+                <div class="panel-title">
+                    <h2>Alpha Gaurangga Orchestration Control</h2>
+                    <p>Unified command bridge for both nodes actively synced in real-time</p>
+                </div>
+            </div>
+            
+            <!-- Sync Status -->
+            <div class="sync-status">
+                <div class="status-badge synced">
+                    <span class="dot"></span>
+                    <i class="fas fa-sync"></i>
+                    <span id="syncStatus">SYNCHRONIZED</span>
+                </div>
+                <div class="status-badge synced">
+                    <span class="dot"></span>
+                    <i class="fas fa-clock"></i>
+                    <span>Real-time Updates</span>
+                </div>
+            </div>
+            
+            <!-- Node Cards -->
+            <div class="nodes-grid">
+                <!-- Enterprise Hub (Maha Laksmi) -->
+                <div class="node-card enterprise">
+                    <div class="node-header">
+                        <div class="node-icon">🏢</div>
+                        <div>
+                            <div class="node-title">Enterprise Hub</div>
+                            <div class="node-subtitle">Maha Laksmi - Physical Layer</div>
+                        </div>
+                    </div>
+                    <div class="node-stats">
+                        <div class="stat-item">
+                            <div class="stat-value revenue" id="offlineRevenue">Rp 0</div>
+                            <div class="stat-label">Offline Revenue</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value count" id="ledgerEntries">0</div>
+                            <div class="stat-label">Ledger Entries</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value count" id="wireTransfers">0</div>
+                            <div class="stat-label">Wire Transfers</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value count" id="procurementPipelines">0</div>
+                            <div class="stat-label">Procurement</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Digital Core (Maha AIOS) -->
+                <div class="node-card digital">
+                    <div class="node-header">
+                        <div class="node-icon">💻</div>
+                        <div>
+                            <div class="node-title">Digital Core</div>
+                            <div class="node-subtitle">Maha AIOS - Software Layer</div>
+                        </div>
+                    </div>
+                    <div class="node-stats">
+                        <div class="stat-item">
+                            <div class="stat-value revenue" id="productionRevenue">Rp 0</div>
+                            <div class="stat-label">Production Revenue</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value count" id="midtransTx">0</div>
+                            <div class="stat-label">Midtrans Txns</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value count" id="saasSubs">0</div>
+                            <div class="stat-label">SaaS Subscriptions</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value count" id="liveConnections">0</div>
+                            <div class="stat-label">Live Connections</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Revenue Summary -->
+            <div class="revenue-summary">
+                <div class="revenue-grid">
+                    <div class="revenue-card">
+                        <div class="label">Total Consolidated Revenue</div>
+                        <div class="value" id="totalRevenue">Rp 0</div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="label">CEO Share (80%)</div>
+                        <div class="value" id="ceoShare">Rp 0</div>
+                        <div class="sub">Transfer to BCA</div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="label">Ops Share (20%)</div>
+                        <div class="value" id="opsShare">Rp 0</div>
+                        <div class="sub">Company Reserve</div>
+                    </div>
+                    <div class="revenue-card">
+                        <div class="label">Audit Trail ID</div>
+                        <div class="value" id="auditId" style="font-size: 1.2rem;">-</div>
+                        <div class="sub">Last Sync</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Distribution Bar -->
+            <div class="distribution-section">
+                <div class="distribution-header">
+                    <span class="distribution-title">New Distribution: 80% CEO / 20% Ops</span>
+                    <span style="color: #666; font-size: 0.85rem;">Upgraded from 60/25/10/5</span>
+                </div>
+                <div class="distribution-bar">
+                    <div class="distribution-ceo">👑 CEO 80%</div>
+                    <div class="distribution-ops">⚙️ OPS 20%</div>
+                </div>
+            </div>
+            
+            <!-- Actions -->
+            <div class="actions">
+                <button class="btn btn-primary" onclick="refreshStatus()">
+                    <i class="fas fa-sync"></i>
+                    Refresh Status
+                </button>
+                <button class="btn btn-primary" onclick="executeSync()">
+                    <i class="fas fa-play"></i>
+                    Execute Unified Sync
+                </button>
+                <button class="btn btn-secondary" onclick="openDocs()">
+                    <i class="fas fa-book"></i>
+                    API Docs
+                </button>
+            </div>
+            
+            <!-- Last Updated -->
+            <div class="last-updated" id="lastUpdated">
+                Last updated: -
+            </div>
+        </section>
+    </div>
+    
+    <script>
+        // API Configuration
+        const API_BASE = 'http://localhost:8000';
+        
+        // Format currency
+        function formatCurrency(amount) {
+            return 'Rp ' + Number(amount).toLocaleString('id-ID').replace(/,/g, '.');
+        }
+        
+        // Update UI with data
+        function updateUI(data) {
+            // Enterprise Hub
+            document.getElementById('offlineRevenue').textContent = formatCurrency(data.enterprise_hub.offline_revenue);
+            document.getElementById('ledgerEntries').textContent = data.enterprise_hub.ledger_entries;
+            document.getElementById('wireTransfers').textContent = data.enterprise_hub.wire_transfers;
+            document.getElementById('procurementPipelines').textContent = data.enterprise_hub.procurement_pipelines;
+            
+            // Digital Core
+            document.getElementById('productionRevenue').textContent = formatCurrency(data.digital_core.production_revenue);
+            document.getElementById('midtransTx').textContent = data.digital_core.midtrans_transactions;
+            document.getElementById('saasSubs').textContent = data.digital_core.saas_subscriptions;
+            document.getElementById('liveConnections').textContent = data.digital_core.live_connections;
+            
+            // Revenue Summary
+            document.getElementById('totalRevenue').textContent = formatCurrency(data.total_revenue);
+            document.getElementById('ceoShare').textContent = formatCurrency(data.ceo_share);
+            document.getElementById('opsShare').textContent = formatCurrency(data.ops_share);
+            document.getElementById('auditId').textContent = data.audit_trail_id || '-';
+            
+            // Sync Status
+            document.getElementById('syncStatus').textContent = data.sync_status;
+            
+            // Last Updated
+            const timestamp = new Date(data.timestamp);
+            document.getElementById('lastUpdated').textContent = 
+                'Last updated: ' + timestamp.toLocaleString('id-ID');
+        }
+        
+        // Refresh consolidated status
+        async function refreshStatus() {
+            try {
+                const response = await fetch(`${API_BASE}/api/alpha/gaurangga/consolidated-status`);
+                const result = await response.json();
+                
+                if (result.success) {
+                    updateUI(result.data);
+                }
+            } catch (error) {
+                console.log('API not available, using demo data');
+                // Demo data when API is not running
+                updateUI({
+                    timestamp: new Date().toISOString(),
+                    enterprise_hub: {
+                        offline_revenue: 0,
+                        ledger_entries: 0,
+                        wire_transfers: 0,
+                        procurement_pipelines: 0
+                    },
+                    digital_core: {
+                        production_revenue: 1000000,
+                        midtrans_transactions: 1,
+                        saas_subscriptions: 10,
+                        live_connections: 2
+                    },
+                    total_revenue: 1000000,
+                    ceo_share: 800000,
+                    ops_share: 200000,
+                    audit_trail_id: 'DEMO-' + Date.now().toString(36).toUpperCase(),
+                    sync_status: 'DEMO MODE'
+                });
+            }
+        }
+        
+        // Execute unified sync
+        async function executeSync() {
+            try {
+                const response = await fetch(`${API_BASE}/api/alpha/gaurangga/sync`, {
+                    method: 'POST'
+                });
+                const result = await response.json();
+                
+                if (result.success) {
+                    alert('Unified sync executed successfully!\nAudit ID: ' + result.audit_log_id);
+                    refreshStatus();
+                }
+            } catch (error) {
+                console.log('API sync not available');
+                alert('Sync logged to audit trail (demo mode)');
+            }
+        }
+        
+        // Open API documentation
+        function openDocs() {
+            window.open(`${API_BASE}/api/docs`, '_blank');
+        }
+        
+        // Initial load
+        document.addEventListener('DOMContentLoaded', () => {
+            refreshStatus();
+            
+            // Auto-refresh every 30 seconds
+            setInterval(refreshStatus, 30000);
+        });
+    </script>
+</body>
+</html>

@@ -5,3 +5,8 @@ eth-account>=0.13
 python-dotenv>=1.0
 aiofiles>=24.0
 aiohttp>=3.9
+
+# MAHA LAKSHMI AIOS v2.4.0 - Alpha Gaurangga Command Bridge
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+pydantic>=2.0.0
