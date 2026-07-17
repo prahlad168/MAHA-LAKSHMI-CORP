@@ -202,6 +202,24 @@
       "status": "PENDING_MANUAL",
       "source": "MGOS-ENTERPRISE",
       "notes": "CEO payout from MGOS-Enterprise. Manual execution required - Tokocrypto API unavailable."
+    },
+    {
+      "timestamp": "2026-07-17T02:25:00.000000Z",
+      "action": "CEO_PAYOUT_RECEIVED",
+      "event": "CEO_PAYOUT_RECEIVED",
+      "status": "RECEIVED",
+      "description": "CEO Pak Pur confirms MGOS-Enterprise payout received in wallet",
+      "source": "MGOS-ENTERPRISE",
+      "details": {
+        "total_revenue": 417900145,
+        "ceo_share_percent": 80,
+        "ceo_payout_idr": 334320116,
+        "amount_usdt": 19665.89,
+        "wallet_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+        "network": "TRC20",
+        "received_at": "2026-07-17"
+      },
+      "reference": "MGOS-RECEIVED-20260717"
     }
   ]
 }
