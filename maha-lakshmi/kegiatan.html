@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHA LAKSHMI HOLDINGS - Kegiatan Perusahaan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5f5a;
+            --primary-light: #2d8a84;
+            --secondary: #c9a86c;
+            --dark: #1a1a2e;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --gray: #6b7280;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: #333; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .header p { opacity: 0.9; font-size: 1.1rem; }
+        .header .badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 8px 20px;
+            border-radius: 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+        }
+        
+        /* Info Cards */
+        .info-bar {
+            background: white;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+        .info-item i { color: var(--primary); font-size: 1.2rem; }
+        .info-item strong { color: var(--primary); }
+        
+        /* Container */
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        
+        /* Section */
+        .section { margin-bottom: 50px; }
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .section-title i { color: var(--secondary); }
+        
+        /* Company Grid */
+        .company-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        .company-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .company-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 20px;
+        }
+        .company-header h3 { font-size: 1.1rem; margin-bottom: 5px; }
+        .company-header small { opacity: 0.8; font-size: 0.8rem; }
+        .company-body { padding: 20px; }
+        .company-body .field {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+        }
+        .company-body .field i {
+            width: 25px;
+            color: var(--primary);
+        }
+        .company-body .field span { color: var(--gray); }
+        
+        /* Activity Timeline */
+        .activity-list { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .activity-item {
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-date {
+            min-width: 100px;
+            text-align: center;
+            padding: 10px;
+            background: var(--primary);
+            color: white;
+            border-radius: 10px;
+        }
+        .activity-date .day { font-size: 1.5rem; font-weight: 700; }
+        .activity-date .month { font-size: 0.75rem; text-transform: uppercase; }
+        .activity-content { flex: 1; }
+        .activity-content h4 { color: var(--primary); margin-bottom: 5px; font-size: 1rem; }
+        .activity-content p { color: var(--gray); font-size: 0.9rem; line-height: 1.5; }
+        .activity-content .company-tag {
+            display: inline-block;
+            background: rgba(26, 95, 90, 0.1);
+            color: var(--primary);
+            padding: 3px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+        
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .team-card .avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-size: 2rem;
+        }
+        .team-card h4 { color: var(--primary); margin-bottom: 5px; }
+        .team-card .position { color: var(--gray); font-size: 0.85rem; }
+        .team-card .dept {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            margin-top: 10px;
+        }
+        
+        /* Document Section */
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .doc-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        .doc-card .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+        }
+        .doc-card h4 { color: var(--primary); margin-bottom: 5px; font-size: 1rem; }
+        .doc-card p { color: var(--gray); font-size: 0.85rem; }
+        
+        /* Project List */
+        .project-list { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .project-item {
+            padding: 20px 25px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .project-item:last-child { border-bottom: none; }
+        .project-info h4 { color: var(--primary); margin-bottom: 5px; }
+        .project-info span { color: var(--gray); font-size: 0.85rem; }
+        .project-status {
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .status-progress { background: #fef3c7; color: #d97706; }
+        .status-done { background: #d1fae5; color: #059669; }
+        .status-planning { background: #dbeafe; color: #2563eb; }
+        
+        /* Footer */
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+        .footer h3 { font-family: 'Playfair Display', serif; margin-bottom: 15px; }
+        .footer p { opacity: 0.8; margin-bottom: 10px; }
+        .footer .bank {
+            background: rgba(255,255,255,0.1);
+            padding: 15px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 1.8rem; }
+            .info-bar { flex-direction: column; align-items: center; gap: 15px; }
+            .activity-item { flex-direction: column; }
+            .activity-date { width: fit-content; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>🏛️ MAHA LAKSHMI HOLDINGS</h1>
+        <p>Dokumentasi Kegiatan Perusahaan</p>
+        <div class="badge">
+            <i class="fas fa-building"></i> Terdaftar di Indonesia
+        </div>
+    </div>
+    
+    <!-- Info Bar -->
+    <div class="info-bar">
+        <div class="info-item">
+            <i class="fas fa-building"></i>
+            <span><strong>10</strong> Unit Bisnis</span>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-users"></i>
+            <span><strong>60</strong> AI Agents</span>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-calendar"></i>
+            <span>Beroperasi sejak <strong>2026</strong></span>
+        </div>
+        <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span><strong>Gianyar, Bali</strong></span>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Profil Perusahaan -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-info-circle"></i> Profil Perusahaan</h2>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>👑 MAHA LAKSHMI HOLDINGS</h3>
+                        <small>Perusahaan Induk / Holding</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-user"></i><span>CEO: i Made Purna Ananda</span></div>
+                        <div class="field"><i class="fas fa-map-marker-alt"></i><span>Jl. Raya Gianyar, Bali</span></div>
+                        <div class="field"><i class="fas fa-calendar"></i><span>Didirikan: 2026</span></div>
+                        <div class="field"><i class="fas fa-industry"></i><span>Industri: Digital Business & Technology</span></div>
+                        <div class="field"><i class="fas fa-briefcase"></i><span>AI Agent Factory & Digital Solutions</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>🎯 Maksud & Tujuan</h3>
+                        <small>Visi & Misi Perusahaan</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-bullseye"></i><span>Membangun ekosistem bisnis digital Indonesia</span></div>
+                        <div class="field"><i class="fas fa-lightbulb"></i><span>Menyediakan solusi AI untuk enterprise</span></div>
+                        <div class="field"><i class="fas fa-handshake"></i><span>Kolaborasi dengan pemerintah & swasta</span></div>
+                        <div class="field"><i class="fas fa-graduation-cap"></i><span>Pelatihan & pengembangan SDM</span></div>
+                        <div class="field"><i class="fas fa-network-wired"></i><span>Mengembangkan jaringan bisnis nasional</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Kegiatan Terbaru -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-tasks"></i> Kegiatan Terbaru</h2>
+            <div class="activity-list">
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">17</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>📋 Review & Planning 10 SBU</h4>
+                        <p>Evaluasi progress seluruh unit bisnis dan penyusunan rencana kerja minggu depan untuk 10 Strategic Business Unit.</p>
+                        <span class="company-tag">Corporate Office</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">16</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>🤖 Setup AI Agent System</h4>
+                        <p>Konfigurasi dan deployment 60 AI agents untuk seluruh unit bisnis. Including sales, marketing, dan operations agents.</p>
+                        <span class="company-tag">IT Department</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">15</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>🏥 Project Payangan Hospital</h4>
+                        <p>Deployment dan maintenance sistem informasi rumah sakit di Payangan Hospital, Gianyar. Integrasi dengan sistem pemerintah daerah.</p>
+                        <span class="company-tag">SBU-01 Payangan AI Solutions</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">14</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>💻 Software Development Gianyar Tech</h4>
+                        <p>Pengembangan aplikasi web dan mobile untuk client di Gianyar. Proyek termasuk e-commerce dan company profile.</p>
+                        <span class="company-tag">SBU-02 Gianyar Tech Solutions</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">13</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>📢 Digital Marketing Campaign</h4>
+                        <p>Pelaksanaan campaign digital marketing untuk Bali Travel dan TaskHero platform. Termasuk SEO, social media, dan content creation.</p>
+                        <span class="company-tag">SBU-03 Bali Digital Agency</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">12</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>📚 Training & Workshop</h4>
+                        <p>Pelaksanaan training AI dan digital skills untuk team. Topic: Prompt Engineering, Automation, dan Agent Development.</p>
+                        <span class="company-tag">HR & Learning Department</span>
+                    </div>
+                </div>
+                <div class="activity-item">
+                    <div class="activity-date">
+                        <div class="day">11</div>
+                        <div class="month">Jul 2026</div>
+                    </div>
+                    <div class="activity-content">
+                        <h4>🌴 Project Pariwisata Bali</h4>
+                        <p>Pengembangan platform booking dan management untuk partner tourism di Bali. Kolaborasi dengan guide dan hotel lokal.</p>
+                        <span class="company-tag">SBU-09 Bali Travel Platform</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Struktur Organisasi -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-sitemap"></i> Struktur Organisasi</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="avatar">👑</div>
+                    <h4>i Made Purna Ananda</h4>
+                    <div class="position">CEO & Founder</div>
+                    <span class="dept">Corporate Office</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">🤖</div>
+                    <h4>GAURANGA</h4>
+                    <div class="position">Chief AI Officer</div>
+                    <span class="dept">AI Division</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">💰</div>
+                    <h4>Finance Agent</h4>
+                    <div class="position">Chief Financial</div>
+                    <span class="dept">Finance Division</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">📢</div>
+                    <h4>Marketing Agent</h4>
+                    <div class="position">Chief Marketing</div>
+                    <span class="dept">Marketing Division</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">⚙️</div>
+                    <h4>Operations Agent</h4>
+                    <div class="position">Chief Operations</div>
+                    <span class="dept">Operations Division</span>
+                </div>
+                <div class="team-card">
+                    <div class="avatar">🎧</div>
+                    <h4>Support Agent</h4>
+                    <div class="position">Customer Success</div>
+                    <span class="dept">Support Division</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Project Berjalan -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-project-diagram"></i> Project Berjalan</h2>
+            <div class="project-list">
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>🏥 Payangan Hospital SIMRS</h4>
+                        <span>Sistem Informasi Manajemen Rumah Sakit - Gianyar</span>
+                    </div>
+                    <span class="project-status status-progress">In Progress</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>🛒 E-Commerce Platform GianyarMart</h4>
+                        <span>Marketplace untuk produk lokal Gianyar</span>
+                    </div>
+                    <span class="project-status status-progress">In Progress</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>🎓 Bali EdTech Learning Platform</h4>
+                        <span>Platform e-learning untuk pendidikan di Bali</span>
+                    </div>
+                    <span class="project-status status-planning">Planning</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>🌴 Bali Travel Booking System</h4>
+                        <span>Sistem booking tour dan travel di Bali</span>
+                    </div>
+                    <span class="project-status status-progress">In Progress</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>🦸 TaskHero Platform</h4>
+                        <span>Marketplace jasa tukang dengan AI matching</span>
+                    </div>
+                    <span class="project-status status-done">MVP Done</span>
+                </div>
+                <div class="project-item">
+                    <div class="project-info">
+                        <h4>🔧 MAHA Tukang Marketplace</h4>
+                        <span>Platform marketplace jasa tukang untuk masyarakat</span>
+                    </div>
+                    <span class="project-status status-progress">In Progress</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Dokumen & Legal -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> Dokumen & Legalitas</h2>
+            <div class="doc-grid">
+                <div class="doc-card">
+                    <div class="icon"><i class="fas fa-building"></i></div>
+                    <div>
+                        <h4>Akta Pendirian</h4>
+                        <p>Dokumen legal pendirian perusahaan dan annex</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="icon"><i class="fas fa-id-card"></i></div>
+                    <div>
+                        <h4>KTP Direksi</h4>
+                        <p>Identitas direktur dan shareholder</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="icon"><i class="fas fa-file-contract"></i></div>
+                    <div>
+                        <h4>Kontrak Kerja Sama</h4>
+                        <p>Dokumen MOU dengan berbagai pihak</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="icon"><i class="fas fa-landmark"></i></div>
+                    <div>
+                        <h4>NPWP Perusahaan</h4>
+                        <p>Nomor Pokok Wajib Pajak</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="icon"><i class="fas fa-handshake"></i></div>
+                    <div>
+                        <h4>Perjanjian mitranya</h4>
+                        <p>Kontrak kerja sama dengan client</p>
+                    </div>
+                </div>
+                <div class="doc-card">
+                    <div class="icon"><i class="fas fa-server"></i></div>
+                    <div>
+                        <h4>Website & Domain</h4>
+                        <p>Dokumentasi website resmi perusahaan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 10 Unit Bisnis -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-layer-group"></i> 10 Strategic Business Unit (SBU)</h2>
+            <div class="company-grid">
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-01</h3>
+                        <small>Payangan AI Solutions</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-hospital"></i><span>Healthcare IT Solutions</span></div>
+                        <div class="field"><i class="fas fa-laptop"></i><span>Sistem Informasi Rumah Sakit</span></div>
+                        <div class="field"><i class="fas fa-network-wired"></i><span>Integrasi dengan Dinas Kesehatan</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-02</h3>
+                        <small>Gianyar Tech Solutions</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-code"></i><span>Software Development</span></div>
+                        <div class="field"><i class="fas fa-mobile-alt"></i><span>Mobile App Development</span></div>
+                        <div class="field"><i class="fas fa-cloud"></i><span>SaaS Products</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-03</h3>
+                        <small>Bali Digital Agency</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-bullhorn"></i><span>Digital Marketing</span></div>
+                        <div class="field"><i class="fas fa-search"></i><span>SEO & Content Strategy</span></div>
+                        <div class="field"><i class="fas fa-photo-video"></i><span>Social Media Management</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-04</h3>
+                        <small>Gianyar E-Commerce Hub</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-shopping-cart"></i><span>Online Marketplace</span></div>
+                        <div class="field"><i class="fas fa-store"></i><span>Vendor Management</span></div>
+                        <div class="field"><i class="fas fa-truck"></i><span>Logistics & Shipping</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-05</h3>
+                        <small>Bali EdTech Center</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-graduation-cap"></i><span>E-Learning Platform</span></div>
+                        <div class="field"><i class="fas fa-video"></i><span>Online Course Production</span></div>
+                        <div class="field"><i class="fas fa-chalkboard-teacher"></i><span>Corporate Training</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-06</h3>
+                        <small>Gianyar Finance Tech</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-calculator"></i><span>Financial Consulting</span></div>
+                        <div class="field"><i class="fas fa-chart-line"></i><span>Business Analysis</span></div>
+                        <div class="field"><i class="fas fa-file-invoice-dollar"></i><span>Invoice & Accounting</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-07</h3>
+                        <small>Bali Logistics Network</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-shipping-fast"></i><span>Delivery Services</span></div>
+                        <div class="field"><i class="fas fa-warehouse"></i><span>Warehouse Management</span></div>
+                        <div class="field"><i class="fas fa-route"></i><span>Route Optimization</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-08</h3>
+                        <small>Gianyar Food Tech</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-utensils"></i><span>Restaurant Tech</span></div>
+                        <div class="field"><i class="fas fa-motorcycle"></i><span>Food Delivery Platform</span></div>
+                        <div class="field"><i class="fas fa-hamburger"></i><span>Menu Digital</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-09</h3>
+                        <small>Bali Travel Platform</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-plane"></i><span>Tour Booking</span></div>
+                        <div class="field"><i class="fas fa-hotel"></i><span>Hotel Partnership</span></div>
+                        <div class="field"><i class="fas fa-map-marked-alt"></i><span>Travel Guide Platform</span></div>
+                    </div>
+                </div>
+                <div class="company-card">
+                    <div class="company-header">
+                        <h3>SBU-10</h3>
+                        <small>Gianyar Property Tech</small>
+                    </div>
+                    <div class="company-body">
+                        <div class="field"><i class="fas fa-home"></i><span>Property Listings</span></div>
+                        <div class="field"><i class="fas fa-camera"></i><span>Virtual Tour</span></div>
+                        <div class="field"><i class="fas fa-hand-holding-usd"></i><span>Property Management</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">
+        <h3>👑 MAHA LAKSHMI HOLDINGS</h3>
+        <p>Platform Bisnis Digital Indonesia</p>
+        <p><i class="fas fa-user"></i> CEO: i Made Purna Ananda</p>
+        <p><i class="fas fa-map-marker-alt"></i> Gianyar, Bali, Indonesia</p>
+        <div class="bank">
+            <i class="fas fa-university"></i> BCA 6485086645
+        </div>
+        <p style="margin-top: 30px; opacity: 0.6; font-size: 0.85rem;">
+            © 2026 MAHA LAKSHMI HOLDINGS. All Rights Reserved.
+        </p>
+    </div>
+</body>
+</html>
