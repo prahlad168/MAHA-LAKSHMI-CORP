@@ -74,6 +74,159 @@
         }
         .section-title i { color: var(--secondary); }
         
+        /* Product Cards */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+        }
+        .product-card:hover { transform: translateY(-5px); }
+        .product-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .product-header .icon { font-size: 3rem; margin-bottom: 10px; }
+        .product-header h3 { font-size: 1.2rem; }
+        .product-body { padding: 20px; }
+        .product-body ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+        .product-body li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+        }
+        .product-body li:last-child { border-bottom: none; }
+        .product-body li i { color: var(--primary); margin-right: 8px; }
+        .product-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-align: center;
+            margin: 15px 0;
+        }
+        .product-price small { font-size: 0.8rem; color: var(--gray); font-weight: normal; }
+        
+        /* Order Button */
+        .order-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .order-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            transform: scale(1.02);
+        }
+        
+        /* Order Form Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal.active { display: flex; }
+        .modal-content {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--secondary);
+        }
+        .modal-header h3 { color: var(--primary); }
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-light));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .submit-btn:hover { opacity: 0.9; }
+        
+        /* WhatsApp Button */
+        .wa-float {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25d366;
+            color: white;
+            padding: 15px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+        }
+        .wa-float:hover { background: #128c7e; }
+        
         /* Company Grid */
         .company-grid {
             display: grid;
@@ -279,6 +432,172 @@
             <span><strong>Gianyar, Bali</strong></span>
         </div>
     </div>
+    
+    <div class="container">
+        <!-- Produk & Jasa -->
+        <div class="section">
+            <h2 class="section-title"><i class="fas fa-shopping-bag"></i> Produk & Jasa yang Ditawarkan</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="icon">💻</div>
+                        <h3>Website Development</h3>
+                    </div>
+                    <div class="product-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Company Profile Website</li>
+                            <li><i class="fas fa-check"></i>E-Commerce Website</li>
+                            <li><i class="fas fa-check"></i>Custom Web Application</li>
+                            <li><i class="fas fa-check"></i>Mobile Responsive Design</li>
+                            <li><i class="fas fa-check"></i>SEO Optimization</li>
+                        </ul>
+                        <div class="product-price">Rp 3-50 Jt <small>/project</small></div>
+                        <button class="order-btn" onclick="openModal('Website Development')">📩 Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="icon">📱</div>
+                        <h3>Mobile App Development</h3>
+                    </div>
+                    <div class="product-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Android App Development</li>
+                            <li><i class="fas fa-check"></i>iOS App Development</li>
+                            <li><i class="fas fa-check"></i>Cross-Platform App</li>
+                            <li><i class="fas fa-check"></i>App Maintenance</li>
+                            <li><i class="fas fa-check"></i>Push Notification</li>
+                        </ul>
+                        <div class="product-price">Rp 15-75 Jt <small>/project</small></div>
+                        <button class="order-btn" onclick="openModal('Mobile App Development')">📩 Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="icon">🤖</div>
+                        <h3>AI Agent System</h3>
+                    </div>
+                    <div class="product-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Custom AI Agent Creation</li>
+                            <li><i class="fas fa-check"></i>Automation Workflow</li>
+                            <li><i class="fas fa-check"></i>Chatbot Development</li>
+                            <li><i class="fas fa-check"></i>RAG System Setup</li>
+                            <li><i class="fas fa-check"></i>AI Integration</li>
+                        </ul>
+                        <div class="product-price">Rp 5-50 Jt <small>/system</small></div>
+                        <button class="order-btn" onclick="openModal('AI Agent System')">📩 Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="icon">📢</div>
+                        <h3>Digital Marketing</h3>
+                    </div>
+                    <div class="product-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>Social Media Management</li>
+                            <li><i class="fas fa-check"></i>SEO & Content Strategy</li>
+                            <li><i class="fas fa-check"></i>Google Ads Campaign</li>
+                            <li><i class="fas fa-check"></i>Facebook/Instagram Ads</li>
+                            <li><i class="fas fa-check"></i>Email Marketing</li>
+                        </ul>
+                        <div class="product-price">Rp 2-10 Jt <small>/bulan</small></div>
+                        <button class="order-btn" onclick="openModal('Digital Marketing')">📩 Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="icon">🎓</div>
+                        <h3>Training & Konsultasi</h3>
+                    </div>
+                    <div class="product-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>AI & Prompt Engineering</li>
+                            <li><i class="fas fa-check"></i>Digital Marketing Training</li>
+                            <li><i class="fas fa-check"></i>Web Development Workshop</li>
+                            <li><i class="fas fa-check"></i>Business Consulting</li>
+                            <li><i class="fas fa-check"></i>IT Infrastructure Setup</li>
+                        </ul>
+                        <div class="product-price">Rp 500Rb-5 Jt <small>/sesi</small></div>
+                        <button class="order-btn" onclick="openModal('Training & Konsultasi')">📩 Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-header">
+                        <div class="icon">🏥</div>
+                        <h3>Sistem Informasi Rumah Sakit</h3>
+                    </div>
+                    <div class="product-body">
+                        <ul>
+                            <li><i class="fas fa-check"></i>SIMRS Custom Development</li>
+                            <li><i class="fas fa-check"></i>Patient Management System</li>
+                            <li><i class="fas fa-check"></i>Pharmacy Management</li>
+                            <li><i class="fas fa-check"></i>Integration with Dinas Kesehatan</li>
+                            <li><i class="fas fa-check"></i>Training & Support</li>
+                        </ul>
+                        <div class="product-price">Rp 25-100 Jt <small>/project</small></div>
+                        <button class="order-btn" onclick="openModal('Sistem Informasi Rumah Sakit')">📩 Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Order Modal -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>📩 Form Pemesanan</h3>
+                <button class="close-btn" onclick="closeModal()">&times;</button>
+            </div>
+            <form id="orderForm">
+                <input type="hidden" id="productName" name="product">
+                <div class="form-group">
+                    <label>Nama Lengkap *</label>
+                    <input type="text" name="name" required placeholder="Masukkan nama Anda">
+                </div>
+                <div class="form-group">
+                    <label>Nomor WhatsApp *</label>
+                    <input type="tel" name="phone" required placeholder="08xxxxxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="email" placeholder="email@contoh.com">
+                </div>
+                <div class="form-group">
+                    <label>Perusahaan/Institusi</label>
+                    <input type="text" name="company" placeholder="Nama perusahaan (opsional)">
+                </div>
+                <div class="form-group">
+                    <label>Deskripsi Kebutuhan *</label>
+                    <textarea name="description" required rows="4" placeholder="Jelaskan kebutuhan proyek Anda..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Estimasi Budget</label>
+                    <select name="budget">
+                        <option value="">-- Pilih Range --</option>
+                        <option value="< 5 Juta">< 5 Juta</option>
+                        <option value="5-15 Juta">5-15 Juta</option>
+                        <option value="15-50 Juta">15-50 Juta</option>
+                        <option value="> 50 Juta">> 50 Juta</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">📨 Kirim Permintaan</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6281337558787?text=Halo%20MAHA%20LAKSHMI,%20saya%20tertarik%20dengan%20layanan%20Anda" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp" style="font-size:1.5rem"></i>
+        Hubungi via WhatsApp
+    </a>
     
     <div class="container">
         <!-- Profil Perusahaan -->
@@ -670,5 +989,55 @@
             © 2026 MAHA LAKSHMI HOLDINGS. All Rights Reserved.
         </p>
     </div>
+    
+    <script>
+        // Modal Functions
+        function openModal(product) {
+            document.getElementById('productName').value = product;
+            document.getElementById('orderModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal() {
+            document.getElementById('orderModal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal on outside click
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+        
+        // Form submission - send to WhatsApp
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Create WhatsApp message
+            const waMessage = `Halo MAHA LAKSHMI!%0A%0A` +
+                `📋 Pemesanan Baru:%0A` +
+                `Produk: ${data.product}%0A` +
+                `Nama: ${data.name}%0A` +
+                `WhatsApp: ${data.phone}%0A` +
+                `Email: ${data.email || '-'}%0A` +
+                `Perusahaan: ${data.company || '-'}%0A` +
+                `Kebutuhan: ${data.description}%0A` +
+                `Budget: ${data.budget || '-'}`;
+            
+            // Close modal
+            closeModal();
+            
+            // Show success and redirect to WhatsApp
+            alert('Pesanan Anda akan dikirim via WhatsApp!');
+            window.open('https://wa.me/6281337558787?text=' + waMessage, '_blank');
+            
+            // Reset form
+            this.reset();
+        });
+    </script>
 </body>
 </html>
