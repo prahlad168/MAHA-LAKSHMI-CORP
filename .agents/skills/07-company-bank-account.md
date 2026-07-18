@@ -11,7 +11,7 @@
 |-------|-------|
 | **Owner Name** | [Owner Name] |
 | **Bank** | BCA (Bank Central Asia) |
-| **Account Number** | 6485086645 |
+| **Account Number** | [BANK_ACCOUNT] |
 | **Account Type** | Personal / Company Account |
 
 ---
@@ -27,7 +27,7 @@
 
 | Category | Percentage | Recipient |
 |----------|------------|-----------|
-| **Owner/Shareholder** | 60% | BCA: 6485086645 |
+| **Owner/Shareholder** | 60% | BCA: [BANK_ACCOUNT] |
 | **Reinvestment** | 25% | Company Reserve |
 | **Team Bonus** | 10% | Distributed to team |
 | **Charity/CSR** | 5% | Donations |
@@ -40,7 +40,7 @@
 
 | Category | Amount | Transfer To |
 |----------|--------|-------------|
-| Owner Share (60%) | Rp 60.000.000 | BCA 6485086645 |
+| Owner Share (60%) | Rp 60.000.000 | BCA [BANK_ACCOUNT] |
 | Reinvestment (25%) | Rp 25.000.000 | Company Account |
 | Team Bonus (10%) | Rp 10.000.000 | Team Members |
 | Charity (5%) | Rp 5.000.000 | CSR Account |
@@ -52,7 +52,7 @@
 ### Owner Account (BCA)
 ```
 Bank:       BCA (Bank Central Asia)
-Account:    6485086645
+Account:    [BANK_ACCOUNT]
 Name:       [Owner Name]
 Branch:     [Branch Name]
 ```
@@ -91,7 +91,7 @@ Rp [NET_PROFIT]
 
 ## Owner Transfer Details:
 - Bank: BCA
-- Account Number: 6485086645
+- Account Number: [BANK_ACCOUNT]
 - Amount: Rp [AMOUNT]
 - Status: [Pending/Completed]
 - Date Transferred: [DATE]

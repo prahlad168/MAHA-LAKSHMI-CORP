@@ -3,8 +3,8 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**Owner:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**Owner:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -48,7 +48,7 @@ menghasilkan Rp 1.000.000.000/bulan dalam 12 bulan melalui:
 ## 2.1 Holding Structure
 
 ```
-CEO: i Made Purna Ananda
+CEO: [CEO_NAME_REDACTED]
 Target: Rp 1.000.000.000/bulan
 
 Corporate Divisions:
@@ -290,7 +290,7 @@ PER SBU (@ Rp 100.000.000):
 
 | Kategori      | Persen | Jumlah      | Tujuan              |
 |---------------|--------|-------------|---------------------|
-| Owner Share   | 60%    | Rp 60.000.000 | BCA 6485086645   |
+| Owner Share   | 60%    | Rp 60.000.000 | BCA [BANK_ACCOUNT]   |
 | Reinvestasi   | 25%    | Rp 25.000.000 | Company Reserve   |
 | Team Bonus    | 10%    | Rp 10.000.000 | Team Members      |
 | Charity       | 5%     | Rp 5.000.000  | CSR Account       |

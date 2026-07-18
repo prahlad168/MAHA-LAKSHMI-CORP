@@ -25,7 +25,7 @@ Tamuku pesan Ubud Tour Rp 750.000
 Tanpa effort, kami handle semua!
 
 Mau diskusi partnership?
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -48,7 +48,7 @@ Contoh:
 → Anda dapat Rp 15.000.000 passive income!
 
 Hubungi sekarang:
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Viceroy Bali Partner
@@ -73,7 +73,7 @@ Hot deals bulan ini:
 
 Booking 10 guests = Rp 1.500.000 untuk Anda!
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel Partner
@@ -102,7 +102,7 @@ Jual 20 tour/bulan × avg Rp 800.000 = Rp 16.000.000
 Kami handle semua logistics!
 
 Mulai sekarang:
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -127,7 +127,7 @@ Paket populer:
 
 Jual 10 packages = Rp 1.875.000 untuk Anda!
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Nusa Penida Tours Partner
@@ -153,7 +153,7 @@ Paket bestselling:
 
 Jual 15 tour/bulan = Rp 2.250.000 passive income!
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel Partnership
@@ -178,7 +178,7 @@ Hot deals:
 
 Monthly target 20 bookings = Rp 3.000.000!
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bintang Bali x Bali Travel
@@ -202,7 +202,7 @@ Adventure packages:
 
 Partner dengan kami = Extra revenue!
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Safari x Bali Travel
@@ -235,7 +235,7 @@ Benefit:
 
 Mau upgrade website hotel?
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 🌐 gianyartech.id
 
 --
@@ -264,7 +264,7 @@ Benefit:
 
 Mau bisnis makin laris?
 
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Digital Agency
@@ -294,7 +294,7 @@ Marketing Partner
 
 ### To send WhatsApp messages:
 1. Copy message above
-2. Open: wa.me/6281337558787
+2. Open: wa.me/[PHONE_REDACTED]
 3. Paste and send to each lead
 
 ### Follow-up schedule:
@@ -318,4 +318,4 @@ If all 10 leads convert:
 
 **Status:** 🔴 READY TO SEND
 **Generated:** 2026-07-13
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO]

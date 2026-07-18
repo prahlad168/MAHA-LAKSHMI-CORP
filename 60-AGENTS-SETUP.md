@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Status:** ✅ **60 AGENTS READY**
 
 ---
@@ -431,8 +431,8 @@ NEXT WEEK PLAN:
 
 ## 💰 BANK INFO
 
-**BCA:** 6485086645
-**Name:** i Made Purna Ananda
+**BCA:** [BANK_ACCOUNT]
+**Name:** [CEO_NAME_REDACTED]
 
 ---
 

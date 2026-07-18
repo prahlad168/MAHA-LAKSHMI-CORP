@@ -137,12 +137,12 @@ NEXT STEPS:
 KONTAK:
 ================================================================================
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, BALI TRAVEL PLATFORM
 MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 🌐 Website: balitravel.id
 📍 Alamat: Gianyar, Bali, Indonesia
 
@@ -153,7 +153,7 @@ MAHA LAKSHMI HOLDINGS
 
 
 
-[Nama Partner]                      i Made Purna Ananda
+[Nama Partner]                      [CEO_NAME_REDACTED]
 [Nama Perusahaan]                   CEO, Bali Travel Platform
 Tanggal: _____________               Tanggal: 13 Juli 2026
 
@@ -313,12 +313,12 @@ NEXT STEPS:
 KONTAK:
 ================================================================================
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, GIANYAR TECH SOLUTIONS
 MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 🌐 Website: gianyartech.id
 📍 Alamat: Gianyar, Bali, Indonesia
 
@@ -329,7 +329,7 @@ MAHA LAKSHMI HOLDINGS
 
 
 
-[Nama Klien]                        i Made Purna Ananda
+[Nama Klien]                        [CEO_NAME_REDACTED]
 [Nama Perusahaan]                    CEO, Gianyar Tech Solutions
 Tanggal: _____________               Tanggal: 13 Juli 2026
 
@@ -368,5 +368,5 @@ Tanggal: _____________               Tanggal: 13 Juli 2026
 
 **Status:** 🔴 READY TO SEND
 **Generated:** 2026-07-13
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]

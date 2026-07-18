@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Status:** ⚠️ **NEEDS BUSINESS WHATSAPP**
 
 ---
@@ -14,7 +14,7 @@
 ║                   IMPORTANT CLARIFICATION                           ║
 ╠════════════════════════════════════════════════════════════════════════╣
 ║                                                                    ║
-║  🔴 CEO PERSONAL WHATSAPP (081337558787):                        ║
+║  🔴 CEO PERSONAL WHATSAPP ([PHONE_REDACTED]):                        ║
 ║     - Untuk CEO terima LAPORAN saja                              ║
 ║     - BUKAN untuk kontak bisnis dengan customer                  ║
 ║                                                                    ║
@@ -33,7 +33,7 @@
 ╔════════════════════════════════════════════════════════════════════════╗
 ║        CEO PERSONAL WHATSAPP (NOT FOR CUSTOMERS)                 ║
 ╠════════════════════════════════════════════════════════════════════════╣
-║  WhatsApp: 081337558787                                         ║
+║  WhatsApp: [PHONE_REDACTED]                                         ║
 ║                                                                    ║
 ║  ⚠️ PURPOSE: Receive daily reports & alerts ONLY                  ║
 ║  ⚠️ NOT FOR: Customer inquiries, sales contact                  ║
@@ -421,14 +421,14 @@ Sent → Delivered → Read → Replied → Qualified → Customer
 
 ### WhatsApp Business App (FOR BUSINESS NUMBER)
 1. Download WhatsApp Business
-2. Siapkan nomor dedicated (bukan 081337558787)
+2. Siapkan nomor dedicated (bukan [PHONE_REDACTED])
 3. Setup business profile
 4. Add catalog/products
 5. Setup auto-reply
 6. Create labels for leads
 
-### WhatsApp Reports (CEO Personal - 081337558787)
-1. Use 081337558787 ONLY for receiving reports
+### WhatsApp Reports (CEO Personal - [PHONE_REDACTED])
+1. Use [PHONE_REDACTED] ONLY for receiving reports
 2. Setup notification filters
 3. Archive business messages
 4. Keep separate from personal
@@ -437,7 +437,7 @@ Sent → Delivered → Read → Replied → Qualified → Customer
 
 ## ✅ WHATSAPP READY CHECKLIST
 
-- [ ] Business WhatsApp created (NOT 081337558787)
+- [ ] Business WhatsApp created (NOT [PHONE_REDACTED])
 - [ ] Business profile completed
 - [ ] Catalog products added
 - [ ] Auto-reply configured
@@ -454,7 +454,7 @@ Sent → Delivered → Read → Replied → Qualified → Customer
 ### CEO Personal (FOR REPORTS ONLY):
 | Info | Detail |
 |------|--------|
-| **WhatsApp** | 081337558787 |
+| **WhatsApp** | [PHONE_REDACTED] |
 | **Purpose** | Reports only |
 | **NOT FOR** | Customer contact |
 
@@ -462,7 +462,7 @@ Sent → Delivered → Read → Replied → Qualified → Customer
 | Info | Status |
 |------|--------|
 | **WhatsApp** | ❌ NEED TO CREATE |
-| **NOT** | 081337558787 |
+| **NOT** | [PHONE_REDACTED] |
 
 ---
 
@@ -474,10 +474,10 @@ Sent → Delivered → Read → Replied → Qualified → Customer
 ╠════════════════════════════════════════════════════════════════════════╣
 ║                                                                    ║
 ║  📱 Customer Service: Use BUSINESS WhatsApp (PENDING)              ║
-║  📱 CEO Reports: Use 081337558787 (PERSONAL)                     ║
+║  📱 CEO Reports: Use [PHONE_REDACTED] (PERSONAL)                     ║
 ║                                                                    ║
-║  JANGAN gunakan 081337558787 untuk customer contact!               ║
-║  JANGAN gunakan 081337558787 untuk sales!                          ║
+║  JANGAN gunakan [PHONE_REDACTED] untuk customer contact!               ║
+║  JANGAN gunakan [PHONE_REDACTED] untuk sales!                          ║
 ║                                                                    ║
 ╚════════════════════════════════════════════════════════════════════════╝
 ```

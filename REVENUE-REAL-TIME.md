@@ -3,7 +3,7 @@
 
 **Tanggal:** 13 Juli 2026  
 **Waktu:** 13:58 WIB  
-**CEO:** i Made Purna Ananda (Pak Pur)  
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])  
 **Status:** 📊 LIVE DATA - BUKAN SIMULASI
 
 ---
@@ -159,7 +159,7 @@ LEADS ──────────► CONTACTED ──────────
 | Field | Value |
 |-------|-------|
 | **CEO Share Hari Ini** | **Rp 600.000** |
-| **Destination** | BCA 6485086645 |
+| **Destination** | BCA [BANK_ACCOUNT] |
 | **Status** | ⚠️ PENDING_EXECUTION |
 
 ### 📋 Transfer Records
@@ -169,12 +169,12 @@ LEADS ──────────► CONTACTED ──────────
    - Reference: BTC-20260713113003
    - Amount: Rp 600.000 (0.00051732 BTC)
    - Status: PENDING_MANUAL
-   - BTC Address: 1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2
+   - BTC Address: [BTC_WALLET]
 
 ✅ BCA Transfer Created:
    - Reference: BCA-20260713113751
    - Amount: Rp 600.000
-   - Destination: BCA 6485086645
+   - Destination: BCA [BANK_ACCOUNT]
    - Status: PENDING_EXECUTION
 ```
 
@@ -211,7 +211,7 @@ Status: recorded
 ║                    Total Revenue: Rp 1.000.000                     ║
 ╠════════════════════════════════════════════════════════════════════════╣
 ║                                                                        ║
-║  👑 CEO (Pak Pur)     │ 60% │ BCA 6485086645    │ Rp 600.000 ✅     ║
+║  👑 CEO ([CEO_ALIAS_REDACTED])     │ 60% │ BCA [BANK_ACCOUNT]    │ Rp 600.000 ✅     ║
 ║  🔄 Reinvestment      │ 25% │ Company Reserve   │ Rp 250.000        ║
 ║  👥 Team Bonus       │ 10% │ Team Members      │ Rp 100.000        ║
 ║  ❤️ CSR               │  5% │ Donasi            │ Rp  50.000        ║
@@ -237,7 +237,7 @@ TOTAL        │ Rp 1.000.000 │ Rp 600.000 │
 
 | Bank | Account Number | Name |
 |------|---------------|------|
-| **BCA** | **6485086645** | i Made Purna Ananda |
+| **BCA** | **[BANK_ACCOUNT]** | [CEO_NAME_REDACTED] |
 
 ---
 
@@ -247,9 +247,9 @@ TOTAL        │ Rp 1.000.000 │ Rp 600.000 │
 
 | # | Action | Target | Owner |
 |---|--------|--------|-------|
-| 1 | **Execute BCA Transfer** | Rp 600.000 → BCA 6485086645 | Pak Pur |
+| 1 | **Execute BCA Transfer** | Rp 600.000 → BCA [BANK_ACCOUNT] | [CEO_ALIAS_REDACTED] |
 | 2 | **WhatsApp Outreach** | Contact 10 leads Indonesia | Sales Agent |
-| 3 | **Follow-up** | Tanya konfirmasi leads | Pak Pur |
+| 3 | **Follow-up** | Tanya konfirmasi leads | [CEO_ALIAS_REDACTED] |
 
 ### 📋 Minggu Ini
 
@@ -274,7 +274,7 @@ TOTAL        │ Rp 1.000.000 │ Rp 600.000 │
 
 - [ ] **CEK REVENUE** → Rp 1.000.000 ✅
 - [ ] **CEO SHARE** → Rp 600.000 (harus ditransfer)
-- [ ] **TRANSFER KE BCA** → BCA 6485086645
+- [ ] **TRANSFER KE BCA** → BCA [BANK_ACCOUNT]
 - [ ] **OUTREACH LEADS** → WhatsApp ke 10 orang Indonesia
 - [ ] **GLOBAL OUTREACH** → Email ke 5 leads global
 - [ ] **FOLLOW-UP** → Tanya status leads
@@ -286,10 +286,10 @@ TOTAL        │ Rp 1.000.000 │ Rp 600.000 │
 
 | Info | Detail |
 |------|--------|
-| **CEO** | i Made Purna Ananda (Pak Pur) |
-| **WhatsApp** | 081337558787 |
-| **Email** | gaurangga168@gmail.com |
-| **Bank** | BCA 6485086645 |
+| **CEO** | [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED]) |
+| **WhatsApp** | [PHONE_REDACTED] |
+| **Email** | [EMAIL_REDACTED] |
+| **Bank** | BCA [BANK_ACCOUNT] |
 
 ---
 

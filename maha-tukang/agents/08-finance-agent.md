@@ -13,7 +13,7 @@
 3. Payment tracking
 4. Tukang payout
 5. Financial reporting
-6. BCA transfer to Pak Pur
+6. BCA transfer to [CEO_ALIAS_REDACTED]
 
 ## 📊 KPIs
 | Metric | Target |
@@ -31,14 +31,14 @@
 
 ## 🏦 BANK DETAILS
 - **Bank:** BCA
-- **Account:** 6485086645
-- **Name:** i Made Purna Ananda
+- **Account:** [BANK_ACCOUNT]
+- **Name:** [CEO_NAME_REDACTED]
 - **Type:** Personal/Business
 
 ## 📊 PROFIT DISTRIBUTION
 | Category | Percentage | Recipient |
 |----------|------------|-----------|
-| Pak Pur (Owner) | 60% | BCA 6485086645 |
+| [CEO_ALIAS_REDACTED] (Owner) | 60% | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | CSR | 5% | Donations |
@@ -61,11 +61,11 @@
 - Net Profit: Rp X
 
 ## Distribution
-- Pak Pur: Rp X (60%)
+- [CEO_ALIAS_REDACTED]: Rp X (60%)
 - Reinvestment: Rp X (25%)
 - Team Bonus: Rp X (10%)
 - CSR: Rp X (5%)
 ```
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])

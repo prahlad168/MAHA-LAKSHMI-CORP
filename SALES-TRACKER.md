@@ -103,7 +103,7 @@ Commission 15% untuk partner!
 
 Boleh kirim brochure lengkap?
 
-WA: wa.me/6281337558787
+WA: wa.me/[PHONE_REDACTED]
 ```
 
 ### WhatsApp Script - Gianyar Tech
@@ -122,7 +122,7 @@ Portfolio: gianyartech.id
 
 Boleh diskusi kebutuhan digital bisnis Anda?
 
-WA: wa.me/6281337558787
+WA: wa.me/[PHONE_REDACTED]
 ```
 
 ### WhatsApp Script - Digital Agency
@@ -141,7 +141,7 @@ Target: naikkan penjualan 30%!
 
 Boleh diskusi strategi digital Anda?
 
-WA: wa.me/6281337558787
+WA: wa.me/[PHONE_REDACTED]
 ```
 
 ---
@@ -239,5 +239,5 @@ CONTACTED → QUALIFIED → PROPOSAL → NEGOTIATION → CLOSED WON
 
 **Last Updated:** 2026-07-12 02:45 WIB
 **Next Update:** Daily at 18:00 WIB
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]

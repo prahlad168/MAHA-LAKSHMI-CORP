@@ -78,7 +78,7 @@
 🏦 BANK TRANSFER DETAILS
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Bank        : PT Bank Central Asia Tbk. (BCA)
-Account     : 6485086645
+Account     : [BANK_ACCOUNT]
 Holder      : i made purna ananda
 Amount      : Rp 600.000
 Reference   : CEO-SHARE-JULY-2026
@@ -91,7 +91,7 @@ Reference   : CEO-SHARE-JULY-2026
 ₿ CRYPTO TRANSFER DETAILS (FALLBACK)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Network     : TRC-20 (Tron)
-USDT Address: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
+USDT Address: [USDT_WALLET]
 Amount      : ~$36 USDT (Rate: 1 USDT = Rp 16.600)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
@@ -100,7 +100,7 @@ Amount      : ~$36 USDT (Rate: 1 USDT = Rp 16.600)
 
 ## 📋 TRANSFER INSTRUCTIONS
 
-### Untuk Pak Pur - Manual Transfer:
+### Untuk [CEO_ALIAS_REDACTED] - Manual Transfer:
 
 #### Step 1: Internet Banking BCA
 ```
@@ -108,7 +108,7 @@ Amount      : ~$36 USDT (Rate: 1 USDT = Rp 16.600)
 2. Pilih menu "Transfer"
 3. Pilih "Transfer ke Rekening BCA"
 4. Masukkan:
-   - No Rekening Tujuan: 6485086645
+   - No Rekening Tujuan: [BANK_ACCOUNT]
    - Jumlah Transfer: Rp 600.000
    - Pesan: CEO-SHARE-JULY-2026
 5. Konfirmasi dan execute
@@ -151,7 +151,7 @@ Amount      : ~$36 USDT (Rate: 1 USDT = Rp 16.600)
 
 | # | Action | Owner | Status |
 |---|--------|-------|--------|
-| 1 | ✅ Execute BCA Transfer Rp 600.000 | Pak Pur | ⏳ |
+| 1 | ✅ Execute BCA Transfer Rp 600.000 | [CEO_ALIAS_REDACTED] | ⏳ |
 | 2 | ✅ Update Finance Dashboard | GAURANGA | ✅ |
 | 3 | ⏳ WhatsApp 10 Indonesia leads | Sales Agent | ❌ |
 | 4 | ⏳ Email 50 global leads | Sales Agent | ❌ |
@@ -181,7 +181,7 @@ TRANSFER EXECUTION CHECKLIST
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 [ ] Login ke BCA Internet Banking
 [ ] Pilih menu Transfer
-[ ] Masukkan No Rekening: 6485086645
+[ ] Masukkan No Rekening: [BANK_ACCOUNT]
 [ ] Masukkan Jumlah: Rp 600.000
 [ ] Masukkan Pesan: CEO-SHARE-JULY-2026
 [ ] Konfirmasi transfer
@@ -195,7 +195,7 @@ TRANSFER EXECUTION CHECKLIST
 ## 📞 SUPPORT
 
 Jika ada pertanyaan:
-- WhatsApp: 081337558787 (Pak Pur)
+- WhatsApp: [PHONE_REDACTED] ([CEO_ALIAS_REDACTED])
 - Email: [Auto-generated report]
 
 ---
@@ -209,6 +209,6 @@ Jika ada pertanyaan:
 ```
 ═══════════════════════════════════════════════════════════════════
         "Dari nol menjadi satu, dari satu menjadi banyak."
-                            - Pak Pur
+                            - [CEO_ALIAS_REDACTED]
 ═══════════════════════════════════════════════════════════════════
 ```

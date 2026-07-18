@@ -1,6 +1,6 @@
 # 📊 Daily Report - 2026-07-06
 
-## 👋 Selamat Pagi, Pak Pur!
+## 👋 Selamat Pagi, [CEO_ALIAS_REDACTED]!
 
 **Tanggal:** 6 Juli 2026 (Senin)
 **Waktu:** 05:42 WIB
@@ -97,7 +97,7 @@
 
 | Bank | Account Number | Recipient |
 |------|---------------|-----------|
-| **BCA** | **6485086645** | i Made Purna Ananda |
+| **BCA** | **[BANK_ACCOUNT]** | [CEO_NAME_REDACTED] |
 
 **Profit Distribution:** 60% Owner / 25% Reinvestment / 10% Team / 5% Charity
 

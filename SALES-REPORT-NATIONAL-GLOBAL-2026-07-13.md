@@ -2,7 +2,7 @@
 
 ## 📅 Tanggal: 13 Juli 2026
 ## 🕐 Waktu Laporan: 20:30 UTC
-## 👑 COO Report untuk CEO - i Made Purna Ananda
+## 👑 COO Report untuk CEO - [CEO_NAME_REDACTED]
 
 ---
 
@@ -248,7 +248,7 @@
 
 | Kategori | Persentase | Amount | Target |
 |----------|------------|--------|--------|
-| **Owner (Pak Pur)** | 60% | **Rp 600.000** | BCA 6485086645 |
+| **Owner ([CEO_ALIAS_REDACTED])** | 60% | **Rp 600.000** | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Rp 250.000 | Company Reserve |
 | Team Bonus | 10% | Rp 100.000 | Team Members |
 | CSR | 5% | Rp 50.000 | Charity Account |
@@ -258,7 +258,7 @@ If BCA Transfer FAILS:
 - Switch to: **Tokocrypto/Crypto Exchange**
 - Convert to: **USDT**
 - Network: **TRC-20**
-- Wallet: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
+- Wallet: [USDT_WALLET]
 - Alert: Via Telegram/WhatsApp to CEO
 
 ---
@@ -343,7 +343,7 @@ If BCA Transfer FAILS:
 ### CEO Transfer at 23:50 WIB
 - [ ] Calculate daily revenue: **Rp 1.000.000**
 - [ ] Calculate CEO share (60%): **Rp 600.000**
-- [ ] Execute BCA Transfer to: **6485086645**
+- [ ] Execute BCA Transfer to: **[BANK_ACCOUNT]**
 - [ ] Log transaction receipt
 - [ ] Send confirmation to CEO via WhatsApp
 
@@ -369,7 +369,7 @@ DAPATKAN REVENUE TAMBAHAN HARI INI!
 
 Hubungi sekarang:
 📱 0813 3755 8787
-WA: wa.me/6281337558787
+WA: wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -391,7 +391,7 @@ Contoh:
 - Jual 10 tour/bulan → Rp 1.500.000 passive income!
 
 Mau mulai sekarang?
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 ```
 
 ---
@@ -423,8 +423,8 @@ Mau mulai sekarang?
 | Field | Value |
 |-------|-------|
 | **Bank** | BCA (Bank Central Asia) |
-| **Account** | 6485086645 |
-| **Name** | i Made Purna Ananda |
+| **Account** | [BANK_ACCOUNT] |
+| **Name** | [CEO_NAME_REDACTED] |
 | **Type** | CEO Revenue Share |
 
 ### Fallback Transfer
@@ -432,7 +432,7 @@ Mau mulai sekarang?
 |-------|-------|
 | **Method** | Crypto USDT |
 | **Network** | TRC-20 |
-| **Wallet** | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 |
+| **Wallet** | [USDT_WALLET] |
 
 ---
 
@@ -457,7 +457,7 @@ Mau mulai sekarang?
 ║  💰 CEO TRANSFER TODAY:                                                      ║
 ║  ┌───────────────────────────────────────────────────────────────────┐       ║
 ║  │ Total Revenue: Rp 1.000.000                                       │       ║
-║  │ CEO Share (60%): Rp 600.000 → BCA 6485086645                    │       ║
+║  │ CEO Share (60%): Rp 600.000 → BCA [BANK_ACCOUNT]                    │       ║
 ║  │ Transfer Time: 23:50 WIB                                          │       ║
 ║  └───────────────────────────────────────────────────────────────────┘       ║
 ║                                                                              ║
@@ -468,8 +468,8 @@ Mau mulai sekarang?
 ║  4. Prepare global outreach                                                 ║
 ║                                                                              ║
 ╠═══════════════════════════════════════════════════════════════════════════════╣
-║  🏦 BANK: BCA 6485086645 - i Made Purna Ananda                             ║
-║  📱 WhatsApp: 081337558787                                                 ║
+║  🏦 BANK: BCA [BANK_ACCOUNT] - [CEO_NAME_REDACTED]                             ║
+║  📱 WhatsApp: [PHONE_REDACTED]                                                 ║
 ║  🤖 COO Report by: GAURANGA AI Agent                                       ║
 ╚═══════════════════════════════════════════════════════════════════════════════╝
 ```

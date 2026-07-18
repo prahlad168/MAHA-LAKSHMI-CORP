@@ -11,7 +11,7 @@ Subject: Partnership Opportunity - MAHA LAKSHMI HOLDINGS x [Company Name]
 
 Dear [Name],
 
-I am i Made Purna Ananda, CEO of MAHA LAKSHMI HOLDINGS, a digital enterprise with operations across Southeast Asia and beyond.
+I am [CEO_NAME_REDACTED], CEO of MAHA LAKSHMI HOLDINGS, a digital enterprise with operations across Southeast Asia and beyond.
 
 We are expanding our global network and would like to explore partnership opportunities with [Company Name].
 
@@ -66,11 +66,11 @@ I would love to schedule a 15-minute call this week to discuss potential collabo
 
 Best regards,
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 🌐 Website: prahlad168.github.io/MAHA-LAKSHMI-CORP
 ```
 
@@ -120,11 +120,11 @@ Would you be open to a brief call to explore synergies?
 
 Best regards,
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 🏢 Location: Gianyar, Bali, Indonesia
 ```
 
@@ -137,7 +137,7 @@ Subject: Fintech Partnership Opportunity - Regional Expansion
 
 Dear [Name],
 
-I am i Made Purna Ananda, CEO of MAHA LAKSHMI HOLDINGS, reaching out to explore fintech partnerships with [Bank/Financial Institution Name].
+I am [CEO_NAME_REDACTED], CEO of MAHA LAKSHMI HOLDINGS, reaching out to explore fintech partnerships with [Bank/Financial Institution Name].
 
 OUR FINTECH OFFERINGS:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -176,11 +176,11 @@ I would welcome the opportunity to discuss how we can create mutual value.
 
 Best regards,
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 ```
 
 ---
@@ -227,11 +227,11 @@ Would you be interested in a demonstration?
 
 Best regards,
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 🌐 Healthcare Demo: payanganhospital.gianyarkab.go.id
 ```
 
@@ -244,7 +244,7 @@ Subject: Tour & Travel Partnership - Bali Tourism Network
 
 Dear [Name],
 
-I am i Made Purna Ananda from BALI TRAVEL PLATFORM, part of MAHA LAKSHMI HOLDINGS. We are seeking tourism partners across Southeast Asia.
+I am [CEO_NAME_REDACTED] from BALI TRAVEL PLATFORM, part of MAHA LAKSHMI HOLDINGS. We are seeking tourism partners across Southeast Asia.
 
 OUR TOURISM SERVICES:
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -284,11 +284,11 @@ Let's discuss how we can grow together.
 
 Best regards,
 
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, BALI TRAVEL PLATFORM
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 🌐 Website: balitravel.id
 ```
 
@@ -381,5 +381,5 @@ If 5% of global leads convert:
 
 **Status:** 🔴 READY TO SEND
 **Generated:** 2026-07-13
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]

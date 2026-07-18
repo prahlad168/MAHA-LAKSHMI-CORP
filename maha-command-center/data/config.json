@@ -9,8 +9,8 @@
     "title": "Chief Executive Officer",
     "bank": {
       "name": "BCA",
-      "account": "6485086645",
-      "account_name": "I Made Purna Ananda"
+      "account": "[BANK_ACCOUNT]",
+      "account_name": "[CEO]"
     },
     "contact": {
       "email": "ceo@mahalakshmi.id",

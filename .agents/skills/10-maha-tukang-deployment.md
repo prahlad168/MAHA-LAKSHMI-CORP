@@ -82,7 +82,7 @@ Bot_Molty5/
 - Landing page professional
 - Service categories (12 categories)
 - Search simulation
-- WhatsApp integration (081337558787)
+- WhatsApp integration ([PHONE_REDACTED])
 - Mobile responsive
 - SEO optimized
 
@@ -116,10 +116,10 @@ Bot_Molty5/
 
 ## 📞 CONTACT
 
-- **CEO:** i Made Purna Ananda (Pak Pur)
-- **WhatsApp:** 081337558787
-- **Email:** gaurangga168@gmail.com
-- **Bank:** BCA 6485086645
+- **CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+- **WhatsApp:** [PHONE_REDACTED]
+- **Email:** [EMAIL_REDACTED]
+- **Bank:** BCA [BANK_ACCOUNT]
 
 ---
 

@@ -22,7 +22,7 @@
 
 | Category | Percentage | Amount | Status |
 |---------|-----------|--------|--------|
-| **CEO (Pak Pur)** | **60%** | **Rp 600.000** | ✅ READY |
+| **CEO ([CEO_ALIAS_REDACTED])** | **60%** | **Rp 600.000** | ✅ READY |
 | Reinvestment | 25% | Rp 250.000 | ⏳ Pending |
 | Team Bonus | 10% | Rp 100.000 | ⏳ Pending |
 | CSR | 5% | Rp 50.000 | ⏳ Pending |
@@ -37,8 +37,8 @@
 | Field | Value |
 |-------|-------|
 | **Bank** | BCA (Bank Central Asia) |
-| **Account Number** | **6485086645** |
-| **Account Holder** | **i Made Purna Ananda** |
+| **Account Number** | **[BANK_ACCOUNT]** |
+| **Account Holder** | **[CEO_NAME_REDACTED]** |
 | **Amount** | **Rp 600.000** |
 | **Transfer ID** | CEO-TRANSFER-20260713-2350 |
 | **Timestamp** | 2026-07-13 23:50 WIB |
@@ -50,8 +50,8 @@
 │  TRANSFER KE:                                                │
 │                                                             │
 │  🏦 Bank: BCA (Bank Central Asia)                         │
-│  👤 Rekening: 6485086645                                   │
-│  👤 Nama: i Made Purna Ananda                             │
+│  👤 Rekening: [BANK_ACCOUNT]                                   │
+│  👤 Nama: [CEO_NAME_REDACTED]                             │
 │  💰 Jumlah: Rp 600.000                                     │
 │  📝 Catatan: CEO-TRANSFER-20260713-2350                   │
 │                                                             │
@@ -66,7 +66,7 @@
 | Field | Value |
 |-------|-------|
 | **Network** | TRC-20 |
-| **Wallet Address** | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 |
+| **Wallet Address** | [USDT_WALLET] |
 | **Amount (USDT)** | ~$38 (at Rp 15.700/USD) |
 | **Status** | ⏳ FALLBACK ONLY |
 
@@ -118,8 +118,8 @@
 2. Pilih "Transfer"
 3. Pilih "BCA Virtual Account" atau "Transfer ke Rekening BCA"
 4. Masukkan:
-   - Rekening Tujuan: 6485086645
-   - Nama: i Made Purna Ananda
+   - Rekening Tujuan: [BANK_ACCOUNT]
+   - Nama: [CEO_NAME_REDACTED]
    - Jumlah: Rp 600.000
    - Catatan: CEO-TRANSFER-20260713-2350
 5. Konfirmasi dan transfer
@@ -139,10 +139,10 @@ Setelah transfer berhasil:
 ### Step 3: Alert CEO
 ```
 Setelah transfer selesai:
-- Kirim WhatsApp ke Pak Pur:
+- Kirim WhatsApp ke [CEO_ALIAS_REDACTED]:
   "Transfer CEO selesai! 
    Amount: Rp 600.000
-   Account: BCA 6485086645
+   Account: BCA [BANK_ACCOUNT]
    Status: ✅ SUKSES"
 ```
 
@@ -160,7 +160,7 @@ Setelah transfer selesai:
 | **Gross Revenue** | Rp 1.000.000 |
 | **CEO Share (60%)** | **Rp 600.000** |
 | **Bank** | BCA |
-| **Account** | 6485086645 |
+| **Account** | [BANK_ACCOUNT] |
 | **Status** | ⏳ **EXECUTING** |
 | **Executed By** | GAURANGA AI Agent |
 
@@ -170,12 +170,12 @@ Setelah transfer selesai:
 
 - [ ] Buka BCA Mobile/KlikBCA
 - [ ] Pilih menu Transfer
-- [ ] Masukkan rekening 6485086645
+- [ ] Masukkan rekening [BANK_ACCOUNT]
 - [ ] Masukkan jumlah: Rp 600.000
 - [ ] Tambahkan catatan: CEO-TRANSFER-20260713-2350
 - [ ] Konfirmasi transfer
 - [ ] Screenshot bukti transfer
-- [ ] Kirim confirmation ke Pak Pur via WhatsApp
+- [ ] Kirim confirmation ke [CEO_ALIAS_REDACTED] via WhatsApp
 - [ ] Update payment-log.json
 
 ---
@@ -185,7 +185,7 @@ Setelah transfer selesai:
 **TRANSFER SEKARANG SEBELUM 23:59 WIB!**
 
 ```
-🏦 BCA: 6485086645
+🏦 BCA: [BANK_ACCOUNT]
 💰 Amount: Rp 600.000
 ⏰ Deadline: 23:50 WIB
 ```
@@ -196,10 +196,10 @@ Setelah transfer selesai:
 
 | Info | Value |
 |------|-------|
-| **CEO** | i Made Purna Ananda |
+| **CEO** | [CEO_NAME_REDACTED] |
 | **WhatsApp** | 0813 3755 8787 |
-| **Email** | gaurangga168@gmail.com |
-| **Bank** | BCA 6485086645 |
+| **Email** | [EMAIL_REDACTED] |
+| **Bank** | BCA [BANK_ACCOUNT] |
 
 ---
 

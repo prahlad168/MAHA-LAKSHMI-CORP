@@ -6,8 +6,8 @@
     "last_updated": "2026-07-18T04:25:00+07:00",
     "bank_details": {
       "bank": "BCA",
-      "account_number": "6485086645",
-      "account_name": "i Made Purna Ananda"
+      "account_number": "[BANK_ACCOUNT]",
+      "account_name": "[CEO_NAME_REDACTED]"
     }
   },
   "total_revenue": {
@@ -34,8 +34,8 @@
       "status": "PENDING",
       "bank_transfer": {
         "bank": "BCA",
-        "account_number": "6485086645",
-        "account_name": "i Made Purna Ananda",
+        "account_number": "[BANK_ACCOUNT]",
+        "account_name": "[CEO_NAME_REDACTED]",
         "amount": 800000,
         "reference_number": null,
         "screenshot": null,
@@ -54,8 +54,8 @@
       "status": "PENDING",
       "bank_transfer": {
         "bank": "BCA",
-        "account_number": "6485086645",
-        "account_name": "i Made Purna Ananda",
+        "account_number": "[BANK_ACCOUNT]",
+        "account_name": "[CEO_NAME_REDACTED]",
         "amount": 334320116,
         "reference_number": null,
         "screenshot": null,

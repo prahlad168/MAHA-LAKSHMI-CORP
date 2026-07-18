@@ -92,7 +92,7 @@ Kami tawarkan partnership tour:
 
 Boleh kirim brochure untuk dipertimbangkan?
 
-WA: wa.me/6281337558787
+WA: wa.me/[PHONE_REDACTED]
 ```
 
 ---

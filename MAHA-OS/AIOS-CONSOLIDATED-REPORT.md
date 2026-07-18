@@ -2,11 +2,11 @@
 
 ## 📅 Tanggal: 17 Juli 2026
 ## 🕐 Waktu: Update Real-Time
-## 🏢 Owner: i Made Purna Ananda (Pak Pur)
+## 🏢 Owner: [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
 
 ---
 
-> **CATATAN:** Setiap kali Pak Pur minta "laporan", cek file ini untuk melihat semua penjualan produk digital dari semua sumber.
+> **CATATAN:** Setiap kali [CEO_ALIAS_REDACTED] minta "laporan", cek file ini untuk melihat semua penjualan produk digital dari semua sumber.
 
 ---
 
@@ -203,15 +203,15 @@ GAP:         Rp 99.000.000 ❌
 | Kategori | Persentase | Jumlah |
 |----------|------------|--------|
 | **Total Revenue** | - | **Rp 1.000.000** |
-| 👑 CEO (Pak Pur) | 60% | **Rp 600.000** ✅ |
+| 👑 CEO ([CEO_ALIAS_REDACTED]) | 60% | **Rp 600.000** ✅ |
 | 🔄 Reinvestment | 25% | Rp 250.000 |
 | 👥 Team Bonus | 10% | Rp 100.000 |
 | ❤️ CSR | 5% | Rp 50.000 |
 
 ### 🏦 Transfer ke CEO
 - **Bank:** BCA
-- **Account:** 6485086645
-- **Name:** i Made Purna Ananda
+- **Account:** [BANK_ACCOUNT]
+- **Name:** [CEO_NAME_REDACTED]
 - **Amount:** Rp 600.000
 
 ---
@@ -337,10 +337,10 @@ nano AIOS-CONSOLIDATED-REPORT.md
 
 | Info | Detail |
 |------|--------|
-| **CEO** | i Made Purna Ananda (Pak Pur) |
-| **WhatsApp** | 081337558787 |
-| **Bank** | BCA 6485086645 |
-| **Email** | gaurangga168@gmail.com |
+| **CEO** | [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED]) |
+| **WhatsApp** | [PHONE_REDACTED] |
+| **Bank** | BCA [BANK_ACCOUNT] |
+| **Email** | [EMAIL_REDACTED] |
 
 ---
 

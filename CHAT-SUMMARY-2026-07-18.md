@@ -3,8 +3,8 @@
 
 ---
 
-## 👑 CEO: i Made Purna Ananda (Pak Pur)
-## 🏦 Bank: BCA 6485086645
+## 👑 CEO: [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+## 🏦 Bank: BCA [BANK_ACCOUNT]
 
 ---
 
@@ -98,7 +98,7 @@ MAHA-LAKSHMI-CORP/
 ## 🎯 NEXT STEPS
 
 ### Immediate (Hari Ini):
-1. Pak Pur daftar Midtrans di https://dashboard.midtrans.com
+1. [CEO_ALIAS_REDACTED] daftar Midtrans di https://dashboard.midtrans.com
 2. Upload dokumen verifikasi
 3. Tunggu approval
 

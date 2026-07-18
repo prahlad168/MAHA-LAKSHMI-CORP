@@ -3,9 +3,9 @@
 
 **Version:** 100.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
-**WhatsApp:** 081337558787
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
+**WhatsApp:** [PHONE_REDACTED]
 **Target:** 💰 REVENUE TODAY! 💰
 
 ---
@@ -123,7 +123,7 @@ HARI INI = TRANSFER!
 ║ SKILLS:                                                      ║
 ║ ✅ Invoice Generator (Instant)                               ║
 ║ ✅ Payment Tracker Real-time                                 ║
-║ ✅ BCA Auto-Sync (6485086645)                               ║
+║ ✅ BCA Auto-Sync ([BANK_ACCOUNT])                               ║
 ║ ✅ PPN Calculator (11%)                                     ║
 ║ ✅ Profit Distribution Auto                                   ║
 ║ ✅ Tax Report Generator                                      ║
@@ -243,7 +243,7 @@ DAPATKAN PAKET TOUR SPESIAL HARI INI!
 ⏰ **OFFER HARI INI SAJA!**
 
 Booking sekarang:
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -266,7 +266,7 @@ Contoh:
 - Jual 10 tour/bulan → Rp 1.500.000 passive income!
 
 Mau mulai sekarang?
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 ```
 
 ### Template 3: Enterprise
@@ -287,7 +287,7 @@ DAPATKAN REVENUE TAMBAHAN HARI INI!
 
 Hubungi sekarang:
 📱 0813 3755 8787
-WA: wa.me/6281337558787
+WA: wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -388,8 +388,8 @@ Setuju ya, saya proses?"
 ### BCA Transfer
 ```
 Bank: BCA
-Account: 6485086645
-Name: i Made Purna Ananda
+Account: [BANK_ACCOUNT]
+Name: [CEO_NAME_REDACTED]
 ```
 
 ### QRIS (Instant)
@@ -415,7 +415,7 @@ Bayar langsung ke:
 | 10:00 | - | Demo | Pending | Rp 0 |
 | 14:00 | - | CLOSE! | PENDING! | PENDING! |
 | 16:00 | - | PAYMENT! | PENDING! | PENDING! |
-| 17:00 | - | TRANSFER! | BCA 6485086645 | Rp 1.8M! |
+| 17:00 | - | TRANSFER! | BCA [BANK_ACCOUNT] | Rp 1.8M! |
 
 ---
 
@@ -468,7 +468,7 @@ ELSE:
 
 ### 17:00 - TRANSFER TO BCA!
 - [ ] TOTAL: Rp X
-- [ ] CEO SHARE (60%): Rp X → BCA 6485086645
+- [ ] CEO SHARE (60%): Rp X → BCA [BANK_ACCOUNT]
 - [ ] TRANSFER CONFIRMED!
 
 ---
@@ -495,9 +495,9 @@ ELSE:
 
 ---
 
-**CEO:** i Made Purna Ananda
-**WhatsApp:** 081337558787
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**WhatsApp:** [PHONE_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 **MOTTO:** "TIADA KATA TERLAMBAT! HARI INI KITA JUAL!"
 

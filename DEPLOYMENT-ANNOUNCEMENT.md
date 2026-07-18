@@ -41,7 +41,7 @@
 ### Company Account
 | Bank | Number | Name |
 |------|--------|------|
-| **BCA** | **6485086645** | I MADE PURNA ANANDA |
+| **BCA** | **[BANK_ACCOUNT]** | I MADE PURNA ANANDA |
 
 ### Payment Page
 **URL:** https://mahalaksmi.web.id/payment/
@@ -83,7 +83,7 @@
 | Channel | Info |
 |---------|------|
 | **WhatsApp** | 0813 3755 8787 |
-| **Bank** | BCA 6485086645 |
+| **Bank** | BCA [BANK_ACCOUNT] |
 | **Website** | mahalaksmi.web.id |
 
 ---
@@ -108,6 +108,6 @@
 
 ---
 
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Date:** 18 Juli 2026
 **Version:** 1.0.0

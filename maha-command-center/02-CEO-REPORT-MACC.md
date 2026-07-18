@@ -41,7 +41,7 @@ Gap: -100%
 ### Profit Distribution (When Revenue > 0)
 | Category | Percentage | Bank Account |
 |----------|------------|--------------|
-| CEO Share | 60% | BCA 6485086645 |
+| CEO Share | 60% | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | AI Agents | 10% | Agent Operations |
 | Reserve | 5% | Emergency Fund |
@@ -268,7 +268,7 @@ Pending Setup: 54
 
 ## 🎯 RECOMMENDATIONS
 
-### For CEO (i Made Purna Ananda)
+### For CEO ([CEO_NAME_REDACTED])
 
 1. **Approve Marketing Budget**
    - Amount: Rp 5.000.000
@@ -349,14 +349,14 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 | Field | Value |
 |-------|-------|
 | Bank | BCA |
-| Account | 6485086645 |
-| Account Name | I Made Purna Ananda |
+| Account | [BANK_ACCOUNT] |
+| Account Name | [CEO] |
 | Schedule | Daily 6 AM WIB |
 
 ### Distribution (When Revenue > 0)
 | Category | Percentage | Destination |
 |----------|------------|-------------|
-| CEO | 60% | BCA 6485086645 |
+| CEO | 60% | BCA [BANK_ACCOUNT] |
 | Reinvest | 25% | Company Reserve |
 | Agent | 10% | Agent Operations |
 | Reserve | 5% | Emergency |
@@ -418,8 +418,8 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 
 | Role | Contact | Purpose |
 |------|---------|---------|
-| CEO | i Made Purna Ananda | Strategic decisions |
-| Bank | BCA 6485086645 | Financial transfers |
+| CEO | [CEO_NAME_REDACTED] | Strategic decisions |
+| Bank | BCA [BANK_ACCOUNT] | Financial transfers |
 | Tech | OpenHands Agent | Technical support |
 
 ---

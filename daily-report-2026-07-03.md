@@ -1,11 +1,11 @@
 # 📊 GAURANGA - Daily Report
 
 ## 📅 Tanggal: 2026-07-03 | 🕐 12:22 WIB
-## 👤 Untuk: Pak Pur (CEO)
+## 👤 Untuk: [CEO_ALIAS_REDACTED] (CEO)
 
 ---
 
-## 👋 Selamat Siang, Pak Pur!
+## 👋 Selamat Siang, [CEO_ALIAS_REDACTED]!
 
 Berikut laporan harian untuk MAHA LAKSHMI HOLDINGS hari ini:
 
@@ -45,7 +45,7 @@ Berikut laporan harian untuk MAHA LAKSHMI HOLDINGS hari ini:
 - ✅ 6 AI Agents Active
 - ✅ Maha Lakshmi Dashboard Ready
 - ✅ GAURANGA Master System Active
-- ✅ Nama CEO Updated: i Made Purna Ananda
+- ✅ Nama CEO Updated: [CEO_NAME_REDACTED]
 
 ---
 
@@ -71,7 +71,7 @@ Berikut laporan harian untuk MAHA LAKSHMI HOLDINGS hari ini:
 
 | Bank | Account Number | Nama |
 |------|---------------|------|
-| BCA | 6485086645 | i Made Purna Ananda |
+| BCA | [BANK_ACCOUNT] | [CEO_NAME_REDACTED] |
 
 ---
 

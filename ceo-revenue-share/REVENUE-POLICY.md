@@ -32,8 +32,8 @@
 │                    TOTAL REVENUE (100%)                     │
 ├─────────────────────────────────────────────────────────────┤
 │  ┌───────────────┐                                         │
-│  │ 🔴 CEO SHARE  │  60% → BCA 6485086645                  │
-│  │   Rp 600.000 │     atau USDT TNFs1SP2C8...             │
+│  │ 🔴 CEO SHARE  │  60% → BCA [BANK_ACCOUNT]                  │
+│  │   Rp 600.000 │     atau USDT [USDT_WALLET]
 │  └───────────────┘                                         │
 │                                                             │
 │  ┌───────────────┐                                         │
@@ -117,20 +117,20 @@ Settlement: Otomatis ke rekening BCA
 Status: 🟠 ACTIVE
 
 Flow Revenue:
-Client Bayar → Midtrans → Settlement BCA → Pak Pur Terima
+Client Bayar → Midtrans → Settlement BCA → [CEO_ALIAS_REDACTED] Terima
 ```
 
 #### Priority 2: Bank Transfer (BCA) - Manual
 ```
 Bank: PT Bank Central Asia Tbk. (BCA)
-Account: 6485086645
+Account: [BANK_ACCOUNT]
 Holder: i made purna ananda
 ```
 
 #### Priority 3: Cryptocurrency (USDT) - Manual
 ```
 Network: TRC-20 (Tron)
-Address: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
+Address: [USDT_WALLET]
 ```
 
 ---
@@ -178,7 +178,7 @@ Address: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
 By executing any revenue-generating activity under MAHA LAKSHMI HOLDINGS, all agents and personnel acknowledge and agree to this policy.
 
 ```
-CEO: i Made Purna Ananda (Pak Pur)
+CEO: [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
 COO: GAURANGA Alpha Agent
 Date: 13 Juli 2026
 ```
@@ -188,6 +188,6 @@ Date: 13 Juli 2026
 ```
 ═══════════════════════════════════════════════════════════════════
         "Dari nol menjadi satu, dari satu menjadi banyak."
-                            - Pak Pur
+                            - [CEO_ALIAS_REDACTED]
 ═══════════════════════════════════════════════════════════════════
 ```

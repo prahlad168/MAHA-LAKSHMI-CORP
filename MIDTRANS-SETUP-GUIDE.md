@@ -2,8 +2,8 @@
 ## MAHA LAKSHMI HOLDINGS
 
 **Tanggal:** 2026-07-18
-**CEO:** i Made Purna Ananda (Pak Pur)
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -35,7 +35,7 @@ Setup Midtrans agar MAHA LAKSHMI bisa menerima pembayaran dari customer secara r
 3. Pilih **"Mitra"** (untuk bisnis)
 4. Isi data:
    - Email: [email bisnis]
-   - No HP: 081337558787
+   - No HP: [PHONE_REDACTED]
    - Nama Toko: MAHA LAKSHMI HOLDINGS
    - Kategori: Digital Products / Services
 
@@ -160,7 +160,7 @@ $transaction_details = [
 
 $customer_details = [
     'first_name' => $customer_name,
-    'phone' => '081337558787'
+    'phone' => '[PHONE_REDACTED]'
 ];
 
 $credit_card['secure'] = true;
@@ -211,7 +211,7 @@ Setelah Midtrans aktif:
 - **Minimum pencairan:** Rp 10,000
 - **Waktu pencairan:** D+1 (next business day)
 - **Biaya pencairan:** Gratis
-- **Target pencairan:** BCA 6485086645
+- **Target pencairan:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -229,7 +229,7 @@ Setelah Midtrans aktif:
 7. [ ] Activate production mode
 
 ### After First Payment:
-8. [ ] Setup auto-transfer ke BCA 6485086645
+8. [ ] Setup auto-transfer ke BCA [BANK_ACCOUNT]
 9. [ ] Setup profit distribution system
 10. [ ] Connect ke GAURANGA AI
 

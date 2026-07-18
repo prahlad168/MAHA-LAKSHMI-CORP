@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**Owner:** i Made Purna Ananda
+**Owner:** [CEO_NAME_REDACTED]
 
 ---
 
@@ -61,11 +61,11 @@
 
 ## 👑 CEO
 
-**Name:** i Made Purna Ananda
+**Name:** [CEO_NAME_REDACTED]
 **Email:** [CEO Email]
 **Phone:** [CEO Phone]
 **Bank:** BCA
-**Account:** 6485086645
+**Account:** [BANK_ACCOUNT]
 
 ---
 
@@ -100,7 +100,7 @@ Corporate Finance
 ├── Tax Documentation
 │   └── Tax compliance (PPN 11%, PPh)
 ├── Profit Distribution
-│   ├── Owner Share: 60% → BCA 6485086645
+│   ├── Owner Share: 60% → BCA [BANK_ACCOUNT]
 │   ├── Reinvestment: 25% → Company Reserve
 │   ├── Team Bonus: 10% → Team Members
 │   └── Charity: 5% → CSR
@@ -600,7 +600,7 @@ Kemampuan seluruh holding meningkat
 
 | Category | Percentage | Destination |
 |----------|------------|-------------|
-| Owner Share | 60% | BCA 6485086645 |
+| Owner Share | 60% | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity | 5% | CSR Account |
@@ -719,5 +719,5 @@ https://github.com/prahlad168/Bot_Molty5
 **Last Updated:** 2026-07-03
 **Version:** 1.0.0
 **Status:** 🚀 ACTIVE DEVELOPMENT
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]

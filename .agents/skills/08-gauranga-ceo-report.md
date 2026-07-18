@@ -2,7 +2,7 @@
 
 ## Version: 1.0.0
 ## Created: 2026-07-02
-## Owner: i Made Purna Ananda
+## Owner: [CEO_NAME_REDACTED]
 
 ---
 
@@ -116,7 +116,7 @@ Bulan 6: Rp 85.000.000 → Rp 100.000.000 ✅
 **Motto:** "Setiap kesalahan harus ada solusinya!"
 
 - GAURANGA aktif improve setiap hari
-- Profit 60% ke BCA 6485086645
+- Profit 60% ke BCA [BANK_ACCOUNT]
 - Target: Rp 100.000.000/bulan dalam 6 bulan
 
 ---

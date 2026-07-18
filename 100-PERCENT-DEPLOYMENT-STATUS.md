@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0  
 **Date:** 2026-07-12  
-**CEO:** i Made Purna Ananda  
+**CEO:** [CEO_NAME_REDACTED]  
 **Status:** ✅ **100% DEPLOYED**  
 
 ---
@@ -14,11 +14,11 @@
 ║                   IMPORTANT CLARIFICATION                           ║
 ╠════════════════════════════════════════════════════════════════════════╣
 ║                                                                    ║
-║  🔴 CEO PERSONAL BCA 6485086645:                                ║
+║  🔴 CEO PERSONAL BCA [BANK_ACCOUNT]:                                ║
 ║     - Untuk CEO terima 60% PROFIT SHARE saja                   ║
 ║     - BUKAN untuk terima payment dari customer                 ║
 ║                                                                    ║
-║  🔴 CEO PERSONAL WhatsApp 081337558787:                        ║
+║  🔴 CEO PERSONAL WhatsApp [PHONE_REDACTED]:                        ║
 ║     - Untuk CEO terima LAPORAN saja                             ║
 ║     - BUKAN untuk kontak bisnis dengan customer                 ║
 ║                                                                    ║
@@ -106,8 +106,8 @@
 | 4 | Payment Gateway | Online payment | ❌ NEED |
 
 ### ❌ JANGAN gunakan untuk bisnis:
-- BCA 6485086645 → Hanya untuk CEO terima profit
-- 081337558787 → Hanya untuk CEO terima laporan
+- BCA [BANK_ACCOUNT] → Hanya untuk CEO terima profit
+- [PHONE_REDACTED] → Hanya untuk CEO terima laporan
 
 ### ✅ Yang perlu dibuat:
 - Business Bank Account → Untuk terima payment
@@ -120,7 +120,7 @@
 ### CEO Personal (FOR PROFIT ONLY):
 | Method | Status | Details |
 |--------|--------|---------|
-| **BCA Transfer** | ✅ | 6485086645 (CEO Personal) |
+| **BCA Transfer** | ✅ | [BANK_ACCOUNT] (CEO Personal) |
 
 ### Business (NEEDED):
 | Method | Status | Details |
@@ -196,7 +196,7 @@
 
 | Time | Agent | Task |
 |------|-------|------|
-| 06:00 WIB (Daily) | GAURANGA | Daily Progress Report → 081337558787 |
+| 06:00 WIB (Daily) | GAURANGA | Daily Progress Report → [PHONE_REDACTED] |
 | 09:00 WIB (Mon-Fri) | Sales Agent | Lead Outreach |
 | 10:00 WIB (Monday) | Marketing Agent | Weekly Content |
 | 11:00 WIB (Thursday) | SEO Agent | SEO Optimization |
@@ -243,10 +243,10 @@
 ### CEO Personal (FOR REPORTS ONLY):
 | Info | Details |
 |------|---------|
-| **Name** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 (Reports only) |
+| **Name** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] (Reports only) |
 | **Bank** | BCA |
-| **Account** | 6485086645 (Profit only) |
+| **Account** | [BANK_ACCOUNT] (Profit only) |
 
 ### Business (FOR CUSTOMERS - NEED SETUP):
 | Info | Status |

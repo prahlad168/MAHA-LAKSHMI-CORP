@@ -26,7 +26,7 @@
 
 ### Login ke Panel
 1. Buka: https://panel.indowebhost.com
-2. Login dengan akun Pak Pur
+2. Login dengan akun [CEO_ALIAS_REDACTED]
 3. Pilih domain: `mahalaksmi.web.id`
 
 ### Tambah DNS Records (CNAME untuk masing-masing subdomain)
@@ -281,8 +281,8 @@ nslookup travel.mahalaksmi.web.id
 
 ## 📞 KONTAK
 
-**CEO:** i Made Purna Ananda
-**WhatsApp:** 081337558787
+**CEO:** [CEO_NAME_REDACTED]
+**WhatsApp:** [PHONE_REDACTED]
 **Domain:** mahalaksmi.web.id
 **Hosting:** Indowebhost
 **Code Hosting:** GitHub

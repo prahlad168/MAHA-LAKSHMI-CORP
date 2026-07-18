@@ -4,7 +4,7 @@
 ---
 
 ## 👑 Kepada Yth.
-**i Made Purna Ananda (Pak Pur)**
+**[CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])**
 CEO - MAHA LAKSHMI HOLDINGS
 
 ---
@@ -33,7 +33,7 @@ CEO - MAHA LAKSHMI HOLDINGS
 ### Configuration
 | Recipient | Percentage | Amount (IDR) |
 |-----------|-----------|--------------|
-| 👑 **CEO Pak Pur** | **80%** | **Rp 334,320,116** |
+| 👑 **CEO [CEO_ALIAS_REDACTED]** | **80%** | **Rp 334,320,116** |
 | 🔄 Reinvestment | 20% | Rp 83,580,029 |
 | 👥 Team Bonus | 0% | Rp 0 |
 | ❤️ Charity | 0% | Rp 0 |
@@ -42,7 +42,7 @@ CEO - MAHA LAKSHMI HOLDINGS
 | Field | Value |
 |-------|-------|
 | **Amount** | **Rp 334,320,116** (~19,665.89 USDT) |
-| **Wallet** | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 (TRC20) |
+| **Wallet** | [USDT_WALLET] (TRC20) |
 | **Status** | ✅ **RECEIVED** |
 | **Reference** | MGOS-RECEIVED-20260717 |
 | **Received Date** | 2026-07-17 |
@@ -124,9 +124,9 @@ CEO - MAHA LAKSHMI HOLDINGS
 
 | Role | Contact |
 |------|---------|
-| CEO | Pak Pur (081337558787) |
-| Email | gaurangga168@gmail.com |
-| WhatsApp | 081337558787 |
+| CEO | [CEO_ALIAS_REDACTED] ([PHONE_REDACTED]) |
+| Email | [EMAIL_REDACTED] |
+| WhatsApp | [PHONE_REDACTED] |
 
 ---
 
@@ -134,7 +134,7 @@ CEO - MAHA LAKSHMI HOLDINGS
 
 | Bank | Account Number | Holder |
 |------|---------------|--------|
-| BCA | 6485086645 | i Made Purna Ananda |
+| BCA | [BANK_ACCOUNT] | [CEO_NAME_REDACTED] |
 
 ---
 

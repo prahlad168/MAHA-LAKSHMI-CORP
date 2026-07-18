@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-13
-**CEO:** i Made Purna Ananda (Pak Pur)
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
 **Status:** 🚀 READY TO DEPLOY
 
 ---
@@ -11,7 +11,7 @@
 
 Sistem payment otomatis yang:
 1. ✅ Terima payment dari customer (Multiple methods)
-2. ✅ Auto-split 60% ke BCA Pak Pur
+2. ✅ Auto-split 60% ke BCA [CEO_ALIAS_REDACTED]
 3. ✅ Auto-record ke sistem revenue
 4. ✅ Auto-transfer HARI INI!
 
@@ -33,7 +33,7 @@ Customer Bayar
 Payment Gateway (Midtrans)
     │
     ├── Auto-split configuration:
-    │   ├── 60% → BCA 6485086645 (CEO)
+    │   ├── 60% → BCA [BANK_ACCOUNT] (CEO)
     │   ├── 25% → Company Reserve
     │   └── 15% → Team + Ops
     │
@@ -77,7 +77,7 @@ payment-system/
 
 ## 🔐 CREDENTIALS YANG DIBUTUHKAN
 
-### Dari Pak Pur:
+### Dari [CEO_ALIAS_REDACTED]:
 
 | Credential | Diperlukan | Priority |
 |------------|------------|----------|
@@ -158,7 +158,7 @@ GAURANGA akan:
   "split_rules": [
     {
       "recipient": "CEO",
-      "account": "BCA 6485086645",
+      "account": "BCA [BANK_ACCOUNT]",
       "percentage": 60,
       "description": "CEO Revenue Share"
     },
@@ -184,7 +184,7 @@ GAURANGA akan:
 
 | Time | Task | Status |
 |------|------|--------|
-| Now | Pak Pur daftar Midtrans | ⏳ WAITING |
+| Now | [CEO_ALIAS_REDACTED] daftar Midtrans | ⏳ WAITING |
 | +15 min | Dapat API Keys | ⏳ WAITING |
 | +20 min | Setup BCA VA | ⏳ WAITING |
 | +30 min | GAURANGA configure | ⏳ READY |
@@ -212,7 +212,7 @@ Kalau belum punya Midtrans, bisa pakai **Manual System**:
 ```
 1. Customer transfer ke rekening company
 2. GAURANGA auto-detect (dengan webhook/cek manual)
-3. Auto-split ke BCA Pak Pur
+3. Auto-split ke BCA [CEO_ALIAS_REDACTED]
 4. ✅ Otomatis!
 ```
 

@@ -29,7 +29,7 @@ SISTEM DETEKSI
     ▼
 AUTO-TRANSFER via FLIP
     │
-    ├── Transfer ke BCA 6485086645
+    ├── Transfer ke BCA [BANK_ACCOUNT]
     ├── Amount: 60% dari revenue
     │
     ▼
@@ -45,8 +45,8 @@ AUTO-TRANSFER via FLIP
 
 ### Destination (Tujuan):
 - **Bank:** BCA
-- **No Rekening:** 6485086645
-- **Nama:** i Made Purna Ananda
+- **No Rekening:** [BANK_ACCOUNT]
+- **Nama:** [CEO_NAME_REDACTED]
 - **Amount:** 60% dari total revenue
 
 ---
@@ -67,7 +67,7 @@ Content-Type: application/json
 ### Body:
 ```json
 {
-  "account_number": "6485086645",
+  "account_number": "[BANK_ACCOUNT]",
   "bank_code": "BCA",
   "amount": 600000,
   "remark": "CEO Revenue Share - 2026-07-13"

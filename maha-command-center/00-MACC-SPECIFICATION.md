@@ -3,8 +3,8 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -353,7 +353,7 @@ Results:
 
 ### Auto-Transfer Configuration:
 - **Schedule:** Daily 6 AM WIB
-- **Bank:** BCA 6485086645
+- **Bank:** BCA [BANK_ACCOUNT]
 - **Distribution:** 60% CEO, 25% Reinvest, 10% Agent, 5% Reserve
 
 ---
@@ -478,7 +478,7 @@ Results:
 ### Hierarchical Structure:
 
 ```
-👑 MAHA LAKSHMI HOLDINGS (CEO: i Made Purna Ananda)
+👑 MAHA LAKSHMI HOLDINGS (CEO: [CEO_NAME_REDACTED])
     │
     ├── 🏢 Holding Level
     │   └── Corporate Divisions
@@ -761,7 +761,7 @@ CEO View (Actionable Insights)
 ### For Issues:
 - Technical Support: AI Team
 - Business Support: GAURANGA Agent
-- Emergency: i Made Purna Ananda (CEO)
+- Emergency: [CEO_NAME_REDACTED] (CEO)
 
 ---
 

@@ -78,4 +78,4 @@ curl -X POST "https://app.all-hands.dev/api/automation/v1/[ID]/dispatch" \
 ```
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO] ([CEO])

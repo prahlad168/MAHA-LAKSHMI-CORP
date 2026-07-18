@@ -2,8 +2,8 @@
 
 ## 📅 Deployment Date: $(date '+%Y-%m-%d %H:%M:%S')
 
-## 👑 Owner: i Made Purna Ananda
-## 🏦 Bank: BCA 6485086645
+## 👑 Owner: [CEO_NAME_REDACTED]
+## 🏦 Bank: BCA [BANK_ACCOUNT]
 ## 🎯 Target: Rp 1.000.000.000/bulan
 
 ---

@@ -4,9 +4,9 @@
 ---
 
 **Report Date:** 2026-07-16
-**CEO:** i Made Purna Ananda (Pak Pur)
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
 **Generated:** 2026-07-16 06:00 WIB
-**Bank:** BCA 6485086645
+**Bank:** BCA [BANK_ACCOUNT]
 **Report ID:** CEO-DR-2026-07-16-001
 **Email:** ceo@mahalakshmi.id
 
@@ -62,7 +62,7 @@
 Total Revenue = Rp 1.000.000
 
 Distribution Breakdown:
-├── 👑 CEO Pak Pur (60%)     → BCA 6485086645
+├── 👑 CEO [CEO_ALIAS_REDACTED] (60%)     → BCA [BANK_ACCOUNT]
 ├── 🔄 Reinvestment (25%)    → Company Reserve
 ├── 👥 Team Bonus (10%)      → Team Members
 └── ❤️ Charity/CSR (5%)      → CSR Account
@@ -72,7 +72,7 @@ Distribution Breakdown:
 
 | Category | Percentage | Amount | Transfer To | Status |
 |----------|------------|--------|-------------|--------|
-| **👑 CEO Pak Pur** | **60%** | **Rp 600.000** | BCA 6485086645 | ⏳ Pending |
+| **👑 CEO [CEO_ALIAS_REDACTED]** | **60%** | **Rp 600.000** | BCA [BANK_ACCOUNT] | ⏳ Pending |
 | 🔄 Reinvestment | 25% | Rp 250.000 | Company Reserve | ⏳ Pending |
 | 👥 Team Bonus | 10% | Rp 100.000 | Team Members | ⏳ Pending |
 | ❤️ Charity | 5% | Rp 50.000 | CSR Account | ⏳ Pending |
@@ -81,7 +81,7 @@ Distribution Breakdown:
 
 | Category | Percentage | Amount | Destination |
 |----------|------------|--------|-------------|
-| **👑 CEO Pak Pur** | **60%** | **Rp 600.000.000** | BCA 6485086645 |
+| **👑 CEO [CEO_ALIAS_REDACTED]** | **60%** | **Rp 600.000.000** | BCA [BANK_ACCOUNT] |
 | 🔄 Reinvestment | 25% | Rp 250.000.000 | Company Reserve |
 | 👥 Team Bonus | 10% | Rp 100.000.000 | Team Members |
 | ❤️ Charity | 5% | Rp 50.000.000 | CSR Account |
@@ -93,8 +93,8 @@ Distribution Breakdown:
 ║                    👑 CEO PAK PUR TRANSFER                        ║
 ╠══════════════════════════════════════════════════════════════════════╣
 ║  Bank:        BCA (Bank Central Asia)                              ║
-║  Account:     6485086645                                          ║
-║  Name:        i Made Purna Ananda                                  ║
+║  Account:     [BANK_ACCOUNT]                                          ║
+║  Name:        [CEO_NAME_REDACTED]                                  ║
 ║  Amount:      Rp 600.000 (First Revenue Share)                    ║
 ║               Rp 600.000.000 (Monthly Target)                     ║
 ║  Schedule:    Monthly (End of Month)                              ║
@@ -277,7 +277,7 @@ Month 6:  Rp 600M → Rp 1.000.000.000 ✅ TARGET
 |---|--------|--------|-------|--------|
 | 1 | **WhatsApp Outreach** | Contact 10 Bali Travel leads | Sales Agent | ❌ |
 | 2 | **Email Outreach** | Send 20 emails to global leads | Content Agent | ❌ |
-| 3 | **Follow-up** | Tanya konfirmasi leads | Pak Pur | ❌ |
+| 3 | **Follow-up** | Tanya konfirmasi leads | [CEO_ALIAS_REDACTED] | ❌ |
 
 ### Priority 2 - This Week (Day 1-7)
 
@@ -302,8 +302,8 @@ Month 6:  Rp 600M → Rp 1.000.000.000 ✅ TARGET
 
 | Recipient | Email | Status |
 |-----------|-------|--------|
-| CEO Pak Pur | ceo@mahalakshmi.id | ✅ Ready to Send |
-| GAURANGA HQ | gaurangga168@gmail.com | ✅ Ready to Send |
+| CEO [CEO_ALIAS_REDACTED] | ceo@mahalakshmi.id | ✅ Ready to Send |
+| GAURANGA HQ | [EMAIL_REDACTED] | ✅ Ready to Send |
 | Archive | GitHub Repository | ✅ Saved |
 
 ---
@@ -325,13 +325,13 @@ Month 6:  Rp 600M → Rp 1.000.000.000 ✅ TARGET
 ### CEO Bank Details
 ```
 Bank: BCA (Bank Central Asia)
-Account: 6485086645
-Name: i Made Purna Ananda
+Account: [BANK_ACCOUNT]
+Name: [CEO_NAME_REDACTED]
 ```
 
 ### Profit Distribution
 ```
-👑 CEO Pak Pur:      60% → BCA 6485086645
+👑 CEO [CEO_ALIAS_REDACTED]:      60% → BCA [BANK_ACCOUNT]
 🔄 Reinvestment:     25% → Company Reserve
 👥 Team Bonus:       10% → Team Members
 ❤️ Charity/CSR:       5% → CSR Account
@@ -339,9 +339,9 @@ Name: i Made Purna Ananda
 
 ### Contact Information
 ```
-CEO: i Made Purna Ananda
+CEO: [CEO_NAME_REDACTED]
 Email: ceo@mahalakshmi.id
-WhatsApp: 081337558787
+WhatsApp: [PHONE_REDACTED]
 ```
 
 ---
@@ -356,7 +356,7 @@ WhatsApp: 081337558787
 ### Email Body Template
 
 ```
-Yth. Pak Pur,
+Yth. [CEO_ALIAS_REDACTED],
 
 Berikut laporan harian CEO untuk MAHA LAKSHMI HOLDINGS:
 
@@ -366,7 +366,7 @@ Berikut laporan harian CEO untuk MAHA LAKSHMI HOLDINGS:
 - Progress: 0.1%
 
 💰 PROFIT DISTRIBUTION:
-- CEO Pak Pur (60%): Rp 600.000 → BCA 6485086645
+- CEO [CEO_ALIAS_REDACTED] (60%): Rp 600.000 → BCA [BANK_ACCOUNT]
 - Reinvestment (25%): Rp 250.000
 - Team Bonus (10%): Rp 100.000
 - Charity (5%): Rp 50.000

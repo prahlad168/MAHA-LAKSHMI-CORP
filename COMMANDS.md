@@ -90,7 +90,7 @@ On payment received:
 → Calculate 25% reinvest
 → Calculate 10% team
 → Calculate 5% CSR
-→ Transfer to BCA 6485086645
+→ Transfer to BCA [BANK_ACCOUNT]
 ```
 
 ---

@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0  
 **Created:** 2026-07-13  
-**CEO:** i Made Purna Ananda  
+**CEO:** [CEO_NAME_REDACTED]  
 **Target:** $5,000,000/bulan
 
 ---
@@ -20,7 +20,7 @@
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                        🦸 TASKHERO                                       ║
-║                     CEO: Pak Pur                                         ║
+║                     CEO: [CEO_ALIAS_REDACTED]                                         ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
     ┌──────────┬──────────┬──────────┬──────────┬──────────┐
@@ -164,8 +164,8 @@ Platinum: 31+ bookings → 20% discount + Priority
 ## 🏦 BANK & PAYMENT
 
 - **Bank:** BCA
-- **Account:** 6485086645
-- **Name:** i Made Purna Ananda
+- **Account:** [BANK_ACCOUNT]
+- **Name:** [CEO_NAME_REDACTED]
 
 **Profit Distribution:**
 - 60% → Owner
@@ -213,4 +213,4 @@ Platinum: 31+ bookings → 20% discount + Priority
 **Document Version:** 1.0.0
 **Status:** 🚀 READY TO LAUNCH
 **Last Updated:** 2026-07-13
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]

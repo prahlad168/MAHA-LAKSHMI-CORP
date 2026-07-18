@@ -44,7 +44,7 @@
 ### Completed
 - ✅ 10 company templates created
 - ✅ Maha Lakshmi dashboard with login
-- ✅ Bank account (BCA 6485086645) configured
+- ✅ Bank account (BCA [BANK_ACCOUNT]) configured
 - ✅ Profit distribution policy (60/25/10/5)
 - ✅ Improvement tracking system
 - ✅ Problem handling protocol
@@ -90,7 +90,7 @@
 
 | Timeline | Revenue | Owner Share (60%) |
 |----------|---------|-------------------|
-| Monthly | Rp 100M | Rp 60M → BCA 6485086645 |
+| Monthly | Rp 100M | Rp 60M → BCA [BANK_ACCOUNT] |
 | Year 1 | Rp 1.2B | Rp 720M |
 | Year 2 | Rp 3.6B | Rp 2.16B |
 | Year 3 | Rp 7.2B | Rp 4.32B |
@@ -102,7 +102,7 @@
 **Motto:** "Setiap kesalahan harus ada solusinya!"
 - GAURANGA aktif improve setiap hari
 - Semua issue tracked di improvement-tracker.md
-- Profit langsung ke BCA 6485086645
+- Profit langsung ke BCA [BANK_ACCOUNT]
 
 ---
 

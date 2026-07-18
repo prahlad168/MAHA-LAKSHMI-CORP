@@ -97,8 +97,8 @@ Setiap kali ada perubahan, cukup buka shortcut dan refresh page.
 ## 📞 SUPPORT
 
 Jika ada masalah:
-- WhatsApp: 081337558787
-- Email: gaurangga168@gmail.com
+- WhatsApp: [PHONE_REDACTED]
+- Email: [EMAIL_REDACTED]
 
 ---
 

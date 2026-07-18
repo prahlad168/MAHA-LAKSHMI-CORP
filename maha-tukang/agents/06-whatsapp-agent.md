@@ -30,7 +30,7 @@
 ```
 
 ## 📱 WHATSAPP NUMBER
-- Number: 081337558787
+- Number: [PHONE_REDACTED]
 - Type: WhatsApp Business
 - Features: Auto reply, broadcast, catalog
 
@@ -48,4 +48,4 @@
 "Booking diterima! ✅\n\nBerikut detail:\n📍 Lokasi: [alamat]\n🔧 Layanan: [jenis]\n💰 Estimasi: [harga]\n\nTukang akan hubungi Anda dalam 1x24 jam.\nTerima kasih! 🙏"
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])

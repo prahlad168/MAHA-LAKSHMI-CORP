@@ -6,7 +6,7 @@ URL: https://prahlad168.github.io/MAHA-LAKSHMI-CORP/
 
 ## Solution - Enable GitHub Pages
 
-### Step by Step (For Pak Pur):
+### Step by Step (For [CEO_ALIAS_REDACTED]):
 
 1. **Open GitHub Repository**
    ```
@@ -33,7 +33,7 @@ URL: https://prahlad168.github.io/MAHA-LAKSHMI-CORP/
 
 ## Alternative: Deploy to Vercel (Faster)
 
-### For Pak Pur:
+### For [CEO_ALIAS_REDACTED]:
 
 1. **Go to Vercel**
    ```
@@ -53,7 +53,7 @@ URL: https://prahlad168.github.io/MAHA-LAKSHMI-CORP/
 
 ## Alternative: Deploy to Netlify (Easiest)
 
-### For Pak Pur:
+### For [CEO_ALIAS_REDACTED]:
 
 1. **Go to Netlify**
    ```
@@ -78,7 +78,7 @@ URL: https://prahlad168.github.io/MAHA-LAKSHMI-CORP/
 
 ## Need Help?
 
-WhatsApp: 081337558787 (Pak Pur)
+WhatsApp: [PHONE_REDACTED] ([CEO_ALIAS_REDACTED])
 GitHub: https://github.com/prahlad168/MAHA-LAKSHMI-CORP/settings/pages
 
 ---

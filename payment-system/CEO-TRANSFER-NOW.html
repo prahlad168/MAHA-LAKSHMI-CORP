@@ -227,13 +227,13 @@
                 <div class="bank-row">
                     <span class="bank-label">Account Number</span>
                     <span class="bank-value">
-                        6485086645
+                        [BANK_ACCOUNT]
                         <button class="copy-btn" onclick="copyAccount()">📋 Copy</button>
                     </span>
                 </div>
                 <div class="bank-row">
                     <span class="bank-label">Account Name</span>
-                    <span class="bank-value">i Made Purna Ananda</span>
+                    <span class="bank-value">[CEO_NAME_REDACTED]</span>
                 </div>
                 <div class="bank-row">
                     <span class="bank-label">Reference</span>
@@ -247,7 +247,7 @@
             
             <div class="status pending" id="status">
                 <h3>⏳ PENDING - AWAITING TRANSFER</h3>
-                <p>Transfer to BCA 6485086645 for Rp 600.000</p>
+                <p>Transfer to BCA [BANK_ACCOUNT] for Rp 600.000</p>
             </div>
         </div>
         
@@ -309,7 +309,7 @@
         
         // Copy functions
         function copyAccount() {
-            navigator.clipboard.writeText('6485086645');
+            navigator.clipboard.writeText('[BANK_ACCOUNT]');
             alert('Account number copied!');
         }
         
@@ -326,7 +326,7 @@
                 <h3>✅ TRANSFER COMPLETED!</h3>
                 <p>Reference: CEO-TRANSFER-20260713-2350</p>
                 <p>Amount: Rp 600.000</p>
-                <p>Bank: BCA 6485086645</p>
+                <p>Bank: BCA [BANK_ACCOUNT]</p>
             `;
             
             // Save to localStorage

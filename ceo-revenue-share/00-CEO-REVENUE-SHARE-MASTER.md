@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0  
 **Created:** 2026-07-13  
-**CEO:** i Made Purna Ananda (Pak Pur)  
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])  
 **Status:** 🚀 ACTIVE
 
 ---
@@ -20,9 +20,9 @@ Menjalankan sistem pembayaran otomatis hak harian CEO (60% dari total revenue) k
 |-----------|-------|
 | **CEO Share** | 60% dari total revenue |
 | **Payment Time** | 12.00 WITA (04:00 UTC) |
-| **Destination** | BTC Wallet: `1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2` |
-| **Owner** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 |
+| **Destination** | BTC Wallet: `[BTC_WALLET]` |
+| **Owner** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] |
 
 ---
 
@@ -223,7 +223,7 @@ ceo-revenue-share/
 | Field | Value |
 |-------|-------|
 | **CEO Share Amount** | **Rp X (≈ BTC Y)** |
-| **Destination** | `1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2` |
+| **Destination** | `[BTC_WALLET]` |
 | **Status** | ✅ READY / ⚠️ PENDING |
 | **Reference** | RS-YYYYMMDD-XXX |
 
@@ -270,9 +270,9 @@ Dalam kondisi tidak valid:
 
 | Info | Detail |
 |------|--------|
-| **CEO** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 |
-| **BTC Wallet** | `1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2` |
+| **CEO** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] |
+| **BTC Wallet** | `[BTC_WALLET]` |
 
 ---
 

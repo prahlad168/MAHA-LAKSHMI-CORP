@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Target:** Rp 100.000.000/bulan
 
 ---
@@ -59,7 +59,7 @@ Halo! Partnership Tour untuk Four Seasons!
 
 Contoh: Booking 10 guests = Rp 1.500.000 untuk Anda!
 
-Hubungi: wa.me/6281337558787
+Hubungi: wa.me/[PHONE_REDACTED]
 ```
 
 ### Lead #2: Viceroy Bali
@@ -71,7 +71,7 @@ Halo! Mau passive income?
 Jual tour kami, dapat commission 15%!
 Tanpa effort, kami handle semua!
 
-Contact: wa.me/6281337558787
+Contact: wa.me/[PHONE_REDACTED]
 ```
 
 ### Lead #3: AYANA Resort
@@ -85,7 +85,7 @@ Partner dengan kami:
 ✅ 15% commission
 ✅ Extra revenue tanpa effort
 
-Contact: wa.me/6281337558787
+Contact: wa.me/[PHONE_REDACTED]
 ```
 
 ---
@@ -190,7 +190,7 @@ git add -A && git commit -m "🚀 AUTO SALES START" && git push
 | CSR | 5% | Rp 5.000.000 |
 
 ### CEO Transfer:
-- **BCA: 6485086645**
+- **BCA: [BANK_ACCOUNT]**
 - **Amount: 60% of revenue**
 
 ---

@@ -25,17 +25,17 @@
         let audioContext;
         
         function speakReady() {
-            speak("Ya, Pak Pur! Gaurangga siap menerima perintah!");
+            speak("Ya, [CEO]! Gaurangga siap menerima perintah!");
             document.getElementById("status").innerHTML = "<p>Status: GAURANGA READY! 🔊</p>";
         }
         
         function speakConfirm() {
-            speak("Baik, Pak Pur! Saya akan mengerjakan tugas ini!");
+            speak("Baik, [CEO]! Saya akan mengerjakan tugas ini!");
             document.getElementById("status").innerHTML = "<p>Status: CONFIRMED! ✅</p>";
         }
         
         function speakComplete() {
-            speak("Selesai, Pak Pur! Tugas sudah selesai!");
+            speak("Selesai, [CEO]! Tugas sudah selesai!");
             document.getElementById("status").innerHTML = "<p>Status: COMPLETE! 🎉</p>";
         }
         
@@ -55,7 +55,7 @@
         // Auto-play on load
         window.onload = function() {
             setTimeout(() => {
-                speak("Ya, Pak Pur! Gaurangga siap menerima perintah!");
+                speak("Ya, [CEO]! Gaurangga siap menerima perintah!");
             }, 1000);
         };
     </script>

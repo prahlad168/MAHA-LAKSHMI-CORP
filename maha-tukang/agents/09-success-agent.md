@@ -49,8 +49,8 @@
 | 1 ★ | Immediate call + compensate |
 
 ## 📱 CONTACT
-- WhatsApp: 081337558787
+- WhatsApp: [PHONE_REDACTED]
 - Response: < 1 hour
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])

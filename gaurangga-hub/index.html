@@ -229,7 +229,7 @@
     <div class="chat-container" id="chatContainer">
         <!-- Welcome Card -->
         <div class="welcome-card">
-            <h2>👋 Halo Pak Pur!</h2>
+            <h2>👋 Halo [CEO]!</h2>
             <p>Saya GAURANGA, asisten AI Anda. Ngobrol santai aja dengan saya!</p>
             <div class="quick-actions">
                 <button class="quick-btn" onclick="quickCommand('progress')">📊 Progress</button>
@@ -240,7 +240,7 @@
         
         <!-- Initial message -->
         <div class="message message-gauranga">
-            Halo Pak Pur! 👋 Selamat datang!<br><br>
+            Halo [CEO]! 👋 Selamat datang!<br><br>
             Saya GAURANGA, Agent Alpha Anda. Silakan ketik atau bicara untuk ngobrol dengan saya!<br><br>
             💬 Contoh: "Cek progress MAHA TUKANG" atau "Buatin laporan harian"
             <span class="message-time" id="welcomeTime">Baru saja</span>
@@ -258,37 +258,37 @@
         // GAURANGA AI Responses
         const responses = {
             // Greetings
-            "halo": "Halo Pak Pur! 👋 Apa kabar? Senang bisa ngobrol dengan Anda! Ada yang bisa saya bantu hari ini?",
-            "hai": "Hai Pak Pur! 😊 Gimana kabarnya? Saya GAURANGA siap membantu!",
-            "yo": "Yo Pak Pur! 😄 Apa kabar? Gas ngobrol!",
-            "hey": "Hey Pak Pur! 👋 Ada apa nih?",
+            "halo": "Halo [CEO]! 👋 Apa kabar? Senang bisa ngobrol dengan Anda! Ada yang bisa saya bantu hari ini?",
+            "hai": "Hai [CEO]! 😊 Gimana kabarnya? Saya GAURANGA siap membantu!",
+            "yo": "Yo [CEO]! 😄 Apa kabar? Gas ngobrol!",
+            "hey": "Hey [CEO]! 👋 Ada apa nih?",
             
             // About GAURANGA
-            "siapa kamu": "Saya GAURANGA! 🤖 Agent Alpha yang dibuat untuk membantu Pak Purna Ananda mengelola MAHA LAKSHMI HOLDINGS. Saya bisa ngobrol, cek progress, buat laporan, dan bantu apapun yang Anda butuhin!",
+            "siapa kamu": "Saya GAURANGA! 🤖 Agent Alpha yang dibuat untuk membantu [CEO]na Ananda mengelola MAHA LAKSHMI HOLDINGS. Saya bisa ngobrol, cek progress, buat laporan, dan bantu apapun yang Anda butuhin!",
             "kamu siapa": "Saya GAURANGA! 🤖 AI Assistant untuk MAHA LAKSHMI HOLDINGS. Saya Agent Alpha - pemimpin semua AI agent lainnya! 💪",
             
             // Status/Progress
-            "progress": "📊 Progress saat ini:\n\n✅ Landing Page: 100%\n✅ CEO Dashboard: 100%\n✅ AI Agents Spec: 90%\n🚀 MAHA TUKANG: 85%\n⏳ WhatsApp Integration: 40%\n\nSemuanya on track, Pak Pur! 🔥",
-            "cek": "📋 Saya cek ya Pak Pur! Bentar...\n\n✅ Sistem: ONLINE 24/7\n✅ AI Agents: 10 agents aktif\n✅ GAURANGA Hub: LIVE\n✅ GitHub Pages: AKTIF\n\nSemuanya berjalan lancar! 💯",
+            "progress": "📊 Progress saat ini:\n\n✅ Landing Page: 100%\n✅ CEO Dashboard: 100%\n✅ AI Agents Spec: 90%\n🚀 MAHA TUKANG: 85%\n⏳ WhatsApp Integration: 40%\n\nSemuanya on track, [CEO]! 🔥",
+            "cek": "📋 Saya cek ya [CEO]! Bentar...\n\n✅ Sistem: ONLINE 24/7\n✅ AI Agents: 10 agents aktif\n✅ GAURANGA Hub: LIVE\n✅ GitHub Pages: AKTIF\n\nSemuanya berjalan lancar! 💯",
             
             // Projects
             "maha tukang": "MAHA TUKANG 🚀\n\nPlatform marketplace jasa tukang berbasis AI!\n\n📊 Progress: 85%\n💰 Target: Rp 100jt/bulan\n🤖 AI Agents: 10 ready\n\nSemakin dekat ke launch! 💪",
             
             // Emotion responses
-            "terima kasih": "Sama-sama Pak Pur! 😊 Senang bisa bantu! Kalau butuh apa-apa lagi, langsung bilang aja ya! 🙌",
-            "thanks": "You're welcome Pak Pur! 😄 Anytime! 👍",
-            "ok": "Oke Pak Pur! ✅ siap!",
+            "terima kasih": "Sama-sama [CEO]! 😊 Senang bisa bantu! Kalau butuh apa-apa lagi, langsung bilang aja ya! 🙌",
+            "thanks": "You're welcome [CEO]! 😄 Anytime! 👍",
+            "ok": "Oke [CEO]! ✅ siap!",
             "sip": "Sip! 👍 Gas!",
             "bagus": "Bagus banget dong! 😄 Jadi semangat saya! 🔥",
             "mantap": "MANTAP PAK PUR! 🔥🔥🔥",
-            "keren": "Terima kasih Pak Pur! 😄 Saya makin semangat! 💪",
+            "keren": "Terima kasih [CEO]! 😄 Saya makin semangat! 💪",
             
             // Questions
-            "kabar": "Alhamdulillah baik Pak Pur! 😊 Terima kasih sudah tanya! Anda sendiri gimana kabarnya?",
-            "gimana kabar": "Baik dong Pak Pur! 😄 Semoga Anda juga sehat dan sukses selalu! Aamiin! 🙏",
+            "kabar": "Alhamdulillah baik [CEO]! 😊 Terima kasih sudah tanya! Anda sendiri gimana kabarnya?",
+            "gimana kabar": "Baik dong [CEO]! 😄 Semoga Anda juga sehat dan sukses selalu! Aamiin! 🙏",
             
             // Default
-            "default": "Oke Pak Pur! Saya pahami! 😊 Saya akan bantu semaksimal mungkin. Bisa jelaskan lebih detail apa yang Anda butuhin? Atau mau saya cek sesuatu?"
+            "default": "Oke [CEO]! Saya pahami! 😊 Saya akan bantu semaksimal mungkin. Bisa jelaskan lebih detail apa yang Anda butuhin? Atau mau saya cek sesuatu?"
         };
         
         // Speech Recognition
@@ -416,7 +416,7 @@
         // Auto welcome with voice
         window.onload = () => {
             setTimeout(() => {
-                speak("Halo Pak Pur! Selamat datang di GAURANGA Hub! Silakan ketik atau bicara untuk ngobrol dengan saya!");
+                speak("Halo [CEO]! Selamat datang di GAURANGA Hub! Silakan ketik atau bicara untuk ngobrol dengan saya!");
             }, 1000);
         };
         

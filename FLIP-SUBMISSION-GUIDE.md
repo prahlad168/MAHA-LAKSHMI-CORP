@@ -1,6 +1,6 @@
 # 📸 FLIP VERIFICATION - SCREENSHOT GUIDE
 
-## Instructions for Pak Pur
+## Instructions for [CEO_ALIAS_REDACTED]
 
 Flip For Business membutuhkan screenshot platform bisnis Anda. Ikuti langkah-langkah berikut:
 
@@ -58,7 +58,7 @@ Flip For Business membutuhkan screenshot platform bisnis Anda. Ikuti langkah-lan
 
 ### Yang Harus Terlihat:
 - Nama bisnis
-- No WhatsApp: 081337558787
+- No WhatsApp: [PHONE_REDACTED]
 - Deskripsi bisnis
 
 ---

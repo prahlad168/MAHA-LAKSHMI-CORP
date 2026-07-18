@@ -126,7 +126,7 @@ No | Description | Qty | Unit Price | Amount
 =================================================================
 
 Payment Terms: 14 days
-Payment Method: Transfer BCA 6485086645
+Payment Method: Transfer BCA [BANK_ACCOUNT]
 
 Notes:
 - Payment confirmation: [Email/WhatsApp]
@@ -170,7 +170,7 @@ Due Date: [Date]
 
 Payment to:
 Bank: BCA
-Account: 6485086645
+Account: [BANK_ACCOUNT]
 Account Name: [Owner Name]
 
 Please confirm payment via reply email or WhatsApp.
@@ -274,7 +274,7 @@ Payment Method: [Transfer/Other]
 
 Paid to:
 Bank: BCA
-Account: 6485086645
+Account: [BANK_ACCOUNT]
 
 Thank you for your payment!
 

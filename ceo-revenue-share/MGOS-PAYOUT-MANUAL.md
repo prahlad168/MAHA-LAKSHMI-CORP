@@ -28,7 +28,7 @@
 
 ### Step 1: Login ke Tokocrypto
 1. Buka aplikasi Tokocrypto
-2. Login dengan akun Pak Pur
+2. Login dengan akun [CEO_ALIAS_REDACTED]
 3. Pastikan VPN MATI / menggunakan server Indonesia
 
 ### Step 2: Cek Saldo USDT
@@ -42,7 +42,7 @@
 3. Masukkan jumlah: **19,665.89 USDT**
 4. Masukkan address wallet:
    ```
-   TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
+   [USDT_WALLET]
    ```
 5. Network: **TRC20 (Tron)** ✅
 6. Review dan konfirmasi
@@ -64,8 +64,8 @@ Jika tidak bisa transfer USDT, transfer langsung ke BCA:
 | Field | Value |
 |-------|-------|
 | **Bank** | BCA |
-| **Account Number** | 6485086645 |
-| **Account Name** | i Made Purna Ananda |
+| **Account Number** | [BANK_ACCOUNT] |
+| **Account Name** | [CEO_NAME_REDACTED] |
 | **Amount** | **Rp 334,320,116** |
 | **Notes** | MGOS-Enterprise CEO Share (80%) |
 
@@ -87,7 +87,7 @@ Jika tidak bisa transfer USDT, transfer langsung ke BCA:
 | **Status** | PENDING_MANUAL |
 | **Amount IDR** | 334,320,116 |
 | **Amount USDT** | 19,665.89 |
-| **Destination** | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 (TRC20) |
+| **Destination** | [USDT_WALLET] (TRC20) |
 
 ---
 
@@ -106,7 +106,7 @@ Update file: `ceo-revenue-share/03-audit-log.json`
 ## 📞 KONTAK JIKA MASALAH
 
 - **Tokocrypto Support**: https://t.me/tokocryptosupport
-- **WhatsApp**: 081337558787
+- **WhatsApp**: [PHONE_REDACTED]
 
 ---
 

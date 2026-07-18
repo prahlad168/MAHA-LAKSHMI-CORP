@@ -43,4 +43,4 @@ CTA: Follow @mahatukang.id
 5. Meet the tukang
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO] ([CEO])

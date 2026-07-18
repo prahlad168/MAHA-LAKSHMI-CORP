@@ -47,7 +47,7 @@ Contoh:
 - Tanpa effort!
 
 Hubungi SEKARANG:
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 ```
 
 ### Message 2: Travel Agencies
@@ -64,7 +64,7 @@ Contoh:
 - Jual 10 tour/bulan = Rp 1.500.000 passive income!
 
 Mulai sekarang:
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 ```
 
 ---
@@ -99,10 +99,10 @@ Value Proposition:
 Would you be open to a 15-minute call this week to discuss potential collaboration?
 
 Best regards,
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, MAHA LAKSHMI HOLDINGS
 WhatsApp: +62 813 3755 8787
-Email: gaurangga168@gmail.com
+Email: [EMAIL_REDACTED]
 ```
 
 ---
@@ -189,8 +189,8 @@ Email: gaurangga168@gmail.com
 | Field | Value |
 |-------|-------|
 | Bank | BCA |
-| Account | 6485086645 |
-| Name | i Made Purna Ananda |
+| Account | [BANK_ACCOUNT] |
+| Name | [CEO_NAME_REDACTED] |
 | Amount | **Rp 600.000** (today) |
 
 ---
@@ -235,5 +235,5 @@ bash REAL-SALES-RUNNER.sh
 
 **Generated:** 2026-07-13
 **Status:** 🔴 READY TO EXECUTE
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]

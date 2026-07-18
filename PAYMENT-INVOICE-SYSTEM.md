@@ -2,7 +2,7 @@
 
 **Version:** 1.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Status:** ✅ **READY - NEEDS BUSINESS ACCOUNTS**
 
 ---
@@ -14,11 +14,11 @@
 ║                   IMPORTANT CLARIFICATION                           ║
 ╠════════════════════════════════════════════════════════════════════════╣
 ║                                                                    ║
-║  🔴 CEO PERSONAL (BCA 6485086645):                                ║
+║  🔴 CEO PERSONAL (BCA [BANK_ACCOUNT]):                                ║
 ║     - Untuk CEO terima 60% PROFIT SHARE saja                      ║
 ║     - BUKAN untuk terima payment dari customer                   ║
 ║                                                                    ║
-║  🔴 CEO PERSONAL WhatsApp (081337558787):                        ║
+║  🔴 CEO PERSONAL WhatsApp ([PHONE_REDACTED]):                        ║
 ║     - Untuk CEO terima LAPORAN saja                              ║
 ║     - BUKAN untuk kontak bisnis dengan customer                  ║
 ║                                                                    ║
@@ -34,8 +34,8 @@
 ║           CEO PERSONAL ACCOUNT (NOT FOR BUSINESS)                 ║
 ╠════════════════════════════════════════════════════════════════════════╣
 ║  Bank:      BCA (Bank Central Asia)                            ║
-║  Account:   6485086645                                          ║
-║  Name:      i Made Purna Ananda                                 ║
+║  Account:   [BANK_ACCOUNT]                                          ║
+║  Name:      [CEO_NAME_REDACTED]                                 ║
 ║                                                                    ║
 ║  ⚠️ PURPOSE: Receive 60% profit share ONLY                       ║
 ║  ⚠️ NOT FOR: Customer payments                                  ║
@@ -50,7 +50,7 @@
 ╔════════════════════════════════════════════════════════════════════════╗
 ║        CEO PERSONAL WHATSAPP (NOT FOR CUSTOMERS)                 ║
 ╠════════════════════════════════════════════════════════════════════════╣
-║  WhatsApp: 081337558787                                         ║
+║  WhatsApp: [PHONE_REDACTED]                                         ║
 ║                                                                    ║
 ║  ⚠️ PURPOSE: Receive daily reports & alerts ONLY                  ║
 ║  ⚠️ NOT FOR: Customer inquiries, sales contact                  ║
@@ -212,7 +212,7 @@ CUSTOMER PAYS → BUSINESS ACCOUNT → CALCULATE PROFIT
                    Owner (60%)      Reinvest (25%)     Team (10%)
                         │                                    │
                         ▼                                    ▼
-              BCA 6485086645                          Team Bonus
+              BCA [BANK_ACCOUNT]                          Team Bonus
              (CEO Personal)
                                            │
                                            ▼
@@ -233,7 +233,7 @@ When payment received:
 
 1. Customer pays to BUSINESS ACCOUNT
 2. Calculate profit distribution
-3. Transfer 60% to CEO PERSONAL BCA 6485086645
+3. Transfer 60% to CEO PERSONAL BCA [BANK_ACCOUNT]
 4. Transfer 10% to Team Bonus account
 5. Transfer 5% to CSR account
 6. Keep 25% for Reinvestment
@@ -304,10 +304,10 @@ When payment received:
 ### CEO Personal (FOR REPORTS ONLY):
 | Info | Detail |
 |------|--------|
-| **Name** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 (Reports only) |
+| **Name** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] (Reports only) |
 | **Bank** | BCA |
-| **Account** | 6485086645 (Profit transfer only) |
+| **Account** | [BANK_ACCOUNT] (Profit transfer only) |
 
 ### Business (FOR CUSTOMERS - NEED SETUP):
 | Info | Status |

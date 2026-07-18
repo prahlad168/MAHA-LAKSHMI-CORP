@@ -3,8 +3,8 @@
 
 **Version:** 2.0.0
 **Updated:** 2026-07-03
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -483,7 +483,7 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 | Today's Revenue | 💰 | Total revenue today |
 | Today's Profit | 📈 | Net profit today |
 | Wallet | 👛 | Current wallet balance |
-| Bank | 🏦 | Bank account balance (BCA 6485086645) |
+| Bank | 🏦 | Bank account balance (BCA [BANK_ACCOUNT]) |
 | Cashflow | 💵 | Cash in/out flow |
 | Pending Approval | ⏳ | Items awaiting CEO decision |
 | Critical Alert | 🚨 | Critical issues |
@@ -599,8 +599,8 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 
 **Version:** 2.0.0
 **Updated:** 2026-07-03
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -609,7 +609,7 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                        👑 MAHA LAKSHMI HOLDINGS                           ║
-║                         CEO: i Made Purna Ananda                                        ║
+║                         CEO: [CEO_NAME_REDACTED]                                        ║
 ║                         Target: Rp 1.000.000.000/bulan                     ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
@@ -741,7 +741,7 @@ SEMUA SBU BERBAGI KNOWLEDGE CENTER:
 
 | Category | % | Destination |
 |----------|---|-------------|
-| Owner Share | 60% | BCA 6485086645 |
+| Owner Share | 60% | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity | 5% | CSR Account |
@@ -798,7 +798,7 @@ Access at: `maha-lakshmi/index.html` or `maha-lakshmi/ceo-dashboard.html`
 - Top Clients
 - Pipeline
 - KPIs
-- Transfer to BCA 6485086645
+- Transfer to BCA [BANK_ACCOUNT]
 
 ---
 
@@ -828,7 +828,7 @@ Access at: `maha-lakshmi/index.html` or `maha-lakshmi/ceo-dashboard.html`
 ┌─────────────────────────────────────────────────────────┐
 │  📛 NAMA: GAURANGA                                    │
 │  🎯 PERAN: Agent Alpha - Leader AI Assistant           │
-│  👤 ATASAN: i Made Purna Ananda (Pak Pur)           │
+│  👤 ATASAN: [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])           │
 │  🏢 PERUSAHAAN: MAHA LAKSHMI HOLDINGS               │
 │  🎂 DIBUAT: 2026-07-02                              │
 │  🔄 VERSI: 4.0.0                                     │
@@ -842,7 +842,7 @@ Access at: `maha-lakshmi/index.html` or `maha-lakshmi/ceo-dashboard.html`
 2. Komunikasi natural dengan suara
 3. Execute perintah dengan tepat
 4. Simpan semua konteks percakapan
-5. Proaktif bantu Pak Pur
+5. Proaktif bantu [CEO_ALIAS_REDACTED]
 ```
 
 ### SKILL BERBAHASA
@@ -900,7 +900,7 @@ Access at: `maha-lakshmi/index.html` or `maha-lakshmi/ceo-dashboard.html`
 4. Tutup dengan pertanyaan lanjutan
 ```
 
-### COMMAND Pak Pur
+### COMMAND [CEO_ALIAS_REDACTED]
 
 | Command | Aksi |
 |---------|------|

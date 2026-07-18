@@ -13,8 +13,8 @@
       "destination": {
         "bank": "BCA",
         "bank_code": "BCA",
-        "account_number": "6485086645",
-        "account_name": "i Made Purna Ananda"
+        "account_number": "[BANK_ACCOUNT]",
+        "account_name": "[CEO_NAME_REDACTED]"
       },
       "status": "instructions_generated",
       "notes": "Daily CEO transfer - 60% of Rp 1.000.000 revenue from Bali Travel WhatsApp Sales",
@@ -28,14 +28,14 @@
       "instructions": {
         "action": "TRANSFER SEKARANG!",
         "bank": "BCA",
-        "account": "6485086645",
-        "name": "i Made Purna Ananda",
+        "account": "[BANK_ACCOUNT]",
+        "name": "[CEO_NAME_REDACTED]",
         "amount": 600000,
         "note": "CEO-TRANSFER-20260713-2350"
       },
       "fallback": {
         "method": "USDT TRC-20",
-        "wallet": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+        "wallet": "[USDT_WALLET]",
         "amount_usdt": 38,
         "note": "Use only if BCA transfer fails"
       }
@@ -49,14 +49,14 @@
       "method": "manual",
       "destination": {
         "bank": "BCA",
-        "account_number": "6485086645",
-        "account_name": "i Made Purna Ananda"
+        "account_number": "[BANK_ACCOUNT]",
+        "account_name": "[CEO_NAME_REDACTED]"
       },
       "status": "instructions_generated",
       "instructions": {
         "bank": "BCA",
-        "account": "6485086645",
-        "name": "i Made Purna Ananda",
+        "account": "[BANK_ACCOUNT]",
+        "name": "[CEO_NAME_REDACTED]",
         "amount": 600000,
         "note": "CEO-20260713114714"
       }

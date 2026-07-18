@@ -571,8 +571,8 @@
                         <div class="account-row">
                             <span class="account-label">Nomor Rekening</span>
                             <span class="account-value">
-                                <strong id="accountNumber">6485086645</strong>
-                                <button class="copy-btn" onclick="copyText('6485086645')">Copy</button>
+                                <strong id="accountNumber">[BANK_ACCOUNT]</strong>
+                                <button class="copy-btn" onclick="copyText('[BANK_ACCOUNT]')">Copy</button>
                             </span>
                         </div>
                         <div class="account-row">
@@ -655,7 +655,7 @@
     <footer class="footer">
         <div class="logo" style="margin-bottom: 15px;">💰 MAHA LAKSHMI HOLDINGS</div>
         <p>© 2026 MAHA LAKSHMI HOLDINGS - All Rights Reserved</p>
-        <p style="margin-top: 10px;">Bank BCA 6485086645 - I MADE PURNA ANANDA</p>
+        <p style="margin-top: 10px;">Bank BCA [BANK_ACCOUNT] - I MADE PURNA ANANDA</p>
     </footer>
 
     <!-- Notification -->
@@ -666,16 +666,16 @@
         let selectedPayment = 'bca';
 
         const companies = {
-            holdings: { name: 'MAHA LAKSHMI HOLDINGS', desc: 'Payment untuk semua kebutuhan perusahaan', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            payangan: { name: 'RS Payangan Gianyar', desc: 'Pelayanan kesehatan rumah sakit', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            tech: { name: 'Gianyar Tech Solutions', desc: 'Software House & IT Services', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            digital: { name: 'Bali Digital Agency', desc: 'Digital Marketing Agency', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            toko: { name: 'Gianyar E-Commerce', desc: 'Online Store Produk Bali', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            kursus: { name: 'Bali EdTech', desc: 'Kursus Online & E-Learning', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            uang: { name: 'Gianyar Finance', desc: 'Solusi Keuangan Digital', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            kirim: { name: 'Bali Logistics', desc: 'Jasa Pengiriman & Kurir', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            travel: { name: 'Bali Travel Platform', desc: 'Tour & Travel Agent', account: '6485086645', name2: 'I MADE PURNA ANANDA' },
-            rumah: { name: 'Gianyar Property', desc: 'Properti & Real Estate', account: '6485086645', name2: 'I MADE PURNA ANANDA' }
+            holdings: { name: 'MAHA LAKSHMI HOLDINGS', desc: 'Payment untuk semua kebutuhan perusahaan', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            payangan: { name: 'RS Payangan Gianyar', desc: 'Pelayanan kesehatan rumah sakit', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            tech: { name: 'Gianyar Tech Solutions', desc: 'Software House & IT Services', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            digital: { name: 'Bali Digital Agency', desc: 'Digital Marketing Agency', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            toko: { name: 'Gianyar E-Commerce', desc: 'Online Store Produk Bali', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            kursus: { name: 'Bali EdTech', desc: 'Kursus Online & E-Learning', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            uang: { name: 'Gianyar Finance', desc: 'Solusi Keuangan Digital', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            kirim: { name: 'Bali Logistics', desc: 'Jasa Pengiriman & Kurir', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            travel: { name: 'Bali Travel Platform', desc: 'Tour & Travel Agent', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' },
+            rumah: { name: 'Gianyar Property', desc: 'Properti & Real Estate', account: '[BANK_ACCOUNT]', name2: 'I MADE PURNA ANANDA' }
         };
 
         function setAmount(amount) {
@@ -737,7 +737,7 @@
 🏢 Perusahaan: ${company}
 💵 Nominal: ${amount}
 💳 Metode: ${paymentMethods[selectedPayment]}
-📋 Bank: BCA 6485086645 (I MADE PURNA ANANDA)
+📋 Bank: BCA [BANK_ACCOUNT] (I MADE PURNA ANANDA)
 
 Mohon dicek dan diinformasikan langkah selanjutnya. Terima kasih!`;
             

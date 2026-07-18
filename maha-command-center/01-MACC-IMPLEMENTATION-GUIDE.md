@@ -4,7 +4,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Target:** One dashboard to rule them all
 
 ---
@@ -34,7 +34,7 @@ Saat CEO login, mereka langsung melihat:
 | Today's Revenue | 💰 | Total revenue today |
 | Today's Profit | 📈 | Net profit after distribution |
 | Wallet | 👛 | Digital wallet balance |
-| Bank | 🏦 | BCA 6485086645 |
+| Bank | 🏦 | BCA [BANK_ACCOUNT] |
 | Cashflow | 💵 | Money in/out |
 | Pending Approval | ⏳ | Items awaiting CEO decision |
 | Critical Alert | 🚨 | Issues needing immediate attention |
@@ -96,7 +96,7 @@ Seperti ChatGPT untuk perusahaan:
 - Income streams
 - Expense tracking
 - Profit distribution
-- Bank transfers (BCA 6485086645)
+- Bank transfers (BCA [BANK_ACCOUNT])
 - Auto-transfer schedule
 - Tax preparation
 

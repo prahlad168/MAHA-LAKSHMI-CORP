@@ -742,14 +742,14 @@
                 <div class="message assistant">
                     <div class="message-avatar">🤖</div>
                     <div class="message-content">
-                        <p>Selamat pagi, <strong>Pak Pur</strong>! 👋</p>
+                        <p>Selamat pagi, <strong>[CEO_ALIAS_REDACTED]</strong>! 👋</p>
                         <p style="margin-top: 0.5rem;">Saya <strong>Agent Gaurangga</strong>, Partner Eksekutif AI Anda di ekosistem <strong>Maha Laksmi Corp</strong>.</p>
                         <p style="margin-top: 0.5rem;">Saya sudah mempelajari seluruh pengetahuan bisnis Anda:</p>
                         <ul style="margin-top: 0.5rem;">
                             <li>📊 10 Strategic Business Units (SBUs)</li>
                             <li>💰 Target Revenue: Rp 1.000.000.000/bulan</li>
                             <li>🤖 60+ AI Agents aktif</li>
-                            <li>🏦 Bank BCA: 6485086645</li>
+                            <li>🏦 Bank BCA: [BANK_ACCOUNT]</li>
                             <li>👤 Owner Share: 60% profit</li>
                         </ul>
                         <p style="margin-top: 0.5rem;">🎤 <strong>Anda bisa bicara langsung</strong> dengan saya! Klik tombol <strong>"🎤 Bicara"</strong> di bawah untuk mulai.</p>
@@ -945,8 +945,8 @@
         const KNOWLEDGE_BASE = {
             company: {
                 name: "Maha Laksmi Corp",
-                ceo: "I Made Purna Ananda",
-                bank: "BCA 6485086645",
+                ceo: "[CEO]",
+                bank: "BCA [BANK_ACCOUNT]",
                 targetRevenue: "Rp 1.000.000.000/bulan",
                 ownerShare: "60%"
             },
@@ -969,7 +969,7 @@
                         "Learning AI", "Automation AI", "Customer AI", "QA AI", "Innovation AI"]
             },
             profitDistribution: [
-                { category: "Owner Share", percent: "60%", destination: "BCA 6485086645" },
+                { category: "Owner Share", percent: "60%", destination: "BCA [BANK_ACCOUNT]" },
                 { category: "Reinvestment", percent: "25%", destination: "Company Reserve" },
                 { category: "Team Bonus", percent: "10%", destination: "Team Members" },
                 { category: "Charity", percent: "5%", destination: "CSR Account" }
@@ -1120,7 +1120,7 @@
             
             // Greeting
             if (msg.includes('halo') || msg.includes('hai') || msg.includes('pagi') || msg.includes('siang') || msg.includes('sore')) {
-                return `<p>Halo, <strong>Pak Pur</strong>! 👋</p>
+                return `<p>Halo, <strong>[CEO_ALIAS_REDACTED]</strong>! 👋</p>
                         <p>Saya Agent Gaurangga, siap membantu Anda!</p>
                         <p>Ada yang bisa saya bantu hari ini?</p>`;
             }
@@ -1145,7 +1145,7 @@
                         </table>
                         <p style="margin-top: 0.5rem;">💰 <strong>Profit Distribution:</strong></p>
                         <ul>
-                            <li>👤 Owner (Pak Pur): 60% → BCA 6485086645</li>
+                            <li>👤 Owner ([CEO_ALIAS_REDACTED]): 60% → BCA [BANK_ACCOUNT]</li>
                             <li>📈 Reinvestment: 25%</li>
                             <li>👥 Team Bonus: 10%</li>
                             <li>🎗️ Charity: 5%</li>
@@ -1171,8 +1171,8 @@
                 return `<p>🏦 <strong>Informasi Bank:</strong></p>
                         <ul>
                             <li>Bank: <strong>BCA (Bank Central Asia)</strong></li>
-                            <li>Account Number: <strong>6485086645</strong></li>
-                            <li>Recipient: <strong>I Made Purna Ananda</strong></li>
+                            <li>Account Number: <strong>[BANK_ACCOUNT]</strong></li>
+                            <li>Recipient: <strong>[CEO]</strong></li>
                         </ul>
                         <p style="margin-top: 0.5rem;">💡 Semua profit 60% akan ditransfer ke rekening ini setiap bulan.</p>`;
             }
@@ -1205,13 +1205,13 @@
             }
             
             // Default response
-            return `<p>Terima kasih, <strong>Pak Pur</strong>! 🙏</p>
+            return `<p>Terima kasih, <strong>[CEO_ALIAS_REDACTED]</strong>! 🙏</p>
                     <p>Saya Agent Gaurangga dan sudah memahami bisnis Maha Laksmi Corp dengan:</p>
                     <ul>
                         <li>📊 10 SBUs dengan target Rp 100M per bulan masing-masing</li>
                         <li>💰 Target total: <strong>Rp 1.000.000.000/bulan</strong></li>
                         <li>🤖 60 AI Agents yang beroperasi</li>
-                        <li>🏦 Bank: BCA 6485086645</li>
+                        <li>🏦 Bank: BCA [BANK_ACCOUNT]</li>
                     </ul>
                     <p style="margin-top: 0.5rem;">Silakan tanyakan tentang:</p>
                     <ul>
@@ -1304,7 +1304,7 @@
             
             // Welcome voice (optional)
             setTimeout(() => {
-                const welcomeText = "Selamat datang, Pak Pur. Saya Agent Gaurangga, siap membantu Anda.";
+                const welcomeText = "Selamat datang, [CEO_ALIAS_REDACTED]. Saya Agent Gaurangga, siap membantu Anda.";
                 speak(welcomeText, 'id-ID');
             }, 1000);
         });

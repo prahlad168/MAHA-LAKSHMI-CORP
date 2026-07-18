@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Status:** 🚀 **READY TO DEPLOY**
 
 ---
@@ -13,7 +13,7 @@
 ```
 ╔════════════════════════════════════════════════════════════════════════╗
 ║                                                                    ║
-║  🔴 CEO PERSONAL (081337558787 & BCA 6485086645):               ║
+║  🔴 CEO PERSONAL ([PHONE_REDACTED] & BCA [BANK_ACCOUNT]):               ║
 ║     - BUKAN untuk bisnis ❌                                      ║
 ║     - HANYA untuk terima laporan & profit share ✅               ║
 ║                                                                    ║
@@ -29,7 +29,7 @@
 
 ## 📋 STEP 1: BUSINESS BANK ACCOUNT (CRITICAL)
 
-### ⚠️ JANGAN gunakan BCA 6485086645 untuk bisnis!
+### ⚠️ JANGAN gunakan BCA [BANK_ACCOUNT] untuk bisnis!
 
 ### Yang Perlu Dibuat:
 
@@ -115,7 +115,7 @@ STEP 5: Aktifkan Services
 
 ## 📱 STEP 2: BUSINESS WHATSAPP (CRITICAL)
 
-### ⚠️ JANGAN gunakan 081337558787 untuk bisnis!
+### ⚠️ JANGAN gunakan [PHONE_REDACTED] untuk bisnis!
 
 ### Yang Perlu Dibuat:
 
@@ -517,10 +517,10 @@ Day 4:
 ### CEO Personal (FOR REPORTS ONLY):
 | Info | Detail |
 |------|--------|
-| **Name** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 (Reports only) |
+| **Name** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] (Reports only) |
 | **Bank** | BCA |
-| **Account** | 6485086645 (Profit only) |
+| **Account** | [BANK_ACCOUNT] (Profit only) |
 
 ### Business (FOR CUSTOMERS - NEED CREATE):
 | Info | Status |

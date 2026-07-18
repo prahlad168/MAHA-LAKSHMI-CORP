@@ -3,7 +3,7 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-03
-**CEO:** i Made Purna Ananda (Pak Pur)
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
 **Target:** Platform jasa tukang terbesar di Indonesia
 
 ---
@@ -421,7 +421,7 @@ maha-tukang/
 
 ---
 
-**CEO:** i Made Purna Ananda (Pak Pur)
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+**Bank:** BCA [BANK_ACCOUNT]
 **Version:** 1.0.0
 **Status:** 🚀 READY TO BUILD

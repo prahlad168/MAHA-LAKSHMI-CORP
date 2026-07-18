@@ -22,7 +22,7 @@ CONTOH:
 - PASIVE INCOME!
 
 Mulai partnership hari ini?
-Hubungi: wa.me/6281337558787
+Hubungi: wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -48,7 +48,7 @@ Tour packages ready:
 🏝️ Custom Tour - sesuai kebutuhan
 
 Mulai sekarang?
-wa.me/6281337558787
+wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel 🇮🇩
@@ -59,34 +59,34 @@ Bali Travel 🇮🇩
 ## 📋 COPY ALL - LEADS LIST (Click to Open WhatsApp)
 
 ### Lead #1: Four Seasons Sayan
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Four%20Seasons%20Sayan,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Four%20Seasons%20Sayan,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #2: Viceroy Bali
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Viceroy%20Bali,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Viceroy%20Bali,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #3: AYANA Resort
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20AYANA%20Resort,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20AYANA%20Resort,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #4: Bali Easy Go Tours
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Bali%20Easy%20Go,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Bali%20Easy%20Go,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #5: Nusapenida.com
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Nusapenida,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Nusapenida,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #6: Safari Bali Tours
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Safari%20Bali,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Safari%20Bali,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #7: Hotel Ubud Jaya
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Hotel%20Ubud%20Jaya,%20kami%20dari%20Gianyar%20Tech%20Solutions%20tawarkan%20website%20design%20special%20untuk%20hotel%20Anda)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Hotel%20Ubud%20Jaya,%20kami%20dari%20Gianyar%20Tech%20Solutions%20tawarkan%20website%20design%20special%20untuk%20hotel%20Anda)
 
 ### Lead #8: Warung Indonesia
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Warung%20Indonesia,%20kami%20dari%20Bali%20Digital%20Agency%20tawarkan%20social%20media%20management%20untuk%20naikkan%20penjualan%20Anda)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Warung%20Indonesia,%20kami%20dari%20Bali%20Digital%20Agency%20tawarkan%20social%20media%20management%20untuk%20naikkan%20penjualan%20Anda)
 
 ### Lead #9: Dewata Tour
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Dewata%20Tour,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Dewata%20Tour,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ### Lead #10: Bintang Bali Tours
-[Open WhatsApp](wa.me/6281337558787?text=Halo%20Bintang%20Bali%20Tours,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
+[Open WhatsApp](wa.me/[PHONE_REDACTED]?text=Halo%20Bintang%20Bali%20Tours,%20kami%20dari%20Bali%20Travel%20tawarkan%20partnership%20tour%20dengan%20commission%2015%25)
 
 ---
 
@@ -123,8 +123,8 @@ Transfer to BCA: Rp 1.200.000
 
 **Generated:** 2026-07-12
 **By:** GAURANGA AI Agent v100
-**CEO:** i Made Purna Ananda
-**WhatsApp:** 081337558787
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**WhatsApp:** [PHONE_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 **MOTTO:** "HARI INI KITA JUAL!"

@@ -1,9 +1,9 @@
 # 🤖 MAHA TUKANG - AI AGENT SYSTEM
 
 **Version:** 1.0.0
-**CEO:** i Made Purna Ananda (Pak Pur)
-**Bank:** BCA 6485086645
-**WhatsApp:** 081337558787
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+**Bank:** BCA [BANK_ACCOUNT]
+**WhatsApp:** [PHONE_REDACTED]
 
 ---
 
@@ -20,7 +20,7 @@ MAHA TUKANG adalah platform marketplace jasa tukang berbasis AI Indonesia.
 ```
 ╔════════════════════════════════════════════════════════════════╗
 ║                    👑 MAHA TUKANG                          ║
-║                     CEO: Pak Pur                           ║
+║                     CEO: [CEO_ALIAS_REDACTED]                           ║
 ╚════════════════════════════════════════════════════════════════╝
 
     ┌──────────┬──────────┬──────────┬──────────┐
@@ -98,8 +98,8 @@ MAHA TUKANG adalah platform marketplace jasa tukang berbasis AI Indonesia.
 
 ### Activation:
 ```
-Pak Pur: "gaurangga"
-GAURANGA: "Ya, Pak Pur! Gaurangga siap menerima perintah!" 🔊
+[CEO_ALIAS_REDACTED]: "gaurangga"
+GAURANGA: "Ya, [CEO_ALIAS_REDACTED]! Gaurangga siap menerima perintah!" 🔊
 ```
 
 ### Auto-Play Rules:
@@ -111,10 +111,10 @@ GAURANGA: "Ya, Pak Pur! Gaurangga siap menerima perintah!" 🔊
 ### Voice Messages:
 | Event | Message |
 |-------|---------|
-| Activation | "Ya, Pak Pur! Gaurangga siap!" |
-| Confirmation | "Baik, Pak Pur! Saya akan [task]!" |
-| Completion | "Selesai, Pak Pur! [task] selesai!" |
-| Error | "Maaf Pak Pur, ada masalah: [error]" |
+| Activation | "Ya, [CEO_ALIAS_REDACTED]! Gaurangga siap!" |
+| Confirmation | "Baik, [CEO_ALIAS_REDACTED]! Saya akan [task]!" |
+| Completion | "Selesai, [CEO_ALIAS_REDACTED]! [task] selesai!" |
+| Error | "Maaf [CEO_ALIAS_REDACTED], ada masalah: [error]" |
 
 ---
 
@@ -149,11 +149,11 @@ GAURANGA: "Ya, Pak Pur! Gaurangga siap menerima perintah!" 🔊
 ## 🏦 BANK & PAYMENT
 
 - **Bank:** BCA
-- **Account:** 6485086645
-- **Name:** i Made Purna Ananda
+- **Account:** [BANK_ACCOUNT]
+- **Name:** [CEO_NAME_REDACTED]
 
 **Profit Distribution:**
-- 60% → Pak Pur
+- 60% → [CEO_ALIAS_REDACTED]
 - 25% → Reinvestment
 - 10% → Team Bonus
 - 5% → CSR
@@ -191,4 +191,4 @@ GAURANGA: "Ya, Pak Pur! Gaurangga siap menerima perintah!" 🔊
 **Document Version:** 1.0.0
 **Status:** 🚀 READY TO LAUNCH
 **Last Updated:** 2026-07-04
-**CEO:** i Made Purna Ananda (Pak Pur)
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])

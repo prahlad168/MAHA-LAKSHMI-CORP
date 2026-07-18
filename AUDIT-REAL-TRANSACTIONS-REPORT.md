@@ -180,13 +180,13 @@ Untuk verify apakah ini real, perlu bukti:
 ### CEO Revenue Share Configuration:
 | Recipient | Percentage | Based on Rp 1M | Based on Rp 418M |
 |-----------|------------|-----------------|------------------|
-| CEO Pak Pur | 60-80% | Rp 600,000-800,000 | Rp 251M-334M |
+| CEO [CEO_ALIAS_REDACTED] | 60-80% | Rp 600,000-800,000 | Rp 251M-334M |
 | Reinvestment | 20% | Rp 200,000 | Rp 83M |
 | Team Bonus | 0-10% | Rp 0-100,000 | Rp 0-41M |
 
 ### Transfer Instructions Generated:
-1. **BCA Transfer** - Account: 6485086645 (i Made Purna Ananda)
-2. **USDT TRC20** - Wallet: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
+1. **BCA Transfer** - Account: [BANK_ACCOUNT] ([CEO_NAME_REDACTED])
+2. **USDT TRC20** - Wallet: [USDT_WALLET]
 
 ### Actual Transfers Executed:
 | Date | Method | Amount | Status |
@@ -252,7 +252,7 @@ Untuk verify apakah ini real, perlu bukti:
 
 ## 📋 RECOMMENDATIONS
 
-### For CEO Pak Pur:
+### For CEO [CEO_ALIAS_REDACTED]:
 
 1. **Verify MGOS-Enterprise Revenue**
    - Request actual sales records
@@ -290,9 +290,9 @@ Untuk verify apakah ini real, perlu bukti:
 
 | Method | Details |
 |--------|---------|
-| BCA | 6485086645 (i Made Purna Ananda) |
-| USDT (TRC20) | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 |
-| BTC | 1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2 |
+| BCA | [BANK_ACCOUNT] ([CEO_NAME_REDACTED]) |
+| USDT (TRC20) | [USDT_WALLET] |
+| BTC | [BTC_WALLET] |
 
 ---
 

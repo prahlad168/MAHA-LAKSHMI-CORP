@@ -1,8 +1,8 @@
 # 💰 MAHA LAKSHMI HOLDINGS - REVENUE SYSTEM
 
 ## 📅 System Created: $(date '+%Y-%m-%d %H:%M:%S')
-## 👑 Owner: i Made Purna Ananda
-## 🏦 Bank: BCA 6485086645
+## 👑 Owner: [CEO_NAME_REDACTED]
+## 🏦 Bank: BCA [BANK_ACCOUNT]
 ## 🎯 Target: Rp 1.000.000.000/bulan
 
 ---
@@ -39,7 +39,7 @@
 
 | Category | % | Destination |
 |----------|---|-----------|
-| **Owner (Pak Pur)** | 60% | BCA 6485086645 |
+| **Owner ([CEO_ALIAS_REDACTED])** | 60% | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity/CSR | 5% | Donasi |
@@ -47,7 +47,7 @@
 ### When Target Reached (Rp 1.000.000.000)
 | Category | Amount |
 |----------|--------|
-| **Owner (Pak Pur)** | **Rp 600.000.000** |
+| **Owner ([CEO_ALIAS_REDACTED])** | **Rp 600.000.000** |
 | Reinvestment | Rp 250.000.000 |
 | Team Bonus | Rp 100.000.000 |
 | Charity/CSR | Rp 50.000.000 |

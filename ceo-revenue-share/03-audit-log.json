@@ -151,7 +151,7 @@
         "ceo_share_percent": 80,
         "ceo_payout_idr": 334320116,
         "usdt_amount": 19665.89,
-        "wallet_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+        "wallet_address": "[USDT_WALLET]",
         "network": "TRC20",
         "error": "HTTP 451 - API unavailable",
         "likely_causes": [
@@ -175,7 +175,7 @@
       "amount_sats": 51732,
       "network_fee_sats": 1000,
       "btc_price": 1137824297,
-      "destination": "1H3FZkKsX6jgTuqA23fduLVtxL7MrtgWe2",
+      "destination": "[BTC_WALLET]",
       "status": "PENDING_MANUAL",
       "txid": null,
       "notes": "Manual transfer required - no API configured"
@@ -187,7 +187,7 @@
       "reference": "BCA-20260713113751",
       "amount_idr": 600000.0,
       "amount_btc": null,
-      "destination": "BCA 6485086645",
+      "destination": "BCA [BANK_ACCOUNT]",
       "status": "PENDING_EXECUTION",
       "notes": "BCA transfer - self transfer to CEO account"
     },
@@ -198,7 +198,7 @@
       "reference": "MGOS-PAYOUT-USDT-20260717",
       "amount_idr": 334320116,
       "amount_usdt": 19665.89,
-      "destination": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 (TRC20)",
+      "destination": "[USDT_WALLET] (TRC20)",
       "status": "PENDING_MANUAL",
       "source": "MGOS-ENTERPRISE",
       "notes": "CEO payout from MGOS-Enterprise. Manual execution required - Tokocrypto API unavailable."
@@ -208,14 +208,14 @@
       "action": "CEO_PAYOUT_RECEIVED",
       "event": "CEO_PAYOUT_RECEIVED",
       "status": "RECEIVED",
-      "description": "CEO Pak Pur confirms MGOS-Enterprise payout received in wallet",
+      "description": "CEO [CEO_ALIAS_REDACTED] confirms MGOS-Enterprise payout received in wallet",
       "source": "MGOS-ENTERPRISE",
       "details": {
         "total_revenue": 417900145,
         "ceo_share_percent": 80,
         "ceo_payout_idr": 334320116,
         "amount_usdt": 19665.89,
-        "wallet_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+        "wallet_address": "[USDT_WALLET]",
         "network": "TRC20",
         "received_at": "2026-07-17"
       },

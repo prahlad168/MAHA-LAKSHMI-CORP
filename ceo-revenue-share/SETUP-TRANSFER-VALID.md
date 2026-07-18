@@ -3,14 +3,14 @@
 
 **Version:** 1.0.0
 **Created:** 2026-07-18
-**CEO:** i Made Purna Ananda (Pak Pur)
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
 ## 🎯 TUJUAN
 
-Setup sistem transfer profit distribution yang **VALID** dan **TERVERIFIKASI** ke rekening BCA Pak Pur.
+Setup sistem transfer profit distribution yang **VALID** dan **TERVERIFIKASI** ke rekening BCA [CEO_ALIAS_REDACTED].
 
 ---
 
@@ -30,8 +30,8 @@ Setup sistem transfer profit distribution yang **VALID** dan **TERVERIFIKASI** k
 | Field | Value |
 |-------|-------|
 | **Bank** | BCA (Bank Central Asia) |
-| **Account Number** | 6485086645 |
-| **Account Name** | i Made Purna Ananda |
+| **Account Number** | [BANK_ACCOUNT] |
+| **Account Name** | [CEO_NAME_REDACTED] |
 | **Branch** | Gianyar / terdekat |
 
 ---
@@ -40,7 +40,7 @@ Setup sistem transfer profit distribution yang **VALID** dan **TERVERIFIKASI** k
 
 ### OPTION 1: Manual Transfer (Recommended untuk sekarang)
 
-Pak Pur transfer sendiri via:
+[CEO_ALIAS_REDACTED] transfer sendiri via:
 - BCA Mobile
 - BCA Internet Banking
 - ATM BCA
@@ -75,7 +75,7 @@ Midtrans bisa auto-transfer ke rekening.
 Total Revenue: Rp 418,900,145
 
 Distribution:
-- CEO (Pak Pur): 80% = Rp 335,120,116
+- CEO ([CEO_ALIAS_REDACTED]): 80% = Rp 335,120,116
 - Reinvestment: 20% = Rp 83,780,029
 ```
 
@@ -84,8 +84,8 @@ Distribution:
 Via BCA Mobile/Internet:
 ```
 Dari: Rekening sendiri
-Ke: BCA 6485086645
-Atas Nama: i Made Purna Ananda
+Ke: BCA [BANK_ACCOUNT]
+Atas Nama: [CEO_NAME_REDACTED]
 Jumlah: Rp 335,120,116
 Catatan: Profit Distribution - MGOS Enterprise
 ```
@@ -124,8 +124,8 @@ def transfer_to_bca(amount, description):
     payload = {
         "amount": amount,
         "bank_code": "BCA",
-        "account_number": "6485086645",
-        "account_holder_name": "i Made Purna Ananda",
+        "account_number": "[BANK_ACCOUNT]",
+        "account_holder_name": "[CEO_NAME_REDACTED]",
         "description": description,
         "idempotency_key": f"MGOS-{datetime.now().strftime('%Y%m%d%H%M%S')}"
     }
@@ -167,24 +167,24 @@ def execute_profit_distribution():
 | `date` | Tanggal transfer |
 | `amount_idr` | Jumlah transfer |
 | `bank` | Bank tujuan (BCA) |
-| `account_number` | 6485086645 |
-| `account_name` | i Made Purna Ananda |
+| `account_number` | [BANK_ACCOUNT] |
+| `account_name` | [CEO_NAME_REDACTED] |
 | `source_revenue` | Source revenue |
 | `reference_number` | BCA reference |
 | `screenshot` | Bukti transfer |
 | `status` | PENDING/SUCCESS/FAILED |
-| `verified_by_ceo` | Pak Pur konfirmasi |
+| `verified_by_ceo` | [CEO_ALIAS_REDACTED] konfirmasi |
 
 ---
 
 ## ✅ IMPLEMENTATION STEPS
 
-### Step 1: Pak Pur Verify Sources
+### Step 1: [CEO_ALIAS_REDACTED] Verify Sources
 - [ ] Cek BCA: Apakah ada transfer masuk dari MGOS?
 - [ ] Cek MGOS Dashboard: Berapa total revenue?
 
 ### Step 2: Manual Transfer
-- [ ] Transfer Rp 335,120,116 ke BCA 6485086645
+- [ ] Transfer Rp 335,120,116 ke BCA [BANK_ACCOUNT]
 - [ ] Simpan bukti transfer
 
 ### Step 3: Update Records
@@ -211,8 +211,8 @@ def execute_profit_distribution():
 
 | Role | Contact |
 |------|---------|
-| CEO | Pak Pur (081337558787) |
-| Bank | BCA 6485086645 |
+| CEO | [CEO_ALIAS_REDACTED] ([PHONE_REDACTED]) |
+| Bank | BCA [BANK_ACCOUNT] |
 
 ---
 

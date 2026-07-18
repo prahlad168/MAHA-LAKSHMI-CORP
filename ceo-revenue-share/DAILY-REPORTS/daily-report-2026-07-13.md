@@ -73,8 +73,8 @@ CEO Share = 60% × Total Revenue
 |-------|-------|
 | **CEO Share Amount** | **Rp 600.000** |
 | **BTC Equivalent** | ~₿ 0.00085714 |
-| **Destination (Primary)** | BCA: BCA - 6485086645 |
-| **Destination (Fallback)** | TRC20: TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 |
+| **Destination (Primary)** | BCA: BCA - [BANK_ACCOUNT] |
+| **Destination (Fallback)** | TRC20: [USDT_WALLET] |
 | **Status** | ✅ READY |
 | **Reference** | RS-20260713-001 |
 
@@ -122,10 +122,10 @@ CEO Share = 60% × Total Revenue
 
 | Info | Detail |
 |------|--------|
-| **CEO** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 |
-| **Primary Account** | BCA 6485086645 |
-| **Fallback Wallet** | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 |
+| **CEO** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] |
+| **Primary Account** | BCA [BANK_ACCOUNT] |
+| **Fallback Wallet** | [USDT_WALLET] |
 
 ---
 

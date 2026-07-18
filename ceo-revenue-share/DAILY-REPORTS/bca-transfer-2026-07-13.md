@@ -13,8 +13,8 @@
 |-------|-------|
 | **Amount** | **Rp 600.000** |
 | **Bank** | BCA (Bank Central Asia) |
-| **Account Number** | **6485086645** |
-| **Account Name** | i Made Purna Ananda |
+| **Account Number** | **[BANK_ACCOUNT]** |
+| **Account Name** | [CEO_NAME_REDACTED] |
 | **Reference** | BCA-20260713113751 |
 
 ---
@@ -25,7 +25,7 @@
 2. Login dengan m-BCA
 3. Pilih menu **m-Transfer**
 4. Pilih **Transfer ke BCA** atau **BCA Virtual Account**
-5. Masukkan nomor rekening: **6485086645**
+5. Masukkan nomor rekening: **[BANK_ACCOUNT]**
 6. Masukkan jumlah: **Rp 600.000**
 7. Masukkan PIN m-BCA
 8. Konfirmasi dan transfer

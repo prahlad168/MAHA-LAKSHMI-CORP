@@ -388,7 +388,7 @@
     "reinvest_percent": 25,
     "agent_percent": 10,
     "reserve_percent": 5,
-    "bank_account": "BCA 6485086645",
+    "bank_account": "BCA [BANK_ACCOUNT]",
     "account_name": "Prahlad"
   },
   "schedule": {

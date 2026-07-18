@@ -4,7 +4,7 @@
 
 ### Login ke Panel
 1. Buka: https://panel.indowebhost.com
-2. Login dengan akun Pak Pur
+2. Login dengan akun [CEO]
 
 ### Tambah DNS Record
 1. Cari menu **"DNS Records"** atau **"Zone Editor"**

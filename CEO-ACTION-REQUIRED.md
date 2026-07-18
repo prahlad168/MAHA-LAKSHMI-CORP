@@ -24,7 +24,7 @@
 
 **Sekarang buka WhatsApp dan kirim pesan ini:**
 
-🔗 **Open:** wa.me/6281337558787
+🔗 **Open:** wa.me/[PHONE_REDACTED]
 
 📱 **Kirim pesan ke:**
 - Four Seasons Resort Sayan
@@ -77,8 +77,8 @@
 ### 5️⃣ CEO TRANSFER at 23:50 WIB
 
 🏦 **Bank:** BCA (Bank Central Asia)
-🏦 **Account:** **6485086645**
-🏦 **Name:** i Made Purna Ananda
+🏦 **Account:** **[BANK_ACCOUNT]**
+🏦 **Name:** [CEO_NAME_REDACTED]
 💰 **Amount:** 60% of today's revenue
 
 ---
@@ -138,7 +138,7 @@
 
 ## Step 1: WhatsApp (5 minutes)
 ```
-1. Open wa.me/6281337558787
+1. Open wa.me/[PHONE_REDACTED]
 2. Open WHATSAPP-READY-TO-SEND.md
 3. Copy message for Four Seasons
 4. Send to +62 361 977577
@@ -169,7 +169,7 @@ Time: ~1 hour
 ```
 1. Calculate revenue
 2. Calculate 60%
-3. Transfer to BCA 6485086645
+3. Transfer to BCA [BANK_ACCOUNT]
 4. Send confirmation
 Time: 5 minutes
 ```
@@ -191,7 +191,7 @@ Kami tawarkan COMMISSION 15% per booking!
 Contoh: Booking 10 guests = Rp 1.500.000 untuk Anda!
 
 Hubungi sekarang:
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel Platform
@@ -206,7 +206,7 @@ Subject: Partnership Opportunity - MAHA LAKSHMI HOLDINGS
 
 Dear [Name],
 
-I am i Made Purna Ananda, CEO of MAHA LAKSHMI HOLDINGS, a digital enterprise with operations across Southeast Asia.
+I am [CEO_NAME_REDACTED], CEO of MAHA LAKSHMI HOLDINGS, a digital enterprise with operations across Southeast Asia.
 
 We are expanding our global network and would like to explore partnership opportunities.
 
@@ -220,11 +220,11 @@ OUR SERVICES:
 Would you be open to a 15-minute call this week?
 
 Best regards,
-i Made Purna Ananda
+[CEO_NAME_REDACTED]
 CEO, MAHA LAKSHMI HOLDINGS
 
 📱 WhatsApp: +62 813 3755 8787
-📧 Email: gaurangga168@gmail.com
+📧 Email: [EMAIL_REDACTED]
 ```
 
 ---
@@ -262,10 +262,10 @@ CEO, MAHA LAKSHMI HOLDINGS
 
 | Info | Value |
 |------|-------|
-| **CEO** | i Made Purna Ananda |
+| **CEO** | [CEO_NAME_REDACTED] |
 | **WhatsApp** | 0813 3755 8787 |
-| **Email** | gaurangga168@gmail.com |
-| **Bank** | BCA 6485086645 |
+| **Email** | [EMAIL_REDACTED] |
+| **Bank** | BCA [BANK_ACCOUNT] |
 
 ---
 

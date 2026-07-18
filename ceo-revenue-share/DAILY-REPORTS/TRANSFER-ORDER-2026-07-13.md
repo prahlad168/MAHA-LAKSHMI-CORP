@@ -17,8 +17,8 @@
 |-------|-------|
 | **Amount (IDR)** | **Rp 600.000** |
 | **Bank** | PT Bank Central Asia (BCA) |
-| **Account Number** | 6485086645 |
-| **Account Holder** | i Made Purna Ananda |
+| **Account Number** | [BANK_ACCOUNT] |
+| **Account Holder** | [CEO_NAME_REDACTED] |
 | **Transfer Method** | BCA Virtual Account / Mobile |
 | **Status** | ⏳ PENDING |
 
@@ -28,7 +28,7 @@
 |-------|-------|
 | **Amount (USDT)** | ~$36.36 |
 | **Network** | TRC20 |
-| **Wallet Address** | TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6 |
+| **Wallet Address** | [USDT_WALLET] |
 | **Trigger** | If BCA transfer fails |
 | **Status** | 🔴 STANDBY |
 
@@ -108,9 +108,9 @@ If BCA transfer fails:
 
 | Role | Contact |
 |------|---------|
-| CEO | i Made Purna Ananda |
-| WhatsApp | 081337558787 |
-| Email | gaurangga168@gmail.com |
+| CEO | [CEO_NAME_REDACTED] |
+| WhatsApp | [PHONE_REDACTED] |
+| Email | [EMAIL_REDACTED] |
 
 ---
 

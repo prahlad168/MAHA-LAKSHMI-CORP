@@ -3,7 +3,7 @@
 
 **Version:** 100.0.0
 **Date:** 2026-07-12
-**CEO:** i Made Purna Ananda
+**CEO:** [CEO_NAME_REDACTED]
 **Target:** 💰 Rp 10 MILYAR HARI INI! 💰
 
 ---
@@ -58,11 +58,11 @@ MINUTE TRIGGER:
 
 ## 🔥 START WHATSAPP SALES NOW!
 
-**https://wa.me/6281337558787?text=Halo%20Four%20Seasons,%20Partnership%20Tour%2015%25**
+**https://wa.me/[PHONE_REDACTED]?text=Halo%20Four%20Seasons,%20Partnership%20Tour%2015%25**
 
-**https://wa.me/6281337558787?text=Halo%20Viceroy%20Bali,%20Partnership%20Tour%2015%25**
+**https://wa.me/[PHONE_REDACTED]?text=Halo%20Viceroy%20Bali,%20Partnership%20Tour%2015%25**
 
-**https://wa.me/6281337558787?text=Halo%20AYANA%20Resort,%20Partnership%20Tour%2015%25**
+**https://wa.me/[PHONE_REDACTED]?text=Halo%20AYANA%20Resort,%20Partnership%20Tour%2015%25**
 
 ---
 
@@ -70,7 +70,7 @@ MINUTE TRIGGER:
 
 ```
 EACH COMPANY: Rp 1.000.000.000
-CEO SHARE (60%): Rp 6.000.000.000 → BCA 6485086645
+CEO SHARE (60%): Rp 6.000.000.000 → BCA [BANK_ACCOUNT]
 ```
 
 ---

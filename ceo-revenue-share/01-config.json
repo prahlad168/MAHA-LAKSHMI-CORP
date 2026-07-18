@@ -4,10 +4,10 @@
   "last_updated": "2026-07-13T12:00:00+08:00",
   
   "ceo": {
-    "name": "i Made Purna Ananda",
-    "short_name": "Pak Pur",
-    "whatsapp": "081337558787",
-    "email": "gaurangga168@gmail.com"
+    "name": "[CEO_NAME_REDACTED]",
+    "short_name": "[CEO_ALIAS_REDACTED]",
+    "whatsapp": "[PHONE_REDACTED]",
+    "email": "[EMAIL_REDACTED]"
   },
   
   "payment": {
@@ -37,13 +37,13 @@
     "type": "bank_transfer",
     "primary": {
       "bank": "BCA",
-      "account": "6485086645",
-      "holder": "i Made Purna Ananda",
+      "account": "[BANK_ACCOUNT]",
+      "holder": "[CEO_NAME_REDACTED]",
       "label": "CEO Personal BCA Account"
     },
     "fallback": {
       "network": "TRC20",
-      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "usdt_address": "[USDT_WALLET]",
       "label": "USDT Fallback Wallet"
     }
   },

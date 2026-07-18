@@ -11,7 +11,7 @@
 
 ### 👑 [AIOS CONSOLIDATED REPORT - Semua Penjualan](AIOS-CONSOLIDATED-REPORT.md)
 
-> **⚠️ BOOKMARK FILE INI!** Setiap kali Pak Pur minta "laporan", buka `AIOS-CONSOLIDATED-REPORT.md` untuk melihat semua penjualan produk digital.
+> **⚠️ BOOKMARK FILE INI!** Setiap kali [CEO] minta "laporan", buka `AIOS-CONSOLIDATED-REPORT.md` untuk melihat semua penjualan produk digital.
 
 ---
 

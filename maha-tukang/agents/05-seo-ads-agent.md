@@ -47,4 +47,4 @@ CTA: Hubungi Sekarang!
 ```
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO] ([CEO])

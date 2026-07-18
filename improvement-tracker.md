@@ -15,7 +15,7 @@ Track all issues and improvements. Every problem MUST have a solution.
 | 2 | Landing pages not deployed | 🔴 CRITICAL | ⚠️ IN PROGRESS | Auto deploy all 10 landing pages | Run DEPLOY script |
 | 3 | 54 agents not running | 🔴 CRITICAL | ✅ FIXED | 29 automations active, triggered | Monitoring |
 | 4 | No sales outreach | 🔴 CRITICAL | ⚠️ IN PROGRESS | Execute WhatsApp blast | Messages ready |
-| 5 | No payment system | 🟡 HIGH | ⚠️ IN PROGRESS | BCA 6485086645 ready | Invoice templates ready |
+| 5 | No payment system | 🟡 HIGH | ⚠️ IN PROGRESS | BCA [BANK_ACCOUNT] ready | Invoice templates ready |
 | 6 | No follow-up system | 🟡 HIGH | ✅ FIXED | Follow-up scripts ready | Execute today |
 
 ---
@@ -80,7 +80,7 @@ PROBLEM CHAIN:
 ║  📊 Total Revenue: Rp 2.000.000                                 ║
 ║                                                                    ║
 ║  💵 CEO SHARE (60%): Rp 1.200.000                              ║
-║     → TRANSFER KE: BCA 6485086645                               ║
+║     → TRANSFER KE: BCA [BANK_ACCOUNT]                               ║
 ║                                                                    ║
 ║  ⏰ DEADLINE: 16:00 WIB                                        ║
 ║                                                                    ║
@@ -100,7 +100,7 @@ PROBLEM CHAIN:
 | Leads Database | ✅ 10 leads | Ready for outreach |
 | Sales Scripts | ✅ Ready | WhatsApp + Call scripts |
 | Invoice Templates | ✅ Ready | Professional templates |
-| Bank Account | ✅ Ready | BCA 6485086645 |
+| Bank Account | ✅ Ready | BCA [BANK_ACCOUNT] |
 
 ### ⚠️ Needs Immediate Action
 | Component | Status | Action Required |
@@ -138,7 +138,7 @@ PROBLEM CHAIN:
 ### Phase 5: Payment & Transfer (16:00)
 - [ ] Terima payment
 - [ ] Hitung 60% profit
-- [ ] **TRANSFER KE BCA 6485086645**
+- [ ] **TRANSFER KE BCA [BANK_ACCOUNT]**
 - [ ] Screenshot & notify CEO
 
 ---

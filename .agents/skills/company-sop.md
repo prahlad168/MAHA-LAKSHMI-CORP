@@ -392,7 +392,7 @@ File Recovery:
 
 | Bank | Account Number | Recipient |
 |------|---------------|-----------|
-| **BCA** | **6485086645** | Owner/Shareholder |
+| **BCA** | **[BANK_ACCOUNT]** | Owner/Shareholder |
 
 ### Distribution Schedule
 - **Monthly**: End of each month
@@ -401,7 +401,7 @@ File Recovery:
 ### Distribution Percentage
 | Category | Percentage | Recipient |
 |----------|------------|-----------|
-| Owner/Shareholder | 60% | BCA: 6485086645 |
+| Owner/Shareholder | 60% | BCA: [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity/CSR | 5% | Donations |

@@ -2,8 +2,8 @@
 ## MAHA LAKSHMI HOLDINGS
 
 **Tanggal:** 18 Juli 2026
-**CEO:** i Made Purna Ananda (Pak Pur)
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -21,7 +21,7 @@
 
 ### Cek MGOS Dashboard
 1. Buka: https://app.mgos.id atau sesuai dashboard
-2. Login dengan akun Pak Pur
+2. Login dengan akun [CEO_ALIAS_REDACTED]
 3. Cek total revenue
 4. Screenshot sebagai bukti
 
@@ -42,8 +42,8 @@
 2. Pilih m-BCA → m-Transfer
 3. Pilih "Antar Rekening BCA"
 4. Masukkan:
-   - Nomor Rekening Tujuan: 6485086645
-   - Nama Penerima: i Made Purna Ananda
+   - Nomor Rekening Tujuan: [BANK_ACCOUNT]
+   - Nama Penerima: [CEO_NAME_REDACTED]
    - Jumlah: Rp 800,000
    - Catatan: Profit-BaliTravel-20260713
 5. Konfirmasi
@@ -59,8 +59,8 @@
 2. Pilih m-BCA → m-Transfer
 3. Pilih "Antar Rekening BCA"
 4. Masukkan:
-   - Nomor Rekening Tujuan: 6485086645
-   - Nama Penerima: i Made Purna Ananda
+   - Nomor Rekening Tujuan: [BANK_ACCOUNT]
+   - Nama Penerima: [CEO_NAME_REDACTED]
    - Jumlah: Rp 334,320,116
    - Catatan: Profit-MGOSEnterprise-20260717
 5. Konfirmasi
@@ -121,7 +121,7 @@ Date: 2026-07-18
 
 ### ✅ YANG PERLU DILAKUKAN:
 - [ ] Verifikasi sumber revenue di MGOS dashboard
-- [ ] Transfer dari rekening sendiri ke BCA 6485086645
+- [ ] Transfer dari rekening sendiri ke BCA [BANK_ACCOUNT]
 - [ ] Simpan reference number BCA
 - [ ] Screenshot bukti transfer
 - [ ] Update sistem dengan reference number
@@ -142,7 +142,7 @@ SEBELUM:
 ❌ Tidak ada reference number
 
 SESUDAH:
-✅ Pak Pur transfer sendiri via BCA Mobile
+✅ [CEO_ALIAS_REDACTED] transfer sendiri via BCA Mobile
 ✅ Simpan reference number BCA
 ✅ Screenshot sebagai bukti
 ✅ Update sistem dengan reference
@@ -166,7 +166,7 @@ SESUDAH:
 - [ ] Sumber: WhatsApp Sales Bali Travel
 - [ ] Amount: Rp 800,000
 - [ ] Transfer via: BCA Mobile
-- [ ] Ke rekening: BCA 6485086645
+- [ ] Ke rekening: BCA [BANK_ACCOUNT]
 - [ ] Reference number: _____________
 - [ ] Screenshot: _____________
 - [ ] Sistem di-update: _____________
@@ -175,7 +175,7 @@ SESUDAH:
 - [ ] Sumber: MGOS-Enterprise Digital Sales
 - [ ] Amount: Rp 334,320,116
 - [ ] Transfer via: BCA Mobile
-- [ ] Ke rekening: BCA 6485086645
+- [ ] Ke rekening: BCA [BANK_ACCOUNT]
 - [ ] Reference number: _____________
 - [ ] Screenshot: _____________
 - [ ] Sistem di-update: _____________
@@ -186,8 +186,8 @@ SESUDAH:
 
 **Total: Rp 335,120,116**
 
-Ke rekening: BCA 6485086645
-Atas nama: i Made Purna Ananda
+Ke rekening: BCA [BANK_ACCOUNT]
+Atas nama: [CEO_NAME_REDACTED]
 
 ---
 

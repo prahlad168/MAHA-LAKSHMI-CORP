@@ -38,8 +38,8 @@ MAHA TUKANG siap bantu:
 ✅ Garansi proyek
 ✅ Pembayaran aman
 
-Klik: https://wa.me/6281337558787
+Klik: https://wa.me/[PHONE_REDACTED]
 ```
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO] ([CEO])

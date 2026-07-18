@@ -126,4 +126,4 @@ Mau saya bantu daftar dan dapat proyek pertama? Gratis!
 **Agent Version:** 1.0.0
 **Created:** 2026-07-04
 **Status:** 🚀 ACTIVE
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO] ([CEO])

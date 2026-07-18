@@ -4,8 +4,8 @@
 **Version:** 2.0.0
 **Created:** 2026-07-03
 **Updated:** 2026-07-03
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -23,7 +23,7 @@ Semua adalah SATU ECO-SYSTEM yang saling terhubung."
 ```
 ╔══════════════════════════════════════════════════════════════════════════════╗
 ║                    👑 MAHA LAKSHMI DIGITAL HOLDINGS                       ║
-║                           CEO: i Made Purna Ananda                                     ║
+║                           CEO: [CEO_NAME_REDACTED]                                     ║
 ║                         Target: Rp 1B/bulan                               ║
 ╚══════════════════════════════════════════════════════════════════════════════╝
 
@@ -59,13 +59,13 @@ Semua adalah SATU ECO-SYSTEM yang saling terhubung."
 | **Total Companies** | 10 SBUs |
 | **Total Target Revenue** | Rp 1.000.000.000/bulan |
 | **Total AI Agents** | 100+ |
-| **CEO Bank** | BCA 6485086645 |
+| **CEO Bank** | BCA [BANK_ACCOUNT] |
 | **Owner Share** | 60% of all profits |
 
 ### Profit Distribution
 | Category | % | Destination |
 |----------|---|-------------|
-| Owner (i Made Purna Ananda) | 60% | BCA 6485086645 |
+| Owner ([CEO_NAME_REDACTED]) | 60% | BCA [BANK_ACCOUNT] |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity | 5% | CSR Account |

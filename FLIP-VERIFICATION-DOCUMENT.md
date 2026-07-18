@@ -18,7 +18,7 @@
 | **Jenis Bisnis** | Multi-SBU Digital Enterprise |
 | **Bentuk Usaha** | Private Company |
 | **Website** | https://prahlad168.github.io/MAHA-LAKSHMI-CORP/ |
-| **WhatsApp Business** | 081337558787 |
+| **WhatsApp Business** | [PHONE_REDACTED] |
 
 ### Deskripsi Bisnis
 
@@ -81,7 +81,7 @@ MAHA LAKSHMI HOLDINGS adalah perusahaan digital yang mengelola 10 Strategic Busi
 | Platform | Link/Handle |
 |----------|-------------|
 | **GitHub** | https://github.com/prahlad168 |
-| **WhatsApp Business** | 081337558787 |
+| **WhatsApp Business** | [PHONE_REDACTED] |
 | **Email** | info@mahalakshmi.id |
 
 ### SBU Websites
@@ -140,8 +140,8 @@ Screenshot: Lihat lampiran
 ### Legal Documents (Ready if needed)
 - [ ] NPWP Perusahaan
 - [ ] Akta Pendirian
-- [ ] KTP Pemilik (i Made Purna Ananda)
-- [ ] Rekening Bank BCA: 6485086645
+- [ ] KTP Pemilik ([CEO_NAME_REDACTED])
+- [ ] Rekening Bank BCA: [BANK_ACCOUNT]
 
 ### Business Proof
 - [x] Website aktif
@@ -156,9 +156,9 @@ Screenshot: Lihat lampiran
 
 | Field | Value |
 |-------|-------|
-| **Nama** | i Made Purna Ananda (Pak Pur) |
+| **Nama** | [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED]) |
 | **Position** | Founder & CEO |
-| **WhatsApp** | 081337558787 |
+| **WhatsApp** | [PHONE_REDACTED] |
 | **Email** | info@mahalakshmi.id |
 
 ---

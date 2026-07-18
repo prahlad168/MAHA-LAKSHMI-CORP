@@ -88,7 +88,7 @@ crontab -e
 | Channel | Target |
 |---------|--------|
 | Email | `ceo@mahalakshmi.id` |
-| WhatsApp | `081337558787` |
+| WhatsApp | `[PHONE_REDACTED]` |
 
 ### Test Email & WhatsApp
 
@@ -99,7 +99,7 @@ curl "https://payanganhospital.gianyarkab.go.id/MAHA-OS/notifications/api/send-r
 
 ### WhatsApp Link Format
 ```
-https://wa.me/6281337558787?text=[formatted message]
+https://wa.me/[PHONE_REDACTED]?text=[formatted message]
 ```
 
 ---
@@ -220,8 +220,8 @@ tail -f /var/log/php-mail.log
 
 - **CEO:** Prahlad
 - **Email:** ceo@mahalakshmi.id
-- **WhatsApp:** 081337558787
-- **Bank:** BCA 6485086645
+- **WhatsApp:** [PHONE_REDACTED]
+- **Bank:** BCA [BANK_ACCOUNT]
 
 ---
 

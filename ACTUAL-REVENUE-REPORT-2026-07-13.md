@@ -160,7 +160,7 @@ ACTUAL REVENUE: Rp 1.000.000
 
 ## Step 1: WhatsApp (5 minutes)
 ```
-Open: wa.me/6281337558787
+Open: wa.me/[PHONE_REDACTED]
 Send to: 10 Indonesia leads
 Message: Bali Travel Partnership
 ```
@@ -223,7 +223,7 @@ GitHub: github.com/prahlad168/MAHA-LAKSHMI-CORP
 |-------|-------|
 | **Total Revenue** | **Rp 1.000.000** |
 | **CEO Share (60%)** | **Rp 600.000** |
-| **Transfer To** | BCA 6485086645 |
+| **Transfer To** | BCA [BANK_ACCOUNT] |
 | **Status** | ⏳ READY TO TRANSFER |
 | **Deadline** | 23:50 WIB |
 

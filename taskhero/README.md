@@ -2,7 +2,7 @@
 
 **Version:** 2.0.0  
 **Created:** 2026-07-13  
-**CEO:** i Made Purna Ananda  
+**CEO:** [CEO_NAME_REDACTED]  
 **Domain:** TaskHero.io (Recommended)  
 **Status:** 🚀 FULLY OPERATIONAL
 
@@ -290,10 +290,10 @@ Enterprise: Custom (Unlimited)
 
 ## 📧 CONTACT
 
-**CEO:** i Made Purna Ananda  
+**CEO:** [CEO_NAME_REDACTED]  
 **WhatsApp:** +62 813 3755 8787  
 **Email:** ceo@taskhero.io  
-**Bank:** BCA 6485086645
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 

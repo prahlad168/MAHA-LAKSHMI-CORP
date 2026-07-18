@@ -213,13 +213,13 @@
                 <div class="info-item">
                     <span class="info-label">Nomor Rekening</span>
                     <div style="display: flex; align-items: center; gap: 10px;">
-                        <span class="info-value">6485086645</span>
-                        <button class="copy-btn" onclick="copyText('6485086645')">📋 Copy</button>
+                        <span class="info-value">[BANK_ACCOUNT]</span>
+                        <button class="copy-btn" onclick="copyText('[BANK_ACCOUNT]')">📋 Copy</button>
                     </div>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Nama Penerima</span>
-                    <span class="info-value">i Made Purna Ananda</span>
+                    <span class="info-value">[CEO_NAME_REDACTED]</span>
                 </div>
                 <div class="info-item">
                     <span class="info-label">Reference</span>
@@ -228,7 +228,7 @@
             </div>
             
             <!-- BCA Mobile Deep Link -->
-            <a href="bca://transfer?recipient=6485086645&amount=600000&description=CEO%20Revenue%20Share" class="transfer-btn" onclick="showSuccess()">
+            <a href="bca://transfer?recipient=[BANK_ACCOUNT]&amount=600000&description=CEO%20Revenue%20Share" class="transfer-btn" onclick="showSuccess()">
                 🚀 Transfer via BCA Mobile
             </a>
             
@@ -250,7 +250,7 @@
             <div class="success-text">
                 Pembayaran CEO Revenue Share<br>
                 <strong>Rp 600.000</strong><br>
-                ke BCA 6485086645<br>
+                ke BCA [BANK_ACCOUNT]<br>
                 telah dikonfirmasi.
             </div>
             <div class="timer">Mengalihkan...</div>
@@ -294,7 +294,7 @@
         }
         
         function showBCAInstructions() {
-            alert('Buka aplikasi BCA Mobile Anda, lalu:\n\n1. Pilih menu "m-Transfer"\n2. Pilih "Transfer ke BCA"\n3. Masukkan nomor rekening: 6485086645\n4. Masukkan jumlah: 600000\n5. Konfirmasi dengan PIN');
+            alert('Buka aplikasi BCA Mobile Anda, lalu:\n\n1. Pilih menu "m-Transfer"\n2. Pilih "Transfer ke BCA"\n3. Masukkan nomor rekening: [BANK_ACCOUNT]\n4. Masukkan jumlah: 600000\n5. Konfirmasi dengan PIN');
         }
     </script>
 </body>

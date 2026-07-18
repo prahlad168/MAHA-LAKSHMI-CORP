@@ -1,6 +1,6 @@
 # 🌍 MAHA LAKSHMI GLOBAL DIGITAL SALES - 24/7
 
-## CEO: Pak Pur | Target: Rp 1 Milyar/bulan
+## CEO: [CEO_ALIAS_REDACTED] | Target: Rp 1 Milyar/bulan
 
 ---
 
@@ -176,7 +176,7 @@ OCEANIA AGENTS: Mia, Liam, Ella, Noah, Chloe, Oliver, Sophie, James
 │   ├── Generate daily sales report                        │
 │   ├── Calculate commissions                             │
 │   ├── Update leaderboards                               │
-│   └── Send email + WhatsApp to Pak Pur                  │
+│   └── Send email + WhatsApp to [CEO_ALIAS_REDACTED]                  │
 │                                                          │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -205,8 +205,8 @@ MAHA-OS/global-sales/
 | Every Hour | Process global transactions |
 | Every 6 Hours | Update inventory |
 | Daily 00:00 WIB | Generate daily report |
-| Daily 06:00 WIB | Send email to Pak Pur |
-| Daily 07:00 WIB | Send WhatsApp to Pak Pur |
+| Daily 06:00 WIB | Send email to [CEO_ALIAS_REDACTED] |
+| Daily 07:00 WIB | Send WhatsApp to [CEO_ALIAS_REDACTED] |
 | Weekly Monday | Generate weekly summary |
 | Monthly 1st | Generate monthly report |
 
@@ -239,7 +239,7 @@ MAHA-OS/global-sales/
    3. 🇬🇧 UK: $3,200
 
 ═══════════════════════════
-👑 Pak Pur | BCA: 6485086645
+👑 [CEO_ALIAS_REDACTED] | BCA: [BANK_ACCOUNT]
 🌍 MAHA LAKSHMI GLOBAL
 ```
 
@@ -268,6 +268,6 @@ MAHA-OS/global-sales/
 ---
 
 **Created:** 2026-07-04
-**CEO:** Pak Pur
-**Bank:** BCA 6485086645
+**CEO:** [CEO_ALIAS_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
 **Target:** Rp 1 Milyar/bulan

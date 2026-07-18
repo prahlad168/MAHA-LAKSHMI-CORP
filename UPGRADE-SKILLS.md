@@ -2,7 +2,7 @@
 
 ## Version: 2.0.0
 ## Date: 2026-07-12
-## CEO: i Made Purna Ananda
+## CEO: [CEO_NAME_REDACTED]
 
 ---
 
@@ -86,7 +86,7 @@ Skills:
 ✅ Expense Categorizer
 ✅ Tax Calculator (11% PPN)
 ✅ Profit Distribution Auto
-✅ Bank Sync (BCA 6485086645)
+✅ Bank Sync (BCA [BANK_ACCOUNT])
 
 Commands:
 - /invoice [client] [amount]
@@ -222,7 +222,7 @@ PAYMENT RECEIVED 💰
 REVENUE TRACKED
     ↓
 PROFIT DISTRIBUTED
-    └── 60% → BCA 6485086645
+    └── 60% → BCA [BANK_ACCOUNT]
     └── 25% → Reinvest
     └── 10% → Team Bonus
     └── 5%  → CSR
@@ -276,7 +276,7 @@ PROFIT DISTRIBUTED
 
 ### Payment Gateway
 ```
-BCA: 6485086645
+BCA: [BANK_ACCOUNT]
 QRIS: Auto-generate
 Stripe: pending
 PayPal: pending
@@ -284,8 +284,8 @@ PayPal: pending
 
 ### Communication
 ```
-WhatsApp: 081337558787
-Email: gaurangga168@gmail.com
+WhatsApp: [PHONE_REDACTED]
+Email: [EMAIL_REDACTED]
 Telegram: pending
 ```
 
@@ -335,6 +335,6 @@ Domain: gianyarkab.go.id
 
 **Version:** 2.0.0
 **Updated:** 2026-07-12
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
-**WhatsApp:** 081337558787
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
+**WhatsApp:** [PHONE_REDACTED]

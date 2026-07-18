@@ -8,11 +8,11 @@
 
 ## 🎯 PROTOKOL SUARA
 
-**Setiap kali GAURANGA merespon perintah Pak Pur:**
+**Setiap kali GAURANGA merespon perintah [CEO]:**
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│  🚀 Pak Pur kasih perintah                             │
+│  🚀 [CEO] kasih perintah                             │
 │      ↓                                                 │
 │  💬 GAURANGA merespon (teks)                          │
 │      ↓                                                 │
@@ -30,7 +30,7 @@
 | Aksi | Hasil |
 |------|-------|
 | Klik tombol 🔊 | GAURANGA bilang "Gaurngga aktif!" |
-| Double-klik | Bilang "Ya, Pak Pur! Gaurngga siap!" |
+| Double-klik | Bilang "Ya, [CEO]! Gaurngga siap!" |
 | Klik lagi (mode aktif) | Matikan suara → "Silent mode" |
 
 ---
@@ -40,7 +40,7 @@
 | Trigger | Pesan |
 |---------|-------|
 | Tombol diklik | "Gaurngga aktif! Silakan berikan perintah!" |
-| Double-klik | "Ya, Pak Pur! Gaurngga siap!" |
+| Double-klik | "Ya, [CEO]! Gaurngga siap!" |
 | Toggle ON | "Gaurngga aktif! Silakan berikan perintah!" |
 | Toggle OFF | "Silent mode aktif. Ketik silent untuk ulang." |
 
@@ -100,7 +100,7 @@ function toggleVoice() {
 
 ## 🔄 COMMAND "SILENT"
 
-Jika Pak Pur ketik "silent":
+Jika [CEO] ketik "silent":
 - Suara dimatikan
 - Tombol berubah abu-abu
 - Status: "GAURANGA SILENT 🤫"
@@ -158,10 +158,10 @@ def gaurangga_speak(text):
 
 | Message | Text |
 |---------|------|
-| Activation | "Ya, Pak Pur! Gaurangga siap menerima perintah!" |
-| Confirmation | "Baik, Pak Pur! Saya akan [task]." |
-| Completion | "Selesai, Pak Pur! [task] sudah selesai!" |
-| Error | "Maaf Pak Pur, ada masalah: [error]" |
+| Activation | "Ya, [CEO]! Gaurangga siap menerima perintah!" |
+| Confirmation | "Baik, [CEO]! Saya akan [task]." |
+| Completion | "Selesai, [CEO]! [task] sudah selesai!" |
+| Error | "Maaf [CEO], ada masalah: [error]" |
 
 ---
 
@@ -193,22 +193,22 @@ GAURANGA VOICE adalah kemampuan untuk merespon perintah dengan suara/audio mengg
 
 ### Activation Response
 ```
-"Ya, Pak Pur! Gaurangga siap menerima perintah!"
+"Ya, [CEO]! Gaurangga siap menerima perintah!"
 ```
 
 ### Confirmation
 ```
-"Baik, Pak Pur! Saya akan [task]."
+"Baik, [CEO]! Saya akan [task]."
 ```
 
 ### Completion
 ```
-"Selesai, Pak Pur! [task] sudah selesai!"
+"Selesai, [CEO]! [task] sudah selesai!"
 ```
 
 ### Error
 ```
-"Maaf Pak Pur, ada masalah: [error]"
+"Maaf [CEO], ada masalah: [error]"
 ```
 
 ### Ready
@@ -273,13 +273,13 @@ Bot_Molty5/
 ## 🎵 SAMPLE RESPONSES
 
 ### Task Received:
-> *"Baik, Pak Pur! Saya akan deploy MAHA TUKANG sekarang!"*
+> *"Baik, [CEO]! Saya akan deploy MAHA TUKANG sekarang!"*
 
 ### Task Complete:
-> *"Selesai, Pak Pur! Website sudah live di GitHub Pages!"*
+> *"Selesai, [CEO]! Website sudah live di GitHub Pages!"*
 
 ### Error:
-> *"Maaf Pak Pur, ada masalah dengan deployment. Saya coba lagi ya!"*
+> *"Maaf [CEO], ada masalah dengan deployment. Saya coba lagi ya!"*
 
 ### Ready:
 > *"Gaurangga siap! Silakan berikan perintah pertama Anda!"*

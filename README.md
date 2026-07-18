@@ -3,8 +3,8 @@
 ## Platform Marketplace Jasa Tukang Berbasis AI Indonesia
 
 **Website:** https://maha-tukang.vercel.app
-**CEO:** i Made Purna Ananda (Pak Pur)
-**Bank:** BCA 6485086645
+**CEO:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])
+**Bank:** BCA [BANK_ACCOUNT]
 
 ---
 
@@ -121,5 +121,5 @@ maha-tukang-landing/
 
 ---
 
-&copy; 2026 MAHA TUKANG | i Made Purna Ananda
+&copy; 2026 MAHA TUKANG | [CEO_NAME_REDACTED]
 Refresh Mon Jul 13 07:27:39 UTC 2026

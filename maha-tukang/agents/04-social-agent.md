@@ -47,7 +47,7 @@
 ## 🔗 SOCIAL LINKS
 - TikTok: @mahatukang.id
 - Instagram: @mahatukang.id
-- WhatsApp: 081337558787
+- WhatsApp: [PHONE_REDACTED]
 
 **Agent Version:** 1.0.0 | **Status:** 🚀 READY
-**Owner:** i Made Purna Ananda (Pak Pur)
+**Owner:** [CEO_NAME_REDACTED] ([CEO_ALIAS_REDACTED])

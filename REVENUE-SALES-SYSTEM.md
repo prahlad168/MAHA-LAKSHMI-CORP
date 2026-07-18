@@ -1,10 +1,10 @@
 # 💰 REVENUE SALES SYSTEM - MAHA LAKSHMI HOLDINGS
-## Target: Revenue CEO ke BCA 6485086645 - HARI INI!
+## Target: Revenue CEO ke BCA [BANK_ACCOUNT] - HARI INI!
 
 **Tanggal:** 12 Juli 2026
-**CEO:** i Made Purna Ananda
-**Bank:** BCA 6485086645
-**WhatsApp:** 081337558787
+**CEO:** [CEO_NAME_REDACTED]
+**Bank:** BCA [BANK_ACCOUNT]
+**WhatsApp:** [PHONE_REDACTED]
 
 ---
 
@@ -18,7 +18,7 @@
 ### Target Hari Ini:
 - ✅ Minimum 1 deal closed
 - ✅ Minimum Rp 500.000 revenue
-- ✅ 60% transfer ke BCA 6485086645
+- ✅ 60% transfer ke BCA [BANK_ACCOUNT]
 
 ---
 
@@ -64,7 +64,7 @@ Contoh:
 - Jual 10 tour/bulan → Rp 1.500.000 passive income!
 
 Mau diskusi partnership?
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 
 --
 Bali Travel
@@ -85,7 +85,7 @@ Kami tawarkan:
 Portfolio: gianyartech.id
 
 Boleh diskusi kebutuhan digital bisnis Anda?
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 ```
 
 #### Template 3: Urgency Close
@@ -102,7 +102,7 @@ Hari ini kami ada **SPECIAL OFFER**:
 ⚠️ Offer ini cuma hari ini!
 
 Boleh saya bookingkan untuk Anda?
-📱 wa.me/6281337558787
+📱 wa.me/[PHONE_REDACTED]
 ```
 
 ---
@@ -258,7 +258,7 @@ Gianyar Tech Solutions
 ╠════════════════════════════════════════════════════════════════════╣
 ║                                                                    ║
 ║  PAYMENT METHOD:                                                  ║
-║  🏦 BCA: 6485086645 (i Made Purna Ananda)                       ║
+║  🏦 BCA: [BANK_ACCOUNT] ([CEO_NAME_REDACTED])                       ║
 ║  📱 QRIS: Scan QRIS                                             ║
 ║                                                                    ║
 ║  Due Date: 14 Juli 2026                                          ║
@@ -318,7 +318,7 @@ Gianyar Tech Solutions
 ║                                                                    ║
 ║  ┌──────────────────────────────────────────────────────────┐  ║
 ║  │ CEO SHARE (60%):        Rp 1.200.000                   │  ║
-║  │    → TRANSFER KE: BCA 6485086645                       │  ║
+║  │    → TRANSFER KE: BCA [BANK_ACCOUNT]                       │  ║
 ║  │                                                      │  ║
 ║  │ Reinvestment (25%):     Rp 500.000                    │  ║
 ║  │ Team Bonus (10%):       Rp 200.000                    │  ║
@@ -357,7 +357,7 @@ Gianyar Tech Solutions
 - [ ] Kirim invoice ke Deal #2
 - [ ] Terima payment
 - [ ] Hitung profit distribution
-- [ ] **TRANSFER 60% KE BCA 6485086645**
+- [ ] **TRANSFER 60% KE BCA [BANK_ACCOUNT]**
 - [ ] Screenshot bukti transfer
 - [ ] Kirim WhatsApp ke CEO
 
@@ -387,10 +387,10 @@ Gianyar Tech Solutions
 
 | Info | Detail |
 |------|--------|
-| **CEO** | i Made Purna Ananda |
-| **WhatsApp** | 081337558787 |
-| **Bank** | BCA 6485086645 |
-| **Email** | gaurangga168@gmail.com |
+| **CEO** | [CEO_NAME_REDACTED] |
+| **WhatsApp** | [PHONE_REDACTED] |
+| **Bank** | BCA [BANK_ACCOUNT] |
+| **Email** | [EMAIL_REDACTED] |
 
 ---
 
