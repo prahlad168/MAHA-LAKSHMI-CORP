@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianyar Tech Solutions - Software House</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #6C63FF;
+            --primary-dark: #5A52D5;
+            --secondary: #00D4AA;
+            --dark: #1a1a2e;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        .navbar {
+            background: rgba(26,26,46,0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); }
+        .hero {
+            padding: 150px 5% 80px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        .hero h1 span { color: var(--primary); }
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(108,99,255,0.4); }
+        .services {
+            padding: 80px 5%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 { font-size: 2.5rem; margin-bottom: 15px; }
+        .section-title p { color: rgba(255,255,255,0.7); }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .service-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+        .service-icon { font-size: 3rem; margin-bottom: 20px; }
+        .service-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .service-desc { color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+        .service-price {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary);
+        }
+        .pricing {
+            padding: 80px 5%;
+            background: rgba(255,255,255,0.02);
+        }
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .price-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .price-card.featured {
+            border: 2px solid var(--primary);
+            position: relative;
+        }
+        .price-card.featured::before {
+            content: 'Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            padding: 5px 20px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        .price-name { font-size: 1.5rem; font-weight: 700; margin-bottom: 20px; }
+        .price-amount { font-size: 2.5rem; font-weight: 800; color: var(--primary); margin-bottom: 5px; }
+        .price-period { color: rgba(255,255,255,0.5); margin-bottom: 30px; }
+        .price-features { list-style: none; margin-bottom: 30px; text-align: left; }
+        .price-features li { padding: 10px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .price-features li::before { content: '✓ '; color: var(--secondary); }
+        .contact {
+            padding: 80px 5%;
+            text-align: center;
+        }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .footer {
+            background: rgba(0,0,0,0.3);
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">💻 GianyarTech</div>
+        <div>
+            <a href="https://wa.me/6281337558787" class="btn btn-primary">💬 WhatsApp</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Solusi Digital <span>Terpercaya</span></h1>
+        <p>Kami membangun website, aplikasi mobile, dan sistem digital untuk bisnis Anda. Dari landing page hingga enterprise solution.</p>
+        <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website" class="btn btn-primary">Mulai Konsultasi Gratis</a>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>🚀 Layanan Kami</h2>
+            <p>Solusi digital lengkap untuk pertumbuhan bisnis Anda</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🌐</div>
+                <h3 class="service-title">Website Development</h3>
+                <p class="service-desc">Landing page, company profile, e-commerce, web app custom</p>
+                <div class="service-price">Mulai Rp 3jt</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📱</div>
+                <h3 class="service-title">Mobile App</h3>
+                <p class="service-desc">iOS & Android app untuk bisnis Anda</p>
+                <div class="service-price">Mulai Rp 15jt</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3 class="service-title">AI Integration</h3>
+                <p class="service-desc">Chatbot, automation, AI agents untuk bisnis</p>
+                <div class="service-price">Mulai Rp 5jt</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="section-title">
+            <h2>💰 Paket Harga</h2>
+            <p>Pilih paket yang sesuai kebutuhan Anda</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="price-card">
+                <h3 class="price-name">Starter</h3>
+                <div class="price-amount">Rp 3jt</div>
+                <div class="price-period">One-time</div>
+                <ul class="price-features">
+                    <li>Landing Page</li>
+                    <li>Responsive Design</li>
+                    <li>Basic SEO</li>
+                    <li>Contact Form</li>
+                </ul>
+                <a href="https://wa.me/6281337558787" class="btn btn-primary">Pesan</a>
+            </div>
+            <div class="price-card featured">
+                <h3 class="price-name">Professional</h3>
+                <div class="price-amount">Rp 10jt</div>
+                <div class="price-period">One-time</div>
+                <ul class="price-features">
+                    <li>Company Website</li>
+                    <li>CMS Integration</li>
+                    <li>Advanced SEO</li>
+                    <li>Analytics</li>
+                    <li>3 Bulan Support</li>
+                </ul>
+                <a href="https://wa.me/6281337558787" class="btn btn-primary">Pesan</a>
+            </div>
+            <div class="price-card">
+                <h3 class="price-name">Enterprise</h3>
+                <div class="price-amount">Rp 50jt</div>
+                <div class="price-period">Custom</div>
+                <ul class="price-features">
+                    <li>Custom Web App</li>
+                    <li>Database Integration</li>
+                    <li>API Development</li>
+                    <li>AI Features</li>
+                    <li>6 Bulan Support</li>
+                </ul>
+                <a href="https://wa.me/6281337558787" class="btn btn-primary">Pesan</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <h2>📞 Hubungi Kami</h2>
+        <p>Tim developer kami siap membantu проекта Anda</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">💬</div>
+                <span>0813 3755 8787</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <span>tech.mahalaksmi.web.id</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">💻 GianyarTech</div>
+        <p>Software House - Bagian dari MAHA LAKSHMI HOLDINGS</p>
+        <p style="margin-top: 20px; color: rgba(255,255,255,0.3);">© 2026 MAHA LAKSHMI HOLDINGS</p>
+    </footer>
+</body>
+</html>

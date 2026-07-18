@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bali Travel Platform - Tours & Travel Agent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A24;
+            --secondary: #0048BA;
+            --accent: #00D4AA;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background: rgba(26,26,46,0.95);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 30px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .btn-nav {
+            background: var(--primary);
+            padding: 10px 25px;
+            border-radius: 25px;
+            color: #fff !important;
+        }
+        .btn-nav:hover { background: var(--primary-dark); }
+
+        /* Hero */
+        .hero {
+            padding: 150px 5% 100px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(0,212,170,0.1) 100%);
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.8);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: #fff;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,53,0.4); }
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .btn-secondary:hover { background: var(--accent); color: #1a1a2e; }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            padding: 60px 5%;
+            background: rgba(255,255,255,0.03);
+        }
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label { color: rgba(255,255,255,0.7); margin-top: 10px; }
+
+        /* Tours */
+        .tours {
+            padding: 80px 5%;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .section-title p { color: rgba(255,255,255,0.7); }
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .tour-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .tour-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+        .tour-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+        .tour-content { padding: 25px; }
+        .tour-badge {
+            background: var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .tour-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .tour-desc { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px; }
+        .tour-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .tour-price { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+        .tour-price span { font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+        .btn-book {
+            background: var(--accent);
+            color: #1a1a2e;
+            padding: 10px 25px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-book:hover { background: #00b894; }
+
+        /* Partnership */
+        .partnership {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(0,212,170,0.1) 100%);
+        }
+        .partner-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .partner-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s;
+        }
+        .partner-card:hover { border-color: var(--accent); transform: scale(1.02); }
+        .partner-icon { font-size: 3rem; margin-bottom: 20px; }
+        .partner-title { font-size: 1.3rem; font-weight: 700; margin-bottom: 10px; }
+        .partner-desc { color: rgba(255,255,255,0.7); margin-bottom: 20px; }
+        .partner-value {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        /* Contact */
+        .contact {
+            padding: 80px 5%;
+            text-align: center;
+        }
+        .contact h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .contact p { color: rgba(255,255,255,0.7); margin-bottom: 40px; }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.2rem;
+        }
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        .footer {
+            background: rgba(0,0,0,0.3);
+            padding: 40px 5%;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .footer p { color: rgba(255,255,255,0.5); }
+        .footer-brand { margin-top: 20px; color: rgba(255,255,255,0.3); font-size: 0.9rem; }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .stats { grid-template-columns: repeat(2, 1fr); }
+            .navbar { padding: 15px 20px; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">✈️ BaliTravel</div>
+        <div class="nav-links">
+            <a href="#tours">Paket Tour</a>
+            <a href="#partner">Partner</a>
+            <a href="#contact">Kontak</a>
+            <a href="https://wa.me/6281337558787" class="btn-nav">💬 WhatsApp</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1>Jelajahi <span>Bali</span> Bersama Kami</h1>
+        <p>Platform tour & travel terpercaya dengan 10+ paket tour premium, 5 guide profesional, dan commission 15% untuk partner!</p>
+        <div class="hero-btns">
+            <a href="#tours" class="btn btn-primary">🚤 Lihat Paket Tour</a>
+            <a href="#partner" class="btn btn-secondary">🤝 Jadi Partner</a>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats">
+        <div class="stat-card">
+            <div class="stat-number">10+</div>
+            <div class="stat-label">Paket Tour Ready</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Local Guide Profesional</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">15%</div>
+            <div class="stat-label">Komisi Partner</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Customer Support</div>
+        </div>
+    </section>
+
+    <!-- Tours -->
+    <section class="tours" id="tours">
+        <div class="section-title">
+            <h2>🏝️ Paket Tour Populer</h2>
+            <p>Pilih paket tour sesuai keinginan Anda</p>
+        </div>
+        <div class="tours-grid">
+            <div class="tour-card">
+                <div class="tour-img">🏝️</div>
+                <div class="tour-content">
+                    <span class="tour-badge">Best Seller</span>
+                    <h3 class="tour-title">Nusa Penida Adventure</h3>
+                    <p class="tour-desc">Kelingking Beach, Diamond Beach, Angel's Billabong - Full Day Trip</p>
+                    <div class="tour-footer">
+                        <div class="tour-price">Rp 850.000 <span>/org</span></div>
+                        <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20Nusa%20Penida%20Adventure" class="btn-book">Booking</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img">🌋</div>
+                <div class="tour-content">
+                    <span class="tour-badge">Premium</span>
+                    <h3 class="tour-title">Kawah Ijen & Bromo</h3>
+                    <p class="tour-desc">Sunrise Tour Kawah Ijen + Penanjakan Bromo - 2 Hari 1 Malam</p>
+                    <div class="tour-footer">
+                        <div class="tour-price">Rp 2.500.000 <span>/org</span></div>
+                        <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20Kawah%20Ijen%20%26%20Bromo" class="btn-book">Booking</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img">🛶</div>
+                <div class="tour-content">
+                    <span class="tour-badge">Family</span>
+                    <h3 class="tour-title">Rafting Ayung + Ubud</h3>
+                    <p class="tour-desc">Rafting Grade 2-3, Tegallalang, Monkey Forest - Full Day</p>
+                    <div class="tour-footer">
+                        <div class="tour-price">Rp 1.200.000 <span>/org</span></div>
+                        <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20Rafting%20Ayung" class="btn-book">Booking</a>
+                    </div>
+                </div>
+            </div>
+            <div class="tour-card">
+                <div class="tour-img">🌅</div>
+                <div class="tour-content">
+                    <span class="tour-badge">Romantis</span>
+                    <h3 class="tour-title">Sunset Dinner Cruise</h3>
+                    <p class="tour-desc">Private cruise, sunset view, seafood dinner - 4 jam</p>
+                    <div class="tour-footer">
+                        <div class="tour-price">Rp 3.500.000 <span>/couple</span></div>
+                        <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20Sunset%20Dinner%20Cruise" class="btn-book">Booking</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partnership -->
+    <section class="partnership" id="partner">
+        <div class="section-title">
+            <h2>🤝 Jadi Partner Kami</h2>
+            <p>Dapatkan komisi 15% dari setiap penjualan tour</p>
+        </div>
+        <div class="partner-grid">
+            <div class="partner-card">
+                <div class="partner-icon">🏨</div>
+                <h3 class="partner-title">Hotel & Resort</h3>
+                <p class="partner-desc">Rekomendasikan tour ke tamu hotel Anda</p>
+                <div class="partner-value">15% Komisi</div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-icon">📱</div>
+                <h3 class="partner-title">Travel Agent</h3>
+                <p class="partner-desc">Jual paket tour kami, dapat komisi</p>
+                <div class="partner-value">15% Komisi</div>
+            </div>
+            <div class="partner-card">
+                <div class="partner-icon">💰</div>
+                <h3 class="partner-title">Affiliate</h3>
+                <p class="partner-desc">Share link promo, dapat passive income</p>
+                <div class="partner-value">15% Komisi</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2>📞 Hubungi Kami</h2>
+        <p>Tim kami siap membantu 24/7</p>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">💬</div>
+                <span>0813 3755 8787</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">🌐</div>
+                <span>travel.mahalaksmi.web.id</span>
+            </div>
+        </div>
+        <div style="margin-top: 40px;">
+            <a href="https://wa.me/6281337558787?text=Halo%20Bali%20Travel,%20saya%20tertarik%20dengan%20paket%20tour" class="btn btn-primary" style="font-size: 1.2rem;">
+                💬 Chat WhatsApp Sekarang
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-logo">✈️ BaliTravel</div>
+        <p>Platform Tour & Travel - Bagian dari MAHA LAKSHMI HOLDINGS</p>
+        <p class="footer-brand">© 2026 MAHA LAKSHMI HOLDINGS. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
