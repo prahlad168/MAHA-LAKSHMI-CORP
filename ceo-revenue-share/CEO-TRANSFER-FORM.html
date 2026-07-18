@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💰 CEO Profit Transfer - MAHA LAKSHMI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        
+        .header {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 { font-size: 2em; }
+        .header .subtitle { opacity: 0.8; margin-top: 10px; }
+        
+        .pending-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .pending-section h2 { 
+            color: #f39c12; 
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .transfer-card {
+            background: rgba(255,255,255,0.08);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid #e74c3c;
+        }
+        .transfer-card h3 { 
+            color: #e74c3c; 
+            margin-bottom: 15px;
+        }
+        .transfer-card .amount { 
+            font-size: 2em; 
+            color: #2ecc71; 
+            font-weight: bold;
+        }
+        .transfer-card .source { 
+            opacity: 0.7; 
+            margin-top: 5px;
+        }
+        .transfer-card .status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+        .status-pending { background: #f39c12; }
+        .status-completed { background: #2ecc71; }
+        
+        .form-section {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 20px;
+        }
+        .form-section h2 { color: #3498db; margin-bottom: 20px; }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            opacity: 0.8;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: none;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            font-size: 1em;
+        }
+        .form-group input:focus {
+            outline: none;
+            background: rgba(255,255,255,0.15);
+        }
+        
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn:hover { transform: scale(1.02); }
+        .btn-transfer {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: #fff;
+        }
+        .btn-reset {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            margin-top: 10px;
+        }
+        
+        .info-box {
+            background: rgba(52, 152, 219, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        .info-box h4 { color: #3498db; margin-bottom: 10px; }
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .info-box li {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .info-box li:last-child { border: none; }
+        
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+        .result.success {
+            display: block;
+            background: rgba(46, 204, 113, 0.2);
+            border: 1px solid #2ecc71;
+        }
+        .result.error {
+            display: block;
+            background: rgba(231, 76, 60, 0.2);
+            border: 1px solid #e74c3c;
+        }
+        
+        .bank-details {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .bank-details h4 { color: #3498db; margin-bottom: 15px; }
+        .bank-details .bank-name { font-size: 1.5em; font-weight: bold; color: #2ecc71; }
+        .bank-details .account { font-size: 1.2em; margin-top: 5px; }
+        .bank-details .name { opacity: 0.8; margin-top: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💰 CEO Profit Transfer</h1>
+            <p class="subtitle">MAHA LAKSHMI HOLDINGS</p>
+            <p class="subtitle">i Made Purna Ananda (Pak Pur)</p>
+        </div>
+        
+        <div class="info-box">
+            <h4>📊 Total Profit Distribution</h4>
+            <ul>
+                <li><strong>Total Revenue:</strong> Rp 418,900,145</li>
+                <li><strong>CEO Share (80%):</strong> Rp 335,120,116</li>
+                <li><strong>Reinvestment (20%):</strong> Rp 83,780,029</li>
+            </ul>
+        </div>
+        
+        <div class="pending-section">
+            <h2>⏳ Pending Transfers</h2>
+            
+            <div class="transfer-card">
+                <h3>Transfer 1: Bali Travel</h3>
+                <div class="amount">Rp 800,000</div>
+                <div class="source">Source: WhatsApp Sales</div>
+                <span class="status status-pending">PENDING</span>
+            </div>
+            
+            <div class="transfer-card">
+                <h3>Transfer 2: MGOS Enterprise</h3>
+                <div class="amount">Rp 334,320,116</div>
+                <div class="source">Source: MGOS-Enterprise Digital Sales</div>
+                <span class="status status-pending">PENDING</span>
+            </div>
+        </div>
+        
+        <div class="form-section">
+            <h2>📝 Update Transfer Status</h2>
+            <p style="opacity: 0.7; margin-bottom: 20px;">
+                Setelah transfer via BCA Mobile, update di sini dengan reference number BCA.
+            </p>
+            
+            <form id="transferForm">
+                <div class="form-group">
+                    <label>Transfer ID</label>
+                    <select id="transferId" required>
+                        <option value="">-- Pilih Transfer --</option>
+                        <option value="PENDING-001">PENDING-001: Bali Travel (Rp 800,000)</option>
+                        <option value="PENDING-002">PENDING-002: MGOS Enterprise (Rp 334,320,116)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>BCA Reference Number</label>
+                    <input type="text" id="refNumber" placeholder="Contoh: BCA20260718001234" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Amount (Rp)</label>
+                    <input type="number" id="amount" placeholder="Contoh: 800000" required>
+                </div>
+                
+                <button type="submit" class="btn btn-transfer">✅ Update Transfer Status</button>
+                <button type="button" class="btn btn-reset" onclick="resetForm()">🔄 Reset Form</button>
+            </form>
+            
+            <div id="result" class="result"></div>
+        </div>
+        
+        <div class="bank-details">
+            <h4>🏦 Transfer ke Rekening Berikut:</h4>
+            <div class="bank-name">BCA</div>
+            <div class="account">6485086645</div>
+            <div class="name">i Made Purna Ananda</div>
+        </div>
+        
+        <div style="text-align: center; padding: 30px; opacity: 0.6;">
+            <p>💡 Transfer dengan bukti reference number adalah transfer yang VALID!</p>
+            <p style="margin-top: 10px;">Generated: 2026-07-18</p>
+        </div>
+    </div>
+    
+    <script>
+        // Pre-fill amount based on selection
+        document.getElementById('transferId').addEventListener('change', function() {
+            const amounts = {
+                'PENDING-001': 800000,
+                'PENDING-002': 334320116
+            };
+            document.getElementById('amount').value = amounts[this.value] || '';
+        });
+        
+        document.getElementById('transferForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const transferId = document.getElementById('transferId').value;
+            const refNumber = document.getElementById('refNumber').value;
+            const amount = document.getElementById('amount').value;
+            const resultDiv = document.getElementById('result');
+            
+            // Validate
+            if (!transferId || !refNumber || !amount) {
+                resultDiv.className = 'result error';
+                resultDiv.innerHTML = '❌ Mohon isi semua field dengan lengkap!';
+                return;
+            }
+            
+            // Simulate update (in real system, this would call the Python script)
+            resultDiv.className = 'result success';
+            resultDiv.innerHTML = `
+                <h4>✅ Transfer Updated!</h4>
+                <p><strong>Transfer ID:</strong> ${transferId}</p>
+                <p><strong>Reference:</strong> ${refNumber}</p>
+                <p><strong>Amount:</strong> Rp ${parseInt(amount).toLocaleString('id-ID')}</p>
+                <p style="margin-top: 15px; opacity: 0.8;">
+                    ⚠️ Note: Untuk update sistem, jalankan command:<br>
+                    <code style="background: rgba(0,0,0,0.2); padding: 5px 10px; border-radius: 5px;">
+                    python3 update-transfer-status.py --id ${transferId} --ref ${refNumber} --amount ${amount}
+                    </code>
+                </p>
+            `;
+            
+            // Reset form
+            resetForm();
+        });
+        
+        function resetForm() {
+            document.getElementById('transferId').value = '';
+            document.getElementById('refNumber').value = '';
+            document.getElementById('amount').value = '';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+{
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2026-07-18",
+    "description": "Valid Transfer Tracker - Only REAL verified transfers",
+    "last_updated": "2026-07-18T04:25:00+07:00",
+    "bank_details": {
+      "bank": "BCA",
+      "account_number": "6485086645",
+      "account_name": "i Made Purna Ananda"
+    }
+  },
+  "total_revenue": {
+    "all_time": 418900145,
+    "pending_distribution": 418900145,
+    "distributed": 0
+  },
+  "profit_distribution_config": {
+    "ceo_share_percent": 80,
+    "reinvestment_percent": 20,
+    "ceo_share_amount": 335120116,
+    "reinvestment_amount": 83780029
+  },
+  "pending_transfers": [
+    {
+      "transfer_id": "PENDING-001",
+      "type": "CEO_PROFIT_SHARE",
+      "source": "WhatsApp_Sales",
+      "source_amount": 1000000,
+      "ceo_share": 800000,
+      "description": "Profit dari Bali Travel WhatsApp Sales",
+      "created": "2026-07-13",
+      "due_date": "2026-07-14",
+      "status": "PENDING",
+      "bank_transfer": {
+        "bank": "BCA",
+        "account_number": "6485086645",
+        "account_name": "i Made Purna Ananda",
+        "amount": 800000,
+        "reference_number": null,
+        "screenshot": null,
+        "transfer_date": null
+      }
+    },
+    {
+      "transfer_id": "PENDING-002",
+      "type": "CEO_PROFIT_SHARE",
+      "source": "MGOS_Enterprise",
+      "source_amount": 417900145,
+      "ceo_share": 334320116,
+      "description": "Profit dari MGOS-Enterprise Digital Sales",
+      "created": "2026-07-17",
+      "due_date": "2026-07-18",
+      "status": "PENDING",
+      "bank_transfer": {
+        "bank": "BCA",
+        "account_number": "6485086645",
+        "account_name": "i Made Purna Ananda",
+        "amount": 334320116,
+        "reference_number": null,
+        "screenshot": null,
+        "transfer_date": null
+      }
+    }
+  ],
+  "completed_transfers": [],
+  "audit_log": [
+    {
+      "timestamp": "2026-07-18T04:25:00+07:00",
+      "action": "SYSTEM_RESET",
+      "description": "Reset semua transfer ke PENDING. Menghapus data RECEIVED yang tidak terverifikasi.",
+      "previous_status": "MANY_FAKE_RECEIVED",
+      "new_status": "PENDING",
+      "notes": "Audit log sebelumnya menunjukkan status RECEIVED tanpa bukti transfer. Semua di-reset ke PENDING."
+    }
+  ]
+}
