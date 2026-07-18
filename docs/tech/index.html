@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gianyar Tech Solutions - Software House #1 di Bali</title>
+    <meta name="description" content="Software house profesional di Gianyar, Bali. Web Development, Mobile Apps, Custom Software, IT Consulting. Harga mulai Rp 3jt.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{--primary:#2563eb;--primary-dark:#1d4ed8;--success:#10b981;--dark:#0f172a;--gray:#64748b;--light:#f8fafc;--white:#fff}
+        body{font-family:'Inter',sans-serif;background:var(--light);color:var(--dark);line-height:1.6}
+        .container{max-width:1200px;margin:0 auto;padding:0 20px}
+        .btn{padding:14px 28px;border-radius:10px;font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;cursor:pointer;border:none;font-size:1rem}
+        .btn-primary{background:var(--primary);color:var(--white)}.btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px)}
+        .btn-success{background:var(--success);color:var(--white)}.btn-success:hover{transform:translateY(-2px)}
+        .btn-white{background:var(--white);color:var(--primary)}.btn-white:hover{background:var(--light)}
+        
+        /* Navbar */
+        .navbar{background:var(--white);padding:15px 0;position:fixed;width:100%;top:0;z-index:1000;box-shadow:0 2px 20px rgba(0,0,0,.08)}
+        .nav-content{display:flex;justify-content:space-between;align-items:center}
+        .logo{font-size:1.5rem;font-weight:800;color:var(--primary)}.logo span{color:var(--dark)}
+        .nav-links{display:flex;gap:30px;list-style:none}
+        .nav-links a{text-decoration:none;color:var(--gray);font-weight:500;transition:.3s}
+        .nav-links a:hover{color:var(--primary)}
+        
+        /* Hero */
+        .hero{background:linear-gradient(135deg,#1e3a5f 0%,#0f172a 100%);color:var(--white);padding:150px 0 100px;text-align:center;min-height:90vh;display:flex;align-items:center}
+        .hero-content{max-width:800px;margin:0 auto}
+        .badge{background:rgba(37,99,235,.2);color:#60a5fa;padding:8px 16px;border-radius:50px;font-size:.875rem;font-weight:500;display:inline-block;margin-bottom:20px}
+        .hero h1{font-size:3.5rem;font-weight:800;line-height:1.2;margin-bottom:20px}
+        .hero p{font-size:1.25rem;color:#94a3b8;margin-bottom:30px}
+        .hero-btns{display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+        .hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+        .stat{text-align:center}
+        .stat-number{font-size:3rem;font-weight:800;color:var(--primary)}
+        .stat-label{color:#94a3b8;font-size:.875rem;margin-top:5px}
+        
+        /* Section */
+        .section{padding:80px 0}
+        .section-header{text-align:center;margin-bottom:50px}
+        .section-header h2{font-size:2.5rem;font-weight:700;margin-bottom:10px}
+        .section-header p{color:var(--gray);font-size:1.125rem}
+        
+        /* Services */
+        .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px}
+        .service-card{background:var(--white);padding:30px;border-radius:16px;transition:.3s;border:2px solid transparent}
+        .service-card:hover{border-color:var(--primary);transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.1)}
+        .service-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--primary-dark));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:var(--white);margin-bottom:20px}
+        .service-card h3{font-size:1.25rem;font-weight:600;margin-bottom:10px}
+        .service-card p{color:var(--gray);margin-bottom:15px}
+        .service-price{font-size:1.5rem;font-weight:700;color:var(--primary)}
+        .service-price span{font-size:.875rem;color:var(--gray);font-weight:400}
+        
+        /* Portfolio */
+        .portfolio{background:var(--white)}
+        .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px}
+        .portfolio-card{background:var(--light);border-radius:16px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,.08)}
+        .portfolio-img{height:200px;background:linear-gradient(135deg,var(--primary),var(--success));display:flex;align-items:center;justify-content:center;font-size:4rem}
+        .portfolio-content{padding:20px}
+        .portfolio-content h3{font-size:1.25rem;margin-bottom:8px}
+        .portfolio-content p{color:var(--gray);font-size:.9375rem}
+        
+        /* CTA */
+        .cta{background:linear-gradient(135deg,var(--primary),var(--primary-dark));color:var(--white);text-align:center;padding:100px 0}
+        .cta h2{font-size:2.5rem;font-weight:700;margin-bottom:15px}
+        .cta p{font-size:1.125rem;opacity:.9;margin-bottom:30px;max-width:600px;margin-left:auto;margin-right:auto}
+        
+        /* Contact */
+        .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+        .contact-item{display:flex;align-items:center;gap:15px;margin-bottom:25px}
+        .contact-item i{width:50px;height:50px;background:var(--light);border-radius:12px;display:flex;align-items:center;justify-content:center;color:var(--primary);font-size:1.25rem}
+        .contact-item h4{font-size:1rem;margin-bottom:3px}
+        .contact-item p{color:var(--gray);font-size:.9375rem}
+        .contact-form{display:flex;flex-direction:column;gap:15px}
+        .contact-form input,.contact-form textarea{padding:15px;border:1px solid #e2e8f0;border-radius:10px;font-family:inherit;font-size:1rem}
+        .contact-form textarea{min-height:150px;resize:vertical}
+        
+        /* Footer */
+        .footer{background:var(--dark);color:var(--white);padding:60px 0 30px}
+        .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px}
+        .footer-brand p{color:#94a3b8;margin-top:15px;line-height:1.7}
+        .footer h4{font-size:1rem;font-weight:600;margin-bottom:15px}
+        .footer ul{list-style:none}
+        .footer ul li{margin-bottom:10px}
+        .footer ul a{color:#94a3b8;text-decoration:none;transition:.3s}
+        .footer ul a:hover{color:var(--white)}
+        .footer-bottom{text-align:center;padding-top:30px;border-top:1px solid rgba(255,255,255,.1);color:#64748b;font-size:.875rem}
+        
+        /* WhatsApp Float */
+        .whatsapp-float{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--white);font-size:1.75rem;box-shadow:0 4px 20px rgba(37,211,102,.4);z-index:999;text-decoration:none;transition:.3s}
+        .whatsapp-float:hover{transform:scale(1.1)}
+        
+        /* Pricing */
+        .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+        .pricing-card{background:var(--white);padding:40px;border-radius:20px;text-align:center;border:2px solid transparent;transition:.3s}
+        .pricing-card:hover{border-color:var(--primary);transform:translateY(-5px)}
+        .pricing-card.popular{border-color:var(--primary);position:relative}
+        .pricing-card.popular::before{content:'TERLARIS';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary);color:var(--white);padding:5px 20px;border-radius:20px;font-size:.75rem;font-weight:600}
+        .pricing-card h3{font-size:1.5rem;margin-bottom:10px}
+        .pricing-card .price{font-size:3rem;font-weight:800;color:var(--primary);margin:20px 0}
+        .pricing-card .price span{font-size:1rem;color:var(--gray);font-weight:400}
+        .pricing-card ul{list-style:none;text-align:left;margin:20px 0}
+        .pricing-card ul li{padding:10px 0;border-bottom:1px solid #e2e8f0}
+        .pricing-card ul li i{color:var(--success);margin-right:10px}
+        
+        @media(max-width:768px){
+            .hero h1{font-size:2.25rem}
+            .hero-stats{grid-template-columns:repeat(2,1fr)}
+            .nav-links{display:none}
+            .contact-grid,.pricing-grid{grid-template-columns:1fr}
+            .footer-grid{grid-template-columns:1fr}
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <div class="logo">Gianyar<span>Tech</span></div>
+            <ul class="nav-links">
+                <li><a href="#services">Layanan</a></li>
+                <li><a href="#pricing">Harga</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <a href="https://wa.me/6281337558787" class="btn btn-primary">
+                <i class="fab fa-whatsapp"></i> Hubungi Kami
+            </a>
+        </div>
+    </nav>
+    
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="badge">🏆 Software House #1 di Gianyar, Bali</span>
+            <h1>Wujudkan Impian Digital Anda Bersama Kami</h1>
+            <p>Tim developer profesional siap mengubah ide bisnis Anda menjadi solusi digital yang luar biasa dengan teknologi terdepan.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website" class="btn btn-primary">
+                    <i class="fas fa-rocket"></i> Mulai Project
+                </a>
+                <a href="#portfolio" class="btn btn-white">
+                    <i class="fas fa-eye"></i> Lihat Portfolio
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><div class="stat-number">150+</div><div class="stat-label">Project Selesai</div></div>
+                <div class="stat"><div class="stat-number">50+</div><div class="stat-label">Client Puas</div></div>
+                <div class="stat"><div class="stat-number">8+</div><div class="stat-label">Tahun Pengalaman</div></div>
+                <div class="stat"><div class="stat-number">100%</div><div class="stat-label">Garansi</div></div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Layanan Kami</h2>
+                <p>Solusi digital lengkap untuk kebutuhan bisnis Anda</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Website Development</h3>
+                    <p>Landing page, corporate website, e-commerce dengan desain modern dan responsif.</p>
+                    <div class="service-price">Rp 3jt <span>- Rp 25jt</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile App Development</h3>
+                    <p>Aplikasi iOS & Android dengan performa tinggi dan user experience terbaik.</p>
+                    <div class="service-price">Rp 15jt <span>- Rp 75jt</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <h3>E-Commerce Solution</h3>
+                    <p>Toko online lengkap dengan payment gateway, inventory, dan analytics.</p>
+                    <div class="service-price">Rp 10jt <span>- Rp 50jt</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-robot"></i></div>
+                    <h3>Custom Software</h3>
+                    <p>Sistem custom sesuai kebutuhan bisnis dengan teknologi terkini.</p>
+                    <div class="service-price">Rp 25jt <span>- Rp 200jt</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-search"></i></div>
+                    <h3>SEO & Digital Marketing</h3>
+                    <p>Optimasi SEO, Google Ads, dan social media marketing untuk naikkan traffic.</p>
+                    <div class="service-price">Rp 1jt <span>- Rp 5jt/bulan</span></div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-headset"></i></div>
+                    <h3>IT Consulting</h3>
+                    <p>Konsultasi teknologi, arsitektur sistem, dan transformasi digital.</p>
+                    <div class="service-price">Rp 500rb <span>- Rp 3jt</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Paket Harga</h2>
+                <p>Pilih paket yang sesuai dengan kebutuhan Anda</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Starter</h3>
+                    <div class="price">Rp 3jt <span>/project</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Landing Page</li>
+                        <li><i class="fas fa-check"></i> 5 Halaman</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> SEO Basic</li>
+                        <li><i class="fas fa-check"></i> 1 Revisi</li>
+                    </ul>
+                    <a href="https://wa.me/6281337558787" class="btn btn-primary" style="width:100%;justify-content:center">Pilih Paket</a>
+                </div>
+                <div class="pricing-card popular">
+                    <h3>Professional</h3>
+                    <div class="price">Rp 10jt <span>/project</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Corporate Website</li>
+                        <li><i class="fas fa-check"></i> 15 Halaman</li>
+                        <li><i class="fas fa-check"></i> CMS Admin Panel</li>
+                        <li><i class="fas fa-check"></i> SEO Advanced</li>
+                        <li><i class="fas fa-check"></i> 5 Revisi</li>
+                    </ul>
+                    <a href="https://wa.me/6281337558787" class="btn btn-success" style="width:100%;justify-content:center">Pilih Paket</a>
+                </div>
+                <div class="pricing-card">
+                    <h3>Enterprise</h3>
+                    <div class="price">Rp 25jt <span>/project</span></div>
+                    <ul>
+                        <li><i class="fas fa-check"></i> E-Commerce / Custom</li>
+                        <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                        <li><i class="fas fa-check"></i> API Integration</li>
+                        <li><i class="fas fa-check"></i> SEO Premium</li>
+                        <li><i class="fas fa-check"></i> Unlimited Revisi</li>
+                    </ul>
+                    <a href="https://wa.me/6281337558787" class="btn btn-primary" style="width:100%;justify-content:center">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <div class="section-header">
+                <h2>Portfolio Kami</h2>
+                <p>Project yang sudah kami selesaikan dengan succès</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="portfolio-img">🏥</div>
+                    <div class="portfolio-content">
+                        <h3>Payangan Hospital</h3>
+                        <p>Sistem Informasi Rumah Sakit lengkap dengan pasien management dan jadwal dokter.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-img">🏨</div>
+                    <div class="portfolio-content">
+                        <h3>Bali Resort Booking</h3>
+                        <p>Platform booking villa dan resort dengan integrasi payment gateway.</p>
+                    </div>
+                </div>
+                <div class="portfolio-card">
+                    <div class="portfolio-img">🍽️</div>
+                    <div class="portfolio-content">
+                        <h3>Warung Bali App</h3>
+                        <p>Aplikasi mobile untuk pemesanan makanan tradisional Bali dengan delivery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="cta">
+        <div class="container">
+            <h2>Siap Mulai Project Anda?</h2>
+            <p>Konsultasi gratis dengan tim kami. Dapatkan penawaran terbaik untuk kebutuhan digital Anda.</p>
+            <a href="https://wa.me/6281337558787?text=Halo,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website" class="btn btn-white">
+                <i class="fab fa-whatsapp"></i> Chat Sekarang
+            </a>
+        </div>
+    </section>
+    
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Hubungi Kami</h2>
+                <p>Kami siap membantu Anda 24/7</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div><h4>Alamat</h4><p>Jl. Mayor Widoyo No.88, Gianyar, Bali</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div><h4>Telepon</h4><p>+62 813 3755 8787</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div><h4>Email</h4><p>info@gianyartech.id</p></div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div><h4>Jam Operasional</h4><p>Senin - Sabtu: 08.00 - 17.00 WITA</p></div>
+                    </div>
+                </div>
+                <form class="contact-form">
+                    <input type="text" placeholder="Nama Lengkap" required>
+                    <input type="email" placeholder="Email" required>
+                    <input type="tel" placeholder="Nomor WhatsApp" required>
+                    <textarea placeholder="Deskripsi Project Anda"></textarea>
+                    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">
+                        <i class="fas fa-paper-plane"></i> Kirim Pesan
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">Gianyar<span>Tech</span></div>
+                    <p>Software house profesional di Gianyar, Bali. Mengubah ide bisnis Anda menjadi solusi digital yang luar biasa.</p>
+                </div>
+                <div>
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile App</a></li>
+                        <li><a href="#">E-Commerce</a></li>
+                        <li><a href="#">Custom Software</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Perusahaan</h4>
+                    <ul>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Karir</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ikuti Kami</h4>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Gianyar Tech Solutions. Bagian dari MAHA LAKSHMI HOLDINGS.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <a href="https://wa.me/6281337558787" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</body>
+</html>
