@@ -1,0 +1,2 @@
+exclude: []
+include: ["progress", "digimart", "survey", "microtask", "airdrop", "linkshort"]
