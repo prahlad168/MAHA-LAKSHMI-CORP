@@ -5,4 +5,27 @@
 <section class="services"><div class="section-header"><h2>Layanan Logistics</h2></div><div class="services-grid"><div class="service-card"><div class="service-icon">⚡</div><h3>Express Delivery</h3><p>Pengiriman cepat same-day dan next-day di seluruh Bali</p></div><div class="service-card"><div class="service-icon">📦</div><h3>Cargo</h3><p>Pengiriman barang besar dan berat ke seluruh Indonesia</p></div><div class="service-card"><div class="service-icon">🔄</div><h3>Supply Chain</h3><p>Solusi supply chain management untuk bisnis</p></div><div class="service-card"><div class="service-icon">📍</div><h3>Tracking</h3><p>Real-time tracking pengiriman</p></div></div></section>
 <section class="cta-section"><h2>Butuh Jasa Pengiriman?</h2><a href="https://wa.me/6281337558787" class="btn">💬 Hubungi Kami</a></section>
 <footer><p>© 2026 Bali Logistics Network | MAHA LAKSHMI HOLDINGS</p><p style="margin-top:.5rem;opacity:.7">CEO: [CEO_NAME_REDACTED] | BCA [BANK_ACCOUNT]</p></footer>
-</body></html>
+<script>/**
+ * MAHA LAKSHMI - Biometric Authentication Guard
+ */
+(function() {
+    'use strict';
+    const SESSION_KEY = 'maha_lakshmi_session';
+    
+    function checkAuth() {
+        if (window.location.pathname.includes('biometric-auth.html')) return true;
+        const session = localStorage.getItem(SESSION_KEY);
+        if (!session) { window.location.href = 'biometric-auth.html'; return false; }
+        try {
+            const d = JSON.parse(session);
+            if (Date.now() - d.timestamp < 86400000) return true;
+            localStorage.removeItem(SESSION_KEY);
+        } catch(e) {}
+        window.location.href = 'biometric-auth.html';
+        return false;
+    }
+    window.biometricLogout = function() { localStorage.removeItem(SESSION_KEY); window.location.href = 'biometric-auth.html'; };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', checkAuth);
+    else setTimeout(checkAuth, 100);
+})();
+</script></body></html>

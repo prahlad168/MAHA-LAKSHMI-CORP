@@ -1560,5 +1560,28 @@
         // Start dashboard
         document.addEventListener('DOMContentLoaded', initDashboard);
     </script>
-</body>
+<script>/**
+ * MAHA LAKSHMI - Biometric Authentication Guard
+ */
+(function() {
+    'use strict';
+    const SESSION_KEY = 'maha_lakshmi_session';
+    
+    function checkAuth() {
+        if (window.location.pathname.includes('biometric-auth.html')) return true;
+        const session = localStorage.getItem(SESSION_KEY);
+        if (!session) { window.location.href = 'biometric-auth.html'; return false; }
+        try {
+            const d = JSON.parse(session);
+            if (Date.now() - d.timestamp < 86400000) return true;
+            localStorage.removeItem(SESSION_KEY);
+        } catch(e) {}
+        window.location.href = 'biometric-auth.html';
+        return false;
+    }
+    window.biometricLogout = function() { localStorage.removeItem(SESSION_KEY); window.location.href = 'biometric-auth.html'; };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', checkAuth);
+    else setTimeout(checkAuth, 100);
+})();
+</script></body>
 </html>

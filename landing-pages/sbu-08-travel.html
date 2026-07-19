@@ -5,4 +5,27 @@
 <section class="services"><div class="section-header"><h2>Layanan Travel</h2></div><div class="services-grid"><div class="service-card"><div class="service-icon">🎫</div><h3>Tiket</h3><p>Booking tiket pesawat, kapal, dan transportasi</p></div><div class="service-card"><div class="service-icon">🏨</div><h3>Hotel</h3><p>Akomodasi terbaik di Bali dengan harga kompetitif</p></div><div class="service-card"><div class="service-icon">🗺️</div><h3>Tour</h3><p>Paket tour wisata ke seluruh Bali</p></div><div class="service-card"><div class="service-icon">🚗</div><h3>Transport</h3><p>Sewa mobil, motor, dan driver</p></div></div></section>
 <section class="cta-section"><h2>Rencanakan Perjalanan Anda</h2><a href="https://wa.me/6281337558787" class="btn">💬 Hubungi Kami</a></section>
 <footer><p>© 2026 Bali Travel Platform | MAHA LAKSHMI HOLDINGS</p><p style="margin-top:.5rem;opacity:.7">CEO: [CEO_NAME_REDACTED] | BCA [BANK_ACCOUNT]</p></footer>
-</body></html>
+<script>/**
+ * MAHA LAKSHMI - Biometric Authentication Guard
+ */
+(function() {
+    'use strict';
+    const SESSION_KEY = 'maha_lakshmi_session';
+    
+    function checkAuth() {
+        if (window.location.pathname.includes('biometric-auth.html')) return true;
+        const session = localStorage.getItem(SESSION_KEY);
+        if (!session) { window.location.href = 'biometric-auth.html'; return false; }
+        try {
+            const d = JSON.parse(session);
+            if (Date.now() - d.timestamp < 86400000) return true;
+            localStorage.removeItem(SESSION_KEY);
+        } catch(e) {}
+        window.location.href = 'biometric-auth.html';
+        return false;
+    }
+    window.biometricLogout = function() { localStorage.removeItem(SESSION_KEY); window.location.href = 'biometric-auth.html'; };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', checkAuth);
+    else setTimeout(checkAuth, 100);
+})();
+</script></body></html>
