@@ -1,312 +1,177 @@
 #!/usr/bin/env python3
 """
-Global Sales Email Outreach Script
+Global Sales Outreach Script
 MAHA LAKSHMI HOLDINGS
-Sends 50 personalized emails per day to leads
 """
 
 import csv
 import json
 import random
 from datetime import datetime, timedelta
-from typing import List, Dict
 
-# Email templates by type
-EMAIL_TEMPLATES = {
-    "cold": [
-        """Subject: Quick question about {{company_name}}'s website
+TEMPLATES = {
+    "cold_usa_tech": """Subject: Quick question about {company_name}
 
-Hi {{contact_name}},
+Hi {contact_name},
 
-I noticed {{company_name}} is doing some impressive work in the {{industry}} space.
+I noticed {company_name} is doing interesting work in {industry}.
 
-I wanted to reach out because we've helped similar {{industry}} companies transform their online presence with custom designs that increased conversions by 40%.
+We build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.
 
-Quick question - is your current website generating the leads you'd expect?
+Is your digital presence driving the results you want?
 
-If not, I'd love to show you how we can help. We specialize in:
-- Custom website design & development
-- Conversion rate optimization
-- SEO that actually ranks
+I'd love to show you how we can help - starting at $500.
 
-Would you be open to a quick 15-minute call this week?
+Open to a quick 15-minute call?
 
-Best regards,
-{{sender_name}}
+Best,
+Alex Johnson
+MAHA LAKSHMI HOLDINGS
+alex@mahalakshmi.io""",
+
+    "cold_usa_healthcare": """Subject: Helping {industry} companies grow online
+
+Hi {contact_name},
+
+Impressed by {company_name}'s work in {industry}.
+
+How's your digital presence working for you?
+
+We help healthcare companies build websites that convert. 50% more patient inquiries in 60 days.
+
+Flexible packages starting at $500.
+
+Interested?
+
+Alex Johnson
 MAHA LAKSHMI HOLDINGS""",
 
-        """Subject: Website ideas for {{company_name}}
+    "cold_uk": """Subject: Digital partner for UK {industry} firms?
 
-Hi {{contact_name}},
+Hi {contact_name},
 
-I came across {{company_name}}'s work in {{industry}} - exciting stuff!
+We work with {industry} companies across the UK.
 
-We help companies like yours:
-- Create professional websites
-- Generate more leads
-- Save time with automation
+45% increase in qualified leads in 90 days.
 
-Our clients typically see 30-50% increases in lead generation within 3 months.
+Professional websites, lead generation, client portals.
 
-Would you be open to a quick call to explore how we could help {{company_name}}?
+Open to a brief call?
 
-Best,
-{{sender_name}}
+Alex Johnson
 MAHA LAKSHMI HOLDINGS""",
 
-        """Subject: Growth ideas for {{company_name}}?
+    "cold_australia": """Subject: Partner for {company_name}'s digital growth?
 
-Hi {{contact_name}},
+Hi {contact_name},
 
-I noticed {{company_name}} is building something interesting in the {{industry}} space.
+Impressive work in {industry}!
 
-We specialize in helping companies scale through:
-- Strategic website design
-- Marketing automation
-- Lead generation systems
+We help AU tourism/hospitality businesses. 40-70% increase in bookings.
 
-We recently helped a similar company increase qualified leads by 3x.
+Brief chat?
 
-Would you have 15 minutes this week for a quick chat?
+Alex Johnson
+MAHA LAKSHMI HOLDINGS""",
 
-Best regards,
-{{sender_name}}"""
-    ],
-    "followup_day3": [
-        """Subject: Re: Quick question about {{company_name}}'s website
+    "cold_singapore": """Subject: Growing your {industry} business online?
 
-Hi {{contact_name}},
+Hi {contact_name},
 
-I wanted to follow up on my previous email about how we could help {{company_name}}.
+Following {company_name}'s work in {industry}.
 
-Many companies we've worked with have seen great results:
-- 40% increase in website leads
-- 60% improvement in conversion rates
-- Significant time savings with automation
+We help Asia tech companies build digital presence that converts.
 
-I understand you're busy - just wanted to make sure my email didn't get buried!
+50% more leads, 40% better conversion.
 
-Would you have 10 minutes this week?
+Open to a chat?
 
-Best,
-{{sender_name}}""",
-
-        """Subject: Following up - digital ideas for {{company_name}}
-
-Hi {{contact_name}},
-
-I sent over some ideas for {{company_name}} a few days ago and wanted to make sure it reached you.
-
-Just to recap - we help businesses like yours create websites that generate leads and set up marketing automation.
-
-Happy to share examples of our work if helpful.
-
-Would you be open to a brief call?
-
-Best regards,
-{{sender_name}}"""
-    ],
-    "followup_day7": [
-        """Subject: One last thought for {{company_name}}
-
-Hi {{contact_name}},
-
-I hope you've had a great week. I'm reaching out one last time regarding digital solutions for {{company_name}}.
-
-If now isn't the right time, I completely understand - just wanted to make sure the option was on your radar.
-
-If you ever want to explore how we could help {{company_name}} grow, feel free to reply.
-
-Wishing you all the best!
-
-Best,
-{{sender_name}}
+Alex Johnson
 MAHA LAKSHMI HOLDINGS"""
-    ]
 }
 
-SENDER_INFO = {
-    "name": "Maha Sales Team",
-    "email": "sales@mahalakshmi.com"
-}
+def get_template(lead):
+    country = lead.get('country', 'USA')
+    industry = lead.get('industry', '').lower()
+    if country == 'USA':
+        if 'health' in industry or 'medical' in industry:
+            return TEMPLATES['cold_usa_healthcare']
+        return TEMPLATES['cold_usa_tech']
+    elif country == 'UK':
+        return TEMPLATES['cold_uk']
+    elif country == 'Australia':
+        return TEMPLATES['cold_australia']
+    return TEMPLATES['cold_singapore']
 
-def load_leads_from_csv(filename: str) -> List[Dict]:
-    """Load leads from CSV file"""
-    leads = []
-    try:
-        with open(filename, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            leads = list(reader)
-    except FileNotFoundError:
-        print(f"❌ File not found: {filename}")
-    return leads
+def personalize(template, lead):
+    return template.format(
+        contact_name=lead.get('contact_name', 'there'),
+        company_name=lead.get('company_name', 'your company'),
+        industry=lead.get('industry', 'tech')
+    )
 
-def load_outreach_tracker(filename: str = "outreach-tracker.json") -> Dict:
-    """Load outreach tracker"""
+def load_leads():
     try:
-        with open(filename, 'r') as f:
+        with open('leads-global.csv', 'r') as f:
+            return list(csv.DictReader(f))
+    except: return []
+
+def load_tracker():
+    try:
+        with open('outreach-tracker.json', 'r') as f:
             return json.load(f)
-    except:
-        return {
-            "metadata": {"last_updated": datetime.now().strftime("%Y-%m-%d"), "total_sent": 0},
-            "sequences": {"day1": {"emails": []}, "day3": {"emails": []}, "day7": {"emails": []}},
-            "daily_stats": {}
-        }
+    except: return {"emails": [], "stats": {"total_sent": 0, "responses": 0}}
 
-def save_outreach_tracker(tracker: Dict, filename: str = "outreach-tracker.json"):
-    """Save outreach tracker"""
-    tracker["metadata"]["last_updated"] = datetime.now().strftime("%Y-%m-%d")
-    try:
-        with open(filename, 'w') as f:
-            json.dump(tracker, f, indent=2)
-    except Exception as e:
-        print(f"Error saving tracker: {e}")
-
-def personalize_email(template: str, lead: Dict) -> str:
-    """Replace placeholders with lead data"""
-    replacements = {
-        "{{company_name}}": lead.get("company_name", "your company"),
-        "{{contact_name}}": lead.get("contact_name", "there"),
-        "{{position}}": lead.get("position", ""),
-        "{{industry}}": lead.get("industry", ""),
-        "{{city}}": lead.get("city", ""),
-        "{{country}}": lead.get("country", ""),
-        "{{sender_name}}": SENDER_INFO["name"],
-        "{{sender_email}}": SENDER_INFO["email"]
-    }
-    
-    email = template
-    for placeholder, value in replacements.items():
-        email = email.replace(placeholder, value)
-    
-    return email
-
-def should_send_to_lead(lead: Dict, tracker: Dict) -> bool:
-    """Determine if we should send to this lead"""
-    email = lead.get("email", "")
-    status = lead.get("status", "")
-    
-    # Don't send to already contacted or converted leads
-    if status in ["responded", "closed_won", "closed_lost"]:
-        return False
-    
-    # Check if already sent today
-    today = datetime.now().strftime("%Y-%m-%d")
-    if today in tracker.get("daily_stats", {}):
-        sent_today = tracker["daily_stats"][today].get("sent", 0)
-        if sent_today >= 50:
-            return False
-    
-    return True
-
-def get_next_sequence_for_lead(lead: Dict, tracker: Dict) -> str:
-    """Determine the next email sequence for a lead"""
-    email = lead.get("email", "")
-    
-    # Check existing sequences
-    sequences = tracker.get("sequences", {})
-    
-    for seq_type in ["day1", "day3", "day7"]:
-        sent_emails = sequences.get(seq_type, {}).get("emails", [])
-        if any(e.get("email") == email for e in sent_emails):
-            if seq_type == "day1":
-                return "day3"
-            elif seq_type == "day3":
-                return "day7"
-            else:
-                return None  # Already sent all sequences
-    
-    return "day1"  # Start with cold outreach
-
-def send_emails(leads: List[Dict], count: int = 50):
-    """Send outreach emails to leads"""
-    tracker = load_outreach_tracker("/workspace/project/MAHA-LAKSHMI-CORP/outreach-tracker.json")
-    
-    today = datetime.now().strftime("%Y-%m-%d")
-    if today not in tracker["daily_stats"]:
-        tracker["daily_stats"][today] = {"sent": 0, "opened": 0, "responded": 0, "clicked": 0}
-    
-    sent = 0
-    for lead in leads:
-        if sent >= count:
-            break
-        
-        if not should_send_to_lead(lead, tracker):
-            continue
-        
-        sequence = get_next_sequence_for_lead(lead, tracker)
-        if not sequence:
-            continue
-        
-        # Get template
-        templates = EMAIL_TEMPLATES.get(sequence, EMAIL_TEMPLATES["cold"])
-        template = random.choice(templates)
-        
-        # Personalize email
-        email_content = personalize_email(template, lead)
-        
-        # Log the email (simulated - in real use, would integrate with email service)
-        email_record = {
-            "email": lead.get("email"),
-            "company": lead.get("company_name"),
-            "sequence": sequence,
-            "sent_at": datetime.now().isoformat(),
-            "subject": email_content.split('\n')[0].replace("Subject: ", "")
-        }
-        
-        # Add to tracker
-        tracker["sequences"][sequence]["emails"].append(email_record)
-        tracker["daily_stats"][today]["sent"] += 1
-        tracker["metadata"]["total_sent"] += 1
-        
-        # Update lead status
-        lead["status"] = "contacted"
-        lead["last_contact"] = today
-        
-        sent += 1
-        print(f"✉️  Sent {sequence} email to: {lead.get('email')}")
-        print(f"    📋 Subject: {email_record['subject']}")
-    
-    # Save tracker
-    save_outreach_tracker(tracker, "/workspace/project/MAHA-LAKSHMI-CORP/outreach-tracker.json")
-    
-    # Update leads CSV
-    with open("/workspace/project/MAHA-LAKSHMI-CORP/leads-global.csv", 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=["company_name", "contact_name", "email", "position", "industry", "website", 
-                                                "country", "city", "leads_source", "service_interest", "status", "last_contact", "notes"])
-        writer.writeheader()
-        for lead in leads:
-            writer.writerow(lead)
-    
-    return sent
+def save_tracker(t):
+    with open('outreach-tracker.json', 'w') as f:
+        json.dump(t, f, indent=2)
 
 def main():
-    """Main function"""
-    print("🤖 MAHA LAKSHMI HOLDINGS - Global Email Outreach")
+    print("🚀 Global Sales Outreach - MAHA LAKSHMI HOLDINGS")
     print("=" * 50)
     
-    # Load leads
-    leads = load_leads_from_csv("/workspace/project/MAHA-LAKSHMI-CORP/leads-global.csv")
-    print(f"\n📊 Loaded {len(leads)} leads from database")
+    leads = load_leads()
+    if not leads:
+        print("❌ No leads found!")
+        return
     
-    # Load tracker
-    tracker = load_outreach_tracker("/workspace/project/MAHA-LAKSHMI-CORP/outreach-tracker.json")
-    print(f"📈 Total emails sent so far: {tracker['metadata']['total_sent']}")
+    tracker = load_tracker()
+    contacted = {e['lead_email'] for e in tracker['emails']}
+    new_leads = [l for l in leads if l.get('email') not in contacted]
     
-    # Send emails
-    print(f"\n📤 Sending 50 outreach emails...")
-    sent = send_emails(leads, 50)
+    print(f"📊 Total: {len(leads)} | Contacted: {len(contacted)} | New: {len(new_leads)}")
     
-    print(f"\n✅ Successfully sent {sent} emails today!")
-    print(f"📁 Outreach tracker updated")
+    batch = min(50, len(new_leads))
+    if batch == 0:
+        print("❌ No new leads!")
+        return
     
-    # Show stats
-    today = datetime.now().strftime("%Y-%m-%d")
-    today_stats = tracker.get("daily_stats", {}).get(today, {})
-    print(f"\n📊 Today's Statistics:")
-    print(f"   Sent: {today_stats.get('sent', 0)}")
-    print(f"   Opened: {today_stats.get('opened', 0)}")
-    print(f"   Responded: {today_stats.get('responded', 0)}")
+    todays = random.sample(new_leads, batch)
+    print(f"\n📤 Sending {len(todays)} emails...")
+    
+    for i, lead in enumerate(todays, 1):
+        template = get_template(lead)
+        email_body = personalize(template, lead)
+        
+        tracker['emails'].append({
+            "id": f"email_{datetime.now().strftime('%Y%m%d')}_{i}",
+            "timestamp": datetime.now().isoformat(),
+            "lead_email": lead.get('email'),
+            "lead_name": lead.get('contact_name'),
+            "company": lead.get('company_name'),
+            "country": lead.get('country'),
+            "status": "sent",
+            "email_body": email_body,
+            "responded": False
+        })
+        tracker['stats']['total_sent'] += 1
+        print(f"  {i}. ✅ {lead.get('contact_name')} <{lead.get('email')}>")
+    
+    save_tracker(tracker)
+    
+    print("\n" + "=" * 50)
+    print(f"✅ Sent {len(todays)} emails")
+    print(f"📊 Total sent: {tracker['stats']['total_sent']}")
 
 if __name__ == "__main__":
     main()

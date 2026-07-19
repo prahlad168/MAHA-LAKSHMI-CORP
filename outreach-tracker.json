@@ -1,31 +1,559 @@
 {
-  "metadata": {
-    "last_updated": "2026-07-19",
-    "total_sent": 0,
-    "total_opened": 0,
-    "total_responded": 0,
-    "active_sequences": ["day1", "day3", "day7"]
-  },
-  "sequences": {
-    "day1": {
-      "description": "Initial cold outreach",
-      "emails": []
+  "emails": [
+    {
+      "id": "email_20260719_1",
+      "timestamp": "2026-07-19T14:11:45.524940",
+      "lead_email": "michael@InnovateSaaS.co",
+      "lead_name": "Michael Garcia",
+      "company": "InnovateSaaS.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about InnovateSaaS.co\n\nHi Michael Garcia,\n\nI noticed InnovateSaaS.co is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
     },
-    "day3": {
-      "description": "First follow-up",
-      "emails": []
+    {
+      "id": "email_20260719_2",
+      "timestamp": "2026-07-19T14:11:45.524971",
+      "lead_email": "David Wong",
+      "lead_name": "ops@brisbanefinance.com.au",
+      "company": "Brisbane Finance",
+      "country": "Australia",
+      "status": "sent",
+      "email_body": "Subject: Partner for Brisbane Finance's digital growth?\n\nHi ops@brisbanefinance.com.au,\n\nImpressive work in Finance!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
     },
-    "day7": {
-      "description": "Final follow-up",
-      "emails": []
+    {
+      "id": "email_20260719_3",
+      "timestamp": "2026-07-19T14:11:45.524987",
+      "lead_email": "lisamartin@FutureE-commerce.co",
+      "lead_name": "Lisa Martin",
+      "company": "FutureE-commerce.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about FutureE-commerce.co\n\nHi Lisa Martin,\n\nI noticed FutureE-commerce.co is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_4",
+      "timestamp": "2026-07-19T14:11:45.525005",
+      "lead_email": "emmamartin@GlobalHealthcare.io",
+      "lead_name": "Emma Martin",
+      "company": "GlobalHealthcare.io",
+      "country": "Australia",
+      "status": "sent",
+      "email_body": "Subject: Partner for GlobalHealthcare.io's digital growth?\n\nHi Emma Martin,\n\nImpressive work in Healthcare!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_5",
+      "timestamp": "2026-07-19T14:11:45.525023",
+      "lead_email": "michaelmoore@NextTechnology.com",
+      "lead_name": "Michael Moore",
+      "company": "NextTechnology.com",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about NextTechnology.com\n\nHi Michael Moore,\n\nI noticed NextTechnology.com is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_6",
+      "timestamp": "2026-07-19T14:11:45.525041",
+      "lead_email": "danielanderson@NextReal.com",
+      "lead_name": "Daniel Anderson",
+      "company": "NextReal.com",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about NextReal.com\n\nHi Daniel Anderson,\n\nI noticed NextReal.com is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_7",
+      "timestamp": "2026-07-19T14:11:45.525057",
+      "lead_email": "michaelthomas@FutureHealthTech.io",
+      "lead_name": "Michael Thomas",
+      "company": "FutureHealthTech.io",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK HealthTech firms?\n\nHi Michael Thomas,\n\nWe work with HealthTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_8",
+      "timestamp": "2026-07-19T14:11:45.525074",
+      "lead_email": "daniel.miller@NovaFinance.uk",
+      "lead_name": "Daniel Miller",
+      "company": "NovaFinance.uk",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi Daniel Miller,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_9",
+      "timestamp": "2026-07-19T14:11:45.525092",
+      "lead_email": "lisa@ApexSaaS.uk",
+      "lead_name": "Lisa Taylor",
+      "company": "ApexSaaS.uk",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK SaaS firms?\n\nHi Lisa Taylor,\n\nWe work with SaaS companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_10",
+      "timestamp": "2026-07-19T14:11:45.525110",
+      "lead_email": "Lisa Ng",
+      "lead_name": "hello@sgdigital.sg",
+      "company": "SG Digital Agency",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your Digital Marketing business online?\n\nHi hello@sgdigital.sg,\n\nFollowing SG Digital Agency's work in Digital Marketing.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_11",
+      "timestamp": "2026-07-19T14:11:45.525127",
+      "lead_email": "jenniferthomas@PremierLegal.uk",
+      "lead_name": "Jennifer Thomas",
+      "company": "PremierLegal.uk",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK Legal Tech firms?\n\nHi Jennifer Thomas,\n\nWe work with Legal Tech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_12",
+      "timestamp": "2026-07-19T14:11:45.525145",
+      "lead_email": "michael@InnovateAI/ML.co",
+      "lead_name": "Michael Davis",
+      "company": "InnovateAI/ML.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about InnovateAI/ML.co\n\nHi Michael Davis,\n\nI noticed InnovateAI/ML.co is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_13",
+      "timestamp": "2026-07-19T14:11:45.525162",
+      "lead_email": "emma.garcia@VectorHealthTech.com.sg",
+      "lead_name": "Emma Garcia",
+      "company": "VectorHealthTech.com.sg",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your HealthTech business online?\n\nHi Emma Garcia,\n\nFollowing VectorHealthTech.com.sg's work in HealthTech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_14",
+      "timestamp": "2026-07-19T14:11:45.525179",
+      "lead_email": "jennifer.brown@QuantumTechnology.ai",
+      "lead_name": "Jennifer Brown",
+      "company": "QuantumTechnology.ai",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about QuantumTechnology.ai\n\nHi Jennifer Brown,\n\nI noticed QuantumTechnology.ai is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_15",
+      "timestamp": "2026-07-19T14:11:45.525196",
+      "lead_email": "Mark Wilson",
+      "lead_name": "contact@sydneyfitness.com.au",
+      "company": "Sydney Fitness",
+      "country": "Australia",
+      "status": "sent",
+      "email_body": "Subject: Partner for Sydney Fitness's digital growth?\n\nHi contact@sydneyfitness.com.au,\n\nImpressive work in Fitness Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_16",
+      "timestamp": "2026-07-19T14:11:45.525213",
+      "lead_email": "Robert Kim",
+      "lead_name": "ceo@aiventure.com",
+      "company": "AIVenture Corp",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about AIVenture Corp\n\nHi ceo@aiventure.com,\n\nI noticed AIVenture Corp is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_17",
+      "timestamp": "2026-07-19T14:11:45.525235",
+      "lead_email": "johnjohnson@QuantumRetail.io",
+      "lead_name": "John Johnson",
+      "company": "QuantumRetail.io",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK Retail firms?\n\nHi John Johnson,\n\nWe work with Retail companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_18",
+      "timestamp": "2026-07-19T14:11:45.525252",
+      "lead_email": "kevin@GlobalHealthTech.co.uk",
+      "lead_name": "Kevin Miller",
+      "company": "GlobalHealthTech.co.uk",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK HealthTech firms?\n\nHi Kevin Miller,\n\nWe work with HealthTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_19",
+      "timestamp": "2026-07-19T14:11:45.525268",
+      "lead_email": "Dr. Michael",
+      "lead_name": "ops@medtechsg.sg",
+      "company": "MedTech Singapore",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your MedTech business online?\n\nHi ops@medtechsg.sg,\n\nFollowing MedTech Singapore's work in MedTech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_20",
+      "timestamp": "2026-07-19T14:11:45.525285",
+      "lead_email": "kevin.johnson@QuantumE-commerce.io",
+      "lead_name": "Kevin Johnson",
+      "company": "QuantumE-commerce.io",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about QuantumE-commerce.io\n\nHi Kevin Johnson,\n\nI noticed QuantumE-commerce.io is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_21",
+      "timestamp": "2026-07-19T14:11:45.525302",
+      "lead_email": "Emma Davies",
+      "lead_name": "info@walesagritech.co.uk",
+      "company": "Wales AgriTech",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK AgriTech firms?\n\nHi info@walesagritech.co.uk,\n\nWe work with AgriTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_22",
+      "timestamp": "2026-07-19T14:11:45.525320",
+      "lead_email": "david@GlobalHealthcare.co",
+      "lead_name": "David Wilson",
+      "company": "GlobalHealthcare.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Helping Healthcare companies grow online\n\nHi David Wilson,\n\nImpressed by GlobalHealthcare.co's work in Healthcare.\n\nHow's your digital presence working for you?\n\nWe help healthcare companies build websites that convert. 50% more patient inquiries in 60 days.\n\nFlexible packages starting at $500.\n\nInterested?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_23",
+      "timestamp": "2026-07-19T14:11:45.525341",
+      "lead_email": "Maria Johnson",
+      "lead_name": "maria.j@cloudscale.io",
+      "company": "CloudScale Solutions",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about CloudScale Solutions\n\nHi maria.j@cloudscale.io,\n\nI noticed CloudScale Solutions is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_24",
+      "timestamp": "2026-07-19T14:11:45.525359",
+      "lead_email": "Lisa Park",
+      "lead_name": "hello@cryptoflow.io",
+      "company": "CryptoFlow",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about CryptoFlow\n\nHi hello@cryptoflow.io,\n\nI noticed CryptoFlow is doing interesting work in Blockchain.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_25",
+      "timestamp": "2026-07-19T14:11:45.525377",
+      "lead_email": "markbrown@QuantumSaaS.io",
+      "lead_name": "Mark Brown",
+      "company": "QuantumSaaS.io",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about QuantumSaaS.io\n\nHi Mark Brown,\n\nI noticed QuantumSaaS.io is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_26",
+      "timestamp": "2026-07-19T14:11:45.525394",
+      "lead_email": "john.harris@InnovateTechnology.com",
+      "lead_name": "John Harris",
+      "company": "InnovateTechnology.com",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about InnovateTechnology.com\n\nHi John Harris,\n\nI noticed InnovateTechnology.com is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_27",
+      "timestamp": "2026-07-19T14:11:45.525415",
+      "lead_email": "Lisa Chen",
+      "lead_name": "hello@sggaming.sg",
+      "company": "SG Gaming",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your Gaming business online?\n\nHi hello@sggaming.sg,\n\nFollowing SG Gaming's work in Gaming.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_28",
+      "timestamp": "2026-07-19T14:11:45.525431",
+      "lead_email": "Tom Harris",
+      "lead_name": "ops@finserve.co",
+      "company": "FinServe Global",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi ops@finserve.co,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_29",
+      "timestamp": "2026-07-19T14:11:45.525448",
+      "lead_email": "daniel@NovaSaaS.io",
+      "lead_name": "Daniel Thomas",
+      "company": "NovaSaaS.io",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about NovaSaaS.io\n\nHi Daniel Thomas,\n\nI noticed NovaSaaS.io is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_30",
+      "timestamp": "2026-07-19T14:11:45.525464",
+      "lead_email": "jessicamoore@EliteLogistics.co.uk",
+      "lead_name": "Jessica Moore",
+      "company": "EliteLogistics.co.uk",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK Logistics firms?\n\nHi Jessica Moore,\n\nWe work with Logistics companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_31",
+      "timestamp": "2026-07-19T14:11:45.525481",
+      "lead_email": "amandaanderson@PrimeEdTech.co",
+      "lead_name": "Amanda Anderson",
+      "company": "PrimeEdTech.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about PrimeEdTech.co\n\nHi Amanda Anderson,\n\nI noticed PrimeEdTech.co is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_32",
+      "timestamp": "2026-07-19T14:11:45.525499",
+      "lead_email": "Mark Johnson",
+      "lead_name": "hello@eduplatform.com",
+      "company": "EduPlatform",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about EduPlatform\n\nHi hello@eduplatform.com,\n\nI noticed EduPlatform is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_33",
+      "timestamp": "2026-07-19T14:11:45.525519",
+      "lead_email": "Emma Wilson",
+      "lead_name": "info@vancouverstartup.ca",
+      "company": "Vancouver Startup",
+      "country": "Canada",
+      "status": "sent",
+      "email_body": "Subject: Growing your Startups business online?\n\nHi info@vancouverstartup.ca,\n\nFollowing Vancouver Startup's work in Startups.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_34",
+      "timestamp": "2026-07-19T14:11:45.525536",
+      "lead_email": "robert@ApexReal.com",
+      "lead_name": "Robert Jones",
+      "company": "ApexReal.com",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about ApexReal.com\n\nHi Robert Jones,\n\nI noticed ApexReal.com is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_35",
+      "timestamp": "2026-07-19T14:11:45.525553",
+      "lead_email": "lisa@NovaEdTech.co",
+      "lead_name": "Lisa Harris",
+      "company": "NovaEdTech.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about NovaEdTech.co\n\nHi Lisa Harris,\n\nI noticed NovaEdTech.co is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_36",
+      "timestamp": "2026-07-19T14:11:45.525569",
+      "lead_email": "Dr. Robert",
+      "lead_name": "hello@edtechuk.com",
+      "company": "EdTech UK",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK EdTech firms?\n\nHi hello@edtechuk.com,\n\nWe work with EdTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_37",
+      "timestamp": "2026-07-19T14:11:45.525586",
+      "lead_email": "Sarah Chen",
+      "lead_name": "ceo@datadriven.com",
+      "company": "DataDriven LLC",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about DataDriven LLC\n\nHi ceo@datadriven.com,\n\nI noticed DataDriven LLC is doing interesting work in Data Analytics.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_38",
+      "timestamp": "2026-07-19T14:11:45.525616",
+      "lead_email": "Tom Wilson",
+      "lead_name": "info@chilogistics.com",
+      "company": "Chicago Logistics",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about Chicago Logistics\n\nHi info@chilogistics.com,\n\nI noticed Chicago Logistics is doing interesting work in Logistics.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_39",
+      "timestamp": "2026-07-19T14:11:45.525632",
+      "lead_email": "Amy Tan",
+      "lead_name": "hello@retailtech.asia",
+      "company": "RetailTech Asia",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your Retail Tech business online?\n\nHi hello@retailtech.asia,\n\nFollowing RetailTech Asia's work in Retail Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_40",
+      "timestamp": "2026-07-19T14:11:45.525648",
+      "lead_email": "emmataylor@SmartAgriculture.co.au",
+      "lead_name": "Emma Taylor",
+      "company": "SmartAgriculture.co.au",
+      "country": "Australia",
+      "status": "sent",
+      "email_body": "Subject: Partner for SmartAgriculture.co.au's digital growth?\n\nHi Emma Taylor,\n\nImpressive work in Agriculture!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_41",
+      "timestamp": "2026-07-19T14:11:45.525665",
+      "lead_email": "amanda@InnovateEdTech.io",
+      "lead_name": "Amanda Brown",
+      "company": "InnovateEdTech.io",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about InnovateEdTech.io\n\nHi Amanda Brown,\n\nI noticed InnovateEdTech.io is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_42",
+      "timestamp": "2026-07-19T14:11:45.525684",
+      "lead_email": "emily@PremierHealthcare.co.au",
+      "lead_name": "Emily Smith",
+      "company": "PremierHealthcare.co.au",
+      "country": "Australia",
+      "status": "sent",
+      "email_body": "Subject: Partner for PremierHealthcare.co.au's digital growth?\n\nHi Emily Smith,\n\nImpressive work in Healthcare!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_43",
+      "timestamp": "2026-07-19T14:11:45.525701",
+      "lead_email": "jessicadavis@ProFinance.co.uk",
+      "lead_name": "Jessica Davis",
+      "company": "ProFinance.co.uk",
+      "country": "UK",
+      "status": "sent",
+      "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi Jessica Davis,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_44",
+      "timestamp": "2026-07-19T14:11:45.525718",
+      "lead_email": "mark.white@PrimeTravel.io",
+      "lead_name": "Mark White",
+      "company": "PrimeTravel.io",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your Travel Tech business online?\n\nHi Mark White,\n\nFollowing PrimeTravel.io's work in Travel Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_45",
+      "timestamp": "2026-07-19T14:11:45.525734",
+      "lead_email": "James Tan",
+      "lead_name": "ops@logitechasia.com",
+      "company": "LogiTech Asia",
+      "country": "Singapore",
+      "status": "sent",
+      "email_body": "Subject: Growing your Logistics business online?\n\nHi ops@logitechasia.com,\n\nFollowing LogiTech Asia's work in Logistics.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_46",
+      "timestamp": "2026-07-19T14:11:45.525759",
+      "lead_email": "kevin@ZenithMining.io",
+      "lead_name": "Kevin Garcia",
+      "company": "ZenithMining.io",
+      "country": "Australia",
+      "status": "sent",
+      "email_body": "Subject: Partner for ZenithMining.io's digital growth?\n\nHi Kevin Garcia,\n\nImpressive work in Mining Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_47",
+      "timestamp": "2026-07-19T14:11:45.525776",
+      "lead_email": "jennifer@SmartReal.tech",
+      "lead_name": "Jennifer Miller",
+      "company": "SmartReal.tech",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about SmartReal.tech\n\nHi Jennifer Miller,\n\nI noticed SmartReal.tech is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_48",
+      "timestamp": "2026-07-19T14:11:45.525793",
+      "lead_email": "anna@ZenithTechnology.ai",
+      "lead_name": "Anna Williams",
+      "company": "ZenithTechnology.ai",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about ZenithTechnology.ai\n\nHi Anna Williams,\n\nI noticed ZenithTechnology.ai is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_49",
+      "timestamp": "2026-07-19T14:11:45.525814",
+      "lead_email": "emmadavis@SmartE-commerce.com",
+      "lead_name": "Emma Davis",
+      "company": "SmartE-commerce.com",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about SmartE-commerce.com\n\nHi Emma Davis,\n\nI noticed SmartE-commerce.com is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
+    },
+    {
+      "id": "email_20260719_50",
+      "timestamp": "2026-07-19T14:11:45.525830",
+      "lead_email": "kevinsmith@PremierTechnology.co",
+      "lead_name": "Kevin Smith",
+      "company": "PremierTechnology.co",
+      "country": "USA",
+      "status": "sent",
+      "email_body": "Subject: Quick question about PremierTechnology.co\n\nHi Kevin Smith,\n\nI noticed PremierTechnology.co is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
+      "responded": false
     }
-  },
-  "daily_stats": {
-    "2026-07-19": {
-      "sent": 0,
-      "opened": 0,
-      "responded": 0,
-      "clicked": 0
-    }
+  ],
+  "stats": {
+    "total_sent": 50,
+    "responses": 0,
+    "deals_closed": 0
   }
 }
