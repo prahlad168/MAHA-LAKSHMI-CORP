@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Crypto Payment</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <style>
+        .crypto-option {
+            transition: all 0.3s ease;
+        }
+        .crypto-option:hover {
+            transform: translateY(-2px);
+        }
+        .crypto-option.selected {
+            border-color: #3b82f6;
+            background: #eff6ff;
+        }
+        .network-badge {
+            font-size: 10px;
+            padding: 2px 6px;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        .countdown {
+            font-variant-numeric: tabular-nums;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen">
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-4xl mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <h1 class="text-xl font-bold text-gray-900">Secure Checkout</h1>
+                <div class="text-sm text-gray-500">
+                    <span class="inline-flex items-center">
+                        <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        SSL Secured
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-4xl mx-auto px-4 py-8">
+        <!-- Order Form -->
+        <div id="order-form" class="bg-white rounded-xl shadow-lg p-6 mb-8">
+            <h2 class="text-lg font-semibold mb-4">Product Information</h2>
+            
+            <form id="product-form" class="space-y-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Product</label>
+                        <select id="product-select" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <option value="">Select a product...</option>
+                            <option value="prod_1" data-price="99.99" data-name="Premium AI Agent">Premium AI Agent - $99.99</option>
+                            <option value="prod_2" data-price="199.99" data-name="Enterprise Solution">Enterprise Solution - $199.99</option>
+                            <option value="prod_3" data-price="49.99" data-name="Starter Package">Starter Package - $49.99</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Quantity</label>
+                        <input type="number" id="quantity" value="1" min="1" max="100" 
+                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" id="customer-name" placeholder="John Doe" 
+                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+                        <input type="email" id="customer-email" placeholder="john@example.com" 
+                               class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Country</label>
+                        <select id="country" class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" required>
+                            <option value="">Select country...</option>
+                            <option value="US">United States</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="ID">Indonesia</option>
+                            <option value="SG">Singapore</option>
+                            <option value="MY">Malaysia</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="JP">Japan</option>
+                            <option value="KR">South Korea</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Crypto Selection -->
+                <div class="mt-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Select Cryptocurrency</label>
+                    <div class="grid grid-cols-3 gap-4">
+                        <!-- USDT -->
+                        <div class="crypto-option border-2 rounded-xl p-4 cursor-pointer" data-currency="USDT" onclick="selectCrypto(this)">
+                            <div class="flex items-center mb-2">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center mr-3">
+                                    <span class="text-lg">$</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">USDT</span>
+                                    <p class="text-xs text-gray-500">Tether</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="network-badge bg-blue-100 text-blue-700 rounded">TRC20</span>
+                                <span class="network-badge bg-purple-100 text-purple-700 rounded">ERC20</span>
+                                <span class="network-badge bg-yellow-100 text-yellow-700 rounded">BEP20</span>
+                            </div>
+                        </div>
+                        
+                        <!-- BTC -->
+                        <div class="crypto-option border-2 rounded-xl p-4 cursor-pointer" data-currency="BTC" onclick="selectCrypto(this)">
+                            <div class="flex items-center mb-2">
+                                <div class="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center mr-3">
+                                    <span class="text-lg">B</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">BTC</span>
+                                    <p class="text-xs text-gray-500">Bitcoin</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="network-badge bg-orange-100 text-orange-700 rounded">Bitcoin</span>
+                            </div>
+                        </div>
+                        
+                        <!-- ETH -->
+                        <div class="crypto-option border-2 rounded-xl p-4 cursor-pointer" data-currency="ETH" onclick="selectCrypto(this)">
+                            <div class="flex items-center mb-2">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
+                                    <span class="text-lg">E</span>
+                                </div>
+                                <div>
+                                    <span class="font-semibold">ETH</span>
+                                    <p class="text-xs text-gray-500">Ethereum</p>
+                                </div>
+                            </div>
+                            <div class="flex flex-wrap gap-1">
+                                <span class="network-badge bg-purple-100 text-purple-700 rounded">ERC20</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Network Selection -->
+                <div id="network-selection" class="hidden mt-6">
+                    <label class="block text-sm font-medium text-gray-700 mb-3">Select Network</label>
+                    <div id="network-options" class="flex flex-wrap gap-2">
+                    </div>
+                </div>
+
+                <button type="submit" id="create-order-btn"
+                        class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    Create Order
+                </button>
+            </form>
+        </div>
+
+        <!-- Payment Display -->
+        <div id="payment-section" class="hidden bg-white rounded-xl shadow-lg p-6 mb-8">
+            <div class="border-b pb-4 mb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Order Number</span>
+                    <span id="order-number" class="font-semibold">-</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Product</span>
+                    <span id="product-name" class="font-semibold">-</span>
+                </div>
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-gray-600">Amount (USD)</span>
+                    <span id="usd-amount" class="font-semibold text-lg">$0.00</span>
+                </div>
+            </div>
+
+            <div class="text-center mb-6">
+                <p class="text-gray-600 mb-2">Send exactly</p>
+                <div class="flex items-center justify-center mb-2">
+                    <span id="crypto-amount" class="text-3xl font-bold text-gray-900">0.00</span>
+                    <span id="crypto-currency" class="text-xl ml-2">USDT</span>
+                </div>
+                <p class="text-sm text-gray-500">
+                    via <span id="network-name" class="font-medium">TRC20</span>
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-6">
+                <div class="bg-white p-4 rounded-lg border-2 border-gray-200">
+                    <canvas id="qr-code" width="200" height="200"></canvas>
+                </div>
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-medium text-gray-700 mb-2 text-center">Deposit Address</label>
+                <div class="flex items-center">
+                    <input type="text" id="wallet-address" readonly
+                           class="flex-1 px-4 py-3 border rounded-l-lg bg-gray-50 text-sm font-mono">
+                    <button onclick="copyAddress()" 
+                            class="px-4 py-3 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700 transition-colors">
+                        Copy
+                    </button>
+                </div>
+                <p id="copy-feedback" class="text-green-600 text-sm mt-2 hidden">Address copied!</p>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm text-yellow-800">Time remaining to complete payment</p>
+                    </div>
+                    <div id="countdown" class="text-2xl font-bold text-yellow-800 countdown">1:59:59</div>
+                </div>
+            </div>
+
+            <div id="payment-status" class="text-center">
+                <div class="inline-flex items-center px-4 py-2 bg-blue-100 text-blue-800 rounded-full">
+                    <svg class="animate-spin -ml-1 mr-2 h-4 w-4" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    <span id="status-text">Waiting for payment...</span>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a id="explorer-link" href="#" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm">
+                    View on Blockchain Explorer
+                </a>
+            </div>
+        </div>
+
+        <!-- Success Section -->
+        <div id="success-section" class="hidden bg-white rounded-xl shadow-lg p-8 text-center">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-900 mb-2">Payment Confirmed!</h2>
+            <p class="text-gray-600 mb-6">Your order has been verified and is being processed.</p>
+            
+            <div class="bg-gray-50 rounded-lg p-4 mb-6">
+                <p class="text-sm text-gray-600 mb-1">Order Number</p>
+                <p id="success-order-number" class="font-bold text-lg">-</p>
+            </div>
+
+            <p class="text-sm text-gray-500 mb-4">
+                A confirmation email has been sent to <span id="success-email" class="font-medium">-</span>
+            </p>
+
+            <div id="delivery-section" class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                <p class="font-medium text-blue-900 mb-2">Your Download is Ready!</p>
+                <a href="#" id="download-link" 
+                   class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                    Download Now
+                </a>
+                <p class="text-xs text-blue-600 mt-2">Link expires in 24 hours</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t mt-12">
+        <div class="max-w-4xl mx-auto px-4 py-6 text-center text-sm text-gray-500">
+            Secured by Blockchain | Instant Confirmation
+        </div>
+    </footer>
+
+    <script>
+        let selectedCrypto = null;
+        let selectedNetwork = null;
+        let orderData = null;
+        let countdownInterval = null;
+
+        const networkData = {
+            USDT: [
+                { id: 'TRC20', name: 'TRON', confirmations: 19, color: 'bg-blue-100 text-blue-700' },
+                { id: 'ERC20', name: 'Ethereum', confirmations: 12, color: 'bg-purple-100 text-purple-700' },
+                { id: 'BEP20', name: 'BNB Chain', confirmations: 1, color: 'bg-yellow-100 text-yellow-700' }
+            ],
+            BTC: [
+                { id: 'BTC', name: 'Bitcoin', confirmations: 3, color: 'bg-orange-100 text-orange-700' }
+            ],
+            ETH: [
+                { id: 'ERC20', name: 'Ethereum', confirmations: 12, color: 'bg-purple-100 text-purple-700' }
+            ]
+        };
+
+        function selectCrypto(element) {
+            document.querySelectorAll('.crypto-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedCrypto = element.dataset.currency;
+            
+            const networkSelection = document.getElementById('network-selection');
+            const networkOptions = document.getElementById('network-options');
+            networkSelection.classList.remove('hidden');
+            
+            networkOptions.innerHTML = '';
+            networkData[selectedCrypto].forEach(network => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `px-4 py-2 rounded-lg border-2 ${network.color} hover:opacity-80 transition-opacity`;
+                btn.dataset.network = network.id;
+                btn.textContent = network.name;
+                btn.onclick = () => selectNetwork(network.id);
+                networkOptions.appendChild(btn);
+            });
+        }
+
+        function selectNetwork(networkId) {
+            selectedNetwork = networkId;
+            document.querySelectorAll('#network-options button').forEach(btn => {
+                btn.classList.toggle('ring-2', btn.dataset.network === networkId);
+                btn.classList.toggle('ring-blue-500', btn.dataset.network === networkId);
+            });
+        }
+
+        function copyAddress() {
+            const address = document.getElementById('wallet-address').value;
+            navigator.clipboard.writeText(address);
+            const feedback = document.getElementById('copy-feedback');
+            feedback.classList.remove('hidden');
+            setTimeout(() => feedback.classList.add('hidden'), 3000);
+        }
+
+        function generateQRCode(address) {
+            const canvas = document.getElementById('qr-code');
+            QRCode.toCanvas(canvas, address, { width: 200, margin: 2 });
+        }
+
+        function startCountdown(expiresAt) {
+            const countdownEl = document.getElementById('countdown');
+            countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = new Date(expiresAt).getTime() - now;
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    countdownEl.textContent = 'EXPIRED';
+                    return;
+                }
+                const hours = Math.floor(distance / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                countdownEl.textContent = `${hours}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        function pollPaymentStatus(orderNumber) {
+            const pollInterval = setInterval(async () => {
+                try {
+                    const response = await fetch(`/api/v1/orders/${orderNumber}/status`);
+                    const result = await response.json();
+                    if (result.success && (result.data.status === 'confirmed' || result.data.status === 'delivered')) {
+                        clearInterval(pollInterval);
+                        showSuccess(orderNumber);
+                    }
+                } catch (error) {
+                    console.error('Error polling status:', error);
+                }
+            }, 5000);
+            setTimeout(() => clearInterval(pollInterval), 2 * 60 * 60 * 1000);
+        }
+
+        function showSuccess(orderNumber) {
+            document.getElementById('payment-section').classList.add('hidden');
+            document.getElementById('success-section').classList.remove('hidden');
+            document.getElementById('success-order-number').textContent = orderNumber;
+            document.getElementById('success-email').textContent = orderData?.email || '-';
+        }
+
+        function generateMockAddress(network) {
+            const addresses = {
+                TRC20: 'TLa2D6vLBEi67CYRLdHpMrocsWmpdHEfPZ',
+                ERC20: '0x71C7656EC7ab88b098defB751B7401B5f6d8976F',
+                BEP20: '0x8Ba1f109551bD432803012645Hac136E8761fCE8',
+                BTC: 'bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh'
+            };
+            return addresses[network] || 'mock_address';
+        }
+
+        function getExplorerUrl(network, address) {
+            const explorers = {
+                TRC20: 'https://tronscan.org/#/address/',
+                ERC20: 'https://etherscan.io/address/',
+                BEP20: 'https://bscscan.com/address/',
+                BTC: 'https://blockstream.info/address/'
+            };
+            return (explorers[network] || explorers.TRC20) + address;
+        }
+
+        document.getElementById('product-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const productSelect = document.getElementById('product-select');
+            const product = productSelect.options[productSelect.selectedIndex];
+            
+            if (!product.value || !selectedCrypto || !selectedNetwork) {
+                alert('Please complete all selections');
+                return;
+            }
+            
+            const orderRequest = {
+                product_id: product.value,
+                name: document.getElementById('customer-name').value,
+                email: document.getElementById('customer-email').value,
+                country: document.getElementById('country').value,
+                quantity: parseInt(document.getElementById('quantity').value),
+                crypto_currency: selectedCrypto,
+                network: selectedNetwork
+            };
+            
+            const btn = document.getElementById('create-order-btn');
+            btn.disabled = true;
+            btn.innerHTML = 'Creating Order...';
+            
+                        try {
+                // Call real API
+                const apiResponse = await fetch('/api/v1/orders', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(orderRequest)
+                });
+                
+                if (!apiResponse.ok) {
+                    throw new Error('Failed to create order');
+                }
+                
+                const apiResult = await apiResponse.json();
+                
+                if (!apiResult.success) {
+                    throw new Error(apiResult.error || 'API error');
+                }
+                
+                const mockResponse = apiResult;
+                
+                orderData = { ...mockResponse.data, ...orderRequest, product_name: product.dataset.name, usd_amount: (parseFloat(product.dataset.price) * orderRequest.quantity).toFixed(2) };
+                
+                document.getElementById('order-form').classList.add('hidden');
+                document.getElementById('payment-section').classList.remove('hidden');
+                
+                document.getElementById('order-number').textContent = mockResponse.data.order_number;
+                document.getElementById('product-name').textContent = product.dataset.name;
+                document.getElementById('usd-amount').textContent = '$' + orderData.usd_amount;
+                document.getElementById('crypto-amount').textContent = mockResponse.data.crypto_amount;
+                document.getElementById('crypto-currency').textContent = selectedCrypto;
+                document.getElementById('network-name').textContent = networkData[selectedCrypto].find(n => n.id === selectedNetwork)?.name || selectedNetwork;
+                document.getElementById('wallet-address').value = mockResponse.data.wallet_address;
+                
+                generateQRCode(mockResponse.data.wallet_address);
+                startCountdown(mockResponse.data.expires_at);
+                document.getElementById('explorer-link').href = getExplorerUrl(selectedNetwork, mockResponse.data.wallet_address);
+                
+                pollPaymentStatus(mockResponse.data.order_number);
+                
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Failed to create order. Please try again.');
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = 'Create Order';
+            }
+        });
+    </script>
+</body>
+</html>
