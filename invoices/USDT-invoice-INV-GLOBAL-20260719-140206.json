@@ -1,0 +1,28 @@
+{
+  "invoice_id": "INV-GLOBAL-20260719-140206",
+  "date": "2026-07-19",
+  "due_date": "2026-07-19",
+  "client": {
+    "name": "John Smith",
+    "email": "john.smith@techventures.com",
+    "company": "TechVentures Inc",
+    "country": "USA"
+  },
+  "services": [
+    {
+      "item": "Website Design",
+      "description": "Custom professional website design",
+      "price_usd": 500.0
+    }
+  ],
+  "subtotal_usd": 500.0,
+  "total_usd": 500.0,
+  "payment": {
+    "method": "USDT",
+    "network": "TRC20 (Tron)",
+    "wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+    "qr_code_url": "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=trc20:TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+  },
+  "status": "pending",
+  "created_at": "2026-07-19T14:02:06.815565"
+}

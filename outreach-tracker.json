@@ -1,0 +1,31 @@
+{
+  "metadata": {
+    "last_updated": "2026-07-19",
+    "total_sent": 0,
+    "total_opened": 0,
+    "total_responded": 0,
+    "active_sequences": ["day1", "day3", "day7"]
+  },
+  "sequences": {
+    "day1": {
+      "description": "Initial cold outreach",
+      "emails": []
+    },
+    "day3": {
+      "description": "First follow-up",
+      "emails": []
+    },
+    "day7": {
+      "description": "Final follow-up",
+      "emails": []
+    }
+  },
+  "daily_stats": {
+    "2026-07-19": {
+      "sent": 0,
+      "opened": 0,
+      "responded": 0,
+      "clicked": 0
+    }
+  }
+}
