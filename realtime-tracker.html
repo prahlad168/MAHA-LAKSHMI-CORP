@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Real-Time Sales Execution Tracker</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; min-height: 100vh; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { text-align: center; color: #00ff88; font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        
+        .status-bar { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; margin-bottom: 30px; }
+        .status-card { background: rgba(255,255,255,0.1); border-radius: 15px; padding: 20px; text-align: center; }
+        .status-card h3 { color: #888; font-size: 0.9em; margin-bottom: 10px; }
+        .status-card .value { font-size: 2em; font-weight: bold; color: #00ff88; }
+        .status-card.warning .value { color: #ffaa00; }
+        .status-card.danger .value { color: #ff4444; }
+        
+        .section { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 25px; margin-bottom: 25px; }
+        .section h2 { color: #00ff88; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; }
+        
+        .action-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .action-item { background: rgba(255,255,255,0.1); border-radius: 10px; padding: 15px; display: flex; align-items: center; gap: 15px; }
+        .action-item input[type="checkbox"] { width: 25px; height: 25px; cursor: pointer; }
+        .action-item label { flex: 1; cursor: pointer; }
+        .action-item.completed { opacity: 0.6; text-decoration: line-through; }
+        
+        .lead-table { width: 100%; border-collapse: collapse; }
+        .lead-table th, .lead-table td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .lead-table th { color: #00ff88; }
+        .lead-table tr:hover { background: rgba(255,255,255,0.05); }
+        .status-badge { padding: 5px 10px; border-radius: 20px; font-size: 0.8em; }
+        .status-pending { background: #ffaa00; color: #000; }
+        .status-sent { background: #00ff88; color: #000; }
+        .status-response { background: #00aaff; color: #000; }
+        
+        .progress-bar { background: rgba(255,255,255,0.1); border-radius: 10px; height: 30px; margin: 20px 0; overflow: hidden; }
+        .progress-fill { background: linear-gradient(90deg, #00ff88, #00aaff); height: 100%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000; transition: width 0.5s; }
+        
+        .btn { background: #00ff88; color: #000; border: none; padding: 15px 30px; border-radius: 10px; font-size: 1em; font-weight: bold; cursor: pointer; transition: transform 0.2s; }
+        .btn:hover { transform: scale(1.05); }
+        .btn-secondary { background: #00aaff; }
+        
+        .timer { text-align: center; font-size: 3em; color: #00ff88; font-weight: bold; }
+        .timer-label { text-align: center; color: #888; margin-top: 5px; }
+        
+        .update-form { display: grid; gap: 15px; margin-top: 20px; }
+        .update-form input, .update-form select, .update-form textarea { width: 100%; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: #fff; }
+        .update-form button { background: #00ff88; color: #000; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        
+        .links { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px; }
+        .links a { background: rgba(255,255,255,0.1); color: #00aaff; padding: 10px 20px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+        .links a:hover { background: rgba(255,255,255,0.2); }
+        
+        @media (max-width: 768px) {
+            .status-bar { grid-template-columns: repeat(2, 1fr); }
+            .timer { font-size: 2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 REAL-TIME SALES EXECUTION TRACKER</h1>
+        <p class="subtitle">MAHA LAKSHMI HOLDINGS | Target: $500-1000 this week</p>
+        
+        <!-- Status Overview -->
+        <div class="status-bar">
+            <div class="status-card">
+                <h3>WhatsApp Sent</h3>
+                <div class="value" id="wa-sent">0</div>
+            </div>
+            <div class="status-card">
+                <h3>Emails Sent</h3>
+                <div class="value" id="email-sent">0</div>
+            </div>
+            <div class="status-card warning">
+                <h3>Responses</h3>
+                <div class="value" id="responses">0</div>
+            </div>
+            <div class="status-card danger">
+                <h3>Revenue</h3>
+                <div class="value" id="revenue">$0</div>
+            </div>
+        </div>
+        
+        <!-- Progress -->
+        <div class="section">
+            <h2>📊 Daily Progress</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-bar" style="width: 0%;">0%</div>
+            </div>
+            <p style="text-align: center; color: #888;">Target: 20 outreach actions today</p>
+        </div>
+        
+        <!-- Action Checklist -->
+        <div class="section">
+            <h2>✅ Today's Action Checklist</h2>
+            <div class="action-grid" id="action-list">
+                <div class="action-item">
+                    <input type="checkbox" id="a1" onchange="updateProgress()">
+                    <label for="a1">📱 Create Fiverr Account</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a2" onchange="updateProgress()">
+                    <label for="a2">📱 Create Upwork Account</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a3" onchange="updateProgress()">
+                    <label for="a3">🎬 Create Gig #1: Video Editing</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a4" onchange="updateProgress()">
+                    <label for="a4">🎨 Create Gig #2: Graphic Design</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a5" onchange="updateProgress()">
+                    <label for="a5">✍️ Create Gig #3: Content Writing</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a6" onchange="updateProgress()">
+                    <label for="a6">📱 Send WhatsApp to Friendly Bali Tour</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a7" onchange="updateProgress()">
+                    <label for="a7">📱 Send WhatsApp to The Ubud Village</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a8" onchange="updateProgress()">
+                    <label for="a8">📧 Send Email to reservation@theubudvillage.com</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a9" onchange="updateProgress()">
+                    <label for="a9">📧 Send Email to marcus@lioncitydigital.com</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a10" onchange="updateProgress()">
+                    <label for="a10">📧 Send Email to info@villasemana.com</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a11" onchange="updateProgress()">
+                    <label for="a11">💼 Apply 5 Jobs on Upwork</label>
+                </div>
+                <div class="action-item">
+                    <input type="checkbox" id="a12" onchange="updateProgress()">
+                    <label for="a12">🔄 Follow Up Previous Leads</label>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Lead Tracking -->
+        <div class="section">
+            <h2>📋 Lead Tracking</h2>
+            <table class="lead-table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Company</th>
+                        <th>Type</th>
+                        <th>Contact</th>
+                        <th>Platform</th>
+                        <th>Sent</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="lead-tbody">
+                    <tr>
+                        <td>1</td>
+                        <td>Friendly Bali Tour</td>
+                        <td>Tour Operator</td>
+                        <td>+62 853 3375 1528</td>
+                        <td>WhatsApp</td>
+                        <td><input type="checkbox" onchange="updateStats()"></td>
+                        <td><span class="status-badge status-pending">PENDING</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>The Ubud Village</td>
+                        <td>Resort</td>
+                        <td>+62 361 978 444</td>
+                        <td>WhatsApp</td>
+                        <td><input type="checkbox" onchange="updateStats()"></td>
+                        <td><span class="status-badge status-pending">PENDING</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Villa Semana</td>
+                        <td>Resort</td>
+                        <td>info@villasemana.com</td>
+                        <td>Email</td>
+                        <td><input type="checkbox" onchange="updateStats()"></td>
+                        <td><span class="status-badge status-pending">PENDING</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Lion City Digital</td>
+                        <td>Agency</td>
+                        <td>marcus@lioncitydigital.com</td>
+                        <td>Email</td>
+                        <td><input type="checkbox" onchange="updateStats()"></td>
+                        <td><span class="status-badge status-pending">PENDING</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>Adventure Indonesia</td>
+                        <td>Tour DMC</td>
+                        <td>info@adventureindonesia.com</td>
+                        <td>Email</td>
+                        <td><input type="checkbox" onchange="updateStats()"></td>
+                        <td><span class="status-badge status-pending">PENDING</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Quick Links -->
+        <div class="section">
+            <h2>🔗 Quick Links</h2>
+            <div class="links">
+                <a href="https://www.fiverr.com" target="_blank">🎬 Create Fiverr Account</a>
+                <a href="https://www.upwork.com" target="_blank">💼 Create Upwork Account</a>
+                <a href="https://linkedin.com" target="_blank">🔗 Update LinkedIn</a>
+                <a href="https://wa.me/6281337558787" target="_blank">📱 Open WhatsApp</a>
+            </div>
+        </div>
+        
+        <!-- Revenue Target -->
+        <div class="section">
+            <h2>💰 Revenue Target</h2>
+            <div class="timer" id="revenue-timer">$0</div>
+            <p class="timer-label">of $1,000 target</p>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn" onclick="addRevenue(50)">+$50</button>
+                <button class="btn" onclick="addRevenue(100)">+$100</button>
+                <button class="btn btn-secondary" onclick="addRevenue(500)">+$500</button>
+            </div>
+        </div>
+        
+        <!-- Notes -->
+        <div class="section">
+            <h2>📝 Notes & Updates</h2>
+            <textarea id="notes" rows="5" placeholder="Add notes about your progress..." style="width: 100%; padding: 15px; border-radius: 10px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #fff;"></textarea>
+            <button class="btn" style="margin-top: 15px;" onclick="saveNotes()">💾 Save Notes</button>
+        </div>
+        
+        <!-- Footer -->
+        <div style="text-align: center; margin-top: 40px; padding: 20px; color: #888;">
+            <p>Generated by GAURANGA AI Agent | MAHA LAKSHMI HOLDINGS</p>
+            <p style="margin-top: 10px;">🔥 TIADA KATA TERLAMBAT! HARI INI KITA JUAL! 🔥</p>
+        </div>
+    </div>
+    
+    <script>
+        let revenue = 0;
+        let whatsappSent = 0;
+        let emailSent = 0;
+        let responses = 0;
+        
+        function updateProgress() {
+            const checkboxes = document.querySelectorAll('#action-list input[type="checkbox"]');
+            let completed = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    completed++;
+                    cb.parentElement.classList.add('completed');
+                } else {
+                    cb.parentElement.classList.remove('completed');
+                }
+            });
+            
+            const progress = (completed / checkboxes.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            document.getElementById('progress-bar').textContent = Math.round(progress) + '%';
+            
+            // Save to localStorage
+            localStorage.setItem('actionProgress', JSON.stringify(
+                Array.from(checkboxes).map(cb => cb.id)
+            ));
+        }
+        
+        function updateStats() {
+            const checkboxes = document.querySelectorAll('#lead-tbody input[type="checkbox"]');
+            whatsappSent = 0;
+            emailSent = 0;
+            
+            checkboxes.forEach((cb, i) => {
+                if (cb.checked) {
+                    const platform = cb.closest('tr').querySelector('td:nth-child(5)').textContent;
+                    if (platform === 'WhatsApp') whatsappSent++;
+                    else emailSent++;
+                }
+            });
+            
+            document.getElementById('wa-sent').textContent = whatsappSent;
+            document.getElementById('email-sent').textContent = emailSent;
+        }
+        
+        function addRevenue(amount) {
+            revenue += amount;
+            document.getElementById('revenue').textContent = '$' + revenue;
+            document.getElementById('revenue-timer').textContent = '$' + revenue;
+            
+            // Save
+            localStorage.setItem('revenue', revenue);
+            
+            // Update badge
+            const badge = document.getElementById('revenue').closest('.status-card');
+            if (revenue > 0) {
+                badge.classList.remove('danger');
+                if (revenue >= 500) badge.classList.add('success');
+            }
+        }
+        
+        function saveNotes() {
+            const notes = document.getElementById('notes').value;
+            localStorage.setItem('notes', notes);
+            alert('Notes saved!');
+        }
+        
+        // Load saved data
+        window.onload = function() {
+            // Load action progress
+            const saved = localStorage.getItem('actionProgress');
+            if (saved) {
+                const ids = JSON.parse(saved);
+                ids.forEach(id => {
+                    const cb = document.getElementById(id);
+                    if (cb) cb.checked = true;
+                });
+                updateProgress();
+            }
+            
+            // Load revenue
+            const savedRevenue = localStorage.getItem('revenue');
+            if (savedRevenue) {
+                revenue = parseInt(savedRevenue);
+                document.getElementById('revenue').textContent = '$' + revenue;
+                document.getElementById('revenue-timer').textContent = '$' + revenue;
+            }
+            
+            // Load notes
+            const savedNotes = localStorage.getItem('notes');
+            if (savedNotes) {
+                document.getElementById('notes').value = savedNotes;
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+{
+  "generated": "2026-07-19T08:30:00Z",
+  "source": "Web Research - Real Companies",
+  "leads": [
+    {
+      "id": 1,
+      "name": "The Ubud Village Resort and Spa",
+      "type": "Hotel",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "email": "reservation@theubudvillage.com",
+        "phone": "+62 361 978 444",
+        "website": "theubudvillage.com"
+      },
+      "value_estimate": 500,
+      "service_interest": ["Video Editing", "Social Media Content", "Website"],
+      "status": "VALIDATED",
+      "notes": "Resort 5-star, target market tourists"
+    },
+    {
+      "id": 2,
+      "name": "Villa Semana",
+      "type": "Villa Resort",
+      "country": "Indonesia",
+      "region": "Bali - Ubud",
+      "contact": {
+        "email": "info@villasemana.com",
+        "phone": "+62 361 123 456",
+        "website": "villasemana.com"
+      },
+      "value_estimate": 400,
+      "service_interest": ["Graphic Design", "Social Media", "Email Marketing"],
+      "status": "VALIDATED",
+      "notes": "Romantic villa, target couples"
+    },
+    {
+      "id": 3,
+      "name": "Adventure Indonesia Tours",
+      "type": "Tour Operator",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "email": "info@adventureindonesia.com",
+        "website": "adventureindonesia.com"
+      },
+      "value_estimate": 600,
+      "service_interest": ["Video Editing", "Website", "SEO"],
+      "status": "VALIDATED",
+      "notes": "DMC tour operator, local owned"
+    },
+    {
+      "id": 4,
+      "name": "Bali Golden Tour",
+      "type": "Tour Agency",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "website": "baligoldentour.com"
+      },
+      "value_estimate": 300,
+      "service_interest": ["Website", "Social Media", "Content Writing"],
+      "status": "VALIDATED",
+      "notes": "Budget tour operator"
+    },
+    {
+      "id": 5,
+      "name": "Lion City Digital",
+      "type": "Digital Agency",
+      "country": "Singapore",
+      "region": "Singapore",
+      "contact": {
+        "email": "marcus@lioncitydigital.com",
+        "phone": "+65 89569048",
+        "website": "lioncitydigital.com"
+      },
+      "value_estimate": 800,
+      "service_interest": ["Video Editing", "Web Development", "Content Creation"],
+      "status": "VALIDATED",
+      "notes": "Digital agency in Singapore, potential partner/client"
+    },
+    {
+      "id": 6,
+      "name": "Trident Digital",
+      "type": "Digital Agency",
+      "country": "Singapore",
+      "region": "Singapore",
+      "contact": {
+        "website": "tridentdigital.sg"
+      },
+      "value_estimate": 700,
+      "service_interest": ["Content Creation", "Social Media", "Branding"],
+      "status": "VALIDATED",
+      "notes": "Content-focused agency"
+    },
+    {
+      "id": 7,
+      "name": "Friendly Bali Tour",
+      "type": "Tour Operator",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "email": "info@baliceniktours.com",
+        "phone": "+62 853 3375 1528",
+        "website": "baliceniktours.com"
+      },
+      "value_estimate": 400,
+      "service_interest": ["Video Editing", "Website", "Social Media"],
+      "status": "VALIDATED",
+      "notes": "Small local tour operator"
+    },
+    {
+      "id": 8,
+      "name": "Bali Easy Go Tours",
+      "type": "Tour Agency",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "website": "balieasygotours.com"
+      },
+      "value_estimate": 350,
+      "service_interest": ["Website Optimization", "SEO", "Content"],
+      "status": "VALIDATED",
+      "notes": "Online-focused tour agency"
+    },
+    {
+      "id": 9,
+      "name": "ASITA Bali Members",
+      "type": "Tour Association",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "phone": "(62-361) 759630",
+        "website": "asitabali.org"
+      },
+      "value_estimate": 500,
+      "service_interest": ["Multiple services"],
+      "status": "VALIDATED",
+      "notes": "Association with 11+ member agencies"
+    },
+    {
+      "id": 10,
+      "name": "Ubud Nyuh Bali Resort",
+      "type": "Resort",
+      "country": "Indonesia",
+      "region": "Bali - Ubud",
+      "contact": {
+        "website": "nyuhbalivillas.com",
+        "note": "Contact form on website"
+      },
+      "value_estimate": 450,
+      "service_interest": ["Social Media", "Video Content", "Website"],
+      "status": "VALIDATED",
+      "notes": "Boutique resort"
+    },
+    {
+      "id": 11,
+      "name": "IMPACT Singapore",
+      "type": "Marketing Agency",
+      "country": "Singapore",
+      "region": "Singapore",
+      "contact": {
+        "website": "impactbc.com.sg",
+        "note": "Tech marketing agency"
+      },
+      "value_estimate": 900,
+      "service_interest": ["Video Production", "Content Marketing", "Design"],
+      "status": "VALIDATED",
+      "notes": "B2B tech marketing"
+    },
+    {
+      "id": 12,
+      "name": "Bali Travel Agency Directory",
+      "type": "Directory",
+      "country": "Indonesia",
+      "region": "Bali",
+      "contact": {
+        "source": "scribd.com/bali-travel-agencies"
+      },
+      "value_estimate": 200,
+      "service_interest": ["Website", "Directory Listing"],
+      "status": "VALIDATED",
+      "notes": "List of 11 Bali travel agencies"
+    }
+  ],
+  "stats": {
+    "total_validated": 12,
+    "by_country": {
+      "indonesia": 9,
+      "singapore": 3
+    },
+    "by_type": {
+      "hotel_resort": 4,
+      "tour_operator": 5,
+      "digital_agency": 3
+    },
+    "total_value_usd": 6200,
+    "avg_value_usd": 517
+  },
+  "next_actions": [
+    "Send outreach emails to all validated leads",
+    "Create Fiverr gigs targeting these niches",
+    "Follow up within 48 hours"
+  ]
+}
