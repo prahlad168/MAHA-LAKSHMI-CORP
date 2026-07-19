@@ -1,103 +1,111 @@
-# 🚀 Crypto Payment System - Deployment Guide
+# 🚀 CRYPTO PAYMENT SYSTEM - LIVE!
 
-## Quick Deploy Options
-
-### Option 1: Railway (Recommended)
-
-1. **Login to Railway**
-   ```
-   https://railway.app
-   ```
-
-2. **Connect GitHub Repository**
-   - Push this folder to GitHub
-   - Connect repo to Railway
-   - Railway auto-detects Python app
-
-3. **Deploy**
-   - Click "Deploy"
-   - Done!
-
-### Option 2: Vercel
-
-1. **Install Vercel CLI**
-   ```bash
-   npm i -g vercel
-   ```
-
-2. **Deploy**
-   ```bash
-   vercel
-   ```
-
-### Option 3: Render
-
-1. **Create Web Service**
-   - Go to https://render.com
-   - Connect GitHub repo
-   - Set build command: `pip install -r requirements.txt`
-   - Set start command: `python app.py`
-
-### Option 4: Docker (Own Server)
-
-```bash
-# Build
-docker build -t crypto-payment .
-
-# Run
-docker run -d -p 5000:5000 crypto-payment
+## 🌐 LIVE URL
+```
+https://defeat-evening-individual-alike.trycloudflare.com
 ```
 
-## Configuration
+---
 
-### Update Wallet Addresses
+## 📦 PRODUCTS (4 Digital Products)
 
-Edit `app.py` line ~70-75:
+| ID | Product | Price | Type |
+|----|---------|-------|------|
+| prod_1 | AI Agent Pro - Monthly | $99.99 | Subscription |
+| prod_2 | AI Agent Enterprise - Yearly | $999.99 | Subscription |
+| prod_3 | Custom AI Solution | $499.99 | Service |
+| prod_4 | AI Training Course | $149.99 | Course |
+
+---
+
+## 💰 SUPPORTED CRYPTOCURRENCIES
+
+| Currency | Networks | Status |
+|----------|----------|--------|
+| USDT | TRC20, ERC20, BEP20 | ✅ Ready |
+| BTC | Bitcoin | ✅ Ready |
+| ETH | Ethereum | ✅ Ready |
+
+---
+
+## 🔧 SETUP WALLETS (MUST DO!)
+
+**Edit `app.py` line 25-30:**
 
 ```python
 wallets_db = {
-    "TRC20": {"address": "YOUR_TRC20_ADDRESS", ...},
-    "ERC20": {"address": "YOUR_ERC20_ADDRESS", ...},
-    ...
+    "TRC20": {"address": "YOUR_TRX_WALLET", "currency": "USDT", "network": "TRC20"},
+    "ERC20": {"address": "YOUR_ETH_WALLET", "currency": "USDT", "network": "ERC20"},
+    "BEP20": {"address": "YOUR_BSC_WALLET", "currency": "USDT", "network": "BEP20"},
+    "BTC": {"address": "YOUR_BTC_WALLET", "currency": "BTC", "network": "BTC"},
+    "ETH": {"address": "YOUR_ETH_WALLET", "currency": "ETH", "network": "ERC20"},
 }
 ```
 
-### Update Products
+---
 
-Edit `app.py` line ~20-25:
+## 📡 API ENDPOINTS
 
-```python
-products_db = {
-    "prod_1": {"id": "prod_1", "name": "Your Product", "price": 99.99},
-    ...
-}
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/v1/products` | List products |
+| POST | `/api/v1/orders` | Create order |
+| GET | `/api/v1/orders/{id}` | Get order |
+| POST | `/api/v1/orders/{id}/verify` | Verify payment |
+| GET | `/api/v1/admin/dashboard` | Dashboard |
+| GET | `/api/v1/health` | Health check |
+
+---
+
+## 🚀 START SYSTEM
+
+```bash
+# Quick start
+./setup.sh
+
+# Or Docker
+docker build -t crypto-payment . && docker run -d -p 5000:5000 --name crypto-payment crypto-payment
 ```
 
-## Environment Variables
+---
 
-For production, add:
-- `FLASK_ENV=production`
-- `DATABASE_URL` (if using PostgreSQL)
+## 📁 FILES
 
-## API Endpoints
+```
+├── app.py           # Flask API (EDIT WALLETS HERE!)
+├── index.html       # Checkout page
+├── setup.sh        # Quick start script
+├── Dockerfile       # Docker container
+└── docker-compose.yml
+```
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/v1/orders` | POST | Create order |
-| `/api/v1/orders/{id}` | GET | Get order |
-| `/api/v1/products` | GET | List products |
-| `/api/v1/currencies` | GET | Get currencies |
-| `/api/v1/admin/dashboard` | GET | Dashboard |
+---
 
-## Supported Networks
+## 🎯 QUICK TEST
 
-- USDT (TRC20, ERC20, BEP20)
-- BTC
-- ETH
+```bash
+# Test API
+curl https://defeat-evening-individual-alike.trycloudflare.com/api/v1/products
 
-## Status
+# Create order
+curl -X POST https://defeat-evening-individual-alike.trycloudflare.com/api/v1/orders \
+  -H "Content-Type: application/json" \
+  -d '{"product_id": "prod_1", "name": "Test", "email": "test@test.com", "country": "ID", "crypto_currency": "USDT", "network": "TRC20"}'
+```
 
-✅ API Server: Running
-✅ Checkout Page: Ready
-✅ Dashboard: Ready
-✅ Blockchain Verification: Ready (needs real API keys for production)
+---
+
+## ✅ CHECKLIST
+
+- [x] Docker container running
+- [x] Cloudflare tunnel active  
+- [x] API working
+- [x] Products configured
+- [ ] Wallet addresses (UPDATE app.py!)
+- [ ] Blockchain verification setup
+- [ ] Email receipts
+- [ ] Permanent hosting (Railway)
+
+---
+
+**Status: 🚀 LIVE** | **Updated: 2026-07-19**
