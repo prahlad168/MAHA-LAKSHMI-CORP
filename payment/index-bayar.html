@@ -231,140 +231,33 @@
             </div>
         </div>
         
-        <!-- PILIH METODE PEMBAYARAN -->
-        <div class="card">
-            <div style="font-weight: 700; font-size: 18px; margin-bottom: 15px;">Pilih Metode Pembayaran</div>
-            
-            <!-- Transfer Bank -->
-            <label class="payment-method" onclick="selectMethod('bca')">
-                <input type="radio" name="method" value="bca">
-                <span class="payment-icon">🏦</span>
-                <div class="payment-info">
-                    <div class="payment-name">Transfer Bank BCA</div>
-                    <div class="payment-desc">ATM, Mobile, Internet Banking</div>
-                </div>
-                <span class="payment-check">✓</span>
-            </label>
-            
-            <!-- E-Wallet -->
-            <label class="payment-method" onclick="selectMethod('ewallet')">
-                <input type="radio" name="method" value="ewallet">
-                <span class="payment-icon">📱</span>
-                <div class="payment-info">
-                    <div class="payment-name">GoPay / OVO / DANA</div>
-                    <div class="payment-desc">Scan QR atau transfer langsung</div>
-                </div>
-                <span class="payment-check">✓</span>
-            </label>
-            
-            <!-- QRIS -->
-            <label class="payment-method" onclick="selectMethod('qris')">
-                <input type="radio" name="method" value="qris">
-                <span class="payment-icon">📲</span>
-                <div class="payment-info">
-                    <div class="payment-name">QRIS</div>
-                    <div class="payment-desc">Semua Bank & E-Wallet</div>
-                </div>
-                <span class="payment-check">✓</span>
-            </label>
-            
-            <!-- COD -->
-            <label class="payment-method" onclick="selectMethod('cod')">
-                <input type="radio" name="method" value="cod">
-                <span class="payment-icon">🤝</span>
-                <div class="payment-info">
-                    <div class="payment-name">COD (Bayar di Tempat)</div>
-                    <div class="payment-desc">Untuk area Gianyar & Bali</div>
-                </div>
-                <span class="payment-check">✓</span>
-            </label>
-        </div>
-        
         <!-- DETAIL PEMBAYARAN -->
         <div class="card" id="paymentDetails">
-            <div style="font-weight: 700; font-size: 18px; margin-bottom: 15px;">📋 Detail Pembayaran</div>
+            <div style="font-weight: 700; font-size: 18px; margin-bottom: 15px;">📋 Transfer ke Rekening BCA</div>
             
-            <!-- BCA Transfer -->
-            <div id="bcaDetail" class="hidden">
-                <div class="bank-card">
-                    <div class="bank-header">
-                        <div class="bank-logo">BCA</div>
-                        <div>
-                            <div class="bank-name">Bank Central Asia (BCA)</div>
-                            <div class="bank-type">Transfer via ATM / Mobile / Internet Banking</div>
-                        </div>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Nomor Rekening</span>
-                        <span class="info-value">
-                            <strong id="bcaAccount">[BANK_ACCOUNT]</strong>
-                            <button class="copy-btn" onclick="copyText('[BANK_ACCOUNT]')">Salin</button>
-                        </span>
-                    </div>
-                    <div class="info-row">
-                        <span class="info-label">Atas Nama</span>
-                        <span class="info-value">[CEO_NAME_REDACTED]</span>
+            <div class="bank-card">
+                <div class="bank-header">
+                    <div class="bank-logo">BCA</div>
+                    <div>
+                        <div class="bank-name">Bank Central Asia (BCA)</div>
+                        <div class="bank-type">Transfer via ATM / Mobile / Internet Banking</div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- E-Wallet -->
-            <div id="ewalletDetail" class="hidden">
-                <div class="bank-card">
-                    <div style="font-weight: 700; margin-bottom: 15px;">📱 Pilih E-Wallet</div>
-                    <div class="ewallet-grid">
-                        <div class="ewallet-item" onclick="selectEwallet(this, 'gopay')">
-                            <div class="ewallet-icon">💚</div>
-                            <div class="ewallet-name">GoPay</div>
-                        </div>
-                        <div class="ewallet-item" onclick="selectEwallet(this, 'ovo')">
-                            <div class="ewallet-icon">💰</div>
-                            <div class="ewallet-name">OVO</div>
-                        </div>
-                        <div class="ewallet-item" onclick="selectEwallet(this, 'dana')">
-                            <div class="ewallet-icon">💙</div>
-                            <div class="ewallet-name">DANA</div>
-                        </div>
-                    </div>
-                    <div id="ewalletNumber" class="hidden" style="margin-top: 20px;">
-                        <div class="info-row">
-                            <span class="info-label">Nomor</span>
-                            <span class="info-value">
-                                <strong id="phoneNumber">[PHONE_REDACTED]</strong>
-                                <button class="copy-btn" onclick="copyText('[PHONE_REDACTED]')">Salin</button>
-                            </span>
-                        </div>
-                    </div>
+                <div class="info-row">
+                    <span class="info-label">Nomor Rekening</span>
+                    <span class="info-value">
+                        <strong id="bcaAccount">1234567890</strong>
+                        <button class="copy-btn" onclick="copyText('1234567890')">Salin</button>
+                    </span>
                 </div>
-            </div>
-            
-            <!-- QRIS -->
-            <div id="qrisDetail" class="hidden">
-                <div class="bank-card" style="text-align: center;">
-                    <div style="font-weight: 700; font-size: 16px; margin-bottom: 15px;">📲 Scan QRIS</div>
-                    <div style="background: #f0f0f0; padding: 30px; border-radius: 12px; margin-bottom: 15px;">
-                        <div style="font-size: 120px;">📱</div>
-                        <p style="color: #666; font-size: 13px;">Kirim QRIS ke WhatsApp Anda</p>
-                    </div>
-                    <p style="color: #666; font-size: 13px;">
-                        Klik tombol "Konfirmasi" untuk minta QRIS via WhatsApp
-                    </p>
-                </div>
-            </div>
-            
-            <!-- COD -->
-            <div id="codDetail" class="hidden">
-                <div class="bank-card">
-                    <div style="font-weight: 700; margin-bottom: 15px;">🤝 Pembayaran COD</div>
-                    <p style="color: #666; font-size: 14px; line-height: 1.6;">
-                        Pembayaran dilakukan saat barang/jasa diterima.<br>
-                        Berlaku untuk area Gianyar dan sekitarnya.
-                    </p>
+                <div class="info-row">
+                    <span class="info-label">Atas Nama</span>
+                    <span class="info-value">I MADE PURNA ANANDA</span>
                 </div>
             </div>
             
             <div class="note">
-                ⚠️ Setelah transfer/pembayaran, silakan konfirmasi via WhatsApp dengan bukti transfer.
+                ⚠️ Setelah transfer, silakan konfirmasi via WhatsApp dengan bukti transfer (screenshot/foto).
             </div>
         </div>
         
@@ -380,37 +273,14 @@
     </div>
     
     <script>
-        let selectedMethod = 'bca';
-        let selectedEwallet = '';
-        
         function updateDisplay() {
             const amount = document.getElementById('amount').value || 0;
             document.getElementById('displayAmount').textContent = 'Rp ' + parseInt(amount).toLocaleString('id-ID');
         }
         
-        function selectMethod(method) {
-            selectedMethod = method;
-            document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
-            event.currentTarget.classList.add('selected');
-            
-            document.getElementById('bcaDetail').classList.add('hidden');
-            document.getElementById('ewalletDetail').classList.add('hidden');
-            document.getElementById('qrisDetail').classList.add('hidden');
-            document.getElementById('codDetail').classList.add('hidden');
-            
-            document.getElementById(method + 'Detail').classList.remove('hidden');
-        }
-        
-        function selectEwallet(el, type) {
-            document.querySelectorAll('.ewallet-item').forEach(e => e.classList.remove('selected'));
-            el.classList.add('selected');
-            selectedEwallet = type;
-            document.getElementById('ewalletNumber').classList.remove('hidden');
-        }
-        
         function copyText(text) {
             navigator.clipboard.writeText(text);
-            alert('Berhasil disalin!');
+            alert('Nomor rekening berhasil disalin!');
         }
         
         function sendConfirmation() {
@@ -424,16 +294,14 @@
                 return;
             }
             
+            if (!name || name === 'Customer') {
+                alert('Mohon isi nama Anda');
+                return;
+            }
+            
             const amountFormatted = 'Rp ' + parseInt(amount).toLocaleString('id-ID');
             
-            const methodNames = {
-                bca: 'Transfer Bank BCA',
-                ewallet: selectedEwallet.toUpperCase() || 'E-Wallet',
-                qris: 'QRIS',
-                cod: 'COD (Bayar di Tempat)'
-            };
-            
-            let message = `Halo, saya ingin konfirmasi pembayaran:
+            const message = `Halo, saya ingin konfirmasi pembayaran:
 
 📋 *Detail Pembayaran*
 ━━━━━━━━━━━━━━━━━━━━
@@ -441,17 +309,18 @@
 📱 WA: ${phone}
 📦 Produk: ${desc}
 💰 Jumlah: ${amountFormatted}
-💳 Metode: ${methodNames[selectedMethod]}
+💳 Metode: Transfer Bank BCA
+🏦 Bank: BCA
+📄 Rekening: 1234567890
+👤 Atas Nama: I MADE PURNA ANANDA
 ━━━━━━━━━━━━━━━━━━━━
 
-Mohon dicek dan diinformasikan langkah selanjutnya. Terima kasih!`;
+Saya sudah transfer sebesar ${amountFormatted}. 
+Mohon dicek dan diinformasikan langkah selanjutnya. Terima kasih! 🙏`;
             
             const waUrl = `https://wa.me/6281337558787?text=${encodeURIComponent(message)}`;
             window.open(waUrl, '_blank');
         }
-        
-        // Initialize
-        document.querySelector('.payment-method').classList.add('selected');
     </script>
 </body>
 </html>
