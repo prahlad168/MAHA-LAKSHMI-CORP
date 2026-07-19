@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Wallet Dashboard - MAHA LAKSHMI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', -apple-system, sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh; 
+            color: #fff;
+            padding: 20px;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        
+        .header {
+            text-align: center;
+            padding: 30px 0;
+        }
+        .logo { font-size: 60px; margin-bottom: 10px; }
+        .title { font-size: 32px; font-weight: 800; }
+        .subtitle { color: #888; margin-top: 5px; }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .wallet-address {
+            background: rgba(0,0,0,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            font-family: monospace;
+            font-size: 14px;
+            word-break: break-all;
+            margin: 15px 0;
+        }
+        
+        .balance-display {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .balance-label { font-size: 18px; color: #888; margin-bottom: 10px; }
+        .balance-amount { font-size: 56px; font-weight: 800; color: #4ade80; }
+        .balance-currency { font-size: 24px; color: #888; }
+        .balance-idr { font-size: 20px; color: #ffc107; margin-top: 10px; }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        
+        .stat-box {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+        }
+        .stat-icon { font-size: 36px; margin-bottom: 10px; }
+        .stat-value { font-size: 28px; font-weight: 700; }
+        .stat-label { color: #888; font-size: 14px; margin-top: 5px; }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .status-connected { background: rgba(74,222,128,0.2); color: #4ade80; }
+        .status-disconnected { background: rgba(248,113,113,0.2); color: #f87171; }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, #4ade80, #22c55e);
+            color: #000;
+        }
+        .btn-secondary {
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+        }
+        .btn:hover { transform: translateY(-2px); }
+        
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-label { color: #888; }
+        .info-value { font-weight: 600; }
+        
+        .alert {
+            background: rgba(255,193,7,0.1);
+            border: 1px solid rgba(255,193,7,0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        .alert-title { color: #ffc107; font-weight: 700; margin-bottom: 10px; }
+        .alert-text { color: #ccc; font-size: 14px; line-height: 1.6; }
+        
+        .footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .refresh-time { color: #4ade80; }
+        
+        @media (max-width: 600px) {
+            .grid-2 { grid-template-columns: 1fr; }
+            .balance-amount { font-size: 42px; }
+            .action-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">💰</div>
+            <div class="title">COMPANY WALLET</div>
+            <div class="subtitle">MAHA LAKSHMI HOLDINGS - TOKOCRYPTO</div>
+        </div>
+        
+        <!-- Status -->
+        <div class="card" style="text-align: center;">
+            <span class="status-badge status-disconnected" id="statusBadge">
+                ❌ BELUM TERKONEKSI
+            </span>
+            <p style="color: #888; margin-top: 15px; font-size: 14px;">
+                Jalankan script <code>tokocrypto-checker.py</code> di komputer Anda untuk update data
+            </p>
+        </div>
+        
+        <!-- Wallet Info -->
+        <div class="card">
+            <h3 style="margin-bottom: 15px;">📍 Wallet Address (TRC20)</h3>
+            <div class="wallet-address">
+                TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6
+            </div>
+            <div style="display: flex; gap: 10px;">
+                <button class="btn btn-secondary" onclick="copyAddress()" style="flex: 1;">
+                    📋 Copy Address
+                </button>
+                <a href="https://tronscan.org/#/address/TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6" 
+                   target="_blank" class="btn btn-secondary" style="flex: 1; text-align: center;">
+                    🔍 View on Tronscan
+                </a>
+            </div>
+        </div>
+        
+        <!-- Balance Display -->
+        <div class="card">
+            <div class="balance-display">
+                <div class="balance-label">SALDO USDT (TRC20)</div>
+                <div class="balance-amount" id="usdtBalance">0.00</div>
+                <div class="balance-currency">USDT</div>
+                <div class="balance-idr" id="idrEstimate">≈ Rp 0</div>
+            </div>
+            
+            <div class="grid-2">
+                <div class="stat-box">
+                    <div class="stat-icon">📥</div>
+                    <div class="stat-value" id="totalReceived">Rp 0</div>
+                    <div class="stat-label">Total Diterima</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-icon">📤</div>
+                    <div class="stat-value" id="totalSent">Rp 0</div>
+                    <div class="stat-label">Total Dikirim ke CEO</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Distribution -->
+        <div class="card">
+            <h3 style="margin-bottom: 20px;">📊 Profit Distribution</h3>
+            
+            <div class="info-row">
+                <span class="info-label">Total Revenue</span>
+                <span class="info-value" id="totalRevenue">Rp 0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">CEO Share (60%)</span>
+                <span class="info-value" style="color: #4ade80;" id="ceoShare">Rp 0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Company Reserve (25%)</span>
+                <span class="info-value" style="color: #60a5fa;">Rp 0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Team Bonus (10%)</span>
+                <span class="info-value" style="color: #fbbf24;">Rp 0</span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">CSR (5%)</span>
+                <span class="info-value" style="color: #f87171;">Rp 0</span>
+            </div>
+            
+            <div class="alert">
+                <div class="alert-title">⚠️ MANUAL VERIFIKASI DIPERLUKAN</div>
+                <div class="alert-text">
+                    Untuk saat ini, pengecekan saldo harus dilakukan manual:<br>
+                    1. Jalankan <code>tokocrypto-checker.py</code> di komputer Anda<br>
+                    2. Copy-paste hasil ke kolom di bawah<br>
+                    3. Atau buka langsung di app Tokocrypto
+                </div>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <label style="display: block; margin-bottom: 10px; color: #888;">📝 Update Saldo Manual:</label>
+                <input type="number" id="manualBalance" placeholder="Masukkan saldo USDT" 
+                       style="width: 100%; padding: 15px; border-radius: 10px; border: 2px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; font-size: 16px;">
+                <button class="btn btn-primary" onclick="updateBalance()" style="width: 100%; margin-top: 10px;">
+                    Update Saldo
+                </button>
+            </div>
+        </div>
+        
+        <!-- Quick Actions -->
+        <div class="card">
+            <h3 style="margin-bottom: 20px;">🚀 Quick Actions</h3>
+            
+            <div class="action-buttons">
+                <a href="https://www.tokocrypto.com" target="_blank" class="btn btn-primary">
+                    📱 Buka Tokocrypto
+                </a>
+                <a href="https://tronscan.org/#/address/TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6" target="_blank" class="btn btn-secondary">
+                    🔍 Tronscan
+                </a>
+            </div>
+        </div>
+        
+        <!-- Links -->
+        <div class="card">
+            <h3 style="margin-bottom: 15px;">📂 File Scripts</h3>
+            <div class="info-row">
+                <span class="info-label">Wallet Checker</span>
+                <a href="tokocrypto-checker.py" download class="btn btn-secondary" style="padding: 8px 15px; font-size: 14px;">
+                    📥 Download
+                </a>
+            </div>
+            <div class="info-row">
+                <span class="info-label">Transfer Script</span>
+                <a href="tokocrypto-transfer.py" download class="btn btn-secondary" style="padding: 8px 15px; font-size: 14px;">
+                    📥 Download
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>💰 MAHA LAKSHMI HOLDINGS - Company Wallet</p>
+            <p>Network: TRC20 (Tron) | Platform: Tokocrypto</p>
+            <p class="refresh-time">Last Updated: <span id="lastUpdate">-</span></p>
+        </div>
+    </div>
+    
+    <script>
+        // Copy wallet address
+        function copyAddress() {
+            const address = 'TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6';
+            navigator.clipboard.writeText(address);
+            alert('Wallet address berhasil disalin!');
+        }
+        
+        // Update balance from manual input
+        function updateBalance() {
+            const usdtAmount = parseFloat(document.getElementById('manualBalance').value) || 0;
+            const idrPerUsdt = 16000; // Estimasi
+            
+            document.getElementById('usdtBalance').textContent = usdtAmount.toFixed(2);
+            document.getElementById('idrEstimate').textContent = '≈ Rp ' + (usdtAmount * idrPerUsdt).toLocaleString('id-ID');
+            
+            // Update last update time
+            const now = new Date();
+            document.getElementById('lastUpdate').textContent = now.toLocaleString('id-ID');
+            
+            // Update status
+            if (usdtAmount > 0) {
+                document.getElementById('statusBadge').className = 'status-badge status-connected';
+                document.getElementById('statusBadge').textContent = '✅ TERKONEKSI';
+            }
+            
+            // Save to localStorage
+            localStorage.setItem('wallet_usdt_balance', usdtAmount);
+            localStorage.setItem('wallet_last_update', now.toISOString());
+        }
+        
+        // Load from localStorage
+        function loadSavedData() {
+            const savedUsdt = localStorage.getItem('wallet_usdt_balance');
+            const savedTime = localStorage.getItem('wallet_last_update');
+            
+            if (savedUsdt) {
+                document.getElementById('manualBalance').value = savedUsdt;
+                updateBalance();
+            }
+            
+            if (savedTime) {
+                const date = new Date(savedTime);
+                document.getElementById('lastUpdate').textContent = date.toLocaleString('id-ID');
+            }
+        }
+        
+        // Initialize
+        loadSavedData();
+    </script>
+</body>
+</html>
