@@ -207,19 +207,20 @@
       "timestamp": "2026-07-17T02:25:00.000000Z",
       "action": "CEO_PAYOUT_RECEIVED",
       "event": "CEO_PAYOUT_RECEIVED",
-      "status": "RECEIVED",
-      "description": "CEO [CEO_ALIAS_REDACTED] confirms MGOS-Enterprise payout received in wallet",
-      "source": "MGOS-ENTERPRISE",
+      "status": "CONFIRMED_NOT_RECEIVED",
+      "description": "CEO confirms MGOS-Enterprise payout NOT received - actual balance is only 0.0061 USDT",
+      "source": "MANUAL_CHECK_2026-07-19",
       "details": {
         "total_revenue": 417900145,
         "ceo_share_percent": 80,
         "ceo_payout_idr": 334320116,
-        "amount_usdt": 19665.89,
-        "wallet_address": "[USDT_WALLET]",
+        "amount_usdt_expected": 19665.89,
+        "wallet_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
         "network": "TRC20",
-        "received_at": "2026-07-17"
+        "actual_balance": 0.00610095,
+        "received_at": "NOT_RECEIVED"
       },
-      "reference": "MGOS-RECEIVED-20260717"
+      "reference": "MGOS-CHECK-20260719"
     }
   ]
 }
