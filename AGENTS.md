@@ -601,7 +601,7 @@ https://payanganhospital.gianyarkab.go.id/maha-command-center/
 
 Contoh Alokasi:
 Revenue Rp 100.000 =
-├── 60% → BCA 6485086645 (CEO Profit)
+├── 80% → BCA 6485086645 (CEO Profit)
 ├── 25% → Reinvestasi Pool
 └── 15% → Operasional Pool
 ```
@@ -610,7 +610,7 @@ Revenue Rp 100.000 =
 ```
 SETIAP HARI JAM 23:59 WIB:
 1. Hitung total revenue harian
-2. Transfer 60% ke BCA 6485086645
+2. Transfer 80% ke BCA 6485086645
 3. Simpan bukti transfer
 4. Kirim notifikasi ke CEO
 
@@ -655,7 +655,7 @@ Aceh, Sumatera Utara, Sumatera Barat, Riau, Jambi, Sumatera Selatan, Bengkulu, L
 | 8 | Airdrop Scanner | Every 4h | Scan crypto airdrops |
 | 9 | Price Monitor | Hourly | Monitor competitor |
 | 10 | Ad Optimizer | Every 6h | Optimize ad campaigns |
-| 11 | Daily Revenue Transfer | 23:59 WIB | Transfer 60% to CEO |
+| 11 | Daily Revenue Transfer | 23:59 WIB | Transfer 80% to CEO |
 
 ---
 
@@ -667,7 +667,7 @@ Aceh, Sumatera Utara, Sumatera Barat, Riau, Jambi, Sumatera Selatan, Bengkulu, L
 
 ## 📊 TARGET REVENUE
 
-| Timeline | Total Revenue | Profit CEO (60%) |
+| Timeline | Total Revenue | Profit CEO (80%) |
 |----------|-------------|-----------------|
 | Month 1 | Rp 22.000.000 | Rp 13.200.000 |
 | Month 3 | Rp 70.000.000 | Rp 42.000.000 |
@@ -826,7 +826,7 @@ SEMUA SBU BERBAGI KNOWLEDGE CENTER:
 
 | Category | % | Destination |
 |----------|---|-------------|
-| Owner Share | 60% | BCA 6485086645 |
+| Owner Share | 80% | BCA 6485086645 |
 | Reinvestment | 25% | Company Reserve |
 | Team Bonus | 10% | Team Members |
 | Charity | 5% | CSR Account |
@@ -1044,7 +1044,7 @@ TODAY:
 - 50 WhatsApp contacts
 - 5 sales
 - Rp 500.000 revenue
-- Rp 300.000 profit (60%) → BCA
+- Rp 300.000 profit (80%) → BCA
 
 THIS WEEK:
 - Rp 5.000.000 revenue
