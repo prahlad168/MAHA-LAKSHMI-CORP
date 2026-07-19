@@ -1,8 +1,8 @@
-name: Deploy to Railway
+name: 🚀 Deploy to Railway
 
 on:
   push:
-    branches: [ main ]
+    branches: [ crypto-payment-system ]
   workflow_dispatch:
 
 jobs:
@@ -10,16 +10,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      
+        with:
+          ref: crypto-payment-system
+
       - name: Install Railway CLI
         run: npm install -g @railway/cli
-        
+
       - name: Deploy to Railway
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
         run: |
           railway login --token $RAILWAY_TOKEN
-          railway up --service crypto-payment
-        
+          railway up --service crypto-payment --dir crypto-payment-deploy
+
       - name: Get Deployment URL
-        run: railway status --json | jq -r '.deployment.url'
+        run: |
+          echo "🎉 Deployment URL:"
+          railway status --json 2>/dev/null || railway status
