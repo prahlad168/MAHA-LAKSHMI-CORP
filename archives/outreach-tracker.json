@@ -9,7 +9,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about InnovateSaaS.co\n\nHi Michael Garcia,\n\nI noticed InnovateSaaS.co is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_2",
@@ -20,7 +23,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for Brisbane Finance's digital growth?\n\nHi ops@brisbanefinance.com.au,\n\nImpressive work in Finance!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_3",
@@ -31,7 +37,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about FutureE-commerce.co\n\nHi Lisa Martin,\n\nI noticed FutureE-commerce.co is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_4",
@@ -42,7 +51,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for GlobalHealthcare.io's digital growth?\n\nHi Emma Martin,\n\nImpressive work in Healthcare!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_5",
@@ -53,7 +65,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NextTechnology.com\n\nHi Michael Moore,\n\nI noticed NextTechnology.com is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_6",
@@ -64,7 +79,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NextReal.com\n\nHi Daniel Anderson,\n\nI noticed NextReal.com is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_7",
@@ -75,7 +93,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK HealthTech firms?\n\nHi Michael Thomas,\n\nWe work with HealthTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_8",
@@ -86,7 +107,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi Daniel Miller,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_9",
@@ -97,7 +121,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK SaaS firms?\n\nHi Lisa Taylor,\n\nWe work with SaaS companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_10",
@@ -108,7 +135,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Digital Marketing business online?\n\nHi hello@sgdigital.sg,\n\nFollowing SG Digital Agency's work in Digital Marketing.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_11",
@@ -119,7 +149,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Legal Tech firms?\n\nHi Jennifer Thomas,\n\nWe work with Legal Tech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_12",
@@ -130,7 +163,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about InnovateAI/ML.co\n\nHi Michael Davis,\n\nI noticed InnovateAI/ML.co is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_13",
@@ -141,7 +177,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your HealthTech business online?\n\nHi Emma Garcia,\n\nFollowing VectorHealthTech.com.sg's work in HealthTech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_14",
@@ -152,7 +191,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about QuantumTechnology.ai\n\nHi Jennifer Brown,\n\nI noticed QuantumTechnology.ai is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_15",
@@ -163,7 +205,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for Sydney Fitness's digital growth?\n\nHi contact@sydneyfitness.com.au,\n\nImpressive work in Fitness Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_16",
@@ -174,7 +219,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about AIVenture Corp\n\nHi ceo@aiventure.com,\n\nI noticed AIVenture Corp is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_17",
@@ -185,7 +233,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Retail firms?\n\nHi John Johnson,\n\nWe work with Retail companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_18",
@@ -196,7 +247,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK HealthTech firms?\n\nHi Kevin Miller,\n\nWe work with HealthTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_19",
@@ -207,7 +261,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your MedTech business online?\n\nHi ops@medtechsg.sg,\n\nFollowing MedTech Singapore's work in MedTech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_20",
@@ -218,7 +275,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about QuantumE-commerce.io\n\nHi Kevin Johnson,\n\nI noticed QuantumE-commerce.io is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_21",
@@ -229,7 +289,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK AgriTech firms?\n\nHi info@walesagritech.co.uk,\n\nWe work with AgriTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_22",
@@ -240,7 +303,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Helping Healthcare companies grow online\n\nHi David Wilson,\n\nImpressed by GlobalHealthcare.co's work in Healthcare.\n\nHow's your digital presence working for you?\n\nWe help healthcare companies build websites that convert. 50% more patient inquiries in 60 days.\n\nFlexible packages starting at $500.\n\nInterested?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_23",
@@ -251,7 +317,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about CloudScale Solutions\n\nHi maria.j@cloudscale.io,\n\nI noticed CloudScale Solutions is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_24",
@@ -262,7 +331,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about CryptoFlow\n\nHi hello@cryptoflow.io,\n\nI noticed CryptoFlow is doing interesting work in Blockchain.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_25",
@@ -273,7 +345,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about QuantumSaaS.io\n\nHi Mark Brown,\n\nI noticed QuantumSaaS.io is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_26",
@@ -284,7 +359,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about InnovateTechnology.com\n\nHi John Harris,\n\nI noticed InnovateTechnology.com is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_27",
@@ -295,7 +373,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Gaming business online?\n\nHi hello@sggaming.sg,\n\nFollowing SG Gaming's work in Gaming.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_28",
@@ -306,7 +387,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi ops@finserve.co,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_29",
@@ -317,7 +401,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NovaSaaS.io\n\nHi Daniel Thomas,\n\nI noticed NovaSaaS.io is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_30",
@@ -328,7 +415,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Logistics firms?\n\nHi Jessica Moore,\n\nWe work with Logistics companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_31",
@@ -339,7 +429,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about PrimeEdTech.co\n\nHi Amanda Anderson,\n\nI noticed PrimeEdTech.co is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_32",
@@ -350,7 +443,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about EduPlatform\n\nHi hello@eduplatform.com,\n\nI noticed EduPlatform is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_33",
@@ -361,7 +457,10 @@
       "country": "Canada",
       "status": "sent",
       "email_body": "Subject: Growing your Startups business online?\n\nHi info@vancouverstartup.ca,\n\nFollowing Vancouver Startup's work in Startups.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_34",
@@ -372,7 +471,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about ApexReal.com\n\nHi Robert Jones,\n\nI noticed ApexReal.com is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_35",
@@ -383,7 +485,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NovaEdTech.co\n\nHi Lisa Harris,\n\nI noticed NovaEdTech.co is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_36",
@@ -394,7 +499,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK EdTech firms?\n\nHi hello@edtechuk.com,\n\nWe work with EdTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_37",
@@ -405,7 +513,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about DataDriven LLC\n\nHi ceo@datadriven.com,\n\nI noticed DataDriven LLC is doing interesting work in Data Analytics.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_38",
@@ -416,7 +527,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about Chicago Logistics\n\nHi info@chilogistics.com,\n\nI noticed Chicago Logistics is doing interesting work in Logistics.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_39",
@@ -427,7 +541,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Retail Tech business online?\n\nHi hello@retailtech.asia,\n\nFollowing RetailTech Asia's work in Retail Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_40",
@@ -438,7 +555,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for SmartAgriculture.co.au's digital growth?\n\nHi Emma Taylor,\n\nImpressive work in Agriculture!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_41",
@@ -449,7 +569,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about InnovateEdTech.io\n\nHi Amanda Brown,\n\nI noticed InnovateEdTech.io is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_42",
@@ -460,7 +583,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for PremierHealthcare.co.au's digital growth?\n\nHi Emily Smith,\n\nImpressive work in Healthcare!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_43",
@@ -471,7 +597,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi Jessica Davis,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_44",
@@ -482,7 +611,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Travel Tech business online?\n\nHi Mark White,\n\nFollowing PrimeTravel.io's work in Travel Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_45",
@@ -493,7 +625,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Logistics business online?\n\nHi ops@logitechasia.com,\n\nFollowing LogiTech Asia's work in Logistics.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_46",
@@ -504,7 +639,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for ZenithMining.io's digital growth?\n\nHi Kevin Garcia,\n\nImpressive work in Mining Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_47",
@@ -515,7 +653,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about SmartReal.tech\n\nHi Jennifer Miller,\n\nI noticed SmartReal.tech is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_48",
@@ -526,7 +667,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about ZenithTechnology.ai\n\nHi Anna Williams,\n\nI noticed ZenithTechnology.ai is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_49",
@@ -537,7 +681,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about SmartE-commerce.com\n\nHi Emma Davis,\n\nI noticed SmartE-commerce.com is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_50",
@@ -548,7 +695,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about PremierTechnology.co\n\nHi Kevin Smith,\n\nI noticed PremierTechnology.co is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_1",
@@ -559,7 +709,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your E-commerce business online?\n\nHi Chris Miller,\n\nFollowing ZenithE-commerce.io's work in E-commerce.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_2",
@@ -570,7 +723,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Retail firms?\n\nHi John Smith,\n\nWe work with Retail companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_3",
@@ -581,7 +737,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NovaSaaS.ai\n\nHi Anna Anderson,\n\nI noticed NovaSaaS.ai is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_4",
@@ -592,7 +751,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about PrimeTechnology.com\n\nHi Jennifer Jones,\n\nI noticed PrimeTechnology.com is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_5",
@@ -603,7 +765,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Legal Tech firms?\n\nHi Mark Taylor,\n\nWe work with Legal Tech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_6",
@@ -614,7 +779,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Legal Tech firms?\n\nHi Michelle Thompson,\n\nWe work with Legal Tech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_7",
@@ -625,7 +793,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Retail firms?\n\nHi James Hall,\n\nWe work with Retail companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_8",
@@ -636,7 +807,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Logistics business online?\n\nHi Tom White,\n\nFollowing DynamicLogistics.com.sg's work in Logistics.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_9",
@@ -647,7 +821,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about SmartAI/ML.ai\n\nHi Sarah Thomas,\n\nI noticed SmartAI/ML.ai is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_10",
@@ -658,7 +835,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about PremierFinTech.ai\n\nHi Amanda Anderson,\n\nI noticed PremierFinTech.ai is doing interesting work in FinTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_11",
@@ -669,7 +849,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK PropTech firms?\n\nHi Kevin Davis,\n\nWe work with PropTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_12",
@@ -680,7 +863,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Legal Tech firms?\n\nHi Sarah Thomas,\n\nWe work with Legal Tech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_13",
@@ -691,7 +877,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NextAI/ML.tech\n\nHi Michael Miller,\n\nI noticed NextAI/ML.tech is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_14",
@@ -702,7 +891,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK PropTech firms?\n\nHi David Young,\n\nWe work with PropTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_15",
@@ -713,7 +905,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about SmartAI/ML.tech\n\nHi Michelle Miller,\n\nI noticed SmartAI/ML.tech is doing interesting work in AI/ML.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_16",
@@ -724,7 +919,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about PremierEdTech.tech\n\nHi Mark Anderson,\n\nI noticed PremierEdTech.tech is doing interesting work in EdTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_17",
@@ -735,7 +933,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about GlobalFinTech.tech\n\nHi Robert Thompson,\n\nI noticed GlobalFinTech.tech is doing interesting work in FinTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_18",
@@ -746,7 +947,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK PropTech firms?\n\nHi Emily Davis,\n\nWe work with PropTech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_19",
@@ -757,7 +961,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for Canberra Gov Tech's digital growth?\n\nHi info@canberragovtech.com.au,\n\nImpressive work in Government!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_20",
@@ -768,7 +975,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about InnovateReal.co\n\nHi Michael Brown,\n\nI noticed InnovateReal.co is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_21",
@@ -779,7 +989,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Retail firms?\n\nHi Michelle Miller,\n\nWe work with Retail companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_22",
@@ -790,7 +1003,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about ProSaaS.io\n\nHi Jennifer Hall,\n\nI noticed ProSaaS.io is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_23",
@@ -801,7 +1017,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Helping Healthcare companies grow online\n\nHi Robert Harris,\n\nImpressed by DigitalHealthcare.co's work in Healthcare.\n\nHow's your digital presence working for you?\n\nWe help healthcare companies build websites that convert. 50% more patient inquiries in 60 days.\n\nFlexible packages starting at $500.\n\nInterested?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_24",
@@ -812,7 +1031,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for Melbourne Digital's digital growth?\n\nHi contact@melbdigital.au,\n\nImpressive work in Digital Agency!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_25",
@@ -823,7 +1045,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your HealthTech business online?\n\nHi Sarah Taylor,\n\nFollowing ApexHealthTech.sg's work in HealthTech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_26",
@@ -834,7 +1059,10 @@
       "country": "New Zealand",
       "status": "sent",
       "email_body": "Subject: Growing your Tech business online?\n\nHi contact@bnztech.co.nz,\n\nFollowing BNZ Tech NZ's work in Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_27",
@@ -845,7 +1073,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Legal Tech firms?\n\nHi Rachel Brown,\n\nWe work with Legal Tech companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_28",
@@ -856,7 +1087,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about CloudTechnology.ai\n\nHi Emily Martin,\n\nI noticed CloudTechnology.ai is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_29",
@@ -867,7 +1101,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi David Thompson,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_30",
@@ -878,7 +1115,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Logistics business online?\n\nHi Tom Hall,\n\nFollowing DynamicLogistics.sg's work in Logistics.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_31",
@@ -889,7 +1129,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for DigitalLogistics.co.au's digital growth?\n\nHi Michelle Young,\n\nImpressive work in Logistics!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_32",
@@ -900,7 +1143,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for PrimeFood.co.au's digital growth?\n\nHi John Davis,\n\nImpressive work in Food Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_33",
@@ -911,7 +1157,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your HR Tech business online?\n\nHi Mark Wilson,\n\nFollowing QuantumHR.io's work in HR Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_34",
@@ -922,7 +1171,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about NovaReal.ai\n\nHi Daniel Taylor,\n\nI noticed NovaReal.ai is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_35",
@@ -933,7 +1185,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Finance firms?\n\nHi Lisa Thomas,\n\nWe work with Finance companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_36",
@@ -944,7 +1199,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your Gaming business online?\n\nHi Jessica Garcia,\n\nFollowing EliteGaming.io's work in Gaming.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_37",
@@ -955,7 +1213,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for SynergyFood.io's digital growth?\n\nHi Michelle Thompson,\n\nImpressive work in Food Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_38",
@@ -966,7 +1227,10 @@
       "country": "Singapore",
       "status": "sent",
       "email_body": "Subject: Growing your HR Tech business online?\n\nHi Jessica Thomas,\n\nFollowing InnovateHR.sg's work in HR Tech.\n\nWe help Asia tech companies build digital presence that converts.\n\n50% more leads, 40% better conversion.\n\nOpen to a chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_39",
@@ -977,7 +1241,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about Seattle SaaS\n\nHi contact@seattlessaas.com,\n\nI noticed Seattle SaaS is doing interesting work in SaaS.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_40",
@@ -988,7 +1255,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for PremierFinance.io's digital growth?\n\nHi Tom Williams,\n\nImpressive work in Finance!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_41",
@@ -999,7 +1269,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for FutureReal.com.au's digital growth?\n\nHi Anna Miller,\n\nImpressive work in Real Estate!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_42",
@@ -1010,7 +1283,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about TechFinTech.tech\n\nHi Jessica Young,\n\nI noticed TechFinTech.tech is doing interesting work in FinTech.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_43",
@@ -1021,7 +1297,10 @@
       "country": "UK",
       "status": "sent",
       "email_body": "Subject: Digital partner for UK Legal firms?\n\nHi info@legalease.co.uk,\n\nWe work with Legal companies across the UK.\n\n45% increase in qualified leads in 90 days.\n\nProfessional websites, lead generation, client portals.\n\nOpen to a brief call?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_44",
@@ -1032,7 +1311,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about ProTechnology.ai\n\nHi Emma Jackson,\n\nI noticed ProTechnology.ai is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_45",
@@ -1043,7 +1325,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for Melbourne E-Health's digital growth?\n\nHi ops@melbourneehealth.com.au,\n\nImpressive work in Health Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_46",
@@ -1054,7 +1339,10 @@
       "country": "Australia",
       "status": "sent",
       "email_body": "Subject: Partner for FutureFood.io's digital growth?\n\nHi Sarah Brown,\n\nImpressive work in Food Tech!\n\nWe help AU tourism/hospitality businesses. 40-70% increase in bookings.\n\nBrief chat?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_47",
@@ -1065,7 +1353,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about SynergyTechnology.tech\n\nHi David Anderson,\n\nI noticed SynergyTechnology.tech is doing interesting work in Technology.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_48",
@@ -1076,7 +1367,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Helping Healthcare companies grow online\n\nHi Lisa Hall,\n\nImpressed by TechHealthcare.tech's work in Healthcare.\n\nHow's your digital presence working for you?\n\nWe help healthcare companies build websites that convert. 50% more patient inquiries in 60 days.\n\nFlexible packages starting at $500.\n\nInterested?\n\nAlex Johnson\nMAHA LAKSHMI HOLDINGS",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_49",
@@ -1087,7 +1381,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about QuantumReal.ai\n\nHi Tom Johnson,\n\nI noticed QuantumReal.ai is doing interesting work in Real Estate.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     },
     {
       "id": "email_20260719_50",
@@ -1098,7 +1395,10 @@
       "country": "USA",
       "status": "sent",
       "email_body": "Subject: Quick question about AgileE-commerce.io\n\nHi Amanda Garcia,\n\nI noticed AgileE-commerce.io is doing interesting work in E-commerce.\n\nWe build high-converting websites and apps for businesses. 40-60% increase in online presence in 3 months.\n\nIs your digital presence driving the results you want?\n\nI'd love to show you how we can help - starting at $500.\n\nOpen to a quick 15-minute call?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS\nalex@mahalakshmi.io",
-      "responded": false
+      "responded": false,
+      "followup_status": "pending",
+      "followup_needed": false,
+      "days_since_sent": 0
     }
   ],
   "stats": {
