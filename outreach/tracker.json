@@ -9,7 +9,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jessicawilson@InnovateHealthcare.tech",
@@ -21,7 +25,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jenniferdavis@InnovateHealthcare.io",
@@ -33,7 +41,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "racheljackson@PremierTourism.com.au",
@@ -45,7 +57,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michelle@GlobalTechnology.com",
@@ -57,7 +73,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "amanda@ProSaaS.com",
@@ -69,7 +89,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jennifergarcia@FutureEdTech.ai",
@@ -81,7 +105,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "amanda.moore@AgileEdTech.com",
@@ -93,7 +121,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michael@ProFinTech.com",
@@ -105,7 +137,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "kevin@QuantumEdTech.co.uk",
@@ -117,7 +153,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "robert@SynergyFood.co.au",
@@ -129,7 +169,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jennifermartin@InnovateFinance.io",
@@ -141,7 +185,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "robertsmith@AgileHealthTech.com",
@@ -153,7 +201,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "mark@FutureLogistics.io",
@@ -165,7 +217,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "mark@AgileTourism.co.au",
@@ -177,7 +233,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jessica.brown@AgileE-commerce.co",
@@ -189,7 +249,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jennifermoore@InnovateAgriculture.co.au",
@@ -201,7 +265,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michaelhall@DynamicLogistics.uk",
@@ -213,7 +281,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "mark.anderson@AgileHealthcare.co",
@@ -225,7 +297,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.hall@CloudFinance.io",
@@ -237,7 +313,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.martin@EliteHealthcare.tech",
@@ -249,7 +329,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "rachel@EliteHR.sg",
@@ -261,7 +345,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "markmartin@DynamicLogistics.uk",
@@ -273,7 +361,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jennifer@DynamicAI/ML.ai",
@@ -285,7 +377,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "daniel.martin@TechMining.com.au",
@@ -297,7 +393,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michaeljones@NovaFood.com.au",
@@ -309,7 +409,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.brown@NovaLogistics.com",
@@ -321,7 +425,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jessica@EliteE-commerce.ai",
@@ -333,7 +441,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tom@CloudConsulting.sg",
@@ -345,7 +457,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "lisa.smith@QuantumLogistics.com.au",
@@ -357,7 +473,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "robertmoore@PremierLogistics.com",
@@ -369,7 +489,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chrisdavis@CloudReal.com.au",
@@ -381,7 +505,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.hall@InnovateFinance.io",
@@ -393,7 +521,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "emmawhite@EliteHealthcare.co.au",
@@ -405,7 +537,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "lisa@NovaEdTech.io",
@@ -417,7 +553,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "sarah@SynergyLogistics.uk",
@@ -429,7 +569,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "lisa.jackson@CloudFinance.com.au",
@@ -441,7 +585,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jessica@DynamicFinance.co.au",
@@ -453,7 +601,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "rachel@SynergyLogistics.co.uk",
@@ -465,7 +617,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "anna.thomas@FutureReal.io",
@@ -477,7 +633,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michael.anderson@EliteE-commerce.asia",
@@ -489,7 +649,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "john.thomas@PrimeFinance.co.uk",
@@ -501,7 +665,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "emily.jones@DynamicLegal.com",
@@ -513,7 +681,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michelle@SynergyTourism.co.au",
@@ -525,7 +697,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "robert@QuantumMining.co.au",
@@ -537,7 +713,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tom.garcia@NextE-commerce.sg",
@@ -549,7 +729,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tom@DynamicLogistics.asia",
@@ -561,7 +745,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tom@VectorTourism.io",
@@ -573,7 +761,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "markmoore@CloudAI/ML.io",
@@ -585,7 +777,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.anderson@SynergyFinance.co.uk",
@@ -597,7 +793,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "rachelanderson@NextGaming.com.sg",
@@ -609,7 +809,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "amanda.young@DigitalTravel.io",
@@ -621,7 +825,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tom@EliteLegal.io",
@@ -633,7 +841,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "rachel@AgileFood.io",
@@ -645,7 +857,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "rachel@AgileLegal.io",
@@ -657,7 +873,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "marksmith@TechSaaS.ai",
@@ -669,7 +889,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michellewilliams@CloudEdTech.uk",
@@ -681,7 +905,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "robert.taylor@AgileEdTech.tech",
@@ -693,7 +921,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "emily.martin@NovaEdTech.com",
@@ -705,7 +937,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jessicathompson@NovaEdTech.ai",
@@ -717,7 +953,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "lisa@NovaLogistics.co.uk",
@@ -729,7 +969,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "kevinmoore@GlobalRetail.io",
@@ -741,7 +985,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "danielmartin@SynergyRetail.io",
@@ -753,7 +1001,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michellethompson@VectorSaaS.co",
@@ -765,7 +1017,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "james.wilson@TechHealthTech.com",
@@ -777,7 +1033,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.wilson@NextMining.io",
@@ -789,7 +1049,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chrisjones@SmartHealthcare.com",
@@ -801,7 +1065,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chris.johnson@CloudReal.com.au",
@@ -813,7 +1081,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "lisayoung@CloudHealthcare.ai",
@@ -825,7 +1097,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tomthomas@NextTravel.sg",
@@ -837,7 +1113,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "mark.johnson@EliteHealthTech.io",
@@ -849,7 +1129,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david@AgileFinance.com",
@@ -861,7 +1145,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "amanda.johnson@DynamicAI/ML.com",
@@ -873,7 +1161,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michelle@ProTourism.io",
@@ -885,7 +1177,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "sarahjohnson@InnovateAI/ML.tech",
@@ -897,7 +1193,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "sarah@PrimeEdTech.uk",
@@ -909,7 +1209,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "james@EliteFood.co.au",
@@ -921,7 +1225,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chris.hall@SynergyRetail.com",
@@ -933,7 +1241,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david.thompson@AgileMining.co.au",
@@ -945,7 +1257,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "emily@VectorSaaS.co",
@@ -957,7 +1273,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chris.moore@SmartPropTech.co.uk",
@@ -969,7 +1289,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michelle@AgileReal.tech",
@@ -981,7 +1305,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "tom@DynamicMining.co.au",
@@ -993,7 +1321,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "robert.martin@DynamicLogistics.com.au",
@@ -1005,7 +1337,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "james@NovaLogistics.uk",
@@ -1017,7 +1353,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "amanda@DigitalLogistics.com",
@@ -1029,7 +1369,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "michael.hall@EliteAgriculture.com.au",
@@ -1041,7 +1385,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jenniferthomas@CloudLogistics.co.au",
@@ -1053,7 +1401,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "david@PrimeHealthcare.com",
@@ -1065,7 +1417,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chris.smith@AgilePropTech.io",
@@ -1077,7 +1433,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "anna@DynamicFinTech.com",
@@ -1089,7 +1449,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "chris.brown@QuantumEdTech.co",
@@ -1101,7 +1465,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "john@EliteAgriculture.co.au",
@@ -1113,7 +1481,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "amanda.smith@InnovateHealthcare.co",
@@ -1125,7 +1497,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "jennifer@QuantumHR.com.sg",
@@ -1137,7 +1513,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "james.garcia@NovaLogistics.io",
@@ -1149,7 +1529,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "emilythompson@PrimeLogistics.co.uk",
@@ -1161,7 +1545,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "kevinwilliams@InnovateAI/ML.io",
@@ -1173,7 +1561,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "emma.johnson@NextAI/ML.co",
@@ -1185,7 +1577,11 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   },
   {
     "lead_email": "mark.taylor@ApexFood.io",
@@ -1197,6 +1593,10 @@
     "status": "sent",
     "follow_up_count": 0,
     "response_date": null,
-    "notes": ""
+    "notes": "",
+    "day3_followup": "2026-07-23",
+    "day7_followup": "2026-07-27",
+    "followup_template_day3": "FOLLOWUP-DAY3-REGION-BASED",
+    "followup_template_day7": "FOLLOWUP-DAY7-REGION-BASED"
   }
 ]
