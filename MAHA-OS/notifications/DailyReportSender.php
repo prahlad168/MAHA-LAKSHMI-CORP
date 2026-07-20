@@ -2,14 +2,23 @@
 /**
  * MAHA LAKSHMI AIOS - Daily Report Sender
  * Sends daily report to CEO
- * CEO: ceo@mahalakshmi.id | WhatsApp: 081337558787
+ * Email: admin@mahalaksmi.web.id | WhatsApp: 081337558787
  * Created: 2026-07-03
+ * Updated: 2026-07-20
  */
 
 // CEO Contact Info
 define('CEO_EMAIL', 'ceo@mahalakshmi.id');
 define('CEO_PHONE', '081337558787');
 define('CEO_WHATSAPP', '6281337558787');
+
+// Email Configuration
+define('EMAIL_HOST', 'smtp.mahalaksmi.web.id');
+define('EMAIL_PORT', 587);
+define('EMAIL_USERNAME', 'admin@mahalaksmi.web.id');
+define('EMAIL_PASSWORD', 'Gaurangga168$');
+define('EMAIL_FROM', 'admin@mahalaksmi.web.id');
+define('EMAIL_FROM_NAME', 'MAHA LAKSHMI Holdings');
 
 /**
  * Generate daily report data
@@ -131,14 +140,20 @@ function sendEmailReport(string $to, array $report): array {
 </html>
 HTML;
     
-    // Simple mail function
+    // Email configuration
     $headers = [
-        'From: MAHA AIOS <noreply@mahalakshmi.id>',
+        'From: ' . EMAIL_FROM_NAME . ' <' . EMAIL_FROM . '>',
+        'Reply-To: ' . EMAIL_FROM,
         'Content-Type: text/html; charset=UTF-8',
         'MIME-Version: 1.0'
     ];
     
-    $sent = mail($to, $subject, $html, implode("\r\n", $headers));
+    // Use SMTP mail function if available
+    if (function_exists('smtp_mail')) {
+        $sent = smtp_mail($to, $subject, $html);
+    } else {
+        $sent = mail($to, $subject, $html, implode("\r\n", $headers));
+    }
     
     return [
         'success' => $sent,

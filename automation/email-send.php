@@ -13,13 +13,13 @@
 // SMTP CONFIGURATION
 // =======================
 $SMTP = [
-    'host' => 'smtp.gmail.com',
+    'host' => 'smtp.mahalaksmi.web.id',    // Custom domain SMTP
     'port' => 587,
     'encryption' => 'tls',
-    'username' => 'mahalakshmidigital@gmail.com',  // GANTI DENGAN EMAIL PAK PUR
-    'password' => 'xxxx xxxx xxxx xxxx',            // GANTI DENGAN APP PASSWORD
-    'from_name' => 'MAHA LAKSHMI Digital',
-    'from_email' => 'mahalakshmidigital@gmail.com'
+    'username' => 'admin@mahalaksmi.web.id',   // ✅ Email admin
+    'password' => 'Gaurangga168$',               // ✅ Password
+    'from_name' => 'MAHA LAKSHMI Holdings',
+    'from_email' => 'admin@mahalaksmi.web.id'
 ];
 
 // =======================
