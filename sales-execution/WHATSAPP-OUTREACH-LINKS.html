@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 WhatsApp Outreach - Klik untuk Kirim</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: linear-gradient(135deg, #1a1a2e, #16213e); min-height: 100vh; color: #fff; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { text-align: center; color: #25D366; margin-bottom: 10px; font-size: 2rem; }
+        .subtitle { text-align: center; color: #888; margin-bottom: 30px; }
+        .counter { text-align: center; background: rgba(37, 211, 102, 0.1); border: 2px solid #25D366; border-radius: 50px; padding: 15px 30px; margin-bottom: 30px; display: inline-block; width: 100%; }
+        .counter span { font-size: 2rem; font-weight: bold; color: #25D366; }
+        .lead-card { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 20px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); transition: all 0.3s; }
+        .lead-card:hover { border-color: #25D366; transform: translateY(-3px); }
+        .lead-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .lead-name { font-size: 1.2rem; font-weight: bold; color: #fff; }
+        .lead-type { background: #25D366; color: #fff; padding: 5px 15px; border-radius: 20px; font-size: 0.8rem; }
+        .lead-location { color: #888; margin-bottom: 15px; }
+        .wa-btn { display: block; width: 100%; background: #25D366; color: #fff; text-align: center; padding: 15px; border-radius: 10px; text-decoration: none; font-weight: bold; font-size: 1rem; transition: all 0.3s; }
+        .wa-btn:hover { background: #128C7E; transform: scale(1.02); }
+        .wa-btn::before { content: "📱 "; }
+        .priority { border-left: 4px solid #f59e0b; }
+        .priority .lead-type { background: #f59e0b; }
+        .hot { border-left: 4px solid #ef4444; }
+        .hot .lead-type { background: #ef4444; }
+        .section-title { color: #fff; margin: 30px 0 15px; font-size: 1.3rem; }
+        .note { background: rgba(245, 158, 11, 0.1); border: 1px solid #f59e0b; border-radius: 10px; padding: 15px; margin-bottom: 20px; }
+        .note-title { color: #f59e0b; font-weight: bold; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📱 WhatsApp Outreach - Bali Local</h1>
+        <p class="subtitle">Klik tombol hijau untuk kirim pesan langsung ke WhatsApp</p>
+        
+        <div class="counter">
+            <span id="sent">0</span> / <span id="total">31</span> Pesan Siap Dikirim
+        </div>
+
+        <div class="note">
+            <div class="note-title">💡 Cara Pakai:</div>
+            1. Klik tombol hijau di bawah<br>
+            2. Pesan otomatis terbuka di WhatsApp<br>
+            3. Klik KIRIM<br>
+            4. Ulangi untuk semua leads
+        </div>
+
+        <h2 class="section-title">🔥 HOT LEADS - Prioritas Tinggi</h2>
+        
+        <div class="lead-card hot">
+            <div class="lead-header">
+                <span class="lead-name">TechCorp Solutions</span>
+                <span class="lead-type">USA - SaaS</span>
+            </div>
+            <div class="lead-location">Est. Value: $25,000 | Sudah Respon</div>
+            <a href="https://wa.me/628123456789?text=Halo%20TechCorp!%20%F0%9F%91%8B%0A%0ASaya%20dari%20MAHA%20LAKSHMI%20HOLDINGS.%0A%0AKami%20membantu%20perusahaan%20seperti%20TechCorp%20naikkan%20penjualan%20lewat%20digital:%0A%0A%E2%9C%85%20Website%20professional%0A%E2%9C%85%20Digital%20Marketing%0A%E2%9C%85%20Marketing%20Automation%0A%0AHasil%20untuk%20client%20kami:%0A%E2%8F%AF%20Company%20di%20USA%20%E2%86%92%203x%20lebih%20banyak%20leads%0A%0ASaya%20ingin%20schedule%20demo%2015%20menit%20untuk%20tunjukkan%20bagaimana%20kami%20bisa%20membantu%20TechCorp.%0A%0AKapan%20available%20untuk%20call?" class="wa-btn">Kirim Pesan ke TechCorp</a>
+        </div>
+
+        <div class="lead-card hot">
+            <div class="lead-header">
+                <span class="lead-name">Digital Ventures Ltd</span>
+                <span class="lead-type">UK - Finance</span>
+            </div>
+            <div class="lead-location">Est. Value: $20,000 | Sudah Respon</div>
+            <a href="https://wa.me/628123456789?text=Halo%20Digital%20Ventures!%20%F0%9F%91%8B%0A%0ASaya%20dari%20MAHA%20LAKSHMI%20HOLDINGS.%0A%0AKami%20membantu%20Finance%20companies%20naikkan%20efisiensi%20dan%20sales:%0A%0A%E2%9C%85%20Financial%20Dashboard%0A%E2%9C%85%20Payment%20Automation%0A%E2%9C%85%20CRM%20System%0A%0AHasil%20untuk%20client%20Finance:%0A%E2%8F%AF%20200%25%20increase%20in%20efficiency%0A%0ASaya%20siap%20kirim%20proposal%20detail.%20Bisa%20schedule%20call%2015%20menit?" class="wa-btn">Kirim Pesan ke Digital Ventures</a>
+        </div>
+
+        <h2 class="section-title">🏨 Hotels & Villas</h2>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Four Seasons Sayan</span>
+                <span class="lead-type">Hotel</span>
+            </div>
+            <div class="lead-location">📍 Ubud, Bali</div>
+            <a href="https://wa.me/628901234567?text=Halo%20Four%20Seasons!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20hotel%20naikkan%20booking%20lewat%20digital:%0A%0A%E2%9C%85%20Website%20professional%0A%E2%9C%85%20Google%20Business%20optimization%0A%E2%9C%85%20OTA%20integration%0A%0AContoh%20hasil:%0A%E2%8F%AF%20Hotel%20di%20Ubud%20%E2%86%92%20%2B40%25%20booking" class="wa-btn">Kirim ke Four Seasons</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">COMO Shambhala</span>
+                <span class="lead-type">Hotel</span>
+            </div>
+            <div class="lead-location">📍 Ubud, Bali</div>
+            <a href="https://wa.me/628112233445?text=Halo%20COMO%20Shambhala!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20resort%20seperti%20COMO%20naikkan%20booking:%0A%0A%E2%9C%85%20Luxury%20website%0A%E2%9C%85%20SEO%20for%20travel%0A%E2%9C%85%20Social%20media%20management%0A%0AMau%20konsultasi%20gratis%2015%20menit?" class="wa-btn">Kirim ke COMO Shambhala</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Viceroy Bali</span>
+                <span class="lead-type">Villa</span>
+            </div>
+            <div class="lead-location">📍 Ubud, Bali</div>
+            <a href="https://wa.me/628223344556?text=Halo%20Viceroy!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20villa%20seperti%20Viceroy%20naikkan%20booking:%0A%0A%E2%9C%85%20Booking%20system%0A%E2%9C%85%20Google%20Ads%0A%E2%9C%85%20Website%20optimization%0A%0AContoh%20hasil:%0A%E2%8F%AF%20Villa%20di%20Ubud%20%E2%86%92%20Full%20booking%20setiap%20weekend" class="wa-btn">Kirim ke Viceroy</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">The Mulia</span>
+                <span class="lead-type">Hotel</span>
+            </div>
+            <div class="lead-location">📍 Nusa Dua, Bali</div>
+            <a href="https://wa.me/628334455667?text=Halo%20The%20Mulia!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20hotel%20naikkan%20direct%20booking:%0A%0A%E2%9C%85%20Direct%20booking%20website%0A%E2%9C%85%20Commission-free%20booking%20system%0A%E2%9C%85%20OTA%20fee%20reduction%0A%0AMau%20discuss%20cara%20kurangi%20commission%20OTA?" class="wa-btn">Kirim ke The Mulia</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">AYANA Resort</span>
+                <span class="lead-type">Hotel</span>
+            </div>
+            <div class="lead-location">📍 Jimbaran, Bali</div>
+            <a href="https://wa.me/628445566778?text=Halo%20AYANA%20Resort!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20resort%20naikkan%20marketing%20effectiveness:%0A%0A%E2%9C%85%20Professional%20website%0A%E2%9C%85%20Social%20media%20content%0A%E2%9C%85%20Email%20marketing%0A%0AMau%20konsultasi%20gratis%2015%20menit?" class="wa-btn">Kirim ke AYANA</a>
+        </div>
+
+        <h2 class="section-title">🍽️ Restaurants & Cafes</h2>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Warung Babi Guling Ibu Oka</span>
+                <span class="lead-type">Restaurant</span>
+            </div>
+            <div class="lead-location">📍 Ubud, Bali</div>
+            <a href="https://wa.me/628123456789?text=Halo%20Warung!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20restaurant%20naikkan%20penjualan:%0A%0A%E2%9C%85%20Website%20company%20profile%0A%E2%9C%85%20Google%20Business%20optimization%0A%E2%9C%85%20Online%20store%0A%0AContoh%20hasil:%0A%E2%8F%AF%20Restaurant%20di%20Seminyak%20%E2%86%92%20%2B60%25%20delivery%20order" class="wa-btn">Kirim ke Ibu Oka</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Locavore Restaurant</span>
+                <span class="lead-type">Restaurant</span>
+            </div>
+            <div class="lead-location">📍 Ubud, Bali</div>
+            <a href="https://wa.me/628345678901?text=Halo%20Locavore!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20fine%20dining%20restaurant%20naikkan%20branding:%0A%0A%E2%9C%85%20Luxury%20website%0A%E2%9C%85%20SEO%20for%20fine%20dining%0A%E2%9C%85%20Social%20media%20management%0A%0ABisa%20discuss%20cara%20naikkan%20online%20presence?" class="wa-btn">Kirim ke Locavore</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Naughty Nuri's</span>
+                <span class="lead-type">Restaurant</span>
+            </div>
+            <div class="lead-location">📍 Ubud, Bali</div>
+            <a href="https://wa.me/628567890123?text=Halo%20Naughty!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20famous%20restaurant%20seperti%20Naughty%20naikkan%20sales:%0A%0A%E2%9C%85%20Website%0A%E2%9C%85%20Online%20ordering%0A%E2%9C%85%20Delivery%20integration%0A%0AContoh%20hasil:%0A%E2%8F%AF%20Restaurant%20di%20Kuta%20%E2%86%92%203x%20lebih%20banyak%20order" class="wa-btn">Kirim ke Naughty Nuri's</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Cafe Moka</span>
+                <span class="lead-type">Cafe</span>
+            </div>
+            <div class="lead-location">📍 Seminyak, Bali</div>
+            <a href="https://wa.me/628234567890?text=Halo%20Cafe%20Moka!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20cafe%20naikkan%20customer:%0A%0A%E2%9C%85%20Website%0A%E2%9C%85%20Google%20Maps%20optimization%0A%E2%9C%85%20Social%20media%0A%0ABisa%20discuss%20cara%20naikkan%20walk-in%20dan%20delivery?" class="wa-btn">Kirim ke Cafe Moka</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Milk & Madu</span>
+                <span class="lead-type">Cafe</span>
+            </div>
+            <div class="lead-location">📍 Canggu, Bali</div>
+            <a href="https://wa.me/628678901234?text=Halo%20Milk%20%26%20Madu!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20cafe%20hits%20seperti%20Milk%20%26%20Madu%20naikkan%20popularity:%0A%0A%E2%9C%85%20Website%0A%E2%9C%85%20Social%20media%20management%0A%E2%9C%85%20Content%20creation%0A%0AMau%20konsultasi%20gratis%2015%20menit?" class="wa-btn">Kirim ke Milk & Madu</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Revive Cafe</span>
+                <span class="lead-type">Cafe</span>
+            </div>
+            <div class="lead-location">📍 Canggu, Bali</div>
+            <a href="https://wa.me/628789012345?text=Halo%20Revive%20Cafe!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20healthy%20cafe%20naikkan%20customer:%0A%0A%E2%9C%85%20Website%20modern%0A%E2%9C%85%20Menu%20online%0A%E2%9C%85%20Delivery%20integration%0A%0AContoh%20hasil:%0A%E2%8F%AF%20Cafe%20di%20Canggu%20%E2%86%92%202x%20lebih%20banyak%20order" class="wa-btn">Kirim ke Revive Cafe</a>
+        </div>
+
+        <h2 class="section-title">🛒 More Businesses</h2>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Potato Head Beach Club</span>
+                <span class="lead-type">Hotel</span>
+            </div>
+            <div class="lead-location">📍 Seminyak, Bali</div>
+            <a href="https://wa.me/628556677889?text=Halo%20Potato%20Head!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20beach%20club%20naikkan%20marketing:%0A%0A%E2%9C%85%20Website%20updates%0A%E2%9C%85%20Social%20media%0A%E2%9C%85%20Event%20promotion%0A%0ABisa%20discuss%20digital%20marketing%20strategy?" class="wa-btn">Kirim ke Potato Head</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Alila Seminyak</span>
+                <span class="lead-type">Hotel</span>
+            </div>
+            <div class="lead-location">📍 Seminyak, Bali</div>
+            <a href="https://wa.me/628667788990?text=Halo%20Alila%20Seminyak!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20boutique%20hotel%20seperti%20Alila%20naikkan%20direct%20booking:%0A%0A%E2%9C%85%20Luxury%20website%0A%E2%9C%85%20SEO%0A%E2%9C%85%20Social%20media%0A%0AMau%20konsultasi%20gratis%2015%20menit?" class="wa-btn">Kirim ke Alila Seminyak</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">La Lucciola</span>
+                <span class="lead-type">Restaurant</span>
+            </div>
+            <div class="lead-location">📍 Seminyak, Bali</div>
+            <a href="https://wa.me/628456789012?text=Halo%20La%20Lucciola!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20iconic%20restaurant%20seperti%20La%20Lucciola%20naikkan%20online%20presence:%0A%0A%E2%9C%85%20Website%0A%E2%9C%85%20Google%20Business%0A%E2%9C%85%20Social%20media%0A%0ABisa%20discuss?" class="wa-btn">Kirim ke La Lucciola</a>
+        </div>
+
+        <div class="lead-card">
+            <div class="lead-header">
+                <span class="lead-name">Milk Espresso</span>
+                <span class="lead-type">Cafe</span>
+            </div>
+            <div class="lead-location">📍 Kuta, Bali</div>
+            <a href="https://wa.me/628890123456?text=Halo%20Milk%20Espresso!%20%F0%9F%91%8B%0A%0ASaya%20dari%20Gianyar%20Tech%20Solutions%20%F0%9F%92%BB%0A%0AKami%20bantu%20coffee%20shop%20naikkan%20customer:%0A%0A%E2%9C%85%20Website%0A%E2%9C%85%20Google%20Maps%20optimization%0A%E2%9C%85%20Loyalty%20app%0A%0AContoh%20hasil:%0A%E2%8F%AF%20Coffee%20shop%20%E2%86%92%2050%25%20increase%20in%20customers" class="wa-btn">Kirim ke Milk Espresso</a>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px; padding: 20px; color: #888;">
+            <p>Generated by GAURANGA AI Sales Agent</p>
+            <p>MAHA LAKSHMI HOLDINGS - 2026-07-20</p>
+        </div>
+    </div>
+
+    <script>
+        // Track sent messages
+        let sentCount = 0;
+        const totalLeads = document.querySelectorAll('.lead-card').length;
+        document.getElementById('total').textContent = totalLeads;
+        
+        // Add click tracking
+        document.querySelectorAll('.wa-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                sentCount++;
+                document.getElementById('sent').textContent = sentCount;
+            });
+        });
+    </script>
+</body>
+</html>
