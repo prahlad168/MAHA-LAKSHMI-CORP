@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📱 WhatsApp Shopee Affiliate Blast</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui; background: linear-gradient(135deg, #0f0f0f, #1a1a2e); min-height: 100vh; color: white; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        header { text-align: center; padding: 30px 0; }
+        h1 { background: linear-gradient(135deg, #ff6b6b, #ff9f43); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 2em; }
+        .subtitle { color: #888; margin-top: 10px; }
+        .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0; }
+        .stat { background: rgba(255,255,255,0.1); padding: 15px; border-radius: 15px; text-align: center; }
+        .stat-num { font-size: 2em; font-weight: bold; color: #ff9f43; }
+        .stat-label { font-size: 0.8em; color: #888; }
+        .product-section { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 25px; margin: 20px 0; }
+        .product-select { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 1em; margin: 10px 0; }
+        .product-input { width: 100%; padding: 15px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.1); color: white; font-size: 1em; margin: 10px 0; }
+        label { display: block; margin: 15px 0 5px; color: #aaa; }
+        .message-box { width: 100%; min-height: 200px; padding: 15px; border-radius: 15px; border: 2px solid #25D366; background: rgba(37,211,102,0.1); color: white; font-size: 1em; resize: vertical; }
+        .link-input { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid #ff9f43; background: rgba(255,159,67,0.1); color: white; font-size: 1em; margin: 10px 0; }
+        .cta-section { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; }
+        .cta-btn { padding: 20px; border-radius: 15px; font-size: 1.1em; font-weight: bold; cursor: pointer; border: none; transition: all 0.3s; }
+        .cta-btn:hover { transform: scale(1.02); }
+        .btn-whatsapp { background: #25D366; color: white; }
+        .btn-copy { background: #ff9f43; color: white; }
+        .btn-reset { background: #e94560; color: white; }
+        .btn-product { background: linear-gradient(135deg, #667eea, #764ba2); color: white; }
+        .contacts-section { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 25px; margin: 20px 0; }
+        .contact-item { background: rgba(255,255,255,0.05); padding: 12px 15px; border-radius: 10px; margin: 8px 0; display: flex; justify-content: space-between; align-items: center; }
+        .contact-name { font-weight: 500; }
+        .contact-status { font-size: 0.8em; color: #25D366; }
+        .send-all-btn { width: 100%; padding: 20px; background: linear-gradient(135deg, #25D366, #128C7E); border: none; border-radius: 15px; color: white; font-size: 1.2em; font-weight: bold; cursor: pointer; margin: 20px 0; }
+        .quick-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 15px 0; }
+        .quick-btn { padding: 12px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; color: white; cursor: pointer; font-size: 0.9em; }
+        .quick-btn:hover { background: rgba(255,255,255,0.2); }
+        .presets { margin: 15px 0; }
+        .preset-btn { padding: 10px 15px; background: rgba(102,126,234,0.3); border: 1px solid #667eea; border-radius: 20px; color: white; margin: 5px; cursor: pointer; font-size: 0.85em; }
+        .preset-btn:hover { background: rgba(102,126,234,0.5); }
+        .success { background: rgba(37,211,102,0.2); padding: 15px; border-radius: 10px; text-align: center; margin: 10px 0; color: #25D366; }
+        footer { text-align: center; padding: 30px; color: #666; font-size: 0.85em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📱 WhatsApp Blast</h1>
+            <p class="subtitle">Shopee Affiliate - Quick Sales</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-num" id="sentCount">0</div>
+                <div class="stat-label">Terkirim</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" id="responseCount">0</div>
+                <div class="stat-label">Respon</div>
+            </div>
+            <div class="stat">
+                <div class="stat-num" id="orderCount">0</div>
+                <div class="stat-label">Orders</div>
+            </div>
+        </div>
+
+        <div class="product-section">
+            <h2>🛒 Pilih Produk</h2>
+            <select class="product-select" id="productSelect" onchange="selectProduct()">
+                <option value="">-- Pilih Produk --</option>
+                <option value="gluta-mask">Gluta Rice Milk Mask (Rp 25-50K) - Komisi 20-30%</option>
+                <option value="parfum">Parfum Lokal VnG (Rp 50-150K) - Komisi 20-30%</option>
+                <option value="skincare">Wardah Skincare Set (Rp 75-200K) - Komensi 15-20%</option>
+                <option value="organizer">Organizer Home Storage (Rp 30-100K) - Komensi 15-22%</option>
+                <option value="tws">TWS Earbuds Bluetooth (Rp 50-200K) - Komensi 10-15%</option>
+                <option value="custom">Custom Produk</option>
+            </select>
+            <input type="text" class="product-input" id="customProduct" placeholder="Nama produk custom..." style="display:none;">
+            
+            <label>💰 Harga</label>
+            <input type="text" class="product-input" id="productPrice" placeholder="Contoh: Rp 25.000">
+            
+            <label>🔗 Affiliate Link</label>
+            <input type="text" class="link-input" id="affiliateLink" placeholder="Paste link Shopee affiliate di sini...">
+        </div>
+
+        <div class="product-section">
+            <h2>📝 Pesan Promo</h2>
+            <div class="presets">
+                <span class="preset-btn" onclick="usePreset('gluta')">Gluta Mask</span>
+                <span class="preset-btn" onclick="usePreset('parfum')">Parfum</span>
+                <span class="preset-btn" onclick="usePreset('skincare')">Skincare</span>
+                <span class="preset-btn" onclick="usePreset('organizer')">Organizer</span>
+                <span class="preset-btn" onclick="usePreset('tws')">Earbuds</span>
+            </div>
+            <textarea class="message-box" id="messageText">🔥 PROMO SPESIAL!
+
+Hai kak! 👋
+
+Produk Shopee LAGI PROMO!
+[PRODUK] - Rp [HARGA]
+Diskon [DISKON]%!
+
+Keuntungan:
+✅ Harga lebih murah
+✅ Gratis ongkir
+✅ Garansi Shopee
+
+🛒 Link:
+[YOUR_AFFILIATE_LINK]
+
+Stocks terbatas! Jangan sampai miss! 🙏
+
+Sent from WhatsApp Blast System</textarea>
+        </div>
+
+        <div class="cta-section">
+            <button class="cta-btn btn-copy" onclick="copyMessage()">📋 Copy Pesan</button>
+            <button class="cta-btn btn-whatsapp" onclick="openWhatsApp()">📱 Kirim WA</button>
+        </div>
+
+        <button class="cta-btn btn-reset" onclick="resetAll()">🔄 Reset Semua</button>
+
+        <div class="contacts-section">
+            <h2>👥 Kontak (Tap untuk Kirim)</h2>
+            <div class="quick-actions">
+                <button class="quick-btn" onclick="addContact()">➕ Tambah Kontak</button>
+                <button class="quick-btn" onclick="importContacts()">📥 Import CSV</button>
+            </div>
+            <div id="contactsList">
+                <!-- Contacts will be added here -->
+            </div>
+        </div>
+
+        <button class="send-all-btn" onclick="sendToAll()">🚀 KIRIM KE SEMUA KONTAK</button>
+
+        <div id="successMsg" class="success" style="display:none;">
+            ✅ Pesan berhasil disalin! Kirim manual via WhatsApp.
+        </div>
+    </div>
+
+    <footer>
+        <p>MAHA LAKSHMI HOLDINGS | Shopee Affiliate System</p>
+        <p>Bank: BCA 6485086645 | i Made Purna Ananda</p>
+    </footer>
+
+    <script>
+        const products = {
+            'gluta-mask': {
+                name: 'Jeubry Gluta Rice Milk Mask 2in1',
+                price: 'Rp 25.000 - 50.000',
+                discount: '50%',
+                commission: '20-30%',
+                message: `🔥 PROMO SPESIAL!
+
+Hai kak! 👋
+
+Gluta Rice Milk Mask LAGI PROMO!
+Harga: Rp 25.000 (Diskon 50%)!
+
+Keuntungan:
+✅ Bahan berkualitas
+✅ Glowing dalam 7 hari
+✅ Aman untuk semua kulit
+✅ Gratis ongkir
+✅ Garansi Shopee
+
+🛒 Checkout di link ini:
+[LINK]
+
+Stocks terbatas! Jangan sampai miss! 🙏`
+            },
+            'parfum': {
+                name: 'Parfum Wangian Lokal VnG/D\'Parfum',
+                price: 'Rp 50.000 - 150.000',
+                discount: '30%',
+                commission: '20-30%',
+                message: `🔥 PROMO PARFUM!
+
+Hai kak! 👋
+
+VnG/D'Parfum LAGI PROMO!
+Harga: Rp 50.000 (Diskon 30%)!
+
+Keuntungan:
+✅ Wangi tahan 8-12 jam
+✅ Premium quality
+✅ Botol elegant
+✅ Gratis ongkir
+
+🛒 Checkout:
+[LINK]
+
+Jangan sampai kehabisan! 🙏`
+            },
+            'skincare': {
+                name: 'Wardah UV Shield Series',
+                price: 'Rp 75.000 - 200.000',
+                discount: '25%',
+                commission: '15-20%',
+                message: `🔥 PROMO SKINCARE!
+
+Hai kak! 👋
+
+Wardah UV Shield LAGI PROMO!
+Harga: Rp 75.000 (Diskon 25%)!
+
+Keuntungan:
+✅ Brand terpercaya
+✅ SPF 50 PA++++
+✅ Glowing protection
+✅ Gratis ongkir
+
+🛒 Checkout:
+[LINK]
+
+Tunggu apa lagi kak! 🙏`
+            },
+            'organizer': {
+                name: 'Home Storage Organizer Set',
+                price: 'Rp 30.000 - 100.000',
+                discount: '40%',
+                commission: '15-22%',
+                message: `🔥 PROMO ORGANIZER!
+
+Hai kak! 👋
+
+Home Storage Set LAGI PROMO!
+Harga: Rp 30.000 (Diskon 40%)!
+
+Keuntungan:
+✅ Viral di TikTok
+✅ Praktis & hemat ruang
+✅ Kualitas premium
+✅ Gratis ongkir
+
+🛒 Checkout:
+[LINK]
+
+ Viral banget ini kak! Jangan sampai kehabisan! 🙏`
+            },
+            'tws': {
+                name: 'TWS Bluetooth Earbuds',
+                price: 'Rp 50.000 - 200.000',
+                discount: '35%',
+                commission: '10-15%',
+                message: `🔥 PROMO TWS EARBUDZ!
+
+Hai kak! 👋
+
+TWS Bluetooth Earbuds LAGI PROMO!
+Harga: Rp 50.000 (Diskon 35%)!
+
+Keuntungan:
+✅ Kualitas suara jernih
+✅ Battery 24 jam
+✅ Touch control
+✅ Free ongkir
+
+🛒 Checkout:
+[LINK]
+
+Stock terbatas kak! Checkout sekarang! 🙏`
+            }
+        };
+
+        let contacts = [];
+        let sentCount = 0;
+        let responseCount = 0;
+        let orderCount = 0;
+
+        function selectProduct() {
+            const select = document.getElementById('productSelect');
+            const custom = document.getElementById('customProduct');
+            const price = document.getElementById('productPrice');
+            const link = document.getElementById('affiliateLink');
+            
+            if (select.value === 'custom') {
+                custom.style.display = 'block';
+            } else {
+                custom.style.display = 'none';
+            }
+            
+            if (products[select.value]) {
+                const p = products[select.value];
+                price.value = p.price;
+            }
+        }
+
+        function usePreset(preset) {
+            const product = products[preset];
+            if (product) {
+                document.getElementById('productSelect').value = preset;
+                document.getElementById('productPrice').value = product.price;
+                document.getElementById('messageText').value = product.message;
+            }
+        }
+
+        function copyMessage() {
+            const msg = document.getElementById('messageText').value;
+            const link = document.getElementById('affiliateLink').value || '[YOUR_AFFILIATE_LINK]';
+            const finalMsg = msg.replace('[LINK]', link).replace('[YOUR_AFFILIATE_LINK]', link);
+            
+            navigator.clipboard.writeText(finalMsg);
+            
+            document.getElementById('successMsg').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('successMsg').style.display = 'none';
+            }, 3000);
+        }
+
+        function openWhatsApp() {
+            const link = document.getElementById('affiliateLink').value || 'https://shopee.co.id';
+            const msg = document.getElementById('messageText').value.replace('[LINK]', link);
+            const encoded = encodeURIComponent(msg);
+            
+            window.open(`https://wa.me/?text=${encoded}`, '_blank');
+        }
+
+        function addContact() {
+            const name = prompt('Nama kontak:');
+            const phone = prompt('Nomor WhatsApp (format: 628123456789):');
+            
+            if (name && phone) {
+                contacts.push({ name, phone, sent: false, responded: false });
+                renderContacts();
+            }
+        }
+
+        function importContacts() {
+            const csv = prompt('Paste CSV (format: Nama,NoHP):\nContoh:\nWayan,628123456789\nMade,628987654321');
+            
+            if (csv) {
+                const lines = csv.split('\n');
+                lines.forEach(line => {
+                    const parts = line.split(',');
+                    if (parts.length >= 2) {
+                        contacts.push({
+                            name: parts[0].trim(),
+                            phone: parts[1].trim(),
+                            sent: false,
+                            responded: false
+                        });
+                    }
+                });
+                renderContacts();
+            }
+        }
+
+        function renderContacts() {
+            const list = document.getElementById('contactsList');
+            
+            if (contacts.length === 0) {
+                list.innerHTML = '<p style="color:#888;text-align:center;padding:20px;">Belum ada kontak. Tap "+ Tambah Kontak" untuk mulai.</p>';
+                return;
+            }
+            
+            list.innerHTML = contacts.map((c, i) => `
+                <div class="contact-item">
+                    <div>
+                        <div class="contact-name">${c.name}</div>
+                        <div class="contact-status">${c.sent ? '✅ Terkirim' : '⏳ Belum'}</div>
+                    </div>
+                    <button onclick="sendToContact(${i})" style="padding:8px 15px;background:#25D366;border:none;border-radius:8px;color:white;cursor:pointer;">
+                        📱 Kirim
+                    </button>
+                </div>
+            `).join('');
+        }
+
+        function sendToContact(index) {
+            const contact = contacts[index];
+            const link = document.getElementById('affiliateLink').value || 'https://shopee.co.id';
+            const msg = document.getElementById('messageText').value.replace('[LINK]', link);
+            const encoded = encodeURIComponent(msg);
+            
+            window.open(`https://wa.me/${contact.phone}?text=${encoded}`, '_blank');
+            
+            contacts[index].sent = true;
+            sentCount++;
+            document.getElementById('sentCount').textContent = sentCount;
+            renderContacts();
+        }
+
+        function sendToAll() {
+            contacts.forEach((c, i) => {
+                setTimeout(() => {
+                    sendToContact(i);
+                }, i * 500);
+            });
+        }
+
+        function resetAll() {
+            document.getElementById('productSelect').value = '';
+            document.getElementById('productPrice').value = '';
+            document.getElementById('affiliateLink').value = '';
+            document.getElementById('messageText').value = products['gluta-mask'].message;
+            contacts = [];
+            sentCount = 0;
+            responseCount = 0;
+            orderCount = 0;
+            document.getElementById('sentCount').textContent = '0';
+            document.getElementById('responseCount').textContent = '0';
+            document.getElementById('orderCount').textContent = '0';
+            renderContacts();
+        }
+
+        // Initialize
+        document.getElementById('messageText').value = products['gluta-mask'].message;
+        renderContacts();
+    </script>
+</body>
+</html>
