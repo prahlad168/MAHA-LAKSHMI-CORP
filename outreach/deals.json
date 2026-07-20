@@ -82,7 +82,10 @@
     "updated_date": "2026-07-20",
     "expected_close": "2026-07-20",
     "notes": "Interest detected from outreach template T-004",
-    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+    "template_used": "T-004",
+    "followup_day3": "2026-07-23",
+    "followup_day7": "2026-07-27"
   },
   {
     "deal_id": "DEAL-20260720-006",
@@ -99,7 +102,10 @@
     "updated_date": "2026-07-20",
     "expected_close": "2026-07-20",
     "notes": "Interest detected from outreach template T-004",
-    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+    "template_used": "T-004",
+    "followup_day3": "2026-07-23",
+    "followup_day7": "2026-07-27"
   },
   {
     "deal_id": "DEAL-20260720-007",
@@ -116,7 +122,10 @@
     "updated_date": "2026-07-20",
     "expected_close": "2026-07-20",
     "notes": "Interest detected from outreach template T-004",
-    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+    "template_used": "T-004",
+    "followup_day3": "2026-07-23",
+    "followup_day7": "2026-07-27"
   },
   {
     "deal_id": "DEAL-20260720-008",
@@ -133,7 +142,10 @@
     "updated_date": "2026-07-20",
     "expected_close": "2026-07-20",
     "notes": "Interest detected from outreach template T-005",
-    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+    "template_used": "T-005",
+    "followup_day3": "2026-07-23",
+    "followup_day7": "2026-07-27"
   },
   {
     "deal_id": "DEAL-20260720-009",
@@ -150,6 +162,9 @@
     "updated_date": "2026-07-20",
     "expected_close": "2026-07-20",
     "notes": "Interest detected from outreach template T-004",
-    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    "payment_address": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+    "template_used": "T-004",
+    "followup_day3": "2026-07-23",
+    "followup_day7": "2026-07-27"
   }
 ]
