@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Quick Lead Generator - MAHA LAKSHMI</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            color: white;
+            padding: 20px;
+        }
+        .container { max-width: 600px; margin: 0 auto; }
+        h1 { 
+            text-align: center; 
+            color: #00ff88;
+            margin-bottom: 30px;
+            font-size: 28px;
+        }
+        .card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+        h2 { color: #ffd700; margin-bottom: 15px; font-size: 18px; }
+        .product-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .product-btn:hover { transform: scale(1.02); }
+        .product-btn.airdrop { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .product-btn.microtask { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .product-btn.survey { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .product-btn.digimart { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        
+        .script-box {
+            background: #0d0d0d;
+            border-radius: 10px;
+            padding: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            margin: 10px 0;
+            border-left: 4px solid #00ff88;
+        }
+        .copy-btn {
+            background: #00ff88;
+            color: #1a1a2e;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .copy-btn:hover { background: #00cc6a; }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-num { font-size: 32px; font-weight: bold; color: #00ff88; }
+        .stat-label { font-size: 12px; color: #aaa; }
+        
+        .progress-bar {
+            background: #333;
+            border-radius: 10px;
+            height: 20px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #00ff88, #00cc6a);
+            height: 100%;
+            transition: width 0.3s;
+        }
+        
+        .whatsapp-link {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            margin: 10px 5px;
+        }
+        .whatsapp-link:hover { background: #128C7E; }
+        
+        .target-form {
+            display: grid;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .target-form input {
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #333;
+            background: #1a1a2e;
+            color: white;
+            font-size: 14px;
+        }
+        .target-form input:focus { border-color: #00ff88; outline: none; }
+        
+        .lead-list {
+            max-height: 200px;
+            overflow-y: auto;
+            background: #0d0d0d;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .lead-item {
+            padding: 8px;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .lead-item:last-child { border-bottom: none; }
+        .lead-status {
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: bold;
+        }
+        .status-new { background: #ffd700; color: #000; }
+        .status-done { background: #00ff88; color: #000; }
+        .status-sale { background: #ff6b6b; color: #fff; }
+        
+        .cta-btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffd700 0%, #ff8c00 100%);
+            color: #1a1a2e;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        .cta-btn:hover { transform: scale(1.02); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 MAHA LAKSHMI<br>Lead Generator</h1>
+        
+        <!-- Stats -->
+        <div class="stats">
+            <div class="stat-box">
+                <div class="stat-num" id="sentCount">0</div>
+                <div class="stat-label">Pesan Terkirim</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num" id="responseCount">0</div>
+                <div class="stat-label">Response</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-num" id="salesCount">0</div>
+                <div class="stat-label">Sales</div>
+            </div>
+        </div>
+        
+        <!-- Daily Progress -->
+        <div class="card">
+            <h2>📊 Daily Progress (Target: 50 pesan)</h2>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar" style="width: 0%"></div>
+            </div>
+            <small id="progressText">0 / 50 pesan</small>
+        </div>
+        
+        <!-- Product Selection -->
+        <div class="card">
+            <h2>🎯 Pilih Produk untuk Outreach</h2>
+            <button class="product-btn airdrop" onclick="selectProduct('airdrop')">
+                🚀 AirdropHunter - Crypto Airdrop
+            </button>
+            <button class="product-btn microtask" onclick="selectProduct('microtask')">
+                💰 MicroTask Pro - Mikro Tugas
+            </button>
+            <button class="product-btn survey" onclick="selectProduct('survey')">
+                📋 SurveyPro - Paid Survey
+            </button>
+            <button class="product-btn digimart" onclick="selectProduct('digimart')">
+                🎮 DigiMart - Voucher & Token
+            </button>
+        </div>
+        
+        <!-- WhatsApp Script -->
+        <div class="card" id="scriptCard" style="display:none;">
+            <h2>📱 WhatsApp Script (<span id="productName"></span>)</h2>
+            <div class="script-box" id="scriptBox"></div>
+            <button class="copy-btn" onclick="copyScript()">📋 Copy Script</button>
+            <a id="whatsappBtn" class="whatsapp-link" href="#" target="_blank">
+                💬 Kirim via WhatsApp
+            </a>
+        </div>
+        
+        <!-- Quick Outreach -->
+        <div class="card">
+            <h2>⚡ Quick Outreach</h2>
+            <p style="margin-bottom: 15px; color: #aaa;">Klik tombol di bawah untuk langsung kirim pesan sample:</p>
+            
+            <button class="cta-btn" onclick="sendSampleAirdrop()">
+                🚀 Kirim 10 Pesan AirdropHunter
+            </button>
+            <button class="cta-btn" onclick="sendSampleMicrotask()">
+                💰 Kirim 10 Pesan MicroTask Pro
+            </button>
+            <button class="cta-btn" onclick="sendSampleSurvey()">
+                📋 Kirim 10 Pesan SurveyPro
+            </button>
+        </div>
+        
+        <!-- Lead Input -->
+        <div class="card">
+            <h2>📝 Input Leads Baru</h2>
+            <div class="target-form">
+                <input type="text" id="leadName" placeholder="Nama kontak">
+                <input type="tel" id="leadPhone" placeholder="Nomor WhatsApp (08xx...)">
+                <select id="leadProduct">
+                    <option value="AirdropHunter">AirdropHunter</option>
+                    <option value="MicroTask Pro">MicroTask Pro</option>
+                    <option value="SurveyPro">SurveyPro</option>
+                    <option value="DigiMart">DigiMart</option>
+                </select>
+            </div>
+            <button class="copy-btn" onclick="addLead()">➕ Tambah Lead</button>
+        </div>
+        
+        <!-- Lead List -->
+        <div class="card">
+            <h2>📋 Daftar Leads (<span id="leadCount">0</span>)</h2>
+            <div class="lead-list" id="leadList">
+                <p style="color: #666; text-align: center;">Belum ada leads. Input di atas!</p>
+            </div>
+            <button class="copy-btn" onclick="markAsDone()">✅ Tandai Selesai</button>
+            <button class="copy-btn" onclick="markAsSale()" style="background: #ff6b6b;">💰 Tandai Sale!</button>
+        </div>
+        
+        <!-- Bank Info -->
+        <div class="card" style="background: linear-gradient(135deg, #00ff88 0%, #00cc6a 100%); color: #1a1a2e;">
+            <h2 style="color: #1a1a2e;">🏦 Info Pembayaran</h2>
+            <p style="font-size: 24px; font-weight: bold;">BCA: 6485086645</p>
+            <p>An. i Made Purna Ananda</p>
+            <p style="margin-top: 10px; font-size: 12px;">Profit 80% ditransfer setiap hari!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Scripts for each product
+        const scripts = {
+            airdrop: `Halo kak! 👋
+
+Ada kesempatan dapat crypto AIRDROP gratis nih! 🚀
+
+Kami bantu klaim airdrop dari project crypto baru.
+✅ Ethereum ecosystem
+✅ Potential 10-100x
+✅ Tanpa modal!
+
+Mau ikutan? Langsung aja join!
+
+Ditunggu ya kak! 🙏`,
+
+            microtask: `Halo kak! 👋
+
+Butuh tambahan income?
+Kami tawarkan MICRO TASK yang bisa dilakukan dari HP! 💰
+
+✅ Like, Share, Review
+✅ Waktu Fleksibel
+✅ Bayaran: Rp 10.000 - Rp 500.000/task
+
+Mau coba langsung?
+
+Ditunggu ya kak! 🙏`,
+
+            survey: `Halo kak! 👋
+
+Dapat PAID SURVEY dengan bayaran tinggi! 💰
+
+✅ Isi survey 5-15 menit
+✅ Bayaran: Rp 25.000 - Rp 150.000/survey
+✅ Pembayaran via BCA
+
+Mau ikutan?
+
+Ditunggu ya kak! 🙏`,
+
+            digimart: `Halo kak! 👋
+
+Jual VOUCHER & TOKEN dengan harga MURAH! 🎮⚡
+
+✅ Steam Wallet (100K-500K)
+✅ Google Play, Roblox, iTunes
+✅ Token Listrik
+✅ Pulsa All Operator
+
+Harga di bawah market!
+Pengiriman INSTAN!
+
+Mau order?
+Klik link untuk lihat produk:
+
+Ditunggu ya kak! 🙏`
+        };
+        
+        let selectedProduct = 'airdrop';
+        let leads = JSON.parse(localStorage.getItem('maha_leads_v2') || '[]');
+        let stats = JSON.parse(localStorage.getItem('maha_stats') || '{"sent":0,"response":0,"sales":0}');
+        
+        // Initialize
+        function init() {
+            updateStats();
+            updateLeadList();
+        }
+        
+        // Select product
+        function selectProduct(product) {
+            selectedProduct = product;
+            document.getElementById('scriptCard').style.display = 'block';
+            document.getElementById('productName').textContent = product.toUpperCase();
+            document.getElementById('scriptBox').textContent = scripts[product];
+            
+            const waNumber = '6281337558787';
+            const encodedMsg = encodeURIComponent(scripts[product]);
+            document.getElementById('whatsappBtn').href = `https://wa.me/${waNumber}?text=${encodedMsg}`;
+        }
+        
+        // Copy script
+        function copyScript() {
+            navigator.clipboard.writeText(scripts[selectedProduct]);
+            alert('✅ Script berhasil di-copy! Paste ke WhatsApp!');
+        }
+        
+        // Update stats
+        function updateStats() {
+            document.getElementById('sentCount').textContent = stats.sent;
+            document.getElementById('responseCount').textContent = stats.response;
+            document.getElementById('salesCount').textContent = stats.sales;
+            
+            const progress = Math.min((stats.sent / 50) * 100, 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${stats.sent} / 50 pesan`;
+        }
+        
+        // Add lead
+        function addLead() {
+            const name = document.getElementById('leadName').value;
+            const phone = document.getElementById('leadPhone').value;
+            const product = document.getElementById('leadProduct').value;
+            
+            if (!name || !phone) {
+                alert('⚠️ Isi nama dan nomor WhatsApp!');
+                return;
+            }
+            
+            leads.push({ name, phone, product, status: 'new', date: new Date().toISOString() });
+            localStorage.setItem('maha_leads_v2', JSON.stringify(leads));
+            
+            document.getElementById('leadName').value = '';
+            document.getElementById('leadPhone').value = '';
+            
+            updateLeadList();
+        }
+        
+        // Update lead list
+        function updateLeadList() {
+            const list = document.getElementById('leadList');
+            document.getElementById('leadCount').textContent = leads.length;
+            
+            if (leads.length === 0) {
+                list.innerHTML = '<p style="color: #666; text-align: center;">Belum ada leads. Input di atas!</p>';
+                return;
+            }
+            
+            list.innerHTML = leads.map((lead, i) => `
+                <div class="lead-item">
+                    <div>
+                        <strong>${lead.name}</strong><br>
+                        <small>${lead.phone} | ${lead.product}</small>
+                    </div>
+                    <span class="lead-status status-${lead.status}">${lead.status.toUpperCase()}</span>
+                </div>
+            `).join('');
+        }
+        
+        // Mark as done
+        function markAsDone() {
+            if (leads.length > 0) {
+                leads[leads.length - 1].status = 'done';
+                stats.sent++;
+                stats.response++;
+                localStorage.setItem('maha_leads_v2', JSON.stringify(leads));
+                localStorage.setItem('maha_stats', JSON.stringify(stats));
+                updateStats();
+                updateLeadList();
+                alert('✅ Lead ditandai selesai! +1 Pesan terkirim!');
+            }
+        }
+        
+        // Mark as sale
+        function markAsSale() {
+            if (leads.length > 0) {
+                leads[leads.length - 1].status = 'sale';
+                stats.sent++;
+                stats.sales++;
+                localStorage.setItem('maha_leads_v2', JSON.stringify(leads));
+                localStorage.setItem('maha_stats', JSON.stringify(stats));
+                updateStats();
+                updateLeadList();
+                alert('🎉 SALE! 💰 Lead berhasil di-convert!');
+            }
+        }
+        
+        // Sample sends
+        function sendSampleAirdrop() {
+            stats.sent += 10;
+            localStorage.setItem('maha_stats', JSON.stringify(stats));
+            updateStats();
+            alert('🚀 10 pesan AirdropHunter ditambahkan ke statistik!');
+        }
+        
+        function sendSampleMicrotask() {
+            stats.sent += 10;
+            localStorage.setItem('maha_stats', JSON.stringify(stats));
+            updateStats();
+            alert('💰 10 pesan MicroTask Pro ditambahkan ke statistik!');
+        }
+        
+        function sendSampleSurvey() {
+            stats.sent += 10;
+            localStorage.setItem('maha_stats', JSON.stringify(stats));
+            updateStats();
+            alert('📋 10 pesan SurveyPro ditambahkan ke statistik!');
+        }
+        
+        init();
+    </script>
+</body>
+</html>
