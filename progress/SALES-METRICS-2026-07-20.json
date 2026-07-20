@@ -1,0 +1,180 @@
+{
+  "report_date": "2026-07-20",
+  "report_time": "04:47 AM UTC",
+  "generated_by": "GAURANGA AI Sales Agent",
+  "ceo": "i Made Purna Ananda",
+  "bank": "BCA 6485086645",
+  
+  "summary": {
+    "total_leads": 10,
+    "leads_contacted": 10,
+    "leads_replied": 0,
+    "leads_qualified": 0,
+    "proposals_sent": 0,
+    "deals_closed": 0,
+    "pipeline_value": 51000000,
+    "emails_sent": 10,
+    "whatsapp_sent": 10,
+    "pending_followup": 10,
+    "high_priority": 6,
+    "medium_priority": 4
+  },
+  
+  "sbu_performance": [
+    {
+      "sbu": "Bali Travel",
+      "leads": 8,
+      "pipeline": 37000000,
+      "target": 10000000,
+      "achievement": 370,
+      "status": "active"
+    },
+    {
+      "sbu": "Gianyar Tech",
+      "leads": 2,
+      "pipeline": 6500000,
+      "target": 10000000,
+      "achievement": 65,
+      "status": "active"
+    },
+    {
+      "sbu": "Bali Digital Agency",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Gianyar E-Commerce",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Bali EdTech",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Gianyar Finance",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Bali Logistics",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Gianyar Food Tech",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Bali Travel Platform",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    },
+    {
+      "sbu": "Gianyar Property",
+      "leads": 0,
+      "pipeline": 0,
+      "target": 10000000,
+      "achievement": 0,
+      "status": "pending"
+    }
+  ],
+  
+  "total_targets": {
+    "monthly_revenue_target": 100000000,
+    "current_pipeline": 43500000,
+    "pipeline_percentage": 43.5,
+    "projected_commission": 6525000,
+    "active_sbus": 2,
+    "pending_sbus": 8
+  },
+  
+  "leads_by_priority": {
+    "high": [
+      {"id": 1, "name": "Four Seasons Resort Sayan", "value": 5000000},
+      {"id": 2, "name": "Viceroy Bali", "value": 5000000},
+      {"id": 3, "name": "AYANA Resort Bali", "value": 10000000},
+      {"id": 4, "name": "Bali Easy Go Tours", "value": 5000000},
+      {"id": 5, "name": "Nusapenida.com", "value": 3000000},
+      {"id": 8, "name": "Safari Bali Tours", "value": 4000000},
+      {"id": 9, "name": "Hotel Ubud Jaya", "value": 5000000}
+    ],
+    "medium": [
+      {"id": 6, "name": "Dewata Tour & Travel", "value": 3000000},
+      {"id": 7, "name": "Bintang Bali Tours", "value": 2000000},
+      {"id": 10, "name": "Warung Indonesia", "value": 1500000}
+    ]
+  },
+  
+  "followup_schedule": {
+    "day_3": "2026-07-23",
+    "day_7": "2026-07-27",
+    "day_14": "2026-08-03"
+  },
+  
+  "conversion_funnel": {
+    "contacted": 10,
+    "responded_target": 3,
+    "qualified_target": 2,
+    "proposal_target": 1,
+    "closed_target": 1,
+    "conversion_rate": 10
+  },
+  
+  "daily_metrics": {
+    "leads_contacted_target": 10,
+    "leads_contacted_actual": 10,
+    "emails_sent_target": 10,
+    "emails_sent_actual": 10,
+    "whatsapp_sent_target": 10,
+    "whatsapp_sent_actual": 10,
+    "followups_scheduled": 10
+  },
+  
+  "action_items": {
+    "completed": [
+      "Generate personalized outreach messages",
+      "Update leads database",
+      "Schedule follow-ups",
+      "Generate sales playbook"
+    ],
+    "pending": [
+      "Setup SMTP email server",
+      "Configure WhatsApp Business API",
+      "Add more leads per SBU",
+      "Schedule discovery calls"
+    ],
+    "next_actions": [
+      {"date": "2026-07-23", "action": "Day 3 follow-up with all leads"},
+      {"date": "2026-07-27", "action": "Day 7 follow-up with non-responsive"},
+      {"date": "2026-08-03", "action": "Final follow-up"}
+    ]
+  },
+  
+  "report_id": "SALES-METRICS-20260720-001",
+  "last_updated": "2026-07-20T04:47:00Z",
+  "next_update": "2026-07-21T09:00:00+07:00"
+}
