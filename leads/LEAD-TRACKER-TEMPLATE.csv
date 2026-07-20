@@ -1,0 +1,3 @@
+no,nama,nomor,produk,status,tanggal_kontak,respon,tanggal_respon,qualified,converted,tanggal_sale,revenue,notes
+1,Contoh Lead,08123456789,DigiMart,NEW,2026-07-20,Belum,,-,-,-,,
+2,Contoh Lead 2,08123456780,AirdropHunter,CONTACTED,2026-07-20,Ya,2026-07-20,Ya,Ya,2026-07-20,500000,Sale berhasil

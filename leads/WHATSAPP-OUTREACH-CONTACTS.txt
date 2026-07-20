@@ -1,0 +1,115 @@
+# 📋 WHATSAPP CONTACT LIST - MAHA LAKSHMI HOLDINGS
+
+## Format: Nama | Nomor | Produk | Status
+
+---
+
+## 🏢 SBU-01: DIGIMART (Voucher, Token, Pulsa)
+
+### Prioritas Tinggi
+Nama | 08xxxxxxxx | DigiMart | 📩 NEW
+Nama | 08xxxxxxxx | DigiMart | 📩 NEW
+Nama | 08xxxxxxxx | DigiMart | 📩 NEW
+
+### Prioritas Sedang
+Nama | 08xxxxxxxx | DigiMart | 📩 NEW
+Nama | 08xxxxxxxx | DigiMart | 📩 NEW
+
+---
+
+## 🔄 SBU-02: AIRDROPHUNTER (Crypto Airdrop)
+
+### Prioritas Tinggi
+Nama | 08xxxxxxxx | AirdropHunter | 📩 NEW
+Nama | 08xxxxxxxx | AirdropHunter | 📩 NEW
+Nama | 08xxxxxxxx | AirdropHunter | 📩 NEW
+
+### Prioritas Sedang
+Nama | 08xxxxxxxx | AirdropHunter | 📩 NEW
+Nama | 08xxxxxxxx | AirdropHunter | 📩 NEW
+
+---
+
+## 💰 SBU-03: MICROTASK PRO (Micro Tasks)
+
+### Prioritas Tinggi
+Nama | 08xxxxxxxx | MicroTask | 📩 NEW
+Nama | 08xxxxxxxx | MicroTask | 📩 NEW
+Nama | 08xxxxxxxx | MicroTask | 📩 NEW
+
+### Prioritas Sedang
+Nama | 08xxxxxxxx | MicroTask | 📩 NEW
+Nama | 08xxxxxxxx | MicroTask | 📩 NEW
+
+---
+
+## 📊 SBU-04: SURVEYPRO (Paid Surveys)
+
+### Prioritas Tinggi
+Nama | 08xxxxxxxx | SurveyPro | 📩 NEW
+Nama | 08xxxxxxxx | SurveyPro | 📩 NEW
+Nama | 08xxxxxxxx | SurveyPro | 📩 NEW
+
+### Prioritas Sedang
+Nama | 08xxxxxxxx | SurveyPro | 📩 NEW
+Nama | 08xxxxxxxx | SurveyPro | 📩 NEW
+
+---
+
+## 📝 STATUS LEGEND
+
+| Status | Keterangan |
+|--------|------------|
+| 📩 NEW | Belum dihubungi |
+| 📞 CONTACTED | Sudah dikirim pesan |
+| 💬 REPLIED | Sudah dibalas |
+| ✅ QUALIFIED | Lead berkualitas |
+| 💰 OPPORTUNITY | Bisa jadi sale |
+| 🎯 SALE | Deal closed! |
+| ❌ NOT INTERESTED | Tidak tertarik |
+
+---
+
+## 🎯 TARGET OUTREACH
+
+| Produk | Target/Hari | Target/Minggu |
+|--------|-------------|---------------|
+| DigiMart | 20 | 100 |
+| AirdropHunter | 30 | 150 |
+| MicroTask | 30 | 150 |
+| SurveyPro | 20 | 100 |
+| **TOTAL** | **100** | **500** |
+
+---
+
+## 📱 CARA IMPORT KONTAK KE WHATSAPP
+
+### Step 1: Export dari HP
+1. Buka Contacts
+2. Select kontak yang mau di-export
+3. Share via Bluetooth/Email
+
+### Step 2: Import ke WhatsApp
+1. Buka WhatsApp Business
+2. Settings → Business Tools → Short Links
+3. Atau export ke file CSV
+
+### Step 3: Kirim Massal (Tanpa Aplikasi Premium)
+1. Buka WhatsApp Web
+2. Buat group (biar sementara)
+3. Kirim pesan ke group
+4. Atau gunakan Broadcast List
+
+---
+
+## ⚠️ CATATAN PENTING
+
+1. **Jangan spam!** Maksimal 50 pesan/hari pertama
+2. **Personalisasi** pesan untuk response lebih baik
+3. **Follow up** 1-2x untuk leads yang belum reply
+4. **Stop** jika tidak interested
+
+---
+
+**Last Updated:** 2026-07-20
+**Owner:** GAURANGA AI
