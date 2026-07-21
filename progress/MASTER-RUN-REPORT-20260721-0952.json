@@ -1,0 +1,134 @@
+{
+  "report_type": "MASTER SYSTEM REPORT",
+  "generated_at": "2026-07-21T09:52:35.578128",
+  "generated_by": "GAURANGA AI Agent",
+  "ceo": "i Made Purna Ananda",
+  "bank": "BCA 6485086645",
+  "system_status": {
+    "github_deployment": "\u2705 LIVE",
+    "github_pages": "\u2705 ACTIVE",
+    "daily_automation": "\u2705 SCHEDULED",
+    "all_agents": "\u2705 RUNNING"
+  },
+  "business_metrics": {
+    "active_sbus": 10,
+    "total_leads": 50,
+    "total_pipeline": 1108500000,
+    "high_priority_leads": 25,
+    "outreach_messages_ready": 40
+  },
+  "sbu_status": [
+    {
+      "name": "Gianyar Tech Solutions",
+      "status": "active",
+      "leads": 2,
+      "pipeline": 6500000
+    },
+    {
+      "name": "Bali Digital Agency",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 120000000
+    },
+    {
+      "name": "Gianyar E-Commerce Hub",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 82000000
+    },
+    {
+      "name": "Bali EdTech Center",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 65000000
+    },
+    {
+      "name": "Gianyar Finance Tech",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 108000000
+    },
+    {
+      "name": "Bali Logistics Network",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 165000000
+    },
+    {
+      "name": "Gianyar Food Tech",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 65000000
+    },
+    {
+      "name": "Bali Travel Platform",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 255000000
+    },
+    {
+      "name": "Gianyar Property Tech",
+      "status": "active",
+      "leads": 5,
+      "pipeline": 205000000
+    },
+    {
+      "name": "Payangan AI Solutions",
+      "status": "active",
+      "leads": 8,
+      "pipeline": 37000000
+    }
+  ],
+  "automations": [
+    {
+      "name": "Daily Report (6 AM WIB)",
+      "id": "2e4d4f38-1c7c-4437-b25b-7d52f35d0ab7",
+      "schedule": "0 6 * * *"
+    },
+    {
+      "name": "SaaS Sales Agent",
+      "id": "5085da1b-0a6d-4afc-bc64-feb934bd9c68",
+      "schedule": "0 9 * * 1-5"
+    },
+    {
+      "name": "Content Marketing",
+      "id": "c3c98dd9-4d6c-499b-a054-6e72befd657f",
+      "schedule": "0 10 * * 1"
+    },
+    {
+      "name": "SEO & Ads",
+      "id": "50bca9b6-7f9a-4003-9a03-1d7b01bd4c15",
+      "schedule": "0 11 * * 4"
+    },
+    {
+      "name": "Customer Service",
+      "id": "d858be42-f181-4144-8d18-77be0fa590cb",
+      "schedule": "0 14 * * 5"
+    },
+    {
+      "name": "Finance Report",
+      "id": "5d84b1ba-18d4-4cd2-b2ec-d5bb85078397",
+      "schedule": "0 9 1 * *"
+    }
+  ],
+  "followup_schedule": {
+    "day_3": "2026-07-23",
+    "day_7": "2026-07-27",
+    "day_14": "2026-08-03"
+  },
+  "next_actions": [
+    "1. Review 50 leads in database",
+    "2. Execute WhatsApp outreach (Day 3: 2026-07-23)",
+    "3. Execute Email campaign",
+    "4. Schedule discovery calls",
+    "5. Send proposals to qualified leads",
+    "6. Follow-up non-responsive (Day 7: 2026-07-27)",
+    "7. Final follow-up (Day 14: 2026-08-03)"
+  ],
+  "links": {
+    "github": "https://github.com/prahlad168/MAHA-LAKSHMI-CORP",
+    "github_pages": "https://prahlad168.github.io/MAHA-LAKSHMI-CORP/",
+    "ceo_dashboard": "https://prahlad168.github.io/MAHA-LAKSHMI-CORP/maha-lakshmi/ceo-dashboard.html",
+    "progress": "https://prahlad168.github.io/MAHA-LAKSHMI-CORP/progress/index.html"
+  }
+}
