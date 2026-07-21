@@ -119,8 +119,116 @@
       "status": "PENDING",
       "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
       "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-011",
+      "date": "2026-07-21",
+      "client": "Nusa Penida Ferry",
+      "email": "info@nusapenidaferry.com",
+      "service": "Bali Travel Platform",
+      "amount_usd": 2500.0,
+      "amount_idr": 40000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-012",
+      "date": "2026-07-21",
+      "client": "Ubud Rice Terrace Tours",
+      "email": "booking@ubudrice.com",
+      "service": "Bali Travel Platform",
+      "amount_usd": 3125.0,
+      "amount_idr": 50000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-013",
+      "date": "2026-07-21",
+      "client": "Bali Airport Transfer",
+      "email": "book@balitransfer.com",
+      "service": "Bali Travel Platform",
+      "amount_usd": 1875.0,
+      "amount_idr": 30000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-014",
+      "date": "2026-07-21",
+      "client": "Luxury Villa Collection",
+      "email": "inquiry@luxuryvillabali.com",
+      "service": "Bali Travel Platform",
+      "amount_usd": 3750.0,
+      "amount_idr": 60000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-015",
+      "date": "2026-07-21",
+      "client": "Gianyar Property Agent",
+      "email": "listings@gianyarproperty.com",
+      "service": "Gianyar Property Tech",
+      "amount_usd": 1875.0,
+      "amount_idr": 30000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-016",
+      "date": "2026-07-21",
+      "client": "Ubud Villa Management",
+      "email": "info@ubudvillamanage.com",
+      "service": "Gianyar Property Tech",
+      "amount_usd": 1562.5,
+      "amount_idr": 25000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-017",
+      "date": "2026-07-21",
+      "client": "Canggu Beach Villas",
+      "email": "rentals@cangvillas.com",
+      "service": "Gianyar Property Tech",
+      "amount_usd": 3125.0,
+      "amount_idr": 50000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-018",
+      "date": "2026-07-21",
+      "client": "Bali Resort Group",
+      "email": "reservations@baliresortgroup.com",
+      "service": "Gianyar Property Tech",
+      "amount_usd": 2500.0,
+      "amount_idr": 40000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-019",
+      "date": "2026-07-21",
+      "client": "Gianyar Land Developer",
+      "email": "sales@gianyarland.com",
+      "service": "Gianyar Property Tech",
+      "amount_usd": 3750.0,
+      "amount_idr": 60000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
     }
   ],
-  "total_usd": 23437.5,
-  "total_idr": 375000000
+  "total_usd": 47500.0,
+  "total_idr": 760000000
 }
