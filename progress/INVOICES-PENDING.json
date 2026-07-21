@@ -1,0 +1,126 @@
+{
+  "invoices": [
+    {
+      "invoice_number": "INV-ML-20260721-001",
+      "date": "2026-07-21",
+      "client": "Bali Surf Camp",
+      "email": "hello@balisurfcamp.com",
+      "service": "Bali Digital Agency",
+      "amount_usd": 1562.5,
+      "amount_idr": 25000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-002",
+      "date": "2026-07-21",
+      "client": "Hotel Ubud Jaya",
+      "email": "marketing@ubudjaya.com",
+      "service": "Bali Digital Agency",
+      "amount_usd": 3125.0,
+      "amount_idr": 50000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-003",
+      "date": "2026-07-21",
+      "client": "Bali\u5929\u7136cosmetics",
+      "email": "hello@balinatural.com",
+      "service": "Gianyar E-Commerce Hub",
+      "amount_usd": 1562.5,
+      "amount_idr": 25000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-004",
+      "date": "2026-07-21",
+      "client": "Ubud Fine Dining Restaurant",
+      "email": "info@ubuddining.com",
+      "service": "Gianyar Finance Tech",
+      "amount_usd": 1875.0,
+      "amount_idr": 30000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-005",
+      "date": "2026-07-21",
+      "client": "Canggu Beach Club",
+      "email": "reservations@cangubeach.com",
+      "service": "Gianyar Finance Tech",
+      "amount_usd": 1562.5,
+      "amount_idr": 25000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-006",
+      "date": "2026-07-21",
+      "client": "Bali E-Store",
+      "email": "ops@baliestore.com",
+      "service": "Bali Logistics Network",
+      "amount_usd": 3125.0,
+      "amount_idr": 50000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-007",
+      "date": "2026-07-21",
+      "client": "Ubud Food Delivery",
+      "email": "order@ubudfood.com",
+      "service": "Bali Logistics Network",
+      "amount_usd": 1562.5,
+      "amount_idr": 25000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-008",
+      "date": "2026-07-21",
+      "client": "Bali Pharma Plus",
+      "email": "logistics@balipharmaplus.com",
+      "service": "Bali Logistics Network",
+      "amount_usd": 1875.0,
+      "amount_idr": 30000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-009",
+      "date": "2026-07-21",
+      "client": "BaliFresh Grocery",
+      "email": "hello@balifresh.com",
+      "service": "Bali Logistics Network",
+      "amount_usd": 2500.0,
+      "amount_idr": 40000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    },
+    {
+      "invoice_number": "INV-ML-20260721-010",
+      "date": "2026-07-21",
+      "client": "Bali Adventure Tours",
+      "email": "book@baliadventure.com",
+      "service": "Bali Travel Platform",
+      "amount_usd": 4687.5,
+      "amount_idr": 75000000,
+      "status": "PENDING",
+      "payment_wallet": "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6",
+      "payment_method": "USDT TRC20"
+    }
+  ],
+  "total_usd": 23437.5,
+  "total_idr": 375000000
+}
