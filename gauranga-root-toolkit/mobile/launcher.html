@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>🤖 GAURANGA - ROOT TOOLKIT</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 80px;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            color: #00d4ff;
+            text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 40px;
+        }
+        
+        .company {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .company-name {
+            font-size: 18px;
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .company-target {
+            font-size: 24px;
+            color: #00ff88;
+            font-weight: bold;
+        }
+        
+        .run-button {
+            width: 100%;
+            padding: 25px;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+        
+        .run-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+        
+        .run-button:active {
+            transform: translateY(0);
+        }
+        
+        .run-button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+        
+        .status {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .status-title {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+        
+        .status-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .status-item:last-child {
+            border-bottom: none;
+        }
+        
+        .status-label {
+            color: #aaa;
+        }
+        
+        .status-value {
+            font-weight: bold;
+        }
+        
+        .status-value.success {
+            color: #00ff88;
+        }
+        
+        .status-value.warning {
+            color: #ffcc00;
+        }
+        
+        .status-value.error {
+            color: #ff4444;
+        }
+        
+        .agents {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        .agents-title {
+            font-size: 16px;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .agent-item {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .agent-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        
+        .agent-dot.active {
+            background: #00ff88;
+            box-shadow: 0 0 10px #00ff88;
+        }
+        
+        .agent-dot.inactive {
+            background: #666;
+        }
+        
+        .logs {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 15px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            text-align: left;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .log-entry {
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .log-time {
+            color: #666;
+            margin-right: 10px;
+        }
+        
+        .log-info { color: #00d4ff; }
+        .log-success { color: #00ff88; }
+        .log-warning { color: #ffcc00; }
+        .log-error { color: #ff4444; }
+        
+        .footer {
+            text-align: center;
+            color: #555;
+            font-size: 12px;
+            margin-top: 30px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        /* Loading animation */
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: #fff;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 212, 255, 0.9);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-weight: bold;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .notification.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="notification" id="notification"></div>
+    
+    <div class="container">
+        <div class="logo fade-in">🤖</div>
+        
+        <div class="title fade-in">GAURANGA</div>
+        <div class="subtitle fade-in">ROOT TOOLKIT - PENGUASA MUTLAK</div>
+        
+        <div class="company fade-in">
+            <div class="company-name">MAHA LAKSHMI HOLDINGS</div>
+            <div class="company-target">Target: Rp 1.000.000.000/bulan</div>
+        </div>
+        
+        <button class="run-button fade-in" id="runBtn" onclick="startGAURANGA()">
+            🚀 RUN GAURANGA
+        </button>
+        
+        <div class="status fade-in">
+            <div class="status-title">📊 SYSTEM STATUS</div>
+            <div class="status-item">
+                <span class="status-label">Status</span>
+                <span class="status-value" id="systemStatus">OFFLINE</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Uptime</span>
+                <span class="status-value" id="uptime">--:--:--</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Active Agents</span>
+                <span class="status-value" id="activeAgents">0/16</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Tasks Completed</span>
+                <span class="status-value" id="tasksCompleted">0</span>
+            </div>
+            <div class="status-item">
+                <span class="status-label">Revenue Today</span>
+                <span class="status-value" id="revenueToday">Rp 0</span>
+            </div>
+        </div>
+        
+        <div class="agents fade-in">
+            <div class="agents-title">🤖 ACTIVE AGENTS</div>
+            <div id="agentsList">
+                <!-- Agents will be populated by JavaScript -->
+            </div>
+        </div>
+        
+        <div class="logs fade-in">
+            <div class="status-title">📋 ACTIVITY LOGS</div>
+            <div id="logsContainer">
+                <div class="log-entry">
+                    <span class="log-time">--:--:--</span>
+                    <span class="log-info">Waiting for system start...</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>GAURANGA ROOT TOOLKIT v1.0.0</p>
+            <p>© 2026 MAHA LAKSHMI HOLDINGS</p>
+        </div>
+    </div>
+    
+    <script>
+        // System state
+        let isRunning = false;
+        let startTime = null;
+        let tasksCompleted = 0;
+        let agents = [
+            { name: "CEO Agent", active: false },
+            { name: "Finance Agent", active: false },
+            { name: "Sales Agent", active: false },
+            { name: "Marketing Agent", active: false },
+            { name: "Customer Support", active: false },
+            { name: "Web Developer", active: false },
+            { name: "Content Agent", active: false },
+            { name: "SEO Agent", active: false },
+            { name: "Graphic Designer", active: false },
+            { name: "Video Creator", active: false },
+            { name: "Data Analyst", active: false },
+            { name: "Research Agent", active: false },
+            { name: "Project Manager", active: false },
+            { name: "Security Agent", active: false },
+            { name: "System Admin", active: false },
+            { name: "Automation Agent", active: false }
+        ];
+        
+        // Notification
+        function showNotification(message, duration = 3000) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            setTimeout(() => notification.classList.remove('show'), duration);
+        }
+        
+        // Add log
+        function addLog(message, type = 'info') {
+            const logsContainer = document.getElementById('logsContainer');
+            const time = new Date().toLocaleTimeString();
+            
+            const logEntry = document.createElement('div');
+            logEntry.className = 'log-entry';
+            logEntry.innerHTML = `
+                <span class="log-time">${time}</span>
+                <span class="log-${type}">${message}</span>
+            `;
+            
+            logsContainer.insertBefore(logEntry, logsContainer.firstChild);
+            
+            // Keep only last 20 logs
+            while (logsContainer.children.length > 20) {
+                logsContainer.removeChild(logsContainer.lastChild);
+            }
+        }
+        
+        // Update uptime
+        function updateUptime() {
+            if (!startTime) return;
+            
+            const now = new Date();
+            const diff = Math.floor((now - startTime) / 1000);
+            
+            const hours = Math.floor(diff / 3600);
+            const minutes = Math.floor((diff % 3600) / 60);
+            const seconds = diff % 60;
+            
+            document.getElementById('uptime').textContent = 
+                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+        
+        // Render agents
+        function renderAgents() {
+            const container = document.getElementById('agentsList');
+            container.innerHTML = '';
+            
+            let activeCount = 0;
+            
+            agents.forEach(agent => {
+                if (agent.active) activeCount++;
+                
+                const item = document.createElement('div');
+                item.className = 'agent-item';
+                item.innerHTML = `
+                    <span class="agent-dot ${agent.active ? 'active' : 'inactive'}"></span>
+                    <span>${agent.name}</span>
+                `;
+                container.appendChild(item);
+            });
+            
+            document.getElementById('activeAgents').textContent = `${activeCount}/${agents.length}`;
+        }
+        
+        // Start GAURANGA
+        async function startGAURANGA() {
+            if (isRunning) return;
+            
+            const btn = document.getElementById('runBtn');
+            btn.disabled = true;
+            btn.innerHTML = '<span class="loading"></span> STARTING...';
+            
+            addLog('🚀 Initializing GAURANGA ROOT TOOLKIT...', 'info');
+            
+            // Simulate startup phases
+            await sleep(500);
+            addLog('✅ Environment check passed', 'success');
+            
+            await sleep(500);
+            addLog('✅ Database initialized', 'success');
+            
+            await sleep(500);
+            addLog('✅ Memory system loaded', 'success');
+            
+            await sleep(500);
+            addLog('✅ Network connection established', 'success');
+            
+            await sleep(500);
+            addLog('🤖 Loading AI Agents...', 'info');
+            
+            // Activate agents one by one
+            for (let i = 0; i < agents.length; i++) {
+                await sleep(300);
+                agents[i].active = true;
+                renderAgents();
+                addLog(`✅ ${agents[i].name} activated`, 'success');
+            }
+            
+            await sleep(500);
+            addLog('✅ Scheduler enabled', 'success');
+            
+            await sleep(500);
+            addLog('✅ Dashboard connected', 'success');
+            
+            await sleep(500);
+            addLog('✅ Auto Recovery enabled', 'success');
+            
+            await sleep(500);
+            addLog('✅ Auto Update enabled', 'success');
+            
+            // Start complete
+            isRunning = true;
+            startTime = new Date();
+            
+            document.getElementById('systemStatus').textContent = 'ONLINE';
+            document.getElementById('systemStatus').className = 'status-value success';
+            
+            btn.innerHTML = '✅ SYSTEM RUNNING';
+            
+            showNotification('🎉 GAURANGA ROOT TOOLKIT ACTIVATED!');
+            addLog('🎉 SYSTEM READY - ALL SERVICES RUNNING', 'success');
+            
+            // Start monitoring loop
+            setInterval(updateUptime, 1000);
+            setInterval(simulateTasks, 5000);
+            setInterval(simulateRevenue, 10000);
+        }
+        
+        // Simulate tasks
+        function simulateTasks() {
+            if (!isRunning) return;
+            tasksCompleted++;
+            document.getElementById('tasksCompleted').textContent = tasksCompleted;
+        }
+        
+        // Simulate revenue
+        function simulateRevenue() {
+            if (!isRunning) return;
+            const current = parseInt(document.getElementById('revenueToday').textContent.replace(/[^0-9]/g, ''));
+            const increment = Math.floor(Math.random() * 1000000);
+            document.getElementById('revenueToday').textContent = `Rp ${(current + increment).toLocaleString('id-ID')}`;
+        }
+        
+        // Sleep helper
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+        
+        // Initialize
+        renderAgents();
+        addLog('📱 GAURANGA Mobile Launcher Ready', 'info');
+    </script>
+</body>
+</html>

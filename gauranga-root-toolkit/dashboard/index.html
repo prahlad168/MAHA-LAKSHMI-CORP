@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🤖 GAURANGA Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #0a0a1a;
+            color: #fff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1a3e, #2a2a5e);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #00d4ff;
+        }
+        .header h1 { color: #00d4ff; font-size: 28px; }
+        .header p { color: #888; margin-top: 5px; }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .card-title {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .card-value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #00d4ff;
+        }
+        
+        .card-value.green { color: #00ff88; }
+        .card-value.yellow { color: #ffcc00; }
+        .card-value.red { color: #ff4444; }
+        
+        .progress-bar {
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00d4ff, #00ff88);
+            border-radius: 5px;
+            transition: width 0.5s;
+        }
+        
+        .agent-list {
+            margin-top: 10px;
+        }
+        
+        .agent-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .agent-item:last-child { border-bottom: none; }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        
+        .status-dot.active { background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+        .status-dot.inactive { background: #666; }
+        
+        .logs {
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .log-entry {
+            padding: 8px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .log-time { color: #666; margin-right: 10px; }
+        .log-info { color: #00d4ff; }
+        .log-success { color: #00ff88; }
+        .log-error { color: #ff4444; }
+        
+        .chart {
+            height: 150px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 10px;
+            margin-top: 10px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 10px;
+        }
+        
+        .chart-bar {
+            width: 30px;
+            background: linear-gradient(to top, #00d4ff, #00ff88);
+            border-radius: 5px 5px 0 0;
+            transition: height 0.5s;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🤖 GAURANGA ROOT TOOLKIT</h1>
+        <p>MAHA LAKSHMI HOLDINGS - DASHBOARD</p>
+        <p id="status">Status: <span class="green">● ONLINE</span></p>
+    </div>
+    
+    <div class="grid">
+        <!-- System Stats -->
+        <div class="card">
+            <div class="card-title">📊 System Status</div>
+            <div class="card-value green" id="uptime">00:00:00</div>
+            <div style="color:#666;margin-top:5px">Uptime</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">🤖 Active Agents</div>
+            <div class="card-value" id="activeAgents">0/16</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="agentProgress" style="width:0%"></div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">📋 Tasks Completed</div>
+            <div class="card-value" id="tasksCompleted">0</div>
+            <div style="color:#666;margin-top:5px">Today</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">💰 Revenue Today</div>
+            <div class="card-value green" id="revenue">Rp 0</div>
+            <div style="color:#666;margin-top:5px">Target: Rp 33.333.333</div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">🖥️ System Resources</div>
+            <div style="margin-top:10px">
+                <div style="display:flex;justify-content:space-between;margin-bottom:5px">
+                    <span>CPU</span><span id="cpu">0%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="cpuBar" style="width:0%"></div></div>
+                
+                <div style="display:flex;justify-content:space-between;margin:10px 0 5px">
+                    <span>RAM</span><span id="ram">0%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="ramBar" style="width:0%"></div></div>
+                
+                <div style="display:flex;justify-content:space-between;margin:10px 0 5px">
+                    <span>Disk</span><span id="disk">0%</span>
+                </div>
+                <div class="progress-bar"><div class="progress-fill" id="diskBar" style="width:0%"></div></div>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-title">🌐 Network</div>
+            <div style="margin-top:10px">
+                <div class="agent-item">
+                    <span>Internet</span>
+                    <span class="green">● Connected</span>
+                </div>
+                <div class="agent-item">
+                    <span>API</span>
+                    <span class="green">● Online</span>
+                </div>
+                <div class="agent-item">
+                    <span>Database</span>
+                    <span class="green">● Connected</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Agents -->
+        <div class="card">
+            <div class="card-title">🤖 AI Agents</div>
+            <div class="agent-list" id="agentList">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Revenue Chart -->
+        <div class="card">
+            <div class="card-title">📈 Revenue Chart</div>
+            <div class="chart" id="revenueChart">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+        
+        <!-- Logs -->
+        <div class="card" style="grid-column: span 2">
+            <div class="card-title">📋 Activity Logs</div>
+            <div class="logs" id="logsContainer">
+                <!-- Populated by JS -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // State
+        let startTime = Date.now();
+        let tasks = 0;
+        let revenue = 0;
+        let agents = [
+            { name: "CEO Agent", active: true },
+            { name: "Finance Agent", active: true },
+            { name: "Sales Agent", active: true },
+            { name: "Marketing Agent", active: true },
+            { name: "Customer Support", active: true },
+            { name: "Web Developer", active: true },
+            { name: "Content Agent", active: true },
+            { name: "SEO Agent", active: true },
+            { name: "Graphic Designer", active: true },
+            { name: "Video Creator", active: true },
+            { name: "Data Analyst", active: true },
+            { name: "Research Agent", active: true },
+            { name: "Project Manager", active: true },
+            { name: "Security Agent", active: true },
+            { name: "System Admin", active: true },
+            { name: "Automation Agent", active: true }
+        ];
+        
+        const logs = [];
+        
+        function addLog(message, type = 'info') {
+            logs.unshift({
+                time: new Date().toLocaleTimeString(),
+                message,
+                type
+            });
+            if (logs.length > 50) logs.pop();
+            renderLogs();
+        }
+        
+        function renderLogs() {
+            document.getElementById('logsContainer').innerHTML = logs.map(log => `
+                <div class="log-entry">
+                    <span class="log-time">${log.time}</span>
+                    <span class="log-${log.type}">${log.message}</span>
+                </div>
+            `).join('');
+        }
+        
+        function renderAgents() {
+            const active = agents.filter(a => a.active).length;
+            document.getElementById('activeAgents').textContent = `${active}/${agents.length}`;
+            document.getElementById('agentProgress').style.width = `${(active/agents.length)*100}%`;
+            
+            document.getElementById('agentList').innerHTML = agents.map(agent => `
+                <div class="agent-item">
+                    <span><span class="status-dot ${agent.active ? 'active' : 'inactive'}"></span> ${agent.name}</span>
+                    <span class="${agent.active ? 'green' : ''}">${agent.active ? 'Active' : 'Inactive'}</span>
+                </div>
+            `).join('');
+        }
+        
+        function renderChart() {
+            document.getElementById('revenueChart').innerHTML = Array(7).fill(0).map((_, i) => {
+                const height = Math.random() * 100 + 20;
+                return `<div class="chart-bar" style="height:${height}px" title="Day ${i+1}"></div>`;
+            }).join('');
+        }
+        
+        function update() {
+            // Uptime
+            const diff = Math.floor((Date.now() - startTime) / 1000);
+            const h = Math.floor(diff / 3600).toString().padStart(2, '0');
+            const m = Math.floor((diff % 3600) / 60).toString().padStart(2, '0');
+            const s = (diff % 60).toString().padStart(2, '0');
+            document.getElementById('uptime').textContent = `${h}:${m}:${s}`;
+            
+            // Simulate data
+            if (Math.random() > 0.7) {
+                tasks++;
+                document.getElementById('tasksCompleted').textContent = tasks;
+            }
+            
+            if (Math.random() > 0.8) {
+                revenue += Math.floor(Math.random() * 1000000);
+                document.getElementById('revenue').textContent = `Rp ${revenue.toLocaleString('id-ID')}`;
+            }
+            
+            // Resources
+            document.getElementById('cpu').textContent = `${Math.floor(Math.random()*30+10)}%`;
+            document.getElementById('ram').textContent = `${Math.floor(Math.random()*40+30)}%`;
+            document.getElementById('disk').textContent = `${Math.floor(Math.random()*20+40)}%`;
+            
+            document.getElementById('cpuBar').style.width = `${Math.floor(Math.random()*30+10)}%`;
+            document.getElementById('ramBar').style.width = `${Math.floor(Math.random()*40+30)}%`;
+            document.getElementById('diskBar').style.width = `${Math.floor(Math.random()*20+40)}%`;
+        }
+        
+        // Init
+        renderAgents();
+        renderChart();
+        renderLogs();
+        addLog('Dashboard initialized', 'success');
+        addLog('All systems operational', 'success');
+        
+        // Update loop
+        setInterval(update, 1000);
+        setInterval(() => addLog('System health check: OK', 'info'), 10000);
+    </script>
+</body>
+</html>

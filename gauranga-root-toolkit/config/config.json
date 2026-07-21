@@ -1,0 +1,66 @@
+{
+  "system": {
+    "name": "GAURANGA ROOT TOOLKIT",
+    "version": "1.0.0",
+    "mode": "autonomous",
+    "auto_recovery": true,
+    "auto_restart": true,
+    "auto_update": true,
+    "start_time": "2026-07-21T00:00:00"
+  },
+  "company": {
+    "name": "MAHA LAKSHMI HOLDINGS",
+    "ceo": "i Made Purna Ananda",
+    "target_revenue": 1000000000,
+    "target_monthly": 100000000,
+    "target_daily": 3333333,
+    "currency": "IDR",
+    "bank": "BCA",
+    "account": "6485086645"
+  },
+  "agents": {
+    "enabled": true,
+    "auto_start": true,
+    "max_concurrent": 16,
+    "retry_on_error": 3
+  },
+  "scheduler": {
+    "enabled": true,
+    "check_interval": 60,
+    "health_check": 60,
+    "sync_data": 300,
+    "generate_report": 3600,
+    "daily_backup": 86400
+  },
+  "monitoring": {
+    "enabled": true,
+    "check_interval": 30,
+    "alert_threshold": 5
+  },
+  "database": {
+    "type": "sqlite",
+    "path": "database/gauranga.db",
+    "backup_enabled": true
+  },
+  "security": {
+    "encrypt_secrets": true,
+    "api_key_protected": true,
+    "encrypt_logs": false
+  },
+  "recovery": {
+    "max_retries": 3,
+    "retry_delay": 5,
+    "fallback_enabled": true
+  },
+  "api": {
+    "host": "0.0.0.0",
+    "port": 8080,
+    "endpoints": {
+      "start": "/api/start",
+      "stop": "/api/stop",
+      "status": "/api/status",
+      "agents": "/api/agents",
+      "revenue": "/api/revenue"
+    }
+  }
+}
