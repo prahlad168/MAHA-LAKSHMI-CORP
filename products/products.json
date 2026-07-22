@@ -1,0 +1,271 @@
+{
+  "products": [
+    {
+      "id": "ebook-001",
+      "name": "Digital Marketing Mastery E-Book",
+      "type": "ebook",
+      "price_usd": 19,
+      "price_regional": {
+        "SEA": 9,
+        "SA": 7,
+        "AF": 5,
+        "LATAM": 8,
+        "EE": 12
+      },
+      "cost": 0.5,
+      "margin": 95,
+      "format": ["PDF", "EPUB", "MOBI"],
+      "category": "Marketing",
+      "target": ["Entrepreneurs", "Marketers", "Small Business"],
+      "pages": 120,
+      "chapters": 15,
+      "bonus": "Marketing Templates Pack",
+      "upsells": ["course-001"],
+      "status": "active"
+    },
+    {
+      "id": "ebook-002",
+      "name": "Passive Income Blueprint",
+      "type": "ebook",
+      "price_usd": 29,
+      "price_regional": {
+        "SEA": 14,
+        "SA": 9,
+        "AF": 7,
+        "LATAM": 12,
+        "EE": 17
+      },
+      "cost": 0.5,
+      "margin": 95,
+      "format": ["PDF", "EPUB"],
+      "category": "Business",
+      "target": ["Aspiring Entrepreneurs", "Side Hustlers"],
+      "pages": 180,
+      "chapters": 20,
+      "bonus": "Income Tracker Spreadsheet",
+      "upsells": ["course-002", "saas-001"],
+      "status": "active"
+    },
+    {
+      "id": "tmpl-001",
+      "name": "Complete Business Template Pack",
+      "type": "template",
+      "price_usd": 49,
+      "price_regional": {
+        "SEA": 24,
+        "SA": 15,
+        "AF": 12,
+        "LATAM": 19,
+        "EE": 29
+      },
+      "cost": 2,
+      "margin": 95,
+      "format": ["DOCX", "XLSX", "PPTX"],
+      "category": "Business",
+      "includes": [
+        "Business Plan Template",
+        "Financial Projections",
+        "Invoice Templates",
+        "Contract Templates",
+        "Social Media Calendar",
+        "Email Templates"
+      ],
+      "target": ["Freelancers", "Small Business Owners", "Startups"],
+      "files": 50,
+      "upsells": ["course-001"],
+      "status": "active"
+    },
+    {
+      "id": "tmpl-002",
+      "name": "Social Media Manager Kit",
+      "type": "template",
+      "price_usd": 39,
+      "price_regional": {
+        "SEA": 19,
+        "SA": 12,
+        "AF": 9,
+        "LATAM": 15,
+        "EE": 24
+      },
+      "cost": 1,
+      "margin": 97,
+      "format": ["CANVA", "PSD", "AI"],
+      "category": "Social Media",
+      "includes": [
+        "100+ Post Templates",
+        "Story Templates",
+        "Highlight Covers",
+        "Brand Kit Template",
+        "Caption Templates"
+      ],
+      "target": ["Social Media Managers", "Content Creators", "Brands"],
+      "files": 150,
+      "upsells": ["course-003"],
+      "status": "active"
+    },
+    {
+      "id": "course-001",
+      "name": "Digital Marketing Fundamentals Course",
+      "type": "course",
+      "price_usd": 99,
+      "price_regional": {
+        "SEA": 49,
+        "SA": 29,
+        "AF": 24,
+        "LATAM": 39,
+        "EE": 59
+      },
+      "cost": 5,
+      "margin": 90,
+      "format": ["Video", "PDF", "Audio"],
+      "category": "Marketing",
+      "modules": 12,
+      "lessons": 48,
+      "hours": 16,
+      "includes": [
+        "Video Lessons",
+        "Downloadable Resources",
+        "Certificate of Completion",
+        "Private Community Access",
+        "Q&A Support"
+      ],
+      "target": ["Career Changers", "Marketing Beginners", "Business Owners"],
+      "upsells": ["tmpl-001", "saas-001"],
+      "status": "active"
+    },
+    {
+      "id": "course-002",
+      "name": "Online Business Mastery",
+      "type": "course",
+      "price_usd": 149,
+      "price_regional": {
+        "SEA": 74,
+        "SA": 49,
+        "AF": 39,
+        "LATAM": 59,
+        "EE": 89
+      },
+      "cost": 8,
+      "margin": 93,
+      "format": ["Video", "PDF", "Live Sessions"],
+      "category": "Business",
+      "modules": 20,
+      "lessons": 80,
+      "hours": 30,
+      "includes": [
+        "All Course 001 Content",
+        "Weekly Live Coaching Calls",
+        "Business Plan Review",
+        "1-on-1 Mentorship (30 min)",
+        "Lifetime Updates"
+      ],
+      "target": ["Serious Entrepreneurs", "Agency Owners"],
+      "upsells": ["saas-001"],
+      "status": "active"
+    },
+    {
+      "id": "course-003",
+      "name": "Content Creation Pro",
+      "type": "course",
+      "price_usd": 79,
+      "price_regional": {
+        "SEA": 39,
+        "SA": 24,
+        "AF": 19,
+        "LATAM": 29,
+        "EE": 49
+      },
+      "cost": 4,
+      "margin": 92,
+      "format": ["Video", "CANVA"],
+      "category": "Content",
+      "modules": 10,
+      "lessons": 40,
+      "hours": 12,
+      "includes": [
+        "Video Lessons",
+        "500+ Content Templates",
+        "Content Calendar",
+        "Hashtag Research Guide",
+        "Caption Generator"
+      ],
+      "target": ["Content Creators", "Influencers", "Social Media Managers"],
+      "upsells": ["tmpl-002"],
+      "status": "active"
+    },
+    {
+      "id": "saas-001",
+      "name": "Content Automation Tool (Monthly)",
+      "type": "saas",
+      "price_usd": 29,
+      "price_regional": {
+        "SEA": 14,
+        "SA": 9,
+        "AF": 7,
+        "LATAM": 12,
+        "EE": 17
+      },
+      "price_annual": 249,
+      "cost": 3,
+      "margin": 85,
+      "billing": "monthly",
+      "category": "SaaS",
+      "features": [
+        "AI Content Generator (100 posts/month)",
+        "Auto Poster to 5 Platforms",
+        "Hashtag Research",
+        "Analytics Dashboard",
+        "Team Collaboration (3 users)"
+      ],
+      "target": ["Content Creators", "Agencies", "Small Businesses"],
+      "upsells": ["course-003", "tmpl-002"],
+      "status": "active"
+    },
+    {
+      "id": "saas-002",
+      "name": "Email Marketing Tool (Monthly)",
+      "type": "saas",
+      "price_usd": 19,
+      "price_regional": {
+        "SEA": 9,
+        "SA": 5,
+        "AF": 4,
+        "LATAM": 7,
+        "EE": 12
+      },
+      "price_annual": 169,
+      "cost": 2,
+      "margin": 88,
+      "billing": "monthly",
+      "category": "SaaS",
+      "features": [
+        "Unlimited Subscribers",
+        "Email Templates",
+        "Automation Flows",
+        "A/B Testing",
+        "Analytics"
+      ],
+      "target": ["Marketers", "Small Businesses"],
+      "upsells": ["course-001", "ebook-001"],
+      "status": "active"
+    }
+  ],
+  "bundles": [
+    {
+      "id": "bundle-001",
+      "name": "Complete Marketing Bundle",
+      "products": ["ebook-001", "tmpl-001", "course-001"],
+      "price_usd": 199,
+      "savings": 67,
+      "popular": true
+    },
+    {
+      "id": "bundle-002",
+      "name": "Content Creator Pack",
+      "products": ["tmpl-002", "course-003", "saas-001"],
+      "price_usd": 149,
+      "savings": 55,
+      "popular": false
+    }
+  ]
+}

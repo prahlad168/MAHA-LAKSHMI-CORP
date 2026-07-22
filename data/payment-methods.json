@@ -1,0 +1,53 @@
+{
+  "company": {
+    "name": "Maha Lakshmi Digital Holdings",
+    "ceo": "i Made Purna Ananda (Pak Pur)",
+    "bank_account": {
+      "bank": "BCA",
+      "account_number": "6485086645",
+      "account_name": "i Made Purna Ananda"
+    }
+  },
+  "crypto": {
+    "usdt_tron": {
+      "network": "TRC-20 (Tron)",
+      "address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "note": "Minimal transfer: $10 | Biaya gas: ~$1",
+      "qr_code_description": "Trust Wallet / Tron Wallet / Binance"
+    }
+  },
+  "payment_gateways": {
+    "gumroad": {
+      "status": "pending",
+      "fee": "10%",
+      "url": "https://gumroad.com",
+      "note": "Global coverage, easy setup"
+    },
+    "stripe": {
+      "status": "pending", 
+      "fee": "2.9% + $0.30",
+      "url": "https://stripe.com",
+      "note": "Need US/EU entity"
+    },
+    "wise": {
+      "status": "pending",
+      "fee": "~0.5-1%",
+      "url": "https://wise.com",
+      "note": "Best for multi-currency"
+    },
+    "payoneer": {
+      "status": "pending",
+      "fee": "1%",
+      "url": "https://payoneer.com",
+      "note": "Good for marketplaces"
+    }
+  },
+  "payment_display": {
+    "show_crypto": true,
+    "show_bank": true,
+    "show_gateways": true,
+    "default_currency": "USD",
+    "accepted_currencies": ["USD", "EUR", "GBP", "IDR"],
+    "conversion_note": "Rates updated daily"
+  }
+}
