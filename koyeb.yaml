@@ -1,0 +1,27 @@
+app: maha-lakshmi-corp
+services:
+  - name: web
+    git:
+      branch: main
+      clone:
+        repo: prahlad168/MAHA-LAKSHMI-CORP
+        path: .
+    dockerfile_path: ./Dockerfile
+    instance_size: nano
+    instance_count: 1
+    env:
+      - key: PORT
+        value: "8000"
+    ports:
+      - port: 8000
+        protocol: http
+    health_check:
+      http:
+        path: /health
+        port: 8000
+        protocol: http
+    routes:
+      - path: /
+        port: 8000
+    regions:
+      - sin
