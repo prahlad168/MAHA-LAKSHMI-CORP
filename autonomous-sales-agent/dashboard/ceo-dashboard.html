@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 CEO Dashboard - MAHA LAKSHMI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            min-height: 100vh;
+            color: #f8fafc;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 32px; }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 48px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(255,107,53,0.1), rgba(0,212,170,0.1));
+            border: 1px solid rgba(255,107,53,0.2);
+            border-radius: 20px;
+        }
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF6B35, #00D4AA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+        }
+        .ceo-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF6B35, #E85A24);
+            color: white;
+            padding: 8px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            margin-top: 16px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 32px;
+        }
+        .stat-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255,255,255,0.12);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        .stat-icon {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .stat-label {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+        .stat-sub {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 8px;
+        }
+        
+        .ceo-transfer {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(16, 185, 129, 0.05));
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 20px;
+            padding: 32px;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+        .ceo-transfer h2 {
+            color: #10b981;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+        .transfer-details {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .transfer-item {
+            text-align: center;
+        }
+        .transfer-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .transfer-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #10b981;
+        }
+        
+        .agent-status {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 32px;
+        }
+        .agent-status h3 {
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        .status-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 12px;
+        }
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #10b981;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .status-text {
+            font-size: 0.875rem;
+            color: #cbd5e1;
+        }
+        
+        .report-section {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 28px;
+            margin-bottom: 24px;
+        }
+        .report-section h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .report-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .report-date {
+            color: #94a3b8;
+            font-size: 0.875rem;
+        }
+        .report-status {
+            background: rgba(16, 185, 129, 0.1);
+            color: #10b981;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 32px;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: 1fr; }
+            .transfer-details { flex-direction: column; gap: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo">👑 MAHA LAKSHMI HOLDINGS</div>
+            <div class="subtitle">Autonomous Global Sales System</div>
+            <div class="ceo-badge">CEO MODE - Revenue Reports Only</div>
+        </div>
+
+        <!-- Revenue Stats -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-value" id="totalRevenue">$0</div>
+                <div class="stat-label">Total Revenue</div>
+                <div class="stat-sub" id="revenueChange">+0% vs yesterday</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👑</div>
+                <div class="stat-value" id="ceoShare">$0</div>
+                <div class="stat-label">CEO Share (80%)</div>
+                <div class="stat-sub">Transfer to BCA 6485086645</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-value" id="totalLeads">0</div>
+                <div class="stat-label">Total Leads</div>
+                <div class="stat-sub" id="leadsToday">+0 today</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🤝</div>
+                <div class="stat-value" id="totalDeals">0</div>
+                <div class="stat-label">Deals Closed</div>
+                <div class="stat-sub" id="dealsToday">+0 today</div>
+            </div>
+        </div>
+
+        <!-- CEO Transfer Info -->
+        <div class="ceo-transfer">
+            <h2>💰 Daily Transfer to CEO</h2>
+            <div class="transfer-details">
+                <div class="transfer-item">
+                    <div class="transfer-label">Destination</div>
+                    <div class="transfer-value">BCA 6485086645</div>
+                </div>
+                <div class="transfer-item">
+                    <div class="transfer-label">Account Name</div>
+                    <div class="transfer-value">i Made Purna Ananda</div>
+                </div>
+                <div class="transfer-item">
+                    <div class="transfer-label">Transfer Time</div>
+                    <div class="transfer-value">23:59 WIB</div>
+                </div>
+                <div class="transfer-item">
+                    <div class="transfer-label">Share Percentage</div>
+                    <div class="transfer-value">80%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Agent Status -->
+        <div class="agent-status">
+            <h3>🤖 Autonomous Agents Status</h3>
+            <div class="status-grid">
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <div class="status-text">Sales Agent - Running</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <div class="status-text">Finance Agent - Running</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <div class="status-text">Market Analyzer - Active</div>
+                </div>
+                <div class="status-item">
+                    <div class="status-dot"></div>
+                    <div class="status-text">Self-Improvement - Active</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Today's Report -->
+        <div class="report-section">
+            <h3>📊 Today's Report</h3>
+            <div class="report-meta">
+                <div class="report-date" id="reportDate">Loading...</div>
+                <div class="report-status">AUTOMATIC</div>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">Emails Sent</div>
+                    <div style="font-size: 1.75rem; font-weight: 700;" id="emailsSent">0</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">WhatsApp Sent</div>
+                    <div style="font-size: 1.75rem; font-weight: 700;" id="whatsappSent">0</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">Responses</div>
+                    <div style="font-size: 1.75rem; font-weight: 700;" id="responses">0</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">Proposals</div>
+                    <div style="font-size: 1.75rem; font-weight: 700;" id="proposals">0</div>
+                </div>
+                <div style="background: rgba(255,255,255,0.03); padding: 20px; border-radius: 14px;">
+                    <div style="font-size: 0.75rem; color: #64748b; margin-bottom: 8px;">Deals Closed</div>
+                    <div style="font-size: 1.75rem; font-weight: 700;" id="dealsClosed">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🤖 Autonomous Sales Agent | 🌐 mahalaksmi.web.id</p>
+            <p style="margin-top: 8px;">All operations automated | CEO receives revenue reports only</p>
+            <p style="margin-top: 4px;">Next report: Tomorrow 23:59 WIB</p>
+        </div>
+    </div>
+
+    <script>
+        async function updateDashboard() {
+            try {
+                const response = await fetch('/api/agent/dashboard');
+                const data = await response.json();
+                
+                document.getElementById('totalRevenue').textContent = '$' + (data.stats?.total_revenue_usd || 0).toLocaleString();
+                document.getElementById('ceoShare').textContent = '$' + (data.stats?.ceo_share_usd || 0).toLocaleString();
+                document.getElementById('totalLeads').textContent = (data.stats?.total_leads || 0).toLocaleString();
+                document.getElementById('totalDeals').textContent = (data.stats?.total_deals || 0).toLocaleString();
+                
+                if (data.today_report) {
+                    document.getElementById('emailsSent').textContent = data.today_report.emails_sent || 0;
+                    document.getElementById('whatsappSent').textContent = data.today_report.whatsapp_sent || 0;
+                    document.getElementById('responses').textContent = data.today_report.responses || 0;
+                    document.getElementById('proposals').textContent = data.today_report.proposals || 0;
+                    document.getElementById('dealsClosed').textContent = data.today_report.deals_closed || 0;
+                }
+                
+                const now = new Date();
+                document.getElementById('reportDate').textContent = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+            } catch (error) {
+                console.error('Dashboard update failed:', error);
+            }
+        }
+        
+        setInterval(updateDashboard, 60000);
+        updateDashboard();
+    </script>
+</body>
+</html>

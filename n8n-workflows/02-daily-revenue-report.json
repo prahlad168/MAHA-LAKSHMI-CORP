@@ -1,0 +1,141 @@
+{
+  "name": "MAHA LAKSHMI - Daily Revenue Report",
+  "nodes": [
+    {
+      "parameters": {
+        "cronExpression": "59 23 * * *"
+      },
+      "id": "schedule-trigger",
+      "name": "Daily 23:59 Trigger",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://mahalaksmi.web.id/api/alpha/gaurangga/consolidated-status",
+        "options": {}
+      },
+      "id": "http-request",
+      "name": "Fetch Revenue Data",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "total_revenue",
+              "value": "={{ $json.total_revenue }}"
+            },
+            {
+              "name": "ceo_share",
+              "value": "={{ $json.ceo_share }}"
+            },
+            {
+              "name": "ops_share",
+              "value": "={{ $json.ops_share }}"
+            },
+            {
+              "name": "date",
+              "value": "={{ $now.format('YYYY-MM-DD') }}"
+            }
+          ]
+        }
+      },
+      "id": "calculate-shares",
+      "name": "Calculate Shares",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "toEmail": "ceo@mahalaksmi.web.id",
+        "subject": "={{ 'Daily Revenue Report - ' + $now.format('YYYY-MM-DD') }}",
+        "text": "={{ 'DAILY REVENUE REPORT\n====================\nDate: ' + $json.date + '\nTotal Revenue: Rp ' + $json.total_revenue + '\nCEO Share (80%): Rp ' + $json.ceo_share + '\nOps Share (20%): Rp ' + $json.ops_share + '\n\nPlease transfer 80% to BCA: 6485086645\n\nMAHA LAKSHMI AIOS' }}"
+      },
+      "id": "send-email-report",
+      "name": "Send Email Report",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "channel": "whatsapp",
+        "to": "6281337558787",
+        "message": "={{ '📊 DAILY REVENUE REPORT\n\n📅 Date: ' + $json.date + '\n💰 Total Revenue: Rp ' + $json.total_revenue + '\n👑 CEO Share (80%): Rp ' + $json.ceo_share + '\n\nPlease transfer to BCA: 6485086645' }}"
+      },
+      "id": "send-whatsapp-report",
+      "name": "Send WhatsApp Report",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "sheetId": "daily-revenue-sheet-id",
+        "range": "A:Z",
+        "options": {}
+      },
+      "id": "google-sheets",
+      "name": "Save to Google Sheets",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    }
+  ],
+  "connections": {
+    "Daily 23:59 Trigger": {
+      "main": [
+        [
+          {
+            "node": "Fetch Revenue Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Revenue Data": {
+      "main": [
+        [
+          {
+            "node": "Calculate Shares",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculate Shares": {
+      "main": [
+        [
+          {
+            "node": "Send Email Report",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send WhatsApp Report",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Google Sheets",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
