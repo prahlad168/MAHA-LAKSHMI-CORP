@@ -2,21 +2,10 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2026-07-13",
-    "last_updated": "2026-07-17T02:16:11.329181Z",
-    "total_entries": 2,
-    "total_revenue_all_time": 418900145.0
-  },
-  "mgos_enterprise_override": {
-    "source": "MAHAAIOS_PRODUCTION_CONFIRMED",
-    "enterprise_dataset": "MGOS-Enterprise",
-    "description": "Global and National Digital Sales from MGOS-Enterprise",
-    "total_amount": 417900145,
-    "currency": "IDR",
-    "verified_at": "2026-07-17T02:16:11.329181Z",
-    "payout_calculation": {
-      "ceo_share_percent": 80,
-      "ceo_payout_target": 334320116
-    }
+    "last_updated": "2026-07-25T08:15:00+08:00",
+    "total_entries": 1,
+    "total_revenue_all_time": 1000000.0,
+    "note": "Only verified revenue included. MGOS-Enterprise data removed pending verification."
   },
   "daily_revenue": {
     "2026-07-13": {
@@ -95,5 +84,14 @@
       "status": "recorded"
     }
   ],
-  "pending_entries": []
+  "pending_entries": [],
+  "removed_entries": [
+    {
+      "id": "MGOS-ENTERPRISE-OVERRIDE",
+      "reason": "Removed 2026-07-25: unverified override data pending manual verification",
+      "original_amount": 417900145,
+      "source": "MAHAAIOS_PRODUCTION_CONFIRMED",
+      "action": "MOVED_TO_PENDING_VERIFICATION"
+    }
+  ]
 }

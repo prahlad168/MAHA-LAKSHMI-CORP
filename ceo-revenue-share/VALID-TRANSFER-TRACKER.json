@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "created": "2026-07-18",
     "description": "Valid Transfer Tracker - Only REAL verified transfers",
-    "last_updated": "2026-07-18T04:25:00+07:00",
+    "last_updated": "2026-07-25T08:15:00+08:00",
     "bank_details": {
       "bank": "BCA",
       "account_number": "[BANK_ACCOUNT]",
@@ -11,15 +11,16 @@
     }
   },
   "total_revenue": {
-    "all_time": 418900145,
-    "pending_distribution": 418900145,
-    "distributed": 0
+    "all_time": 1000000.0,
+    "pending_distribution": 1000000.0,
+    "distributed": 0,
+    "note": "Only verified revenue. MGOS-Enterprise data removed pending verification."
   },
   "profit_distribution_config": {
     "ceo_share_percent": 80,
     "reinvestment_percent": 20,
-    "ceo_share_amount": 335120116,
-    "reinvestment_amount": 83780029
+    "ceo_share_amount": 800000.0,
+    "reinvestment_amount": 200000.0
   },
   "pending_transfers": [
     {
@@ -43,15 +44,15 @@
       }
     },
     {
-      "transfer_id": "PENDING-002",
+      "transfer_id": "PENDING-002-VERIFY",
       "type": "CEO_PROFIT_SHARE",
       "source": "MGOS_Enterprise",
       "source_amount": 417900145,
       "ceo_share": 334320116,
-      "description": "Profit dari MGOS-Enterprise Digital Sales",
+      "description": "PENDING VERIFICATION: MGOS-Enterprise Digital Sales - removed from active until proof provided",
       "created": "2026-07-17",
-      "due_date": "2026-07-18",
-      "status": "PENDING",
+      "due_date": null,
+      "status": "PENDING_VERIFICATION",
       "bank_transfer": {
         "bank": "BCA",
         "account_number": "[BANK_ACCOUNT]",
@@ -60,11 +61,29 @@
         "reference_number": null,
         "screenshot": null,
         "transfer_date": null
-      }
+      },
+      "verification_required": [
+        "Customer transaction records",
+        "Payment gateway statements",
+        "Supplier fulfillment logs",
+        "Bank/payment processor confirmations",
+        "API logs from suppliers"
+      ]
     }
   ],
   "completed_transfers": [],
   "audit_log": [
+    {
+      "timestamp": "2026-07-25T08:15:00+08:00",
+      "action": "DATA_CLEANUP",
+      "description": "Removed unverified MGOS-Enterprise override data. Reset to only verified Bali Travel revenue (Rp 1,000,000).",
+      "changes": [
+        "Removed mgos_enterprise_override from revenue tracker",
+        "Reset total_revenue_all_time to 1,000,000",
+        "Moved MGOS-Enterprise transfer to PENDING_VERIFICATION",
+        "Updated CEO-REVENUE-REPORT-2026-07-17.md to remove fake RECEIVED status"
+      ]
+    },
     {
       "timestamp": "2026-07-18T04:25:00+07:00",
       "action": "SYSTEM_RESET",

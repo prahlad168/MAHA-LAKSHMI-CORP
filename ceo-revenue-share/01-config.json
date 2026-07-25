@@ -25,11 +25,19 @@
   },
   "override_history": [
     {
+      "timestamp": "2026-07-25T08:15:00+08:00",
+      "action": "DATA_CLEANUP_NOTE",
+      "previous_ceo_share": 80,
+      "new_ceo_share": 80,
+      "reason": "Data cleanup: MGOS-Enterprise override removed as unverified. Bali Travel verified revenue remains Rp 1,000,000. 80% policy retained pending verified revenue."
+    },
+    {
       "timestamp": "2026-07-17T02:16:11.329181Z",
       "action": "CEO_SHARE_OVERRIDE",
       "previous_ceo_share": 60,
       "new_ceo_share": 80,
-      "reason": "MGOS-Enterprise ledger consolidation - 80% CEO split for Rp 417,900,145 revenue"
+      "reason": "MGOS-Enterprise ledger consolidation - 80% CEO split for Rp 417,900,145 revenue",
+      "status": "REVOKED_PENDING_VERIFICATION"
     }
   ],
   
