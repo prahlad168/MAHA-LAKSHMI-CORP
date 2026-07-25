@@ -1,7 +1,7 @@
 {
-  "version": "1.0.0",
+  "version": "2.0.0",
   "created": "2026-07-13",
-  "last_updated": "2026-07-13T12:00:00+08:00",
+  "last_updated": "2026-07-25T08:27:00+08:00",
   
   "ceo": {
     "name": "[CEO_NAME_REDACTED]",
@@ -18,12 +18,19 @@
   },
   
   "distribution": {
-    "ceo_share_percent": 80,
-    "reinvest_percent": 20,
+    "ceo_share_percent": 100,
+    "reinvest_percent": 0,
     "team_bonus_percent": 0,
     "csr_percent": 0
   },
   "override_history": [
+    {
+      "timestamp": "2026-07-25T08:27:00+08:00",
+      "action": "FRESH_START_RESET",
+      "previous_ceo_share": 80,
+      "new_ceo_share": 100,
+      "reason": "Fresh start: all unverified data cleared. 100% CEO share to USDT wallet. No BCA transfer."
+    },
     {
       "timestamp": "2026-07-25T08:15:00+08:00",
       "action": "DATA_CLEANUP_NOTE",
@@ -42,17 +49,12 @@
   ],
   
   "destination": {
-    "type": "bank_transfer",
+    "type": "crypto_transfer",
     "primary": {
-      "bank": "BCA",
-      "account": "[BANK_ACCOUNT]",
-      "holder": "[CEO_NAME_REDACTED]",
-      "label": "CEO Personal BCA Account"
-    },
-    "fallback": {
       "network": "TRC20",
-      "usdt_address": "[USDT_WALLET]",
-      "label": "USDT Fallback Wallet"
+      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "holder": "[CEO_NAME_REDACTED]",
+      "label": "CEO USDT Wallet (TRC20)"
     }
   },
   

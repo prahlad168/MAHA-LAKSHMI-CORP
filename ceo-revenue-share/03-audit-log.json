@@ -2,236 +2,29 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2026-07-13",
-    "last_updated": "2026-07-25T08:15:00+08:00",
-    "total_entries": 12
+    "last_updated": "2026-07-25T08:27:00+08:00",
+    "total_entries": 1
   },
-  "entries": [
-    {
-      "timestamp": "2026-07-13T01:34:43.318202",
-      "action": "ADD_REVENUE",
-      "entry_id": "REV-20260713-001",
-      "amount": 1000000.0,
-      "currency": "IDR",
-      "amount_idr": 1000000.0,
-      "company": "Bali Travel",
-      "source": "WhatsApp Sales",
-      "status": "SUCCESS"
-    }
-  ],
-  "execution_log": [
-    {
-      "timestamp": "2026-07-13 01:32:40",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 0,
-      "ceo_share": 0.0,
-      "status": "SUCCESS",
-      "notes": "",
-      "reference": "RS-20260713-001"
-    },
-    {
-      "timestamp": "2026-07-13 01:34:47",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 1000000.0,
-      "ceo_share": 600000.0,
-      "status": "SUCCESS",
-      "notes": "",
-      "reference": "RS-20260713-001"
-    },
-    {
-      "timestamp": "2026-07-13 04:27:27",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 1000000.0,
-      "ceo_share": 600000.0,
-      "status": "SUCCESS",
-      "notes": "",
-      "reference": "RS-20260713-001"
-    },
-    {
-      "timestamp": "2026-07-13 06:54:26",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 1000000.0,
-      "ceo_share": 600000.0,
-      "status": "SUCCESS",
-      "notes": "",
-      "reference": "RS-20260713-001"
-    },
-    {
-      "timestamp": "2026-07-13 14:25:00",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 1000000.0,
-      "ceo_share": 600000.0,
-      "status": "SUCCESS",
-      "notes": "",
-      "reference": "RS-20260713-001"
-    },
-    {
-      "timestamp": "2026-07-13 14:26:47",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 1000000.0,
-      "ceo_share": 600000.0,
-      "status": "SUCCESS",
-      "notes": "",
-      "reference": "RS-20260713-001"
-    },
-    {
-      "timestamp": "2026-07-13 14:27:00",
-      "action": "DAILY_EXECUTION",
-      "date": "2026-07-13",
-      "total_revenue": 1000000.0,
-      "ceo_share": 600000.0,
-      "status": "SUCCESS",
-      "notes": "Automated execution - CEO Revenue Share Agent",
-      "reference": "RS-20260713-002"
-    },
-    {
-      "timestamp": "2026-07-16T00:42:18.733661",
-      "action": "UNIFIED_SYNC_INITIATED",
-      "audit_id": "A3578049D246",
-      "source": "GAURANGGA_COMMAND_BRIDGE",
-      "version": "2.4.0",
-      "details": {
-        "version": "2.4.0",
-        "enterprise_node": "MAHA_LAKSHMI",
-        "digital_node": "MAHA_AIOS",
-        "distribution": {
-          "ceo_share_percent": 80,
-          "ops_share_percent": 20
-        }
-      },
-      "sync_node": "ALPHA_GAURANGGA"
-    },
-    {
-      "timestamp": "2026-07-16T00:42:18.734632",
-      "action": "UNIFIED_SYNC_COMPLETED",
-      "audit_id": "9540EFFFEEEF",
-      "source": "GAURANGGA_COMMAND_BRIDGE",
-      "version": "2.4.0",
-      "details": {
-        "audit_id": "A3578049D246",
-        "total_revenue": 1000000.0,
-        "ceo_share": 800000.0,
-        "ops_share": 200000.0,
-        "report_path": "/workspace/project/MAHA-LAKSHMI-CORP/ceo-revenue-share/DAILY-REPORTS/unified-bridge-report-2026-07-16.md",
-        "entries_processed": 1
-      },
-      "sync_node": "ALPHA_GAURANGGA"
-    },
-    {
-      "timestamp": "2026-07-17T02:16:11.329181Z",
-      "action": "MGOS_ENTERPRISE_LEDGER_CONSOLIDATION",
-      "event": "MGOS_ENTERPRISE_LEDGER_CONSOLIDATION",
-      "status": "SUCCESS",
-      "description": "Manually bridged MGOS-Enterprise digital sales data to the main branch. Re-calibrated payout engine to 80% CEO Share via Tokocrypto API pipeline.",
-      "source": "MAHAAIOS_PRODUCTION_CONFIRMED",
-      "details": {
-        "enterprise_dataset": "MGOS-Enterprise",
-        "total_amount": 417900145,
-        "currency": "IDR",
-        "ceo_share_percent": 80,
-        "ceo_payout_target": 334320116,
-        "pipeline": "Tokocrypto API",
-        "bridge_version": "2.0.0"
-      },
-      "reference": "MGOS-LEDGER-20260717-001"
-    },
-    {
-      "timestamp": "2026-07-17T02:20:00.000000Z",
-      "action": "CEO_PAYOUT_EXECUTION_ATTEMPT",
-      "event": "CEO_PAYOUT_EXECUTION_ATTEMPT",
-      "status": "FAILED_API_UNAVAILABLE",
-      "description": "Attempted to execute MGOS CEO payout via Tokocrypto API",
-      "details": {
-        "total_revenue": 417900145,
-        "ceo_share_percent": 80,
-        "ceo_payout_idr": 334320116,
-        "usdt_amount": 19665.89,
-        "wallet_address": "[USDT_WALLET]",
-        "network": "TRC20",
-        "error": "HTTP 451 - API unavailable",
-        "likely_causes": [
-          "API keys invalid or expired",
-          "Region restriction (451 Unavailable For Legal Reasons)",
-          "VPN active with non-Indonesian server"
-        ]
-      },
-      "reference": "MGOS-PAYOUT-20260717-001"
-    }
-  ],
+  "entries": [],
+  "execution_log": [],
   "errors": [],
-  "ceo_share_payments": [
-    {
-      "timestamp": "2026-07-13 11:30:03",
-      "action": "CEO_BTC_TRANSFER",
-      "date": "2026-07-13",
-      "reference": "BTC-20260713113003",
-      "amount_idr": 600000.0,
-      "amount_btc": 0.00051732,
-      "amount_sats": 51732,
-      "network_fee_sats": 1000,
-      "btc_price": 1137824297,
-      "destination": "[BTC_WALLET]",
-      "status": "PENDING_MANUAL",
-      "txid": null,
-      "notes": "Manual transfer required - no API configured"
+  "ceo_share_payments": [],
+  "fresh_start": {
+    "timestamp": "2026-07-25T08:27:00+08:00",
+    "action": "FRESH_START_RESET",
+    "description": "All previous data cleared for fresh start. 100% CEO share to USDT TRC20. No BCA transfer.",
+    "distribution": {
+      "ceo_share_percent": 100,
+      "reinvest_percent": 0,
+      "team_bonus_percent": 0,
+      "csr_percent": 0
     },
-    {
-      "timestamp": "2026-07-13 11:37:51",
-      "action": "CEO_BCA_TRANSFER",
-      "date": "2026-07-13",
-      "reference": "BCA-20260713113751",
-      "amount_idr": 600000.0,
-      "amount_btc": null,
-      "destination": "BCA [BANK_ACCOUNT]",
-      "status": "PENDING_EXECUTION",
-      "notes": "BCA transfer - self transfer to CEO account"
-    },
-    {
-      "timestamp": "2026-07-17T02:20:00.000000Z",
-      "action": "CEO_USDT_PAYOUT_PENDING",
-      "date": "2026-07-17",
-      "reference": "MGOS-PAYOUT-USDT-20260717",
-      "amount_idr": 334320116,
-      "amount_usdt": 19665.89,
-      "destination": "[USDT_WALLET] (TRC20)",
-      "status": "PENDING_MANUAL",
-      "source": "MGOS-ENTERPRISE",
-      "notes": "CEO payout from MGOS-Enterprise. Manual execution required - Tokocrypto API unavailable."
-    },
-    {
-      "timestamp": "2026-07-25T08:15:00+08:00",
-      "action": "DATA_CLEANUP",
-      "description": "Removed unverified MGOS-Enterprise override data. Reset revenue tracker to only verified Bali Travel revenue (Rp 1,000,000). Updated reports to remove fake RECEIVED status.",
-      "changes": [
-        "Removed mgos_enterprise_override from 02-revenue-tracker.json",
-        "Reset total_revenue_all_time to 1,000,000",
-        "Moved MGOS-Enterprise transfer to PENDING_VERIFICATION",
-        "Updated CEO-REVENUE-REPORT-2026-07-17.md to remove fake RECEIVED status"
-      ]
-    },
-    {
-      "timestamp": "2026-07-17T02:25:00.000000Z",
-      "action": "CEO_PAYOUT_RECEIVED",
-      "event": "CEO_PAYOUT_RECEIVED",
-      "status": "CONFIRMED_NOT_RECEIVED",
-      "description": "CEO confirms MGOS-Enterprise payout NOT received - actual balance is only 0.0061 USDT",
-      "source": "MANUAL_CHECK_2026-07-19",
-      "details": {
-        "total_revenue": 417900145,
-        "ceo_share_percent": 80,
-        "ceo_payout_idr": 334320116,
-        "amount_usdt_expected": 19665.89,
-        "wallet_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
-        "network": "TRC20",
-        "actual_balance": 0.00610095,
-        "received_at": "NOT_RECEIVED"
-      },
-      "reference": "MGOS-CHECK-20260719"
+    "destination": {
+      "type": "crypto_transfer",
+      "network": "TRC20",
+      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "holder": "[CEO_NAME_REDACTED]",
+      "label": "CEO USDT Wallet (TRC20)"
     }
-  ]
+  }
 }

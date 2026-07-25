@@ -1,96 +1,33 @@
 {
   "metadata": {
     "version": "1.0.0",
-    "created": "2026-07-18",
-    "description": "Valid Transfer Tracker - Only REAL verified transfers",
-    "last_updated": "2026-07-25T08:15:00+08:00",
-    "bank_details": {
-      "bank": "BCA",
-      "account_number": "[BANK_ACCOUNT]",
-      "account_name": "[CEO_NAME_REDACTED]"
+    "created": "2026-07-25",
+    "description": "Valid Transfer Tracker - Fresh start. Only REAL verified transfers.",
+    "last_updated": "2026-07-25T08:27:00+08:00",
+    "distribution": {
+      "ceo_share_percent": 100,
+      "reinvest_percent": 0
+    },
+    "destination": {
+      "type": "crypto_transfer",
+      "network": "TRC20",
+      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "holder": "[CEO_NAME_REDACTED]",
+      "label": "CEO USDT Wallet (TRC20)"
     }
   },
   "total_revenue": {
-    "all_time": 1000000.0,
-    "pending_distribution": 1000000.0,
-    "distributed": 0,
-    "note": "Only verified revenue. MGOS-Enterprise data removed pending verification."
+    "all_time": 0.0,
+    "pending_distribution": 0.0,
+    "distributed": 0
   },
-  "profit_distribution_config": {
-    "ceo_share_percent": 80,
-    "reinvestment_percent": 20,
-    "ceo_share_amount": 800000.0,
-    "reinvestment_amount": 200000.0
-  },
-  "pending_transfers": [
-    {
-      "transfer_id": "PENDING-001",
-      "type": "CEO_PROFIT_SHARE",
-      "source": "WhatsApp_Sales",
-      "source_amount": 1000000,
-      "ceo_share": 800000,
-      "description": "Profit dari Bali Travel WhatsApp Sales",
-      "created": "2026-07-13",
-      "due_date": "2026-07-14",
-      "status": "PENDING",
-      "bank_transfer": {
-        "bank": "BCA",
-        "account_number": "[BANK_ACCOUNT]",
-        "account_name": "[CEO_NAME_REDACTED]",
-        "amount": 800000,
-        "reference_number": null,
-        "screenshot": null,
-        "transfer_date": null
-      }
-    },
-    {
-      "transfer_id": "PENDING-002-VERIFY",
-      "type": "CEO_PROFIT_SHARE",
-      "source": "MGOS_Enterprise",
-      "source_amount": 417900145,
-      "ceo_share": 334320116,
-      "description": "PENDING VERIFICATION: MGOS-Enterprise Digital Sales - removed from active until proof provided",
-      "created": "2026-07-17",
-      "due_date": null,
-      "status": "PENDING_VERIFICATION",
-      "bank_transfer": {
-        "bank": "BCA",
-        "account_number": "[BANK_ACCOUNT]",
-        "account_name": "[CEO_NAME_REDACTED]",
-        "amount": 334320116,
-        "reference_number": null,
-        "screenshot": null,
-        "transfer_date": null
-      },
-      "verification_required": [
-        "Customer transaction records",
-        "Payment gateway statements",
-        "Supplier fulfillment logs",
-        "Bank/payment processor confirmations",
-        "API logs from suppliers"
-      ]
-    }
-  ],
+  "pending_transfers": [],
   "completed_transfers": [],
   "audit_log": [
     {
-      "timestamp": "2026-07-25T08:15:00+08:00",
-      "action": "DATA_CLEANUP",
-      "description": "Removed unverified MGOS-Enterprise override data. Reset to only verified Bali Travel revenue (Rp 1,000,000).",
-      "changes": [
-        "Removed mgos_enterprise_override from revenue tracker",
-        "Reset total_revenue_all_time to 1,000,000",
-        "Moved MGOS-Enterprise transfer to PENDING_VERIFICATION",
-        "Updated CEO-REVENUE-REPORT-2026-07-17.md to remove fake RECEIVED status"
-      ]
-    },
-    {
-      "timestamp": "2026-07-18T04:25:00+07:00",
-      "action": "SYSTEM_RESET",
-      "description": "Reset semua transfer ke PENDING. Menghapus data RECEIVED yang tidak terverifikasi.",
-      "previous_status": "MANY_FAKE_RECEIVED",
-      "new_status": "PENDING",
-      "notes": "Audit log sebelumnya menunjukkan status RECEIVED tanpa bukti transfer. Semua di-reset ke PENDING."
+      "timestamp": "2026-07-25T08:27:00+08:00",
+      "action": "FRESH_START",
+      "description": "Fresh start reset. All previous data cleared. 100% CEO share to USDT TRC20 wallet."
     }
   ]
 }

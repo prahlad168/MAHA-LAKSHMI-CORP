@@ -1,38 +1,18 @@
 {
   "metadata": {
     "version": "2.0.0",
-    "created": "2026-07-13",
-    "last_updated": "2026-07-25T08:15:00+08:00",
-    "total_entries": 1,
-    "total_revenue_all_time": 1000000.0,
-    "note": "Only verified revenue included. MGOS-Enterprise data removed pending verification."
+    "created": "2026-07-25",
+    "last_updated": "2026-07-25T08:27:00+08:00",
+    "total_entries": 0,
+    "total_revenue_all_time": 0.0,
+    "note": "Fresh start 2026-07-25. All previous data cleared. 100% CEO share to USDT TRC20."
   },
-  "daily_revenue": {
-    "2026-07-13": {
-      "total": 1000000.0,
-      "by_source": {
-        "website": 0,
-        "marketplace": 0,
-        "payment_gateway": 0,
-        "direct_transfer": 0,
-        "whatsapp": 1000000.0,
-        "offline": 0
-      },
-      "by_company": {
-        "8": 1000000.0
-      },
-      "by_currency": {
-        "IDR": 1000000.0,
-        "USD": 0,
-        "EUR": 0
-      }
-    }
-  },
+  "daily_revenue": {},
   "monthly_summary": {
     "2026-07": {
-      "total_revenue": 1000000.0,
-      "days_recorded": 1,
-      "daily_average": 1000000.0,
+      "total_revenue": 0.0,
+      "days_recorded": 0,
+      "daily_average": 0.0,
       "highest_day": null,
       "lowest_day": null,
       "by_company": {},
@@ -52,9 +32,7 @@
     "5": {},
     "6": {},
     "7": {},
-    "8": {
-      "2026-07-13": 1000000.0
-    },
+    "8": {},
     "9": {},
     "10": {}
   },
@@ -63,35 +41,16 @@
     "marketplace": {},
     "payment_gateway": {},
     "direct_transfer": {},
-    "whatsapp": {
-      "2026-07-13": 1000000.0
-    },
+    "whatsapp": {},
     "offline": {}
   },
-  "transactions": [
-    {
-      "id": "REV-20260713-001",
-      "date": "2026-07-13",
-      "company_id": 8,
-      "company_name": "Bali Travel",
-      "source": "whatsapp",
-      "source_name": "WhatsApp Sales",
-      "amount": 1000000.0,
-      "currency": "IDR",
-      "amount_idr": 1000000.0,
-      "description": "Test revenue from Bali Travel",
-      "created_at": "2026-07-13T01:34:43.317905",
-      "status": "recorded"
-    }
-  ],
+  "transactions": [],
   "pending_entries": [],
   "removed_entries": [
     {
-      "id": "MGOS-ENTERPRISE-OVERRIDE",
-      "reason": "Removed 2026-07-25: unverified override data pending manual verification",
-      "original_amount": 417900145,
-      "source": "MAHAAIOS_PRODUCTION_CONFIRMED",
-      "action": "MOVED_TO_PENDING_VERIFICATION"
+      "id": "ALL_PREVIOUS_DATA",
+      "reason": "Removed 2026-07-25: fresh start reset",
+      "action": "CLEARED_FOR_FRESH_START"
     }
   ]
 }

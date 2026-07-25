@@ -1,59 +1,15 @@
 {
-  "transfers": [
-    {
-      "reference": "CEO-TRANSFER-20260713-2350",
-      "timestamp": "2026-07-13T23:50:00+07:00",
-      "date": "2026-07-13",
-      "gross_revenue": 1000000,
-      "ceo_share_percent": 80,
-      "amount_gross": 800000,
-      "amount_net": 800000,
-      "fee": 0,
-      "method": "bca_transfer",
-      "destination": {
-        "bank": "BCA",
-        "bank_code": "BCA",
-        "account_number": "[BANK_ACCOUNT]",
-        "account_name": "[CEO_NAME_REDACTED]"
-      },
-      "status": "pending_verification",
-      "notes": "Bali Travel WhatsApp Sales - Rp 1,000,000 verified. Awaiting manual transfer execution.",
-      "revenue_sources": {
-        "whatsapp": 1000000,
-        "website": 0,
-        "payment_gateway": 0,
-        "direct_transfer": 0,
-        "offline": 0
-      },
-      "instructions": {
-        "action": "TRANSFER SEKARANG!",
-        "bank": "BCA",
-        "account": "[BANK_ACCOUNT]",
-        "name": "[CEO_NAME_REDACTED]",
-        "amount": 800000,
-        "note": "CEO-TRANSFER-20260713-2350"
-      },
-      "fallback": {
-        "method": "USDT TRC-20",
-        "wallet": "[USDT_WALLET]",
-        "amount_usdt": 48.48,
-        "note": "Use only if BCA transfer fails"
-      }
-    }
-  ],
+  "transfers": [],
   "total_sent": 0,
-  "pending_transfer": {
-    "reference": "CEO-TRANSFER-20260713-2350",
-    "amount": 800000,
-    "status": "PENDING_VERIFICATION",
-    "deadline": null,
-    "note": "Only verified revenue: Bali Travel Rp 1,000,000. MGOS-Enterprise data removed pending verification."
-  },
-  "removed_entries": [
-    {
-      "reference": "CEO-20260713114714",
-      "reason": "Removed 2026-07-25: duplicate/unverified entry",
-      "original_status": "instructions_generated"
+  "pending_transfer": null,
+  "fresh_start": {
+    "timestamp": "2026-07-25T08:27:00+08:00",
+    "action": "FRESH_START_RESET",
+    "description": "All previous transfer data cleared. 100% CEO share to USDT TRC20.",
+    "destination": {
+      "network": "TRC20",
+      "usdt_address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "holder": "[CEO_NAME_REDACTED]"
     }
-  ]
+  }
 }
