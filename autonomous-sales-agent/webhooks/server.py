@@ -239,7 +239,23 @@ else:
                 self.end_headers()
 
 def start_webhook_server(port: int = 8000):
-    """Start webhook server"""
+    """Start webhook server and autonomous sales orchestrator"""
+    import threading
+    
+    # Start autonomous sales orchestrator in background
+    def start_orchestrator():
+        try:
+            from autonomous_sales_agent.orchestrator import AutonomousSalesOrchestrator
+            orchestrator = AutonomousSalesOrchestrator()
+            orchestrator.start()
+        except Exception as e:
+            print(f"Orchestrator startup error: {e}")
+    
+    orchestrator_thread = threading.Thread(target=start_orchestrator, daemon=True)
+    orchestrator_thread.start()
+    print("🤖 Autonomous Sales Orchestrator started in background")
+    
+    # Start webhook server
     if HAS_FASTAPI:
         print(f"🚀 Starting FastAPI webhook server on port {port}")
         uvicorn.run(app, host="0.0.0.0", port=port, log_level="info")
