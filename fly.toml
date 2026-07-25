@@ -5,10 +5,10 @@ primary_region = "sin"
   dockerfile = "Dockerfile"
 
 [env]
-  PORT = "8080"
+  PORT = "8000"
 
 [http_service]
-  internal_port = 8080
+  internal_port = 8000
   force_https = true
   auto_stop_machines = false
   auto_start_machines = true

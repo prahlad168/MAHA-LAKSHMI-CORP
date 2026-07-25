@@ -20,13 +20,15 @@ RUN ruff check app/ bot/ tests/
 RUN pytest tests/ -v --tb=short
 
 # ============================================================
-# Production stage — minimal runtime image
+# Production stage — FastAPI + Sales System
 # ============================================================
 FROM base AS production
 
+COPY app/ ./app/
+COPY sales-system/ ./sales-system/
 COPY bot/ ./bot/
-RUN mkdir -p /app/dev-agent /root/.molty-royale
+RUN mkdir -p /app/dev-agent /root/.molty-royale /app/sales-system
 
-EXPOSE 8080
+EXPOSE 8000
 
-CMD ["python", "-m", "bot.main"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]

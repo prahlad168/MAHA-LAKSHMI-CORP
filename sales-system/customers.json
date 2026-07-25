@@ -1,0 +1,47 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-07-25T08:50:00+08:00",
+  "customers": [
+    {
+      "name": "Test User",
+      "email": "test@example.com",
+      "whatsapp": "0812",
+      "country": "ID",
+      "orders": [
+        "ORD-20260725-085749"
+      ],
+      "updated_at": "2026-07-25T08:57:49.293889"
+    },
+    {
+      "name": "Test",
+      "email": "t@t.com",
+      "whatsapp": "",
+      "country": "ID",
+      "orders": [
+        "ORD-20260725-085749"
+      ],
+      "updated_at": "2026-07-25T08:57:49.304664"
+    },
+    {
+      "name": "Test User",
+      "email": "test@example.com",
+      "whatsapp": "0812",
+      "country": "ID",
+      "orders": [
+        "ORD-20260725-085806"
+      ],
+      "updated_at": "2026-07-25T08:58:06.200448"
+    },
+    {
+      "name": "Test",
+      "email": "t@t.com",
+      "whatsapp": "",
+      "country": "ID",
+      "orders": [
+        "ORD-20260725-085806"
+      ],
+      "updated_at": "2026-07-25T08:58:06.209790"
+    }
+  ],
+  "next_id": 1
+}

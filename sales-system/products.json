@@ -1,0 +1,137 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-07-25T08:50:00+08:00",
+  "products": [
+    {
+      "id": "whatsapp-kit",
+      "name": "WhatsApp Marketing Kit",
+      "category": "Marketing",
+      "price_idr": 250000,
+      "price_usd": 15.99,
+      "currency": "IDR",
+      "popular": true,
+      "features": [
+        "100+ Template Pesan",
+        "Script Auto-Reply",
+        "Broadcast Strategy Guide",
+        "Chat Flow Templates",
+        "Campaign Tracker Template"
+      ],
+      "file": "products/whatsapp-marketing-kit.zip",
+      "active": true
+    },
+    {
+      "id": "social-kit",
+      "name": "Social Media Kit Pro",
+      "category": "Design",
+      "price_idr": 150000,
+      "price_usd": 9.99,
+      "currency": "IDR",
+      "popular": true,
+      "features": [
+        "100+ Canva Templates",
+        "Instagram Post Templates",
+        "Story Templates",
+        "Highlight Covers",
+        "Caption Templates"
+      ],
+      "file": "products/social-media-kit-pro.zip",
+      "active": true
+    },
+    {
+      "id": "landing-template",
+      "name": "Landing Page Template",
+      "category": "Web",
+      "price_idr": 750000,
+      "price_usd": 49.99,
+      "currency": "IDR",
+      "popular": true,
+      "features": [
+        "Professional Design",
+        "Mobile Responsive",
+        "SEO Optimized",
+        "Contact Form Included",
+        "Free Customization Guide"
+      ],
+      "file": "products/landing-page-template.zip",
+      "active": true
+    },
+    {
+      "id": "seo-bundle",
+      "name": "SEO Master Bundle",
+      "category": "Marketing",
+      "price_idr": 500000,
+      "price_usd": 32.99,
+      "currency": "IDR",
+      "popular": true,
+      "features": [
+        "SEO Checklist (200+ items)",
+        "Keyword Research Template",
+        "Competitor Analysis",
+        "Content Calendar",
+        "Link Building Guide"
+      ],
+      "file": "products/seo-master-bundle.zip",
+      "active": true
+    },
+    {
+      "id": "business-kit",
+      "name": "Complete Business Kit",
+      "category": "Bundle",
+      "price_idr": 1500000,
+      "price_usd": 99.99,
+      "currency": "IDR",
+      "popular": true,
+      "features": [
+        "Semua produk di atas!",
+        "+ Business Plan Template",
+        "+ Financial Tracker",
+        "+ Invoice Template",
+        "+ Priority Support"
+      ],
+      "file": "products/complete-business-kit.zip",
+      "active": true
+    },
+    {
+      "id": "global-usdt",
+      "name": "USDT / International",
+      "category": "Global",
+      "price_idr": 330000,
+      "price_usd": 19.99,
+      "currency": "USD",
+      "popular": false,
+      "features": [
+        "Pay with USDT (TRC20)",
+        "Pay with Credit Card",
+        "PayPal accepted",
+        "Instant delivery",
+        "Any product above"
+      ],
+      "file": "products/any-digital-product.zip",
+      "active": true
+    }
+  ],
+  "payment_methods": {
+    "bca": {
+      "bank": "BCA",
+      "account": "6485086645",
+      "holder": "i Made Purna Ananda",
+      "label": "Transfer BCA"
+    },
+    "ewallet": {
+      "providers": ["Dana", "OVO", "GoPay"],
+      "number": "0812-3456-7890",
+      "label": "E-Wallet"
+    },
+    "usdt": {
+      "network": "TRC20",
+      "address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+      "label": "USDT (TRC20)"
+    }
+  },
+  "ceo_wallet": {
+    "network": "TRC20",
+    "address": "TNFs1SP2C8HxGSZkSH3hJamf8ukgtnW7U6",
+    "share_percent": 100
+  }
+}

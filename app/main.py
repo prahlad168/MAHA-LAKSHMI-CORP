@@ -43,7 +43,16 @@ app = FastAPI(
 # CORS middleware for frontend access
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Configure appropriately for production
+    allow_origins=[
+        "https://mahalaksmi.web.id",
+        "https://www.mahalaksmi.web.id",
+        "https://admin.mahalaksmi.web.id",
+        "https://bayar.mahalaksmi.web.id",
+        "https://gaurangga.mahalaksmi.web.id",
+        "http://localhost:3000",
+        "http://localhost:8080",
+        "http://localhost:8000",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -214,6 +223,10 @@ async def get_nodes_status():
         
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))
+
+from app.api.sales import router as sales_router
+
+app.include_router(sales_router)
 
 # ============================================================================
 # MAIN ENTRY POINT
