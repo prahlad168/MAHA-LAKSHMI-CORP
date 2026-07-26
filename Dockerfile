@@ -26,6 +26,7 @@ FROM base AS production
 
 COPY app/ ./app/
 COPY sales-system/ ./sales-system/
+COPY app/payments/ ./app/payments/
 COPY bot/ ./bot/
 RUN mkdir -p /app/dev-agent /root/.molty-royale /app/sales-system
 

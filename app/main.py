@@ -225,8 +225,10 @@ async def get_nodes_status():
         raise HTTPException(status_code=500, detail=str(e))
 
 from app.api.sales import router as sales_router
+from app.payments.routes import router as payments_router
 
 app.include_router(sales_router)
+app.include_router(payments_router)
 
 # ============================================================================
 # MAIN ENTRY POINT
