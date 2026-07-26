@@ -1,0 +1,708 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "updated": "2026-07-26",
+    "base_domain": "mahalaksmi.web.id",
+    "currencies": ["USD", "EUR", "GBP", "SGD", "AUD", "IDR"],
+    "languages": ["en", "id", "es", "fr", "de", "zh", "ar", "pt", "ru", "ja"]
+  },
+  "products": [
+    {
+      "id": "whatsapp-marketing-kit",
+      "slug": "whatsapp-marketing-kit",
+      "category": "marketing",
+      "pricing": {
+        "USD": 29,
+        "EUR": 27,
+        "GBP": 23,
+        "SGD": 39,
+        "AUD": 45,
+        "IDR": 250000
+      },
+      "delivery": "instant",
+      "format": ["pdf", "zip", "notion"],
+      "translations": {
+        "en": {
+          "name": "WhatsApp Marketing Kit",
+          "tagline": "100+ ready-to-send templates and automation scripts",
+          "features": [
+            "100+ message templates",
+            "Auto-reply scripts",
+            "Broadcast strategy guide",
+            "Chat flow templates",
+            "Campaign tracker"
+          ]
+        },
+        "id": {
+          "name": "WhatsApp Marketing Kit",
+          "tagline": "100+ template pesan dan script otomatisasi",
+          "features": [
+            "100+ template pesan",
+            "Script auto-reply",
+            "Panduan strategi broadcast",
+            "Template chat flow",
+            "Campaign tracker"
+          ]
+        },
+        "es": {
+          "name": "Kit de Marketing WhatsApp",
+          "tagline": "Más de 100 plantillas listas para enviar",
+          "features": [
+            "100+ plantillas de mensajes",
+            "Scripts de respuesta automática",
+            "Guía de estrategia de difusión",
+            "Plantillas de flujo de chat",
+            "Rastreador de campañas"
+          ]
+        },
+        "fr": {
+          "name": "Kit Marketing WhatsApp",
+          "tagline": "Plus de 100 modèles prêts à envoyer",
+          "features": [
+            "100+ modèles de messages",
+            "Scripts de réponse automatique",
+            "Guide de stratégie de diffusion",
+            "Modèles de flux de chat",
+            "Suivi de campagne"
+          ]
+        },
+        "de": {
+          "name": "WhatsApp-Marketing-Kit",
+          "tagline": "Über 100 einsatzbereite Vorlagen",
+          "features": [
+            "100+ Nachrichtenvorlagen",
+            "Auto-Antwort-Skripte",
+            "Broadcast-Strategie-Guide",
+            "Chat-Flow-Vorlagen",
+            "Kampagnen-Tracker"
+          ]
+        },
+        "zh": {
+          "name": "WhatsApp 营销工具包",
+          "tagline": "100+ 可立即发送的模板和自动化脚本",
+          "features": [
+            "100+ 消息模板",
+            "自动回复脚本",
+            "群发策略指南",
+            "聊天流程模板",
+            "活动追踪器"
+          ]
+        },
+        "ar": {
+          "name": "حزمة تسويق واتساب",
+          "tagline": "أكثر من 100 قالب جاهز للإرسال",
+          "features": [
+            "100+ قالب رسالة",
+            "نصوص رد تلقائي",
+            "دليل استراتيجية البث",
+            "قوالب تدفق المحادثة",
+            "متتبع الحملة"
+          ]
+        },
+        "pt": {
+          "name": "Kit de Marketing WhatsApp",
+          "tagline": "Mais de 100 modelos prontos para enviar",
+          "features": [
+            "100+ modelos de mensagem",
+            "Scripts de resposta automática",
+            "Guia de estratégia de transmissão",
+            "Modelos de fluxo de chat",
+            "Rastreador de campanha"
+          ]
+        },
+        "ru": {
+          "name": "Маркетинговый набор WhatsApp",
+          "tagline": "Более 100 готовых шаблонов",
+          "features": [
+            "100+ шаблонов сообщений",
+            "Скрипты автоответов",
+            "Руководство по рассылке",
+            "Шаблоны чат-сценариев",
+            "Трекер кампаний"
+          ]
+        },
+        "ja": {
+          "name": "WhatsApp マーケティングキット",
+          "tagline": "100以上の送信可能テンプレート",
+          "features": [
+            "100+ メッセージテンプレート",
+            "自動返信スクリプト",
+            "ブロードキャスト戦略ガイド",
+            "チャットフローテンプレート",
+            "キャンペーントラッカー"
+          ]
+        }
+      }
+    },
+    {
+      "id": "social-media-kit-pro",
+      "slug": "social-media-kit-pro",
+      "category": "marketing",
+      "pricing": {
+        "USD": 19,
+        "EUR": 17,
+        "GBP": 15,
+        "SGD": 25,
+        "AUD": 29,
+        "IDR": 150000
+      },
+      "delivery": "instant",
+      "format": ["zip", "figma", "canva"],
+      "translations": {
+        "en": {
+          "name": "Social Media Kit Pro",
+          "tagline": "100+ Canva templates for Instagram, TikTok, and Facebook",
+          "features": [
+            "100+ Canva templates",
+            "Instagram post templates",
+            "Story templates",
+            "Highlight covers",
+            "Caption templates"
+          ]
+        },
+        "id": {
+          "name": "Social Media Kit Pro",
+          "tagline": "100+ template Canva untuk Instagram, TikTok, Facebook",
+          "features": [
+            "100+ template Canva",
+            "Template post Instagram",
+            "Template story",
+            "Highlight covers",
+            "Template caption"
+          ]
+        },
+        "es": {
+          "name": "Kit de Redes Sociales Pro",
+          "tagline": "Más de 100 plantillas Canva para Instagram, TikTok y Facebook",
+          "features": [
+            "100+ plantillas Canva",
+            "Plantillas de publicaciones",
+            "Plantillas de stories",
+            "Cubiertas de destacados",
+            "Plantillas de pies de foto"
+          ]
+        },
+        "fr": {
+          "name": "Kit Réseaux Sociaux Pro",
+          "tagline": "Plus de 100 modèles Canva pour Instagram, TikTok et Facebook",
+          "features": [
+            "100+ modèles Canva",
+            "Modèles de publications",
+            "Modèles de stories",
+            "Couvertures de highlights",
+            "Modèles de légendes"
+          ]
+        },
+        "de": {
+          "name": "Social-Media-Kit Pro",
+          "tagline": "Über 100 Canva-Vorlagen für Instagram, TikTok und Facebook",
+          "features": [
+            "100+ Canva-Vorlagen",
+            "Beitragsvorlagen",
+            "Story-Vorlagen",
+            "Highlight-Cover",
+            "Bildunterschrift-Vorlagen"
+          ]
+        },
+        "zh": {
+          "name": "社交媒体专业工具包",
+          "tagline": "100+ Canva 模板，适用于 Instagram、TikTok 和 Facebook",
+          "features": [
+            "100+ Canva 模板",
+            "Instagram 帖子模板",
+            "快拍模板",
+            "精选封面",
+            "配文模板"
+          ]
+        },
+        "ar": {
+          "name": "حزمة وسائل التواصل الاجتماعي برو",
+          "tagline": "أكثر من 100 قالب Canva لإنستغرام وتيك توك وفيسبوك",
+          "features": [
+            "100+ قوالب Canva",
+            "قوالب المنشورات",
+            "قوالب القصص",
+            "أغطية المميزات",
+            "قوالب التسميات التوضيحية"
+          ]
+        },
+        "pt": {
+          "name": "Kit de Redes Sociais Pro",
+          "tagline": "Mais de 100 modelos Canva para Instagram, TikTok e Facebook",
+          "features": [
+            "100+ modelos Canva",
+            "Modelos de postagens",
+            "Modelos de stories",
+            "Capa de destaques",
+            "Modelos de legendas"
+          ]
+        },
+        "ru": {
+          "name": "Профессиональный набор для соцсетей",
+          "tagline": "Более 100 шаблонов Canva для Instagram, TikTok и Facebook",
+          "features": [
+            "100+ шаблонов Canva",
+            "Шаблоны постов",
+            "Шаблоны историй",
+            "Обложки выделенного",
+            "Шаблоны подписей"
+          ]
+        },
+        "ja": {
+          "name": "ソーシャルメディアキット Pro",
+          "tagline": "Instagram、TikTok、Facebook 向け 100以上の Canva テンプレート",
+          "features": [
+            "100+ Canva テンプレート",
+            "投稿テンプレート",
+            "ストーリーテンプレート",
+            "ハイライトカバー",
+            "キャプションテンプレート"
+          ]
+        }
+      }
+    },
+    {
+      "id": "landing-page-template",
+      "slug": "landing-page-template",
+      "category": "web",
+      "pricing": {
+        "USD": 49,
+        "EUR": 45,
+        "GBP": 39,
+        "SGD": 65,
+        "AUD": 75,
+        "IDR": 750000
+      },
+      "delivery": "instant",
+      "format": ["zip", "html", "figma"],
+      "translations": {
+        "en": {
+          "name": "Landing Page Template",
+          "tagline": "Professional, mobile-responsive landing page in 5 minutes",
+          "features": [
+            "Professional design",
+            "Mobile responsive",
+            "SEO optimized",
+            "Contact form included",
+            "Free customization guide"
+          ]
+        },
+        "id": {
+          "name": "Landing Page Template",
+          "tagline": "Landing page profesional, mobile responsive dalam 5 menit",
+          "features": [
+            "Desain profesional",
+            "Mobile responsive",
+            "SEO optimized",
+            "Form kontak included",
+            "Panduan customization gratis"
+          ]
+        },
+        "es": {
+          "name": "Plantilla de Landing Page",
+          "tagline": "Página de destino profesional en 5 minutos",
+          "features": [
+            "Diseño profesional",
+            "Responsive móvil",
+            "Optimizado SEO",
+            "Formulario incluido",
+            "Guía de personalización"
+          ]
+        },
+        "fr": {
+          "name": "Modèle de Landing Page",
+          "tagline": "Page d'atterrissage professionnelle en 5 minutes",
+          "features": [
+            "Design professionnel",
+            "Responsive mobile",
+            "Optimisé SEO",
+            "Formulaire inclus",
+            "Guide de personnalisation"
+          ]
+        },
+        "de": {
+          "name": "Landing Page Vorlage",
+          "tagline": "Professionelle Landing Page in 5 Minuten",
+          "features": [
+            "Professionelles Design",
+            "Mobil responsiv",
+            "SEO optimiert",
+            "Kontaktformular",
+            "Anpassungsleitfaden"
+          ]
+        },
+        "zh": {
+          "name": "落地页模板",
+          "tagline": "5分钟内完成专业、移动端响应式落地页",
+          "features": [
+            "专业设计",
+            "移动端响应式",
+            "SEO 优化",
+            "包含联系表单",
+            "免费定制指南"
+          ]
+        },
+        "ar": {
+          "name": "قالب الصفحة المقصودة",
+          "tagline": "صفحة هبوط احترافية متجاوبة مع الجوال في 5 دقائق",
+          "features": [
+            "تصميم احترافي",
+            "متجاوب مع الجوال",
+            "محسّن لمحركات البحث",
+            "نموذج اتصال متضمن",
+            "دليل تخصيص مجاني"
+          ]
+        },
+        "pt": {
+          "name": "Modelo de Landing Page",
+          "tagline": "Página de destino profissional em 5 minutos",
+          "features": [
+            "Design profissional",
+            "Responsivo mobile",
+            "Otimizado SEO",
+            "Formulário incluído",
+            "Guia de personalização"
+          ]
+        },
+        "ru": {
+          "name": "Шаблон посадочной страницы",
+          "tagline": "Профессиональная адаптивная страница за 5 минут",
+          "features": [
+            "Профессиональный дизайн",
+            "Мобильная адаптивность",
+            "SEO оптимизация",
+            "Контактная форма",
+            "Гид по настройке"
+          ]
+        },
+        "ja": {
+          "name": "ランディングページテンプレート",
+          "tagline": "5分で完成するプロフェッショナルなレスポンシブLP",
+          "features": [
+            "プロフェッショナルデザイン",
+            "モバイルレスポンシブ",
+            "SEO最適化",
+            "問い合わせフォーム付き",
+            "カスタマイズガイド"
+          ]
+        }
+      }
+    },
+    {
+      "id": "seo-master-bundle",
+      "slug": "seo-master-bundle",
+      "category": "marketing",
+      "pricing": {
+        "USD": 39,
+        "EUR": 35,
+        "GBP": 31,
+        "SGD": 52,
+        "AUD": 59,
+        "IDR": 500000
+      },
+      "delivery": "instant",
+      "format": ["pdf", "zip", "notion"],
+      "translations": {
+        "en": {
+          "name": "SEO Master Bundle",
+          "tagline": "Complete SEO toolkit to rank #1 on Google",
+          "features": [
+            "SEO checklist (200+ items)",
+            "Keyword research template",
+            "Competitor analysis",
+            "Content calendar",
+            "Link building guide"
+          ]
+        },
+        "id": {
+          "name": "SEO Master Bundle",
+          "tagline": "Toolkit SEO lengkap untuk ranking #1 di Google",
+          "features": [
+            "SEO checklist (200+ item)",
+            "Template keyword research",
+            "Analisis kompetitor",
+            "Content calendar",
+            "Panduan link building"
+          ]
+        },
+        "es": {
+          "name": "Paquete SEO Master",
+          "tagline": "Kit completo de SEO para posicionarte #1 en Google",
+          "features": [
+            "Lista de verificación SEO (200+ elementos)",
+            "Plantilla de investigación de palabras clave",
+            "Análisis de competidores",
+            "Calendario de contenido",
+            "Guía de construcción de enlaces"
+          ]
+        },
+        "fr": {
+          "name": "Pack SEO Master",
+          "tagline": "Kit SEO complet pour être #1 sur Google",
+          "features": [
+            "Checklist SEO (200+ éléments)",
+            "Modèle de recherche de mots-clés",
+            "Analyse concurrentielle",
+            "Calendrier de contenu",
+            "Guide de netlinking"
+          ]
+        },
+        "de": {
+          "name": "SEO Master Bundle",
+          "tagline": "Komplettes SEO-Toolkit für Platz 1 bei Google",
+          "features": [
+            "SEO-Checkliste (200+ Punkte)",
+            "Keyword-Recherche-Vorlage",
+            "Konkurrenzanalyse",
+            "Content-Kalender",
+            "Linkaufbau-Leitfaden"
+          ]
+        },
+        "zh": {
+          "name": "SEO 大师包",
+          "tagline": "完整的 SEO 工具包，助您在 Google 上排名第一",
+          "features": [
+            "SEO 清单（200+ 项）",
+            "关键词研究模板",
+            "竞争对手分析",
+            "内容日历",
+            "外链建设指南"
+          ]
+        },
+        "ar": {
+          "name": "حزمة SEO الرئيسية",
+          "tagline": "مجموعة أدوات SEO كاملة للتصدر في جوجل",
+          "features": [
+            "قائمة تحقق SEO (200+ عنصر)",
+            "قالب بحث الكلمات الرئيسية",
+            "تحليل المنافسين",
+            "تقويم المحتوى",
+            "دليل بناء الروابط"
+          ]
+        },
+        "pt": {
+          "name": "Pacote SEO Master",
+          "tagline": "Kit SEO completo para rankear #1 no Google",
+          "features": [
+            "Checklist SEO (200+ itens)",
+            "Modelo de pesquisa de palavras-chave",
+            "Análise de concorrentes",
+            "Calendário de conteúdo",
+            "Guia de link building"
+          ]
+        },
+        "ru": {
+          "name": "Мастер-пакет SEO",
+          "tagline": "Полный набор SEO для позиции #1 в Google",
+          "features": [
+            "Чек-лист SEO (200+ пунктов)",
+            "Шаблон исследования ключевых слов",
+            "Анализ конкурентов",
+            "Контент-календарь",
+            "Руководство по ссылкам"
+          ]
+        },
+        "ja": {
+          "name": "SEO マスターバンドル",
+          "tagline": "Google で #1 を獲得するための完全な SEO ツールキット",
+          "features": [
+            "SEO チェックリスト（200+ 項目）",
+            "キーワード調査テンプレート",
+            "競合分析",
+            "コンテンツカレンダー",
+            "リンク構築ガイド"
+          ]
+        }
+      }
+    },
+    {
+      "id": "complete-business-kit",
+      "slug": "complete-business-kit",
+      "category": "bundle",
+      "pricing": {
+        "USD": 99,
+        "EUR": 89,
+        "GBP": 79,
+        "SGD": 129,
+        "AUD": 149,
+        "IDR": 1500000
+      },
+      "delivery": "instant",
+      "format": ["zip", "notion", "drive"],
+      "translations": {
+        "en": {
+          "name": "Complete Business Kit",
+          "tagline": "Everything you need to start and grow your business",
+          "features": [
+            "All templates above",
+            "Business plan template",
+            "Financial tracker",
+            "Invoice template",
+            "Priority support"
+          ]
+        },
+        "id": {
+          "name": "Complete Business Kit",
+          "tagline": "Semua yang Anda butuhkan untuk memulai dan mengembangkan bisnis",
+          "features": [
+            "Semua template di atas",
+            "Template business plan",
+            "Financial tracker",
+            "Template invoice",
+            "Priority support"
+          ]
+        },
+        "es": {
+          "name": "Kit de Negocio Completo",
+          "tagline": "Todo lo que necesitas para iniciar y hacer crecer tu negocio",
+          "features": [
+            "Todas las plantillas",
+            "Plantilla de plan de negocio",
+            "Seguimiento financiero",
+            "Plantilla de factura",
+            "Soporte prioritario"
+          ]
+        },
+        "fr": {
+          "name": "Kit Business Complet",
+          "tagline": "Tout ce dont vous avez besoin pour lancer et développer votre entreprise",
+          "features": [
+            "Tous les modèles",
+            "Modèle de business plan",
+            "Suivi financier",
+            "Modèle de facture",
+            "Support prioritaire"
+          ]
+        },
+        "de": {
+          "name": "Komplettes Business-Kit",
+          "tagline": "Alles was Sie brauchen, um Ihr Geschäft zu starten und zu wachsen",
+          "features": [
+            "Alle Vorlagen",
+            "Businessplan-Vorlage",
+            "Finanz-Tracker",
+            "Rechnungsvorlage",
+            "Prioritäts-Support"
+          ]
+        },
+        "zh": {
+          "name": "完整商业工具包",
+          "tagline": "创业和发展业务所需的一切",
+          "features": [
+            "以上所有模板",
+            "商业计划书模板",
+            "财务追踪器",
+            "发票模板",
+            "优先支持"
+          ]
+        },
+        "ar": {
+          "name": "حزمة الأعمال الكاملة",
+          "tagline": "كل ما تحتاجه لبدء وتنمية عملك",
+          "features": [
+            "جميع القوالب أعلاه",
+            "قالب خطة عمل",
+            "متتبع مالي",
+            "قالب فاتورة",
+            "دعم أولوي"
+          ]
+        },
+        "pt": {
+          "name": "Kit de Negócios Completo",
+          "tagline": "Tudo o que você precisa para iniciar e expandir seu negócio",
+          "features": [
+            "Todos os modelos",
+            "Modelo de plano de negócios",
+            "Rastreador financeiro",
+            "Modelo de fatura",
+            "Suporte prioritário"
+          ]
+        },
+        "ru": {
+          "name": "Полный бизнес-набор",
+          "tagline": "Все необходимое для запуска и роста бизнеса",
+          "features": [
+            "Все шаблоны выше",
+            "Шаблон бизнес-плана",
+            "Финансовый трекер",
+            "Шаблон счета",
+            "Приоритетная поддержка"
+          ]
+        },
+        "ja": {
+          "name": "完全ビジネスキット",
+          "tagline": "ビジネスの立ち上げと成長に必要なすべて",
+          "features": [
+            "上記のすべてのテンプレート",
+            "事業計画書テンプレート",
+            "財務トラッカー",
+            "請求書テンプレート",
+            "優先サポート"
+          ]
+        }
+      }
+    }
+  ],
+  "bundles": {
+    "marketing-pack": {
+      "products": ["whatsapp-marketing-kit", "social-media-kit-pro", "seo-master-bundle"],
+      "discount": 0.3,
+      "translations": {
+        "en": { "name": "Marketing Pack", "tagline": "3 powerful marketing tools at 30% off" },
+        "id": { "name": "Marketing Pack", "tagline": "3 tools marketing powerful hemat 30%" },
+        "es": { "name": "Pack Marketing", "tagline": "3 herramientas poderosas con 30% descuento" },
+        "fr": { "name": "Pack Marketing", "tagline": "3 outils puissants avec 30% de réduction" },
+        "de": { "name": "Marketing-Paket", "tagline": "3 leistungsstarke Tools mit 30% Rabatt" },
+        "zh": { "name": "营销包", "tagline": "3个强大工具，优惠30%" },
+        "ar": { "name": "حزمة التسويق", "tagline": "3 أدوات تسويق قوية بخصم 30%" },
+        "pt": { "name": "Pacote Marketing", "tagline": "3 ferramentas poderosas com 30% de desconto" },
+        "ru": { "name": "Маркетинговый пакет", "tagline": "3 мощных инструмента со скидкой 30%" },
+        "ja": { "name": "マーケティングパック", "tagline": "3つの強力なツールを30%オフ" }
+      }
+    },
+    "starter-pack": {
+      "products": ["whatsapp-marketing-kit", "social-media-kit-pro"],
+      "discount": 0.2,
+      "translations": {
+        "en": { "name": "Starter Pack", "tagline": "Start your digital presence with 20% off" },
+        "id": { "name": "Starter Pack", "tagline": "Mulai kehadiran digital dengan diskon 20%" },
+        "es": { "name": "Pack Inicial", "tagline": "Comienza tu presencia digital con 20% descuento" },
+        "fr": { "name": "Pack Débutant", "tagline": "Démarrez votre présence digitale avec 20% de réduction" },
+        "de": { "name": "Starter-Paket", "tagline": "Starten Sie Ihre digitale Präsenz mit 20% Rabatt" },
+        "zh": { "name": "入门包", "tagline": "以20%的折扣开启您的数字业务" },
+        "ar": { "name": "حزمة المبتدئين", "tagline": "ابدأ وجودك الرقمي بخصم 20%" },
+        "pt": { "name": "Pacote Inicial", "tagline": "Comece sua presença digital com 20% de desconto" },
+        "ru": { "name": "Стартовый пакет", "tagline": "Начните цифровое присутствие со скидкой 20%" },
+        "ja": { "name": "スターターパック", "tagline": "20%オフでデジタルプレゼンスを開始" }
+      }
+    }
+  },
+  "localization": {
+    "currencies": {
+      "USD": { "symbol": "$", "locale": "en-US" },
+      "EUR": { "symbol": "€", "locale": "de-DE" },
+      "GBP": { "symbol": "£", "locale": "en-GB" },
+      "SGD": { "symbol": "S$", "locale": "en-SG" },
+      "AUD": { "symbol": "A$", "locale": "en-AU" },
+      "IDR": { "symbol": "Rp", "locale": "id-ID" }
+    },
+    "payment_methods": {
+      "global": ["stripe", "paypal", "wise", "crypto"],
+      "regional": {
+        "ID": ["bca", "dana", "ovo", "gopay"],
+        "SG": ["paynow", "grabpay"],
+        "EU": ["sepa", "ideal"],
+        "UK": ["bacs", "monzo"],
+        "AU": ["bpay", "polipay"]
+      }
+    },
+    "tax_rates": {
+      "US": 0.0,
+      "EU": 0.19,
+      "UK": 0.20,
+      "SG": 0.07,
+      "AU": 0.10,
+      "ID": 0.11
+    }
+  }
+}

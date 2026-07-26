@@ -1,0 +1,179 @@
+{
+  "name": "MAHA LAKSHMI - Abandoned Cart Recovery",
+  "nodes": [
+    {
+      "parameters": {
+        "cronExpression": "0 9,15,20 * * *"
+      },
+      "id": "schedule-trigger",
+      "name": "Check Abandoned Carts",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://mahalaksmi.web.id/api/carts/abandoned",
+        "options": {}
+      },
+      "id": "http-request",
+      "name": "Fetch Abandoned Carts",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "cart_id",
+              "value": "={{ $json.cart_id }}"
+            },
+            {
+              "name": "customer_name",
+              "value": "={{ $json.customer_name }}"
+            },
+            {
+              "name": "customer_phone",
+              "value": "={{ $json.customer_phone }}"
+            },
+            {
+              "name": "total",
+              "value": "={{ $json.total }}"
+            },
+            {
+              "name": "items",
+              "value": "={{ $json.items }}"
+            }
+          ]
+        }
+      },
+      "id": "set-cart-data",
+      "name": "Set Cart Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "channel": "whatsapp",
+        "to": "={{ $json.customer_phone }}",
+        "message": "={{ 'Halo ' + $json.customer_name + '! 👋\n\nKami lihat ada produk di keranjang belanja Anda:\n\n' + $json.items + '\n\nTotal: Rp ' + $json.total + '\n\nSelesaikan pembayaran sekarang dan dapatkan 10% DISCOUNT!\n\nLink: https://mahalaksmi.web.id/cart/' + $json.cart_id + '\n\nAtau balas pesan ini untuk bantuan.' }}"
+      },
+      "id": "send-reminder-1",
+      "name": "Send Cart Reminder 1",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "amount": 24,
+        "unit": "hours"
+      },
+      "id": "wait-24-hours",
+      "name": "Wait 24 Hours",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "channel": "whatsapp",
+        "to": "={{ $json.customer_phone }}",
+        "message": "={{ $json.customer_name + ', reminder: keranjang Anda masih menunggu!\n\nDiskon 10% berlaku sampai besok.\n\nSelesaikan sekarang: https://mahalaksmi.web.id/cart/' + $json.cart_id + '\n\nMau saya bantu?' }}"
+      },
+      "id": "send-reminder-2",
+      "name": "Send Cart Reminder 2",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "sheetId": "abandoned-carts-sheet-id",
+        "range": "A:Z",
+        "options": {}
+      },
+      "id": "google-sheets",
+      "name": "Update Cart Status",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "Check Abandoned Carts": {
+      "main": [
+        [
+          {
+            "node": "Fetch Abandoned Carts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch Abandoned Carts": {
+      "main": [
+        [
+          {
+            "node": "Set Cart Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Cart Data": {
+      "main": [
+        [
+          {
+            "node": "Send Cart Reminder 1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Cart Reminder 1": {
+      "main": [
+        [
+          {
+            "node": "Wait 24 Hours",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait 24 Hours": {
+      "main": [
+        [
+          {
+            "node": "Send Cart Reminder 2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send Cart Reminder 2": {
+      "main": [
+        [
+          {
+            "node": "Update Cart Status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

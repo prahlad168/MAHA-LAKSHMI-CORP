@@ -1,0 +1,139 @@
+{
+  "name": "MAHA LAKSHMI - Customer Onboarding",
+  "nodes": [
+    {
+      "parameters": {
+        "cronExpression": "*/5 * * * *"
+      },
+      "id": "schedule-trigger",
+      "name": "Check New Payments",
+      "type": "n8n-nodes-base.cron",
+      "typeVersion": 1,
+      "position": [240, 300]
+    },
+    {
+      "parameters": {
+        "url": "https://mahalaksmi.web.id/api/payments/webhook",
+        "options": {}
+      },
+      "id": "http-request",
+      "name": "Check Payment Webhook",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 1,
+      "position": [460, 300]
+    },
+    {
+      "parameters": {
+        "if": "={{ $json.status === 'paid' }}"
+      },
+      "id": "if-paid",
+      "name": "If Payment Confirmed",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [680, 300]
+    },
+    {
+      "parameters": {
+        "toEmail": "={{ $json.customer_email }}",
+        "subject": "Payment Confirmed - Welcome to MAHA LAKSHMI!",
+        "text": "={{ 'Halo ' + $json.customer_name + ',\n\nPembayaran Anda sebesar Rp ' + $json.amount + ' telah dikonfirmasi!\n\nStatus: PAID\nOrder ID: ' + $json.order_id + '\n\nTim kami akan segera memproses pesanan Anda.\nEstimasi penyelesaian: ' + $json.delivery_time + '\n\nAda pertanyaan? Hubungi kami:\nWhatsApp: wa.me/6281337558787\n\nTerima kasih!\nMAHA LAKSHMI' }}"
+      },
+      "id": "send-welcome-email",
+      "name": "Send Welcome Email",
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 1,
+      "position": [900, 300]
+    },
+    {
+      "parameters": {
+        "channel": "whatsapp",
+        "to": "={{ $json.customer_phone }}",
+        "message": "={{ '🎉 ' + $json.customer_name + ',\n\nPembayaran Rp ' + $json.amount + ' CONFIRMED!\n\nPesanan Anda sedang diproses. Estimasi: ' + $json.delivery_time + '\n\nFollow up: wa.me/6281337558787\n\nMAHA LAKSHMI' }}"
+      },
+      "id": "send-welcome-whatsapp",
+      "name": "Send Welcome WhatsApp",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [1120, 300]
+    },
+    {
+      "parameters": {
+        "operation": "create",
+        "sheetId": "customers-sheet-id",
+        "range": "A:Z",
+        "options": {}
+      },
+      "id": "save-customer",
+      "name": "Save Customer",
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 1,
+      "position": [1340, 300]
+    },
+    {
+      "parameters": {
+        "channel": "whatsapp",
+        "to": "6281337558787",
+        "message": "={{ '🛒 NEW CUSTOMER!\n\nName: ' + $json.customer_name + '\nProduct: ' + $json.product + '\nAmount: Rp ' + $json.amount + '\nPhone: ' + $json.customer_phone + '\n\nCEO Share (80%): Rp ' + Math.floor($json.amount * 0.8) + '\n\nTransfer to BCA: 6485086645' }}"
+      },
+      "id": "notify-ceo",
+      "name": "Notify CEO",
+      "type": "n8n-nodes-base.twilio",
+      "typeVersion": 1,
+      "position": [1560, 300]
+    }
+  ],
+  "connections": {
+    "Check New Payments": {
+      "main": [
+        [
+          {
+            "node": "Check Payment Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Payment Webhook": {
+      "main": [
+        [
+          {
+            "node": "If Payment Confirmed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If Payment Confirmed": {
+      "main": [
+        [
+          {
+            "node": "Send Welcome Email",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Send Welcome WhatsApp",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Save Customer",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Notify CEO",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
