@@ -120,6 +120,8 @@ class AutonomousSalesAgent:
     def __init__(self):
         self.config = Config()
         self.db = RealTimeDatabase() if RealTimeDatabase else None
+        self.leads = []
+        self.deals = []
         self.campaigns: Dict[str, List[Dict]] = {}
         self.stats = {
             "total_leads": 0,

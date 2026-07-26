@@ -11,8 +11,10 @@ import os
 from datetime import datetime
 from typing import Dict, Any
 
-# Add paths
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Add project root to path for imports
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+if project_root not in sys.path:
+    sys.path.insert(0, project_root)
 
 # Try to import FastAPI, fallback to simple HTTP server
 try:
