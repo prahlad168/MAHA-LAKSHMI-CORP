@@ -531,7 +531,7 @@ class AutonomousSalesAgent:
         return templates.get(language, {}).get(message_type)
     
     def _add_to_campaign(self, lead_id: str, channel: str, template_type: str, content: str):
-        """Add action to campaign log"""
+        """Add action to campaign log and persist to database"""
         if channel not in self.campaigns:
             self.campaigns[channel] = []
         
@@ -541,6 +541,12 @@ class AutonomousSalesAgent:
             "content": content,
             "timestamp": datetime.now().isoformat()
         })
+        
+        if self.db:
+            try:
+                self.db.log_outreach(lead_id, channel, template_type, content)
+            except Exception as e:
+                self.log(f"Failed to log outreach to DB: {e}")
     
     def generate_daily_leads(self):
         """Generate daily leads from global sources"""
