@@ -1,0 +1,31 @@
+# MAHA SALES ENGINE V1 - Requirements
+# Python 3.11+
+
+# Core dependencies
+pyyaml>=6.0
+psutil>=5.9
+requests>=2.31
+schedule>=1.2
+sqlalchemy>=2.0
+python-dotenv>=1.0
+cryptography>=41.0
+pyjwt>=2.8
+
+# Windows service (Windows only)
+pywin32>=305; platform_system == "Windows"
+
+# Optional: AI/ML
+openai>=1.0
+anthropic>=0.7
+
+# Optional: Marketplace integrations
+gumroad-api>=0.1
+shopify_python_api>=5.0
+etsy-api>=0.1
+
+# Development dependencies
+pytest>=7.0
+pytest-cov>=4.0
+black>=23.0
+ruff>=0.1.0
+mypy>=1.0
