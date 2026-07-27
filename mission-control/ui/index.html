@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KILO SALES NODE - Mission Control</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0e27;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+        .header {
+            background: linear-gradient(135deg, #1a1f3a 0%, #0a0e27 100%);
+            padding: 20px 40px;
+            border-bottom: 1px solid #2a2f4a;
+        }
+        .header h1 {
+            font-size: 24px;
+            background: linear-gradient(90deg, #00d4ff, #7b2cbf);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .header p {
+            color: #888;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 40px;
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+        .card {
+            background: linear-gradient(145deg, #1a1f3a 0%, #0f1428 100%);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid #2a2f4a;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.1);
+        }
+        .card h2 {
+            font-size: 18px;
+            color: #00d4ff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #2a2f4a;
+        }
+        .metric:last-child { border-bottom: none; }
+        .metric-label {
+            color: #888;
+            font-size: 14px;
+        }
+        .metric-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .metric-value.positive { color: #00ff88; }
+        .metric-value.negative { color: #ff4444; }
+        .node-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        .node-card {
+            background: linear-gradient(145deg, #1e2347 0%, #151a35 100%);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #2a2f4a;
+            transition: all 0.3s ease;
+        }
+        .node-card:hover {
+            border-color: #00d4ff;
+            transform: translateY(-2px);
+        }
+        .node-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+        .node-name {
+            font-size: 16px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .node-status {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status-online {
+            background: rgba(0, 255, 136, 0.1);
+            color: #00ff88;
+            border: 1px solid #00ff88;
+        }
+        .node-metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+        .node-metric-label { color: #888; }
+        .node-metric-value { color: #00d4ff; font-weight: bold; }
+        .alert {
+            background: rgba(255, 68, 68, 0.1);
+            border: 1px solid #ff4444;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        .alert-title {
+            color: #ff4444;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 12px;
+        }
+        @media (max-width: 768px) {
+            .container { padding: 20px; }
+            .header { padding: 15px 20px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>👑 KILO SALES NODE - Mission Control</h1>
+        <p>mahalaksmi.web.id | Encrypted HTTPS API | Real-time Monitoring</p>
+    </div>
+
+    <div class="container">
+        <!-- Revenue Dashboard -->
+        <div class="card">
+            <h2>💰 Revenue Dashboard</h2>
+            <div class="metric">
+                <span class="metric-label">Today's Revenue</span>
+                <span class="metric-value">$0.00</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Today's Revenue (IDR)</span>
+                <span class="metric-value">Rp 0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">CEO Share (80%)</span>
+                <span class="metric-value">$0.00</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total Revenue</span>
+                <span class="metric-value">$0.00</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Pending Payouts</span>
+                <span class="metric-value">0</span>
+            </div>
+        </div>
+
+        <!-- Daily Performance -->
+        <div class="card">
+            <h2>📊 Daily Performance</h2>
+            <div class="metric">
+                <span class="metric-label">Total Leads</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Outreach Sent</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Responses</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Deals Closed</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Conversion Rate</span>
+                <span class="metric-value">0%</span>
+            </div>
+        </div>
+
+        <!-- Marketplace Status -->
+        <div class="card">
+            <h2>🛒 Marketplace Status</h2>
+            <div class="metric">
+                <span class="metric-label">Gumroad Listings</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Shopify Products</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Etsy Listings</span>
+                <span class="metric-value">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Active Listings</span>
+                <span class="metric-value">0</span>
+            </div>
+        </div>
+
+        <!-- Country Performance -->
+        <div class="card">
+            <h2>🌍 Country Performance</h2>
+            <div id="country-metrics">
+                <div class="metric">
+                    <span class="metric-label">🇮🇩 Indonesia</span>
+                    <span class="metric-value">$0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">🇺🇸 USA</span>
+                    <span class="metric-value">$0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">🇧🇷 Brazil</span>
+                    <span class="metric-value">$0</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">🇨🇳 China</span>
+                    <span class="metric-value">$0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Performance -->
+        <div class="card">
+            <h2>📦 Product Performance</h2>
+            <div id="product-metrics">
+                <div class="metric">
+                    <span class="metric-label">Social Media Kit Pro</span>
+                    <span class="metric-value">0 sales</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">SEO Master Bundle</span>
+                    <span class="metric-value">0 sales</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">WhatsApp Marketing Kit</span>
+                    <span class="metric-value">0 sales</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Landing Page Template</span>
+                    <span class="metric-value">0 sales</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Recommendations -->
+        <div class="card">
+            <h2>🤖 AI Recommendations</h2>
+            <div id="ai-recommendations">
+                <div class="metric">
+                    <span class="metric-label">Top Priority</span>
+                    <span class="metric-value positive">Increase WhatsApp outreach</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Best Market</span>
+                    <span class="metric-value">Indonesia</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Best Channel</span>
+                    <span class="metric-value">WhatsApp</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Hot Product</span>
+                    <span class="metric-value">Social Media Kit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nodes Status -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>🖥️ Sales Nodes Status</h2>
+            <div class="node-grid">
+                <div class="node-card">
+                    <div class="node-header">
+                        <span class="node-name">KILO SALES NODE #1</span>
+                        <span class="node-status status-online">ONLINE</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Market:</span>
+                        <span class="node-metric-value">Indonesia</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Region:</span>
+                        <span class="node-metric-value">id</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Status:</span>
+                        <span class="node-metric-value">Running</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Last Heartbeat:</span>
+                        <span class="node-metric-value">Just now</span>
+                    </div>
+                </div>
+                <div class="node-card">
+                    <div class="node-header">
+                        <span class="node-name">KILO SALES NODE #2</span>
+                        <span class="node-status status-online">ONLINE</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Market:</span>
+                        <span class="node-metric-value">USA/English</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Region:</span>
+                        <span class="node-metric-value">en</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Status:</span>
+                        <span class="node-metric-value">Running</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Last Heartbeat:</span>
+                        <span class="node-metric-value">2 min ago</span>
+                    </div>
+                </div>
+                <div class="node-card">
+                    <div class="node-header">
+                        <span class="node-name">KILO SALES NODE #3</span>
+                        <span class="node-status status-online">ONLINE</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Market:</span>
+                        <span class="node-metric-value">Brazil/Portuguese</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Region:</span>
+                        <span class="node-metric-value">pt</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Status:</span>
+                        <span class="node-metric-value">Running</span>
+                    </div>
+                    <div class="node-metric">
+                        <span class="node-metric-label">Last Heartbeat:</span>
+                        <span class="node-metric-value">5 min ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>🚨 Alerts</h2>
+            <div class="alert">
+                <div class="alert-title">⚠️ Node #1 - Low Revenue</div>
+                <p>Node #1 (Indonesia) has not generated revenue today. Consider increasing outreach or adjusting pricing.</p>
+            </div>
+        </div>
+
+        <!-- CEO Report -->
+        <div class="card" style="grid-column: 1 / -1;">
+            <h2>📋 CEO Daily Report</h2>
+            <div style="background: #0a0e27; border-radius: 8px; padding: 20px; font-family: 'Courier New', monospace; font-size: 14px; line-height: 1.6;">
+                <p style="color: #00d4ff;">👑 MAHA LAKSHMI HOLDINGS - EXECUTIVE REPORT</p>
+                <p style="color: #888;">Report Date: 2026-07-27 | Generated: 09:08 WIB</p>
+                <br>
+                <p style="color: #00ff88;">✅ Systems Operational: 3/3 nodes online</p>
+                <p style="color: #ffaa00;">⚠️ Revenue: $0.00 today - Day 1 operation</p>
+                <p style="color: #00d4ff;">📊 Leads: 30 in database</p>
+                <p style="color: #00d4ff;">🎯 Next Report: 23:59 WIB tonight</p>
+                <br>
+                <p style="color: #888;">All operations automated. CEO actions required: NONE</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>KILO SALES NODE v1.0 | Encrypted HTTPS | mTLS + JWT | © 2026 MAHA LAKSHMI HOLDINGS</p>
+    </div>
+</body>
+</html>
