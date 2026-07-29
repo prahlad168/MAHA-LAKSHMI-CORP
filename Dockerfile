@@ -3,8 +3,17 @@ FROM python:3.11-slim AS base
 
 WORKDIR /app
 
-COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+# System dependencies for building Python packages
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    gcc \
+    g++ \
+    libffi-dev \
+    libssl-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install backend dependencies only
+COPY backend/requirements.txt ./backend/requirements.txt
+RUN pip install --no-cache-dir -r backend/requirements.txt
 
 # ============================================================
 # Test stage
@@ -29,10 +38,9 @@ COPY maha-command-center ./maha-command-center
 COPY index.html ./
 COPY CNAME ./
 
-ENV PORT=8000
 ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-# Run the unified backend
-CMD ["python3", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--log-level", "info"]
+# Render provides PORT automatically; respect it at runtime
+CMD ["sh", "-c", "python3 -m uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000} --log-level info"]
