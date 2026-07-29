@@ -6,6 +6,9 @@ primary_region = "sin"
 
 [env]
   PORT = "8000"
+  JWT_SECRET_KEY = "change-me-in-production"
+  CORS_ORIGINS = "https://mahalaksmi.web.id,https://www.mahalaksmi.web.id,http://localhost:3000,http://localhost:8000"
+  LOG_LEVEL = "INFO"
 
 [http_service]
   internal_port = 8000
@@ -15,10 +18,10 @@ primary_region = "sin"
   min_machines_running = 1
   processes = ["app"]
 
-  [http_service.concurrency]
-    type = "requests"
-    hard_limit = 50
-    soft_limit = 40
+[http_service.concurrency]
+  type = "requests"
+  hard_limit = 50
+  soft_limit = 40
 
 [[vm]]
   memory = "256mb"

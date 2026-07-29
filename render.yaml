@@ -1,13 +1,19 @@
 services:
   - type: web
-    name: maha-lakshmi-corp
+    name: maha-lakshmi-api
     env: docker
     region: singapore
     plan: free
     branch: main
     dockerfilePath: Dockerfile
+    healthCheckPath: /health
+    autoDeploy: true
     envVars:
       - key: PORT
         value: 8000
-    healthCheckPath: /health
-    autoDeploy: true
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://mahalaksmi.web.id,https://www.mahalaksmi.web.id,http://localhost:3000,http://localhost:8000
+      - key: LOG_LEVEL
+        value: INFO
