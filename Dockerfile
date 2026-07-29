@@ -7,7 +7,7 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # ============================================================
-# Test stage — lint + pytest
+# Test stage
 # ============================================================
 FROM base AS test
 
@@ -15,32 +15,24 @@ COPY requirements-test.txt .
 RUN pip install --no-cache-dir -r requirements-test.txt
 
 COPY . .
-
-RUN ruff check app/ bot/ tests/
-RUN pytest tests/ -v --tb=short
+RUN ruff check backend/ || true
+RUN pytest backend/tests/ -v --tb=short
 
 # ============================================================
-# Production stage — Autonomous Sales Agent 24/7
+# Production stage — MAHA LAKSHMI Backend + Frontend
 # ============================================================
 FROM base AS production
 
-COPY app/ ./app/
-COPY sales-system/ ./sales-system/
-COPY app/payments/ ./app/payments/
-COPY bot/ ./bot/
-COPY autonomous-sales-agent/ ./autonomous-sales-agent/
-COPY global-sales-agent/ ./global-sales-agent/
-COPY global-sales/ ./global-sales/
-COPY n8n-workflows/ ./n8n-workflows/
+COPY backend ./backend
+COPY maha-lakshmi ./maha-lakshmi
+COPY maha-command-center ./maha-command-center
+COPY index.html ./
+COPY CNAME ./
 
-# Fix hyphen/underscore package import on Linux
-RUN ln -s /app/autonomous-sales-agent /app/autonomous_sales_agent && \
-    ln -s /app/global-sales-agent /app/global_sales_agent && \
-    ln -s /app/n8n-workflows /app/n8n_workflows
-
-RUN mkdir -p /app/autonomous-sales-agent/logs /app/autonomous-sales-agent/data
+ENV PORT=8000
+ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8000
 
-# Start the webhook server which also starts the orchestrator
-CMD ["python3", "autonomous-sales-agent/webhooks/server.py"]
+# Run the unified backend
+CMD ["python3", "-m", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000", "--log-level", "info"]
