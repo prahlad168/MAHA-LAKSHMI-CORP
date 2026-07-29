@@ -1,0 +1,25 @@
+{
+  "campaign_id": "campaign-20260727-001",
+  "name": "Social Media Marketing Mastery 2026 Launch",
+  "description": "Launch campaign for the Social Media Marketing Mastery 2026 eBook across all marketplaces",
+  "campaign_type": "launch",
+  "status": "scheduled",
+  "product_ids": ["ML-20260727-000001"],
+  "marketplace_ids": ["gumroad", "etsy", "payhip"],
+  "schedule": {
+    "start_date": "2026-08-01T00:00:00Z",
+    "end_date": "2026-08-07T23:59:59Z",
+    "timezone": "UTC",
+    "publish_immediately": false,
+    "stagger_marketplaces": true,
+    "stagger_delay_minutes": 30
+  },
+  "metadata": {
+    "created_by": "automation",
+    "priority": "high",
+    "notify_on_complete": true,
+    "notification_channels": ["email", "slack"]
+  },
+  "created_at": "2026-07-27T12:00:00Z",
+  "updated_at": "2026-07-27T12:00:00Z"
+}

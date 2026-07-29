@@ -1,0 +1,140 @@
+{
+  "workflow_id": "wf-20260727-001",
+  "name": "Default Publication Workflow",
+  "description": "Standard workflow for publishing digital products to marketplaces",
+  "version": "1.0.0",
+  "entry_node": "validate-product",
+  "exit_node": "complete",
+  "nodes": [
+    {
+      "node_id": "validate-product",
+      "type": "validation",
+      "name": "Validate Product",
+      "config": {
+        "checks": ["quality_score", "metadata_complete", "marketing_approved"]
+      },
+      "next_nodes": ["check-approval"],
+      "retry_policy": {
+        "max_retries": 3,
+        "backoff": "exponential"
+      }
+    },
+    {
+      "node_id": "check-approval",
+      "type": "approval",
+      "name": "Check Approval Required",
+      "config": {
+        "approval_types": ["publication", "pricing"]
+      },
+      "next_nodes": ["queue-publication", "await-approval"],
+      "retry_policy": {
+        "max_retries": 1
+      }
+    },
+    {
+      "node_id": "queue-publication",
+      "type": "publish",
+      "name": "Queue Publication",
+      "config": {
+        "priority": "high"
+      },
+      "next_nodes": ["publish"],
+      "retry_policy": {
+        "max_retries": 3,
+        "backoff": "exponential"
+      }
+    },
+    {
+      "node_id": "publish",
+      "type": "publish",
+      "name": "Publish to Marketplace",
+      "config": {
+        "verify_after_publish": true
+      },
+      "next_nodes": ["verify-publication", "retry"],
+      "retry_policy": {
+        "max_retries": 5,
+        "backoff": "exponential",
+        "circuit_breaker": true
+      }
+    },
+    {
+      "node_id": "verify-publication",
+      "type": "validation",
+      "name": "Verify Publication",
+      "config": {
+        "checks": ["listing_visible", "download_working", "metadata_correct"]
+      },
+      "next_nodes": ["sync-metadata"],
+      "retry_policy": {
+        "max_retries": 3
+      }
+    },
+    {
+      "node_id": "sync-metadata",
+      "type": "synchronize",
+      "name": "Synchronize Metadata",
+      "config": {
+        "fields": ["price", "license", "tags", "categories"]
+      },
+      "next_nodes": ["send-notifications"],
+      "retry_policy": {
+        "max_retries": 3
+      }
+    },
+    {
+      "node_id": "send-notifications",
+      "type": "notification",
+      "name": "Send Notifications",
+      "config": {
+        "channels": ["email", "slack"],
+        "recipients": ["publisher@maha.com"]
+      },
+      "next_nodes": ["complete"],
+      "retry_policy": {
+        "max_retries": 2
+      }
+    },
+    {
+      "node_id": "retry",
+      "type": "retry",
+      "name": "Retry Publication",
+      "config": {
+        "max_retries": 5,
+        "backoff": "exponential"
+      },
+      "next_nodes": ["publish"],
+      "retry_policy": {
+        "max_retries": 1
+      }
+    },
+    {
+      "node_id": "await-approval",
+      "type": "approval",
+      "name": "Await Human Approval",
+      "config": {
+        "timeout_hours": 72,
+        "escalation_channel": "slack"
+      },
+      "next_nodes": ["queue-publication"],
+      "retry_policy": {
+        "max_retries": 1
+      }
+    },
+    {
+      "node_id": "complete",
+      "type": "terminate",
+      "name": "Complete",
+      "config": {},
+      "next_nodes": [],
+      "retry_policy": {}
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "author": "MAHA LAKSHMI",
+    "tags": ["publication", "default", "marketplace"]
+  },
+  "created_at": "2026-07-27T12:00:00Z",
+  "updated_at": "2026-07-27T12:00:00Z"
+}

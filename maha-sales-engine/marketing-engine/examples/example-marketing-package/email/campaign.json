@@ -1,0 +1,18 @@
+{
+  "campaign_name": "Social Media Marketing Mastery 2026 Launch",
+  "subject_lines": [
+    "Master Social Media Marketing in 2026 - 50% Off This Week",
+    "The Complete Guide to Social Media Marketing is Here",
+    "Stop Guessing on Social Media - Get the Proven Framework"
+  ],
+  "preview_text": "Learn the strategies top brands use to dominate social media",
+  "email_body": {
+    "html": "<h1>Master Social Media Marketing in 2026</h1><p>Our comprehensive guide is now available with 50% off launch pricing.</p><h2>What You'll Learn</h2><ul><li>Instagram Reels strategy</li><li>TikTok for business</li><li>Facebook engagement tactics</li></ul><a href='#' class='cta-button'>Get 50% Off Now</a>",
+    "text": "Master Social Media Marketing in 2026. Get 50% off this week only."
+  },
+  "cta_button": {
+    "text": "Get 50% Off Now",
+    "url": "/products/social-media-marketing-mastery-2026"
+  },
+  "segments": ["small_business", "marketers", "entrepreneurs"]
+}

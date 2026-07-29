@@ -1,0 +1,27 @@
+{
+  "product_id": "ML-20260727-000001",
+  "generated_at": "2026-07-27T11:00:00",
+  "keywords": {
+    "primary": ["social media marketing", "digital marketing", "social media strategy"],
+    "secondary": ["Instagram marketing", "TikTok strategy", "Facebook engagement", "content marketing"],
+    "long_tail": ["social media marketing for small business", "how to grow Instagram followers", "TikTok business strategy 2026"]
+  },
+  "hashtags": {
+    "instagram": ["#SocialMediaMarketing", "#DigitalMarketing", "#Marketing2026", "#InstagramMarketing", "#FacebookMarketing"],
+    "twitter": ["#SocialMedia", "#Marketing", "#DigitalMarketing", "#BusinessGrowth"],
+    "linkedin": ["#SocialMediaMarketing", "#DigitalStrategy", "#BusinessGrowth", "#Marketing"]
+  },
+  "content_types": [
+    "seo_metadata",
+    "product_description",
+    "social_media",
+    "email_campaign",
+    "landing_page",
+    "blog",
+    "faq",
+    "competitor_analysis"
+  ],
+  "quality_score": 0.92,
+  "approved": true,
+  "locale": "en"
+}

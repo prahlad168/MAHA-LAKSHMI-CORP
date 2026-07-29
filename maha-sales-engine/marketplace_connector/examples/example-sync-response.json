@@ -1,0 +1,15 @@
+{
+  "job_id": "sync-1785204984853-abc123",
+  "sync_type": "bulk",
+  "provider": "gumroad",
+  "status": "completed",
+  "products_synced": 15,
+  "products_failed": 0,
+  "products_skipped": 0,
+  "started_at": "2024-01-15T10:30:00Z",
+  "completed_at": "2024-01-15T10:30:15Z",
+  "duration_seconds": 15.2,
+  "changes_detected": 3,
+  "conflicts": [],
+  "errors": []
+}

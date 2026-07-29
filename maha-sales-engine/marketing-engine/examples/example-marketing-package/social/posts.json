@@ -1,0 +1,34 @@
+[
+  {
+    "platform": "instagram",
+    "posts": [
+      {
+        "caption": "Ready to master social media marketing in 2026? Our comprehensive guide covers everything you need to know. #SocialMediaMarketing #DigitalMarketing #Marketing2026",
+        "hashtags": ["#SocialMediaMarketing", "#DigitalMarketing", "#Marketing2026", "#InstagramMarketing", "#FacebookMarketing"],
+        "image_spec": "1080x1080",
+        "cta": "Link in bio to download now!"
+      },
+      {
+        "caption": "Struggling with social media engagement? Learn the proven strategies that top brands use. #SocialMediaTips #MarketingStrategy #BusinessGrowth",
+        "hashtags": ["#SocialMediaTips", "#MarketingStrategy", "#BusinessGrowth", "#ContentMarketing"],
+        "image_spec": "1080x1080",
+        "cta": "Get your copy today!"
+      }
+    ]
+  },
+  {
+    "platform": "twitter",
+    "posts": [
+      {
+        "text": "Social Media Marketing Mastery 2026 is here! Learn to dominate Instagram, TikTok, Facebook, and more. Get 50% off this week only! #SocialMedia #Marketing",
+        "hashtags": ["#SocialMedia", "#Marketing", "#DigitalMarketing"],
+        "thread": [
+          "1/ Social media has evolved. Here's what's working in 2026...",
+          "2/ Instagram Reels are still dominant. Here's how to optimize...",
+          "3/ TikTok for business: The complete strategy...",
+          "4/ Facebook groups: The hidden engagement goldmine..."
+        ]
+      }
+    ]
+  }
+]

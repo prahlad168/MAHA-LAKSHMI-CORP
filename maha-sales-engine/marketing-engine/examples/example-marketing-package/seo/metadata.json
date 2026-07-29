@@ -1,0 +1,29 @@
+{
+  "product_id": "ML-20260727-000001",
+  "title": "Social Media Marketing Mastery 2026",
+  "description": "Complete guide to social media marketing for businesses",
+  "slug": "social-media-marketing-mastery-2026",
+  "canonical_url": "/products/social-media-marketing-mastery-2026",
+  "meta_title": "Social Media Marketing Mastery 2026 - Complete Guide",
+  "meta_description": "Master social media marketing in 2026 with our comprehensive guide. Learn strategies for Instagram, TikTok, Facebook, and more.",
+  "meta_keywords": ["social media marketing", "digital marketing", "social media strategy"],
+  "og_title": "Social Media Marketing Mastery 2026",
+  "og_description": "Complete guide to social media marketing for businesses",
+  "og_image": "/images/og-social-media-marketing.jpg",
+  "twitter_title": "Social Media Marketing Mastery 2026",
+  "twitter_description": "Master social media marketing with our complete guide",
+  "twitter_image": "/images/twitter-social-media-marketing.jpg",
+  "schema_org": {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Social Media Marketing Mastery 2026",
+    "description": "Complete guide to social media marketing",
+    "offers": {
+      "@type": "Offer",
+      "price": "29.00",
+      "priceCurrency": "USD"
+    }
+  },
+  "alt_texts": ["Social Media Marketing Mastery 2026 cover"],
+  "internal_links": ["/products", "/categories", "/about"]
+}

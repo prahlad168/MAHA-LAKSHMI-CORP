@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2FA Verification - MAHA LAKSHMI CORP</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0f172a;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            max-width: 400px;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .otp-inputs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin: 2rem 0;
+        }
+        
+        .otp-inputs input {
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-size: 1.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 0.5rem;
+            background: rgba(255,255,255,0.05);
+            color: white;
+        }
+        
+        .otp-inputs input:focus {
+            outline: none;
+            border-color: #3b82f6;
+        }
+        
+        button {
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border: none;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .error {
+            color: #ef4444;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Two-Factor Authentication</h2>
+        <p>Enter the 6-digit code from your authenticator app</p>
+        
+        <div class="otp-inputs">
+            <input type="text" maxlength="1" data-index="0">
+            <input type="text" maxlength="1" data-index="1">
+            <input type="text" maxlength="1" data-index="2">
+            <input type="text" maxlength="1" data-index="3">
+            <input type="text" maxlength="1" data-index="4">
+            <input type="text" maxlength="1" data-index="5">
+        </div>
+        
+        <button onclick="verify2FA()">Verify</button>
+        <div id="error" class="error"></div>
+    </div>
+    
+    <script>
+        // OTP input handling
+        document.querySelectorAll('.otp-inputs input').forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                if (e.target.value && index < 5) {
+                    document.querySelectorAll('.otp-inputs input')[index + 1].focus();
+                }
+            });
+            
+            input.addEventListener('keydown', (e) => {
+                if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                    document.querySelectorAll('.otp-inputs input')[index - 1].focus();
+                }
+            });
+        });
+        
+        async function verify2FA() {
+            const inputs = document.querySelectorAll('.otp-inputs input');
+            const code = Array.from(inputs).map(i => i.value).join('');
+            const errorEl = document.getElementById('error');
+            
+            if (code.length !== 6) {
+                errorEl.textContent = 'Please enter complete 6-digit code';
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/auth/2fa/verify', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${sessionStorage.getItem('pending_token')}`
+                    },
+                    body: JSON.stringify({ totp_code: code })
+                });
+                
+                if (response.ok) {
+                    window.location.href = '/dashboard';
+                } else {
+                    errorEl.textContent = 'Invalid code. Please try again.';
+                }
+            } catch (error) {
+                errorEl.textContent = 'Verification failed. Please try again.';
+            }
+        }
+    </script>
+</body>
+</html>

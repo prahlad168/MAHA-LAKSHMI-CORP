@@ -1,0 +1,105 @@
+{
+  "verification_id": "verify-1785214625230",
+  "started_at": "2026-07-28T12:57:05.230380",
+  "stages": [
+    {
+      "stage": "create_package",
+      "status": "passed",
+      "product_path": "/tmp/marketplace_verification/test_product",
+      "message": "Test product package created successfully"
+    },
+    {
+      "stage": "validate",
+      "status": "passed",
+      "valid": true,
+      "score": 1.0,
+      "errors": []
+    },
+    {
+      "stage": "initialize",
+      "status": "passed",
+      "message": "All components initialized successfully"
+    },
+    {
+      "stage": "publish",
+      "status": "passed",
+      "success": true,
+      "marketplace_product_id": "gumroad-a7936412",
+      "marketplace_url": "https://gumroad.com/l/gumroad-a7936412",
+      "publication_status": "published",
+      "message": "Publication successful"
+    },
+    {
+      "stage": "verify_database",
+      "status": "passed",
+      "message": "Database operations verified successfully"
+    },
+    {
+      "stage": "sync",
+      "status": "passed",
+      "job_id": "sync-1785214625238-8f415464",
+      "sync_status": "completed",
+      "message": "Synchronization verified successfully"
+    },
+    {
+      "stage": "health",
+      "status": "passed",
+      "provider_health": {
+        "status": "healthy",
+        "provider": "gumroad",
+        "connected": true,
+        "last_check": "2026-07-28T12:57:05.238786",
+        "details": {
+          "valid": true,
+          "message": "Test credentials accepted"
+        }
+      },
+      "metrics": {
+        "total_publications": 0,
+        "successful_publications": 0,
+        "failed_publications": 0,
+        "retry_count": 0,
+        "avg_publication_time": 0.0,
+        "queue_depth": 0,
+        "dead_letter_count": 0,
+        "success_rate": 0.0
+      },
+      "message": "Health endpoint verified successfully"
+    },
+    {
+      "stage": "webhook",
+      "status": "passed",
+      "event_id": "evt-1785214625238",
+      "event_type": "purchase",
+      "message": "Webhook processing verified successfully"
+    },
+    {
+      "stage": "retry",
+      "status": "passed",
+      "retry_results": {
+        "processed": 1,
+        "succeeded": 1,
+        "failed": 0
+      },
+      "message": "Retry engine verified successfully"
+    },
+    {
+      "stage": "metrics",
+      "status": "passed",
+      "metrics": {
+        "total_publications": 1,
+        "successful_publications": 1,
+        "failed_publications": 0,
+        "retry_count": 0,
+        "avg_publication_time": 0.0,
+        "queue_depth": 0,
+        "dead_letter_count": 0,
+        "success_rate": 1.0
+      },
+      "message": "Metrics collection verified successfully"
+    }
+  ],
+  "overall_status": "passed",
+  "errors": [],
+  "completed_at": "2026-07-28T12:57:05.239166"
+}

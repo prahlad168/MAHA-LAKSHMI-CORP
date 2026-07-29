@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - MAHA LAKSHMI CORP</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #8b5cf6;
+            --accent: #06b6d4;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-lighter: #334155;
+            --gray: #64748b;
+            --gray-light: #94a3b8;
+            --light: #f8fafc;
+            --white: #ffffff;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 260px;
+            background: var(--dark-light);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+        }
+        
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .sidebar-nav {
+            padding: 1rem 0;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.875rem 1.5rem;
+            color: var(--gray-light);
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border-left: 3px solid transparent;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--white);
+        }
+        
+        .nav-item.active {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            border-left-color: var(--primary);
+        }
+        
+        .nav-item i {
+            width: 20px;
+            text-align: center;
+        }
+        
+        /* Main content */
+        .main {
+            flex: 1;
+            margin-left: 260px;
+            min-height: 100vh;
+        }
+        
+        /* Top navigation */
+        .topbar {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .topbar-left h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+        
+        .topbar-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background 0.2s;
+        }
+        
+        .user-menu:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .user-info {
+            display: none;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .user-role {
+            font-size: 0.75rem;
+            color: var(--gray-light);
+        }
+        
+        @media (min-width: 768px) {
+            .user-info {
+                display: block;
+            }
+        }
+        
+        /* Content area */
+        .content {
+            padding: 2rem;
+        }
+        
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+        
+        .stat-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        
+        .stat-sub {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            margin-top: 0.5rem;
+        }
+        
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+        
+        .stat-title {
+            font-size: 0.875rem;
+            color: var(--gray-light);
+            font-weight: 500;
+        }
+        
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+        
+        .stat-value {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+        
+        .stat-change {
+            font-size: 0.875rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+        
+        .stat-change.positive {
+            color: var(--success);
+        }
+        
+        .stat-change.negative {
+            color: var(--danger);
+        }
+        
+        /* Content sections */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .data-table th,
+        .data-table td {
+            padding: 0.875rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        .data-table th {
+            color: var(--gray-light);
+            font-weight: 500;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .data-table td {
+            font-size: 0.875rem;
+        }
+        
+        .data-table tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        /* Status badges */
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        
+        .badge-success {
+            background: rgba(16, 185, 129, 0.2);
+            color: var(--success);
+        }
+        
+        .badge-warning {
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--warning);
+        }
+        
+        .badge-danger {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+        
+        /* Mobile sidebar toggle */
+        .sidebar-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                transition: transform 0.3s;
+            }
+            
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            
+            .main {
+                margin-left: 0;
+            }
+            
+            .sidebar-toggle {
+                display: block;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Loading */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+        
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="sidebar-logo">MAHA LAKSHMI</div>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <a href="#home" class="nav-item active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#revenue" class="nav-item" data-section="revenue">
+                <i class="fas fa-dollar-sign"></i>
+                <span>Revenue</span>
+            </a>
+            <a href="#sales" class="nav-item" data-section="sales">
+                <i class="fas fa-chart-line"></i>
+                <span>Sales</span>
+            </a>
+            <a href="#products" class="nav-item" data-section="products">
+                <i class="fas fa-box"></i>
+                <span>Products</span>
+            </a>
+            <a href="#ai-factory" class="nav-item" data-section="ai-factory">
+                <i class="fas fa-robot"></i>
+                <span>AI Factory</span>
+            </a>
+            <a href="#marketplace" class="nav-item" data-section="marketplace">
+                <i class="fas fa-store"></i>
+                <span>Marketplace</span>
+            </a>
+            <a href="#finance" class="nav-item" data-section="finance">
+                <i class="fas fa-wallet"></i>
+                <span>Finance</span>
+            </a>
+            <a href="#accounting" class="nav-item" data-section="accounting">
+                <i class="fas fa-calculator"></i>
+                <span>Accounting</span>
+            </a>
+            <a href="#marketing" class="nav-item" data-section="marketing">
+                <i class="fas fa-bullhorn"></i>
+                <span>Marketing</span>
+            </a>
+            <a href="#automation" class="nav-item" data-section="automation">
+                <i class="fas fa-cogs"></i>
+                <span>Automation</span>
+            </a>
+            <a href="#optimization" class="nav-item" data-section="optimization">
+                <i class="fas fa-chart-bar"></i>
+                <span>Optimization</span>
+            </a>
+            <a href="#knowledge" class="nav-item" data-section="knowledge">
+                <i class="fas fa-brain"></i>
+                <span>Knowledge</span>
+            </a>
+            <a href="#reports" class="nav-item" data-section="reports">
+                <i class="fas fa-file-alt"></i>
+                <span>Reports</span>
+            </a>
+            <a href="#settings" class="nav-item" data-section="settings">
+                <i class="fas fa-cog"></i>
+                <span>Settings</span>
+            </a>
+            <a href="#system" class="nav-item" data-section="system">
+                <i class="fas fa-server"></i>
+                <span>System</span>
+            </a>
+        </nav>
+    </aside>
+    
+    <!-- Main content -->
+    <main class="main">
+        <!-- Top bar -->
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="sidebar-toggle" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <h2 id="pageTitle">Dashboard Home</h2>
+            </div>
+            <div class="topbar-right">
+                <div class="user-menu" onclick="logout()">
+                    <div class="user-avatar" id="userAvatar">A</div>
+                    <div class="user-info">
+                        <div class="user-name" id="userName">Admin</div>
+                        <div class="user-role" id="userRole">Administrator</div>
+                    </div>
+                    <i class="fas fa-sign-out-alt" style="color: var(--gray-light);"></i>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Content -->
+        <div class="content">
+            <!-- Home Section -->
+            <div id="home" class="section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Revenue Today</div>
+                            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--success);">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="revenueToday">Rp 0</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Revenue Month</div>
+                            <div class="stat-icon" style="background: rgba(59, 130, 246, 0.2); color: var(--primary);">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="revenueMonth">Rp 0</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Revenue Year</div>
+                            <div class="stat-icon" style="background: rgba(139, 92, 246, 0.2); color: var(--secondary);">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="revenueYear">Rp 0</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Profit</div>
+                            <div class="stat-icon" style="background: rgba(6, 182, 212, 0.2); color: var(--accent);">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="profit">Rp 0</div>
+                        <div class="stat-change">
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Products Generated</div>
+                            <div class="stat-icon" style="background: rgba(245, 158, 11, 0.2); color: var(--warning);">
+                                <i class="fas fa-box"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="productsGenerated">0</div>
+                        <div class="stat-change">
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Products Published</div>
+                            <div class="stat-icon" style="background: rgba(16, 185, 129, 0.2); color: var(--success);">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="productsPublished">0</div>
+                        <div class="stat-change">
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">Products Sold</div>
+                            <div class="stat-icon" style="background: rgba(239, 68, 68, 0.2); color: var(--danger);">
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="productsSold">0</div>
+                        <div class="stat-change">
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <div class="stat-title">AI Agents Running</div>
+                            <div class="stat-icon" style="background: rgba(139, 92, 246, 0.2); color: var(--secondary);">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                        </div>
+                        <div class="stat-value" id="aiAgents">0</div>
+                        <div class="stat-change">
+                            <span>Loading...</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Activity -->
+                <div class="card">
+                    <div class="card-title">Recent Activity</div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Time</th>
+                                <th>Action</th>
+                                <th>User</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityTable">
+                            <tr>
+                                <td colspan="4" style="text-align: center; color: var(--gray-light);">Loading...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Revenue Section -->
+            <div id="revenue" class="section">
+                <div class="card">
+                    <div class="card-title">Revenue Overview</div>
+                    <div id="revenueChart">Loading chart...</div>
+                </div>
+            </div>
+            
+            <!-- Sales Section -->
+            <div id="sales" class="section">
+                <div class="card">
+                    <div class="card-title">Sales Pipeline</div>
+                    <div id="salesPipeline">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Products Section -->
+            <div id="products" class="section">
+                <div class="card">
+                    <div class="card-title">Products</div>
+                    <div id="productsList">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- AI Factory Section -->
+            <div id="ai-factory" class="section">
+                <div class="card">
+                    <div class="card-title">AI Factory Status</div>
+                    <div id="aiFactoryStatus">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Marketplace Section -->
+            <div id="marketplace" class="section">
+                <div class="card">
+                    <div class="card-title">Marketplace Integration</div>
+                    <div id="marketplaceStatus">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Finance Section -->
+            <div id="finance" class="section">
+                <div class="card">
+                    <div class="card-title">Financial Overview</div>
+                    <div id="financeOverview">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Accounting Section -->
+            <div id="accounting" class="section">
+                <div class="card">
+                    <div class="card-title">Accounting</div>
+                    <div id="accountingData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Marketing Section -->
+            <div id="marketing" class="section">
+                <div class="card">
+                    <div class="card-title">Marketing Campaigns</div>
+                    <div id="marketingData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Automation Section -->
+            <div id="automation" class="section">
+                <div class="card">
+                    <div class="card-title">Automation Workflows</div>
+                    <div id="automationData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Optimization Section -->
+            <div id="optimization" class="section">
+                <div class="card">
+                    <div class="card-title">Optimization Engine</div>
+                    <div id="optimizationData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Knowledge Section -->
+            <div id="knowledge" class="section">
+                <div class="card">
+                    <div class="card-title">Knowledge Base</div>
+                    <div id="knowledgeData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Reports Section -->
+            <div id="reports" class="section">
+                <div class="card">
+                    <div class="card-title">Reports</div>
+                    <div id="reportsData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settings" class="section">
+                <div class="card">
+                    <div class="card-title">Settings</div>
+                    <div id="settingsData">Loading...</div>
+                </div>
+            </div>
+            
+            <!-- System Section -->
+            <div id="system" class="section">
+                <div class="card">
+                    <div class="card-title">System Health</div>
+                    <div id="systemData">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        // State
+        let currentUser = null;
+        let accessToken = localStorage.getItem('access_token');
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', async () => {
+            if (!accessToken) {
+                window.location.href = '/login';
+                return;
+            }
+            
+            await loadUserInfo();
+            await loadDashboardData();
+            setupNavigation();
+            setupMobileMenu();
+        });
+        
+        // Load user info
+        async function loadUserInfo() {
+            try {
+                const response = await fetch('/api/auth/me', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` }
+                });
+                
+                if (response.ok) {
+                    currentUser = await response.json();
+                    document.getElementById('userName').textContent = currentUser.name;
+                    document.getElementById('userRole').textContent = currentUser.role;
+                    document.getElementById('userAvatar').textContent = currentUser.name.charAt(0).toUpperCase();
+                } else {
+                    logout();
+                }
+            } catch (error) {
+                console.error('Failed to load user info:', error);
+            }
+        }
+        
+        // Load dashboard data
+        async function loadDashboardData() {
+            try {
+                const response = await fetch('/api/dashboard/home', {
+                    headers: { 'Authorization': `Bearer ${accessToken}` }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    updateHomeStats(data);
+                }
+            } catch (error) {
+                console.error('Failed to load dashboard data:', error);
+            }
+        }
+        
+        // Update home stats
+        function updateHomeStats(data) {
+            if (data.revenue) {
+                document.getElementById('revenueToday').textContent = formatCurrency(data.revenue.today);
+                document.getElementById('revenueMonth').textContent = formatCurrency(data.revenue.month);
+                document.getElementById('revenueYear').textContent = formatCurrency(data.revenue.year);
+            }
+            
+            if (data.products) {
+                document.getElementById('productsGenerated').textContent = data.products.generated || 0;
+                document.getElementById('productsPublished').textContent = data.products.published || 0;
+                document.getElementById('productsSold').textContent = data.products.sold || 0;
+            }
+            
+            if (data.ai_agents) {
+                document.getElementById('aiAgents').textContent = data.ai_agents.running || 0;
+            }
+        }
+        
+        // Format currency
+        function formatCurrency(value) {
+            if (value === undefined || value === null) return 'Rp 0';
+            return `Rp ${value.toLocaleString('id-ID')}`;
+        }
+        
+        // Setup navigation
+        function setupNavigation() {
+            document.querySelectorAll('.nav-item').forEach(item => {
+                item.addEventListener('click', async (e) => {
+                    e.preventDefault();
+                    const section = item.dataset.section;
+                    
+                    // Update active nav
+                    document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+                    item.classList.add('active');
+                    
+                    // Show section
+                    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+                    document.getElementById(section)?.classList.add('active');
+                    
+                    // Update page title
+                    document.getElementById('pageTitle').textContent = item.querySelector('span').textContent;
+                    
+                    // Load section data
+                    await loadSectionData(section);
+                    
+                    // Close mobile menu
+                    document.getElementById('sidebar').classList.remove('open');
+                });
+            });
+        }
+        
+        // Load section data
+        async function loadSectionData(section) {
+            try {
+                const response = await fetch(`/api/dashboard/${section}`, {
+                    headers: { 'Authorization': `Bearer ${accessToken}` }
+                });
+                
+                if (response.ok) {
+                    const data = await response.json();
+                    renderSection(section, data);
+                }
+            } catch (error) {
+                console.error(`Failed to load ${section} data:`, error);
+            }
+        }
+        
+        // Render section data
+        function renderSection(section, data) {
+            const container = document.getElementById(section);
+            if (!container) return;
+            
+            if (data.message === 'No Data') {
+                container.innerHTML = `<div class="card"><p style="color: var(--gray-light); text-align: center; padding: 2rem;">No data available</p></div>`;
+                return;
+            }
+            
+            switch (section) {
+                case 'home':
+                    updateHomeStats(data);
+                    break;
+                case 'revenue':
+                    renderRevenueSection(container, data);
+                    break;
+                case 'finance':
+                    renderFinanceSection(container, data);
+                    break;
+                case 'sales':
+                    renderSalesSection(container, data);
+                    break;
+                case 'accounting':
+                    renderAccountingSection(container, data);
+                    break;
+                default:
+                    container.innerHTML = `<div class="card"><pre style="color: var(--gray-light);">${JSON.stringify(data, null, 2)}</pre></div>`;
+            }
+        }
+        
+        function renderRevenueSection(container, data) {
+            const daily = data.daily_revenue || [];
+            const marketplace = data.marketplace_revenue || [];
+            const products = data.product_revenue || [];
+            
+            let html = '<div class="card"><h3>Revenue Overview</h3><div class="stats-grid">';
+            
+            const totalRevenue = daily.reduce((sum, day) => sum + (day.total || 0), 0);
+            const totalTransactions = daily.reduce((sum, day) => sum + (day.transactions || 0), 0);
+            
+            html += `<div class="stat-card"><div class="stat-label">Total Revenue (30 days)</div><div class="stat-value">${formatCurrency(totalRevenue)}</div></div>`;
+            html += `<div class="stat-card"><div class="stat-label">Total Transactions</div><div class="stat-value">${totalTransactions}</div></div>`;
+            
+            html += '</div></div>';
+            
+            // Marketplace breakdown
+            html += '<div class="card"><h3>Revenue by Marketplace</h3>';
+            if (marketplace.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Marketplace</th><th>Revenue</th><th>Transactions</th></tr></thead><tbody>';
+                marketplace.forEach(item => {
+                    html += `<tr><td>${item.marketplace || 'Unknown'}</td><td>${formatCurrency(item.total)}</td><td>${item.transactions || 0}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No marketplace revenue yet</p>';
+            }
+            html += '</div>';
+            
+            // Product breakdown
+            html += '<div class="card"><h3>Top Products</h3>';
+            if (products.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Product</th><th>Revenue</th><th>Sales</th></tr></thead><tbody>';
+                products.forEach(item => {
+                    html += `<tr><td>${item.product_name || 'Unknown'}</td><td>${formatCurrency(item.total)}</td><td>${item.sales || 0}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No product sales yet</p>';
+            }
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+        
+        function renderFinanceSection(container, data) {
+            const cashFlow = data.cash_flow || [];
+            const expenses = data.expenses || [];
+            const revenues = data.revenues || [];
+            
+            let html = '<div class="card"><h3>Financial Overview</h3><div class="stats-grid">';
+            
+            const totalRevenue = revenues.reduce((sum, item) => sum + (item.total || 0), 0);
+            const totalExpenses = expenses.reduce((sum, item) => sum + (item.total || 0), 0);
+            const netProfit = totalRevenue - totalExpenses;
+            
+            html += `<div class="stat-card"><div class="stat-label">Total Revenue (30 days)</div><div class="stat-value" style="color: var(--success);">${formatCurrency(totalRevenue)}</div></div>`;
+            html += `<div class="stat-card"><div class="stat-label">Total Expenses (30 days)</div><div class="stat-value" style="color: var(--danger);">${formatCurrency(totalExpenses)}</div></div>`;
+            html += `<div class="stat-card"><div class="stat-label">Net Profit (30 days)</div><div class="stat-value" style="color: ${netProfit >= 0 ? 'var(--success)' : 'var(--danger)'};">${formatCurrency(netProfit)}</div></div>`;
+            
+            html += '</div></div>';
+            
+            // Cash flow chart placeholder
+            html += '<div class="card"><h3>Cash Flow (30 days)</h3>';
+            if (cashFlow.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Date</th><th>Net Flow</th></tr></thead><tbody>';
+                cashFlow.forEach(item => {
+                    const net = item.net || 0;
+                    html += `<tr><td>${item.date}</td><td style="color: ${net >= 0 ? 'var(--success)' : 'var(--danger)'};">${formatCurrency(net)}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No cash flow data yet</p>';
+            }
+            html += '</div>';
+            
+            // Revenue breakdown
+            html += '<div class="card"><h3>Revenue Breakdown</h3>';
+            if (revenues.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Category</th><th>Amount</th></tr></thead><tbody>';
+                revenues.forEach(item => {
+                    html += `<tr><td>${item.category || 'Unknown'}</td><td>${formatCurrency(item.total)}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No revenue breakdown yet</p>';
+            }
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+        
+        function renderSalesSection(container, data) {
+            const pipeline = data.pipeline || [];
+            const recentDeals = data.recent_deals || [];
+            
+            let html = '<div class="card"><h3>Sales Pipeline</h3>';
+            
+            if (pipeline.length > 0) {
+                html += '<div class="stats-grid">';
+                pipeline.forEach(item => {
+                    html += `<div class="stat-card"><div class="stat-label">${item.status || 'Unknown'}</div><div class="stat-value">${item.count || 0}</div><div class="stat-sub">${formatCurrency(item.total || 0)}</div></div>`;
+                });
+                html += '</div>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No pipeline data yet</p>';
+            }
+            html += '</div>';
+            
+            // Recent deals
+            html += '<div class="card"><h3>Recent Deals</h3>';
+            if (recentDeals.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Customer</th><th>Status</th><th>Value</th><th>Date</th></tr></thead><tbody>';
+                recentDeals.forEach(deal => {
+                    html += `<tr><td>${deal.customer_name || 'Unknown'}</td><td>${deal.status || 'Unknown'}</td><td>${formatCurrency(deal.value || 0)}</td><td>${deal.created_at || 'N/A'}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No deals yet</p>';
+            }
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+        
+        function renderAccountingSection(container, data) {
+            const entries = data.entries || [];
+            const balances = data.balances || [];
+            
+            let html = '<div class="card"><h3>Accounting Entries</h3>';
+            
+            if (entries.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Date</th><th>Account</th><th>Type</th><th>Amount</th><th>Description</th></tr></thead><tbody>';
+                entries.slice(0, 20).forEach(entry => {
+                    html += `<tr><td>${entry.entry_date || 'N/A'}</td><td>${entry.account_name || entry.account_code || 'Unknown'}</td><td>${entry.entry_type || 'N/A'}</td><td>${formatCurrency(entry.amount || 0)}</td><td>${entry.description || ''}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No accounting entries yet. Sales will appear here automatically.</p>';
+            }
+            html += '</div>';
+            
+            // Account balances
+            html += '<div class="card"><h3>Account Balances</h3>';
+            if (balances.length > 0) {
+                html += '<table class="data-table"><thead><tr><th>Account</th><th>Type</th><th>Balance</th></tr></thead><tbody>';
+                balances.forEach(balance => {
+                    html += `<tr><td>${balance.account_name || balance.account_code || 'Unknown'}</td><td>${balance.entry_type || 'N/A'}</td><td>${formatCurrency(balance.total || 0)}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            } else {
+                html += '<p style="color: var(--gray-light); text-align: center; padding: 2rem;">No balance data yet</p>';
+            }
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+        
+        // Setup mobile menu
+        function setupMobileMenu() {
+            document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+                document.getElementById('sidebar').classList.toggle('open');
+            });
+        }
+        
+        // Logout
+        async function logout() {
+            try {
+                await fetch('/api/auth/logout', {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${accessToken}` },
+                    credentials: 'include'
+                });
+            } catch (error) {
+                console.error('Logout error:', error);
+            }
+            
+            localStorage.removeItem('access_token');
+            localStorage.removeItem('user');
+            window.location.href = '/login';
+        }
+    </script>
+</body>
+</html>

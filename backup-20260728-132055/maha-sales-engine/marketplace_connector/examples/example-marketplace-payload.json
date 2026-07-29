@@ -1,0 +1,16 @@
+{
+  "name": "Premium Digital Marketing Toolkit",
+  "description": "<p>A comprehensive digital marketing toolkit containing templates, checklists, and guides for modern marketers.</p><ul><li>50+ marketing templates</li><li>Social media calendar templates</li><li>Email marketing sequences</li></ul>",
+  "price": 49.99,
+  "currency": "USD",
+  "tags": ["marketing", "digital", "toolkit", "templates"],
+  "is_published": true,
+  "file_url": "https://s3.amazonaws.com/gumroad/files/abc123/main.zip",
+  "thumbnail_url": "https://s3.amazonaws.com/gumroad/files/abc123/cover.png",
+  "preview_urls": [
+    "https://s3.amazonaws.com/gumroad/files/abc123/preview-1.png"
+  ],
+  "custom_fields": [
+    {"name": "License Type", "type": "checkbox", "required": true}
+  ]
+}

@@ -1,0 +1,119 @@
+# Revenue Allocation Configuration Example
+
+## Configuration Format
+
+```yaml
+revenue_allocation:
+  default_rule:
+    - recipient: "ceo_wallet"
+      percentage: 80
+      account: "BCA 6485086645"
+    - recipient: "company_wallet"
+      percentage: 25
+      account: "USDT TRC20 TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    - recipient: "operations_pool"
+      percentage: 15
+      account: "operations"
+    - recipient: "reserve_pool"
+      percentage: 10
+      account: "reserve"
+    - recipient: "charity_pool"
+      percentage: 5
+      account: "charity"
+
+  marketplace_specific_rules:
+    gumroad:
+      - recipient: "ceo_wallet"
+        percentage: 85
+      - recipient: "company_wallet"
+        percentage: 20
+    etsy:
+      - recipient: "ceo_wallet"
+        percentage: 80
+      - recipient: "company_wallet"
+        percentage: 25
+    payhip:
+      - recipient: "ceo_wallet"
+        percentage: 80
+      - recipient: "company_wallet"
+        percentage: 25
+
+  product_type_rules:
+    ebook:
+      - recipient: "ceo_wallet"
+        percentage: 80
+      - recipient: "author_royalty"
+        percentage: 20
+    template:
+      - recipient: "ceo_wallet"
+        percentage: 75
+      - recipient: "author_royalty"
+        percentage: 25
+
+  minimum_payout: 500000
+  payout_currency: "IDR"
+  auto_payout: true
+  payout_schedule: "weekly"
+```
+
+## Wallet Structure
+
+```yaml
+wallets:
+  ceo_wallet:
+    type: "bank"
+    currency: "IDR"
+    account: "BCA 6485086645"
+    auto_transfer: true
+    transfer_schedule: "daily_23_59"
+
+  company_wallet:
+    type: "crypto"
+    currency: "USDT"
+    network: "TRC20"
+    address: "TNFs1SP2C8HxGSJkSH3hJamf8ukgtnW7U6"
+    auto_transfer: false
+
+  operations_pool:
+    type: "internal"
+    currency: "IDR"
+    purpose: "monthly_operations"
+
+  reserve_pool:
+    type: "internal"
+    currency: "IDR"
+    purpose: "emergency_and_investment"
+
+  charity_pool:
+    type: "internal"
+    currency: "IDR"
+    purpose: "csr_and_charity"
+```
+
+## Payout Flow
+
+```
+Order Paid
+    ↓
+Calculate Revenue
+    ↓
+Apply Allocation Rules
+    ↓
+Distribute to Wallets
+    ↓
+Generate Payout Records
+    ↓
+Execute Payouts
+    ↓
+Record Transactions
+    ↓
+Notify Stakeholders
+```
+
+## Security
+
+- Encrypted wallet credentials
+- Multi-signature for large payouts
+- Audit trail for all transactions
+- Rate limiting on payout operations
+- IP whitelisting for payout API

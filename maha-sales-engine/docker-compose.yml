@@ -1,0 +1,113 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MAHA_CONFIG_PATH=/app/config/engine.yaml
+      - DATABASE_URL=sqlite:///data/maha.db
+      - REDIS_URL=redis://redis:6379/0
+      - SECRET_KEY=${MAHA_SECRET_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    depends_on:
+      - redis
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from shared.core_engine import get_engine; engine = get_engine(); print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  product-factory:
+    build: .
+    ports:
+      - "8001:8001"
+    environment:
+      - MAHA_CONFIG_PATH=/app/config/engine.yaml
+      - DATABASE_URL=sqlite:///data/product-factory.db
+    volumes:
+      - ./product-factory/output:/app/product-factory/output
+      - ./data:/app/data
+    restart: unless-stopped
+
+  marketplace:
+    build: .
+    ports:
+      - "8002:8002"
+    environment:
+      - MAHA_CONFIG_PATH=/app/config/engine.yaml
+      - DATABASE_URL=sqlite:///data/marketplace.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  marketing:
+    build: .
+    ports:
+      - "8003:8003"
+    environment:
+      - MAHA_CONFIG_PATH=/app/config/engine.yaml
+      - DATABASE_URL=sqlite:///data/marketing.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  sales-automation:
+    build: .
+    ports:
+      - "8004:8004"
+    environment:
+      - MAHA_CONFIG_PATH=/app/config/engine.yaml
+      - DATABASE_URL=sqlite:///data/sales-automation.db
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  commerce:
+    build: .
+    ports:
+      - "8005:8005"
+    environment:
+      - MAHA_CONFIG_PATH=/app/config/engine.yaml
+      - DATABASE_URL=sqlite:///data/commerce.db
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: unless-stopped
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    restart: unless-stopped
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    restart: unless-stopped
+
+volumes:
+  redis-data:
+  prometheus-data:
+  grafana-data:

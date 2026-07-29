@@ -1,0 +1,30 @@
+{
+  "competitors": [
+    {
+      "name": "Competitor A",
+      "strengths": ["Strong brand presence", "Large following"],
+      "weaknesses": ["High prices", "Poor customer support"],
+      "pricing_strategy": "Premium",
+      "market_position": "Leader"
+    },
+    {
+      "name": "Competitor B",
+      "strengths": ["Low prices", "Wide selection"],
+      "weaknesses": ["Low quality", "No updates"],
+      "pricing_strategy": "Budget",
+      "market_position": "Challenger"
+    }
+  ],
+  "market_gaps": [
+    "No comprehensive 2026-specific guide",
+    "Missing TikTok strategy",
+    "Lack of template resources"
+  ],
+  "our_advantages": [
+    "Most up-to-date content",
+    "Complete platform coverage",
+    "Bonus templates included",
+    "Commercial license"
+  ],
+  "recommendation": "Focus on 2026-specific strategies and TikTok coverage to differentiate from competitors"
+}

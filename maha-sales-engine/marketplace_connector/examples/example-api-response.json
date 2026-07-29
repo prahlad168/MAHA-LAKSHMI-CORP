@@ -1,0 +1,10 @@
+{
+  "publication_id": "pub-1785204984853-abc123",
+  "success": true,
+  "status": "published",
+  "marketplace_product_id": "gumroad-abc123",
+  "marketplace_url": "https://gumroad.com/l/abc123",
+  "message": "Publication successful",
+  "stages_completed": 11,
+  "duration_seconds": 12.5
+}
