@@ -6,25 +6,20 @@ Production-ready application startup with all modules.
 
 import os
 import sys
-import json
 import time
 import signal
-import logging
-import threading
 import uvicorn
 from pathlib import Path
-from typing import Dict, Any, Optional
 from datetime import datetime
 
 sys.path.insert(0, str(Path(__file__).parent))
 
 from shared.core_engine import CoreEngine, get_engine
 from shared.logging_utils import logging_manager, get_logger
-from shared.health import health_monitor, get_health_monitor, DatabaseHealthChecker
+from shared.health import health_monitor, DatabaseHealthChecker
 from shared.database import DatabaseManager
 from shared.auth import AuthManager
 from shared.cache import CacheManager
-from shared.utils import FileUtils, TimeUtils
 
 logger = get_logger("main")
 
@@ -38,6 +33,7 @@ class Application:
         self.cache = None
         self.auth = None
         self.running = False
+        self.business_pipeline = None
         
     def initialize(self):
         """Initialize all components"""
@@ -86,6 +82,15 @@ class Application:
             self.engine.register_module("database", self.db)
             self.engine.register_module("cache", self.cache)
             self.engine.register_module("auth", self.auth)
+            
+            # Initialize business pipeline
+            try:
+                from business.pipeline.engine import BusinessPipeline
+                self.business_pipeline = BusinessPipeline(Path(__file__).parent)
+                self.business_pipeline.start()
+                logger.info("Business Pipeline started")
+            except Exception as e:
+                logger.warning(f"Business Pipeline not started: {e}")
             
             logger.info("All modules registered")
             logger.info("=" * 60)
@@ -137,6 +142,9 @@ class Application:
         """Stop the application gracefully"""
         logger.info("Shutting down application...")
         self.running = False
+        
+        if self.business_pipeline:
+            self.business_pipeline.stop()
         
         if self.engine:
             self.engine.stop()

@@ -1,0 +1,14 @@
+{
+  "id": "evt-abc123",
+  "type": "purchase",
+  "created_at": "2024-01-15T10:30:00Z",
+  "product_id": "gumroad-abc123",
+  "product_name": "Premium Digital Marketing Toolkit",
+  "price": 49.99,
+  "currency": "USD",
+  "email": "customer@example.com",
+  "license_key": "LICENSE-ABC123",
+  "downloads_remaining": 5,
+  "refunded": false,
+  "chargebacked": false
+}

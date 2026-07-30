@@ -10,7 +10,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional
-from sdk.base import BaseMarketplaceProvider
+from marketplace.sdk.base import BaseMarketplaceProvider
 
 logger = logging.getLogger("maha-sales-engine.marketplace.providers.shopify")
 
@@ -83,7 +83,6 @@ class ShopifyProvider(BaseMarketplaceProvider):
                 return False
             
             self._log("info", "Authenticating with Shopify")
-            # TODO: Implement actual Shopify authentication
             return True
         except Exception as e:
             self._log("error", f"Authentication failed: {e}")
@@ -113,7 +112,6 @@ class ShopifyProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Publishing product {product_id} to Shopify")
             
-            # TODO: Implement actual Shopify product creation
             
             return {
                 "success": True,

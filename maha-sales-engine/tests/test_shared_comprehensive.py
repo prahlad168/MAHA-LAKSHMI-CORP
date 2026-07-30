@@ -26,7 +26,10 @@ def temp_dir():
     """Create temporary directory for each test"""
     temp_dir = tempfile.mkdtemp()
     yield Path(temp_dir)
-    shutil.rmtree(temp_dir)
+    try:
+        shutil.rmtree(temp_dir, ignore_errors=True)
+    except:
+        pass
 
 
 @pytest.fixture(scope="function")
@@ -34,7 +37,12 @@ def db_manager(temp_dir):
     """Create database manager for each test"""
     from shared.database import DatabaseManager
     db_path = temp_dir / "test.db"
-    return DatabaseManager(db_path)
+    db = DatabaseManager(db_path)
+    yield db
+    try:
+        db.close()
+    except:
+        pass
 
 
 @pytest.fixture

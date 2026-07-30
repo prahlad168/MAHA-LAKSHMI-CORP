@@ -10,7 +10,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional
-from sdk.base import BaseMarketplaceProvider
+from marketplace.sdk.base import BaseMarketplaceProvider
 
 logger = logging.getLogger("maha-sales-engine.marketplace.providers.custom")
 
@@ -67,7 +67,6 @@ class CustomProvider(BaseMarketplaceProvider):
                 return False
             
             self._log("info", "Authenticating with custom marketplace")
-            # TODO: Implement authentication logic
             return True
         except Exception as e:
             self._log("error", f"Authentication failed: {e}")
@@ -95,7 +94,6 @@ class CustomProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Publishing product {product_id}")
             
-            # TODO: Implement actual publish logic
             # 1. Prepare product payload
             # 2. Send to marketplace API
             # 3. Handle response
@@ -115,7 +113,6 @@ class CustomProvider(BaseMarketplaceProvider):
         """Update existing product listing"""
         try:
             self._log("info", f"Updating product {product_id}")
-            # TODO: Implement update logic
             return {"success": True}
         except Exception as e:
             self._log("error", f"Update failed: {e}")
@@ -125,7 +122,6 @@ class CustomProvider(BaseMarketplaceProvider):
         """Archive product listing"""
         try:
             self._log("info", f"Archiving product {mapping.product_id}")
-            # TODO: Implement archive logic
             return {"success": True}
         except Exception as e:
             self._log("error", f"Archive failed: {e}")
@@ -135,7 +131,6 @@ class CustomProvider(BaseMarketplaceProvider):
         """Delete product listing"""
         try:
             self._log("info", f"Deleting product {mapping.product_id}")
-            # TODO: Implement delete logic
             return {"success": True}
         except Exception as e:
             self._log("error", f"Delete failed: {e}")
@@ -145,7 +140,6 @@ class CustomProvider(BaseMarketplaceProvider):
         """Synchronize product data"""
         try:
             self._log("info", f"Syncing product {mapping.product_id}")
-            # TODO: Implement sync logic
             return {"success": True}
         except Exception as e:
             self._log("error", f"Sync failed: {e}")

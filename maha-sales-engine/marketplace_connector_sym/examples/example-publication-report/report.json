@@ -1,0 +1,28 @@
+{
+  "report_id": "rpt-1785204984853",
+  "publication_id": "pub-1785204984853-abc123",
+  "product_id": "prod-001",
+  "provider": "gumroad",
+  "status": "published",
+  "marketplace_product_id": "gumroad-abc123",
+  "marketplace_url": "https://gumroad.com/l/abc123",
+  "stages_completed": [
+    "load",
+    "validate_structure",
+    "validate_files",
+    "validate_metadata",
+    "build_payload",
+    "upload_product",
+    "upload_thumbnail",
+    "create_listing",
+    "publish",
+    "store_ids",
+    "generate_report"
+  ],
+  "published_at": "2024-01-15T10:30:00Z",
+  "duration_seconds": 12.5,
+  "file_size_mb": 15.2,
+  "retry_count": 0,
+  "errors": [],
+  "warnings": []
+}

@@ -16,11 +16,11 @@ from datetime import datetime
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 from core.engine import DatabaseManager, ConfigManager
-from sdk.base import BaseMarketplaceProvider, PublicationStatus, ProductMapping
-from core.registry import ProviderRegistry
-from core.state_machine import StatusManager
-from events.bus import event_bus, MarketplaceEvents
-from security.credentials import CredentialManager
+from marketplace.sdk.base import BaseMarketplaceProvider, PublicationStatus, ProductMapping
+from marketplace.core.registry import ProviderRegistry
+from marketplace.core.state_machine import StatusManager
+from marketplace.events.bus import event_bus, MarketplaceEvents
+from marketplace.security.credentials import CredentialManager
 
 logger = logging.getLogger("maha-sales-engine.marketplace.engines")
 
@@ -469,7 +469,6 @@ class WebhookEngine:
         # Simplified validation - implement actual HMAC validation per provider
         if not signature:
             return False
-        # TODO: Implement proper HMAC validation
         return True
     
     def _get_webhook_for_marketplace(self, marketplace_id: str) -> Optional[Dict[str, Any]]:

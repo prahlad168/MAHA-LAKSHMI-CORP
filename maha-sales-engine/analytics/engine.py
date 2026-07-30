@@ -217,14 +217,9 @@ def main():
     
     # Get today's metrics
     today = analytics.get_today_metrics()
-    print(f"\nToday's Metrics:")
-    print(f"  Leads: {today.leads_generated}")
-    print(f"  Outreach: {today.outreach_sent}")
-    print(f"  Revenue: ${today.revenue_usd:.2f}")
     
     # Get dashboard summary
     summary = analytics.get_dashboard_summary()
-    print(f"\nDashboard Summary generated at: {summary['timestamp']}")
     
     db.close()
 

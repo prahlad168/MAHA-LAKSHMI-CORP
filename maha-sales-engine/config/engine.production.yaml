@@ -1,0 +1,87 @@
+# Production Configuration Template
+# Copy to config/engine.production.yaml and configure
+
+engine:
+  name: "MAHA Sales Engine V1"
+  version: "1.0.0"
+  node_id: "production-node-1"
+  environment: "production"
+  debug: false
+  workers: 4
+
+database:
+  url: "postgresql://maha:maha123@postgres:5432/maha_sales"
+  pool_size: 20
+  max_overflow: 30
+  pool_timeout: 30
+  pool_recycle: 3600
+  echo: false
+
+redis:
+  url: "redis://redis:6379/0"
+  max_connections: 100
+  socket_timeout: 10
+  socket_connect_timeout: 10
+  retry_on_timeout: true
+
+logging:
+  level: "INFO"
+  format: "json"
+  max_size_mb: 100
+  backup_count: 20
+  file_path: "/app/logs/maha-engine.log"
+
+security:
+  secret_key: "${MAHA_SECRET_KEY}"
+  encryption_key: "${MAHA_ENCRYPTION_KEY}"
+  algorithm: "HS256"
+  token_expiry: 3600
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  workers: 4
+  timeout: 30
+  cors_origins: ["*"]
+  rate_limit: 100
+
+monitoring:
+  prometheus_port: 9090
+  grafana_port: 3000
+  metrics_retention_days: 30
+  health_check_interval: 30
+
+channels:
+  email:
+    enabled: true
+    smtp_host: "smtp.gmail.com"
+    smtp_port: 587
+    use_tls: true
+    max_per_day: 100
+  whatsapp:
+    enabled: true
+    max_per_day: 50
+  linkedin:
+    enabled: true
+    max_per_day: 30
+
+marketplaces:
+  gumroad:
+    enabled: true
+  shopify:
+    enabled: true
+  etsy:
+    enabled: false
+
+ai:
+  enabled: true
+  model: "gpt-4"
+  temperature: 0.7
+  max_tokens: 2000
+
+features:
+  metrics: true
+  audit: true
+  mission_control: true
+  sales_automation: true
+  product_factory: true

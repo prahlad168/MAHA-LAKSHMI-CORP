@@ -14,13 +14,13 @@ import sys
 sys.path.insert(0, str(Path(__file__).parent.parent.parent.parent))
 
 from core.engine import ConfigManager, DatabaseManager
-from sdk.base import BaseMarketplaceProvider, PublicationStatus, ProductMapping, MarketplaceConfig
-from core.registry import ProviderRegistry
+from marketplace.sdk.base import BaseMarketplaceProvider, PublicationStatus, ProductMapping, MarketplaceConfig
+from marketplace.core.registry import ProviderRegistry
 from core.state_machine import StatusManager
-from security.credentials import CredentialManager
-from engines.publishing import PublishingEngine, SynchronizationEngine
-from events.bus import event_bus, MarketplaceEvents
-from queue.manager import JobQueue, RetryManager
+from marketplace.security.credentials import CredentialManager
+from marketplace.engines.publishing import PublishingEngine, SynchronizationEngine
+from marketplace.events.bus import event_bus, MarketplaceEvents
+from marketplace.queue.manager import JobQueue, RetryManager
 
 app = FastAPI(
     title="MAHA Sales Engine - Marketplace Platform API",
@@ -390,7 +390,7 @@ async def queue_stats():
 @app.post("/api/v1/webhooks/{marketplace_id}")
 async def receive_webhook(marketplace_id: str, payload: Dict[str, Any], signature: str = ""):
     """Receive webhook from marketplace"""
-    from engines.publishing import WebhookEngine
+    from marketplace.engines.publishing import WebhookEngine
     webhook_engine = WebhookEngine(DB, event_bus)
     
     result = await webhook_engine.process_webhook(marketplace_id, payload, signature)
@@ -402,7 +402,7 @@ async def receive_webhook(marketplace_id: str, payload: Dict[str, Any], signatur
 @app.post("/api/v1/webhooks/{marketplace_id}/register")
 async def register_webhook(marketplace_id: str, webhook_url: str, events: List[str], secret: str = ""):
     """Register webhook endpoint"""
-    from engines.publishing import WebhookEngine
+    from marketplace.engines.publishing import WebhookEngine
     webhook_engine = WebhookEngine(DB, event_bus)
     
     success = webhook_engine.register_webhook(marketplace_id, webhook_url, events, secret)

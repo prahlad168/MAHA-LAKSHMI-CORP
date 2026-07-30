@@ -1,0 +1,43 @@
+{
+  "hero_headline": "Master Social Media Marketing in 2026",
+  "hero_subheadline": "The proven framework used by top brands to drive engagement and sales",
+  "features": [
+    {
+      "title": "Instagram Reels Mastery",
+      "description": "Learn the exact strategies to go viral and build a loyal following"
+    },
+    {
+      "title": "TikTok Business Strategy",
+      "description": "Convert TikTok viewers into customers with proven techniques"
+    },
+    {
+      "title": "Facebook Engagement",
+      "description": "Build communities that drive real business results"
+    }
+  ],
+  "benefits": [
+    "Increase engagement by 300%",
+    "Grow followers organically",
+    "Convert followers to customers",
+    "Save time with content templates"
+  ],
+  "social_proof": [
+    "Join 5,000+ marketers who transformed their social media",
+    "Rated 4.9/5 by 500+ reviews"
+  ],
+  "faq": [
+    {
+      "question": "Do I need prior marketing experience?",
+      "answer": "No, this guide is suitable for beginners and experienced marketers alike."
+    },
+    {
+      "question": "How long will it take to see results?",
+      "answer": "Most students see improvements within 2-4 weeks of implementing these strategies."
+    }
+  ],
+  "cta": {
+    "headline": "Start Mastering Social Media Today",
+    "button_text": "Get Instant Access",
+    "button_url": "/checkout"
+  }
+}

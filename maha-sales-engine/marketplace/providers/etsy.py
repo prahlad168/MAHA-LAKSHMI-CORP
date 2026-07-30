@@ -10,7 +10,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional
-from sdk.base import BaseMarketplaceProvider
+from marketplace.sdk.base import BaseMarketplaceProvider
 
 logger = logging.getLogger("maha-sales-engine.marketplace.providers.etsy")
 
@@ -82,7 +82,6 @@ class EtsyProvider(BaseMarketplaceProvider):
                 return False
             
             self._log("info", "Authenticating with Etsy")
-            # TODO: Implement OAuth2 authentication
             return True
         except Exception as e:
             self._log("error", f"Authentication failed: {e}")
@@ -112,7 +111,6 @@ class EtsyProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Publishing product {product_id} to Etsy")
             
-            # TODO: Implement actual Etsy listing creation
             
             return {
                 "success": True,

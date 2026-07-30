@@ -1,0 +1,213 @@
+version: '3.8'
+
+services:
+  api-gateway:
+    image: maha-sales-engine:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+      - REDIS_URL=redis://redis:6379/0
+      - MAHA_SECRET_KEY=${MAHA_SECRET_KEY}
+      - MAHA_ENCRYPTION_KEY=${MAHA_ENCRYPTION_KEY}
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./config:/app/config
+    depends_on:
+      - redis
+      - postgres
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from deploy.health import check_health; import json; result = check_health(); print(json.dumps(result)); exit(0 if result.get('status') == 'healthy' else 1)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    deploy:
+      replicas: 2
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 512M
+    networks:
+      - maha-network
+
+  product-factory:
+    image: maha-sales-engine:latest
+    ports:
+      - "8001:8001"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+    volumes:
+      - ./product-factory/output:/app/product-factory/output
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from product_factory.core.factory import ProductFactory; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - maha-network
+
+  marketplace:
+    image: maha-sales-engine:latest
+    ports:
+      - "8002:8002"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: always
+    networks:
+      - maha-network
+
+  marketing:
+    image: maha-sales-engine:latest
+    ports:
+      - "8003:8003"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: always
+    networks:
+      - maha-network
+
+  sales-automation:
+    image: maha-sales-engine:latest
+    ports:
+      - "8004:8004"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+      - REDIS_URL=redis://redis:6379/0
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    depends_on:
+      - redis
+      - postgres
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from sales_automation.core.engine import AutomationCore; print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - maha-network
+
+  commerce:
+    image: maha-sales-engine:latest
+    ports:
+      - "8005:8005"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    depends_on:
+      - redis
+      - postgres
+    restart: always
+    networks:
+      - maha-network
+
+  mission-control:
+    image: maha-sales-engine:latest
+    ports:
+      - "8006:8006"
+    environment:
+      - MAHA_ENV=production
+      - MAHA_CONFIG_PATH=/app/config/engine.production.yaml
+      - DATABASE_URL=postgresql://maha:maha123@postgres:5432/maha_sales
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: always
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.path.insert(0, '/app'); from mission_control.core.mission_controller import MissionController; mc = MissionController(); print('OK')"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - maha-network
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    restart: always
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD:-}
+    networks:
+      - maha-network
+
+  postgres:
+    image: postgres:15-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=maha
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-maha123}
+      - POSTGRES_DB=maha_sales
+      - POSTGRES_INITDB_ARGS=--encoding=UTF8 --locale=C
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./deploy/migrations/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    networks:
+      - maha-network
+
+  prometheus:
+    image: prom/prometheus:latest
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    restart: always
+    networks:
+      - maha-network
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-data:/var/lib/grafana
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+      - GF_INSTALL_PLUGINS=redis-datasource
+    restart: always
+    networks:
+      - maha-network
+
+volumes:
+  redis-data:
+  postgres-data:
+  prometheus-data:
+  grafana-data:
+
+networks:
+  maha-network:
+    driver: bridge

@@ -9,9 +9,10 @@ import sys
 import json
 import importlib
 import inspect
+import logging
 from pathlib import Path
 from typing import Dict, Any, Optional, List, Type
-from sdk.base import BaseMarketplaceProvider, AuthType
+from marketplace.sdk.base import BaseMarketplaceProvider, AuthType
 
 logger = logging.getLogger("maha-sales-engine.marketplace.registry")
 
@@ -111,6 +112,10 @@ class ProviderRegistry:
                 "module": metadata.module
             })
         return result
+    
+    def get_registered_providers(self) -> List[str]:
+        """Get list of registered provider names"""
+        return list(self._providers.keys())
     
     def get_capabilities(self, provider_name: str) -> List[str]:
         """Get capabilities for a provider"""

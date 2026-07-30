@@ -14,6 +14,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from queue import PriorityQueue, Empty
 from enum import Enum
+from collections import defaultdict
 
 logger = logging.getLogger("maha-sales-engine.marketplace.queue")
 

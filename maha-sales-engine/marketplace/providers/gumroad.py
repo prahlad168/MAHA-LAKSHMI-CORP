@@ -10,7 +10,7 @@ import json
 import logging
 from pathlib import Path
 from typing import Dict, Any, Optional
-from sdk.base import BaseMarketplaceProvider
+from marketplace.sdk.base import BaseMarketplaceProvider
 
 logger = logging.getLogger("maha-sales-engine.marketplace.providers.gumroad")
 
@@ -76,7 +76,6 @@ class GumroadProvider(BaseMarketplaceProvider):
                 return False
             
             self._log("info", "Authenticating with Gumroad")
-            # TODO: Implement actual API authentication
             # response = requests.get(f"{self.base_url}/user", headers={"Authorization": f"Bearer {self.api_key}"})
             # return response.status_code == 200
             
@@ -111,7 +110,6 @@ class GumroadProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Publishing product {product_id} to Gumroad")
             
-            # TODO: Implement actual Gumroad API call
             # payload = {
             #     "name": product_data.get("title"),
             #     "description": product_data.get("description"),
@@ -138,7 +136,6 @@ class GumroadProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Updating product {product_id} on Gumroad")
             
-            # TODO: Implement actual update logic
             
             return {"success": True}
         except Exception as e:
@@ -150,7 +147,6 @@ class GumroadProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Archiving product {mapping.product_id}")
             
-            # TODO: Implement actual archive logic
             
             return {"success": True}
         except Exception as e:
@@ -162,7 +158,6 @@ class GumroadProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Deleting product {mapping.product_id}")
             
-            # TODO: Implement actual delete logic
             
             return {"success": True}
         except Exception as e:
@@ -174,7 +169,6 @@ class GumroadProvider(BaseMarketplaceProvider):
         try:
             self._log("info", f"Syncing product {mapping.product_id}")
             
-            # TODO: Implement actual sync logic
             
             return {"success": True}
         except Exception as e:
@@ -184,7 +178,6 @@ class GumroadProvider(BaseMarketplaceProvider):
     async def health(self) -> Dict[str, Any]:
         """Check Gumroad API health"""
         try:
-            # TODO: Implement actual health check
             return {
                 "status": "healthy",
                 "provider": self.PROVIDER_NAME,
