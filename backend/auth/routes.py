@@ -14,6 +14,7 @@ import hmac
 import json
 import logging
 from pathlib import Path
+import pyotp
 
 from backend.db.connection import get_db, execute_query, execute_many
 from backend.shared.security import hash_password, verify_password, generate_jwt_token, verify_jwt_token, create_csrf_token, verify_csrf_token

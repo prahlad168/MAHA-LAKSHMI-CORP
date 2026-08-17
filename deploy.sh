@@ -1,110 +1,96 @@
 #!/bin/bash
-# MAHA LAKSHMI CORP - Deployment Script for mahalaksmi.web.id
-# This script helps deploy the application to hosting
-
+# MAHA LAKSHMI CORP - Production Deployment Script
 set -e
 
-echo "👑 MAHA LAKSHMI CORP - Deployment Script"
-echo "========================================"
+echo "============================================================"
+echo "MAHA LAKSHMI CORP - Production Deployment"
+echo "============================================================"
 echo ""
 
-# Check if we're in the right directory
+# Check if running from project root
 if [ ! -f "backend/main.py" ]; then
-    echo "❌ Error: Please run this script from the MAHA-LAKSHMI-CORP directory"
+    echo "ERROR: Please run this script from the project root directory"
     exit 1
 fi
 
-echo "✅ Verified: Running from MAHA-LAKSHMI-CORP directory"
-echo ""
-
-# 1. Git operations
-echo "📦 Step 1: Preparing git commit..."
-git add -A
-
-# Check if there are changes to commit
-if git diff --cached --quiet; then
-    echo "✅ No changes to commit"
-else
-    echo "📝 Committing changes..."
-    git commit -m "feat: prepare for deployment - Sprint 3 complete
-
-- Add production deployment configs
-- Update Dockerfile for FastAPI backend
-- Add environment configuration
-- Fix CORS and security headers
-- 41 tests passing"
-    echo "✅ Changes committed"
+# Check Python
+if ! command -v python3 &> /dev/null; then
+    echo "ERROR: python3 not found"
+    exit 1
 fi
 
-echo ""
+echo "[1/5] Checking environment..."
 
-# 2. Push to GitHub
-echo "🚀 Step 2: Pushing to GitHub..."
-echo "Remote: $(git remote get-url origin)"
-echo ""
+# Check if .env exists
+if [ ! -f ".env" ]; then
+    echo "WARNING: .env not found. Copying from deployment/.env.production..."
+    cp deployment/.env.production .env
+    echo "IMPORTANT: Edit .env and set JWT_SECRET_KEY and other production values!"
+fi
 
-# Try SSH first, then HTTPS
-if git push origin main; then
-    echo "✅ Successfully pushed to GitHub via SSH"
-elif git push https://github.com/prahlad168/MAHA-LAKSHMI-CORP.git main; then
-    echo "✅ Successfully pushed to GitHub via HTTPS"
-else
-    echo "⚠️  Push failed. Please push manually:"
-    echo "   git push origin main"
+# Generate JWT secret if using default
+if grep -q "change-me-to-a-random-secret-key" .env; then
+    echo "Generating secure JWT_SECRET_KEY..."
+    NEW_SECRET=$(python3 -c "import secrets; print(secrets.token_urlsafe(32))")
+    sed -i.bak "s/change-me-to-a-random-secret-key-in-production/$NEW_SECRET/" .env
+    rm -f .env.bak
+    echo "JWT_SECRET_KEY generated and saved to .env"
+fi
+
+echo "[2/5] Installing dependencies..."
+cd backend
+pip3 install -r requirements.txt -q
+cd ..
+
+echo "[3/5] Initializing database..."
+python3 -c "from backend.db.connection import init_db; init_db()"
+echo "Database initialized"
+
+echo "[4/5] Creating logs directory..."
+mkdir -p logs
+echo "Logs directory created"
+
+echo "[5/5] Starting production server..."
+echo ""
+echo "============================================================"
+echo "Starting server..."
+echo "============================================================"
+
+# Kill any existing process on port 8000
+EXISTING_PID=$(lsof -ti :8000 2>/dev/null || true)
+if [ -n "$EXISTING_PID" ]; then
+    echo "Killing existing process on port 8000 (PID: $EXISTING_PID)"
+    kill -9 $EXISTING_PID 2>/dev/null || true
+    sleep 1
+fi
+
+# Start server
+python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --log-level info &
+SERVER_PID=$!
+
+sleep 4
+
+# Verify server is running
+if curl -s http://127.0.0.1:8000/health > /dev/null; then
     echo ""
-    echo "   Or use GitHub web interface to upload files"
+    echo "============================================================"
+    echo "Server started successfully!"
+    echo "============================================================"
+    echo "  API Docs: http://localhost:8000/api/docs"
+    echo "  Health:   http://localhost:8000/health"
+    echo "  Login:    http://localhost:8000/login/"
+    echo "  Dashboard: http://localhost:8000/dashboard/"
+    echo "  Public:   http://localhost:8000/public/"
+    echo ""
+    echo "Server PID: $SERVER_PID"
+    echo "Logs: logs/server.log, logs/server-error.log"
+    echo ""
+    echo "Next steps:"
+    echo "  1. Configure nginx reverse proxy"
+    echo "  2. Setup SSL with Let's Encrypt"
+    echo "  3. Point domain mahalaksmi.web.id to this server"
+    echo "============================================================"
+else
+    echo "ERROR: Server failed to start. Check logs/server-error.log"
+    exit 1
 fi
-
-echo ""
-echo "========================================"
-echo "📋 Deployment Options for mahalaksmi.web.id"
-echo "========================================"
-echo ""
-echo "Option A: Render (Recommended - Free Tier)"
-echo "----------------------------------------"
-echo "1. Go to https://dashboard.render.com"
-echo "2. Click 'New' → 'Web Service'"
-echo "3. Connect repo: prahlad168/MAHA-LAKSHMI-CORP"
-echo "4. Settings:"
-echo "   - Name: maha-lakshmi-api"
-echo "   - Region: Singapore"
-echo "   - Plan: Free"
-echo "   - Dockerfile Path: ./Dockerfile"
-echo "   - Health Check: /health"
-echo "5. Add Environment Variables:"
-echo "   - JWT_SECRET_KEY: (auto-generate or your secret)"
-echo "   - CORS_ORIGINS: https://mahalaksmi.web.id,https://www.mahalaksmi.web.id"
-echo "   - LOG_LEVEL: INFO"
-echo "6. Click 'Create Web Service'"
-echo ""
-echo "Option B: Fly.io (Free Tier)"
-echo "---------------------------"
-echo "1. Install flyctl: curl -L https://fly.io/install.sh | sh"
-echo "2. Run: fly auth login"
-echo "3. Run: fly launch"
-echo "4. Run: fly deploy"
-echo ""
-echo "Option C: Manual VPS/Shared Hosting"
-echo "-----------------------------------"
-echo "1. Upload files to hosting"
-echo "2. Install dependencies: pip install -r requirements.txt"
-echo "3. Run: python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000"
-echo "4. Configure reverse proxy (nginx) for domain"
-echo ""
-echo "========================================"
-echo "🌐 After Deployment"
-echo "========================================"
-echo ""
-echo "1. Update DNS:"
-echo "   - A record: @ → your-server-ip"
-echo "   - CNAME: www → your-server-ip"
-echo ""
-echo "2. Verify:"
-echo "   - https://mahalaksmi.web.id/health"
-echo "   - https://mahalaksmi.web.id/api/docs"
-echo ""
-echo "3. Configure SSL:"
-echo "   - Let's Encrypt / Certbot"
-echo "   - Or use platform-provided SSL"
-echo ""
-echo "✅ Deployment script complete!"

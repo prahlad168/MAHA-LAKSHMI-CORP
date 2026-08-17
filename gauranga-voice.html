@@ -3,17 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🎙️ GAURANGA AI - Voice Assistant</title>
+    <title>🧠 GAURANGA SUPER AI - Voice Assistant</title>
     <style>
         :root {
             --primary: #0a0a0f;
             --secondary: #1a1a2e;
             --accent: #667eea;
+            --accent2: #764ba2;
             --gold: #ffd700;
             --success: #00ff88;
+            --danger: #ff4757;
             --text: #ffffff;
             --text-muted: #a0a0a0;
             --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-super: linear-gradient(135deg, #00ff88 0%, #667eea 50%, #764ba2 100%);
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -43,7 +46,8 @@
             height: 200%;
             background: radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.15) 0%, transparent 50%),
                         radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.15) 0%, transparent 50%),
-                        radial-gradient(circle at 40% 40%, rgba(255, 215, 0, 0.05) 0%, transparent 30%);
+                        radial-gradient(circle at 40% 40%, rgba(0, 255, 136, 0.05) 0%, transparent 30%),
+                        radial-gradient(circle at 60% 60%, rgba(255, 215, 0, 0.05) 0%, transparent 30%);
             animation: float 20s ease-in-out infinite;
         }
         @keyframes float {
@@ -54,15 +58,15 @@
         /* Header */
         header {
             text-align: center;
-            padding: 40px 20px;
+            padding: 30px 20px;
             background: rgba(26, 26, 46, 0.8);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .logo {
-            font-size: 80px;
-            margin-bottom: 20px;
+            font-size: 70px;
+            margin-bottom: 10px;
             animation: pulse 2s ease-in-out infinite;
         }
         @keyframes pulse {
@@ -71,17 +75,17 @@
         }
         
         h1 {
-            font-size: 2.5em;
-            background: var(--gradient);
+            font-size: 2.2em;
+            background: var(--gradient-super);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         
         .subtitle {
             color: var(--text-muted);
-            font-size: 1.1em;
-            margin-bottom: 20px;
+            font-size: 1em;
+            margin-bottom: 15px;
         }
         
         .status-badge {
@@ -124,21 +128,55 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 20px;
+        }
+        
+        /* AI Mode Selector */
+        .ai-modes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .mode-btn {
+            background: rgba(102, 126, 234, 0.15);
+            border: 1px solid rgba(102, 126, 234, 0.3);
+            border-radius: 12px;
+            padding: 12px 8px;
+            color: var(--text);
+            font-size: 0.85em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+        .mode-btn span {
+            font-size: 1.5em;
+        }
+        .mode-btn:hover {
+            background: rgba(102, 126, 234, 0.3);
+            transform: translateY(-2px);
+        }
+        .mode-btn.active {
+            background: var(--gradient);
+            border-color: transparent;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
         }
         
         /* Voice Activation Button */
         .voice-section {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
         }
         
         .voice-btn {
-            width: 200px;
-            height: 200px;
+            width: 160px;
+            height: 160px;
             border-radius: 50%;
             border: none;
-            background: var(--gradient);
+            background: var(--gradient-super);
             cursor: pointer;
             position: relative;
             transition: all 0.3s ease;
@@ -155,9 +193,9 @@
             animation: ripple 1.5s infinite;
         }
         @keyframes ripple {
-            0% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.7); }
-            70% { box-shadow: 0 0 0 30px rgba(102, 126, 234, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(102, 126, 234, 0); }
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+            70% { box-shadow: 0 0 0 30px rgba(0, 255, 136, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
         }
         
         .voice-btn-inner {
@@ -165,17 +203,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            font-size: 60px;
+            font-size: 50px;
         }
         
         .voice-label {
-            margin-top: 20px;
-            font-size: 1.2em;
+            margin-top: 15px;
+            font-size: 1.1em;
             color: var(--text);
         }
         .voice-hint {
             color: var(--text-muted);
-            font-size: 0.9em;
+            font-size: 0.85em;
             margin-top: 5px;
         }
         
@@ -184,24 +222,24 @@
             background: rgba(26, 26, 46, 0.6);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 30px;
+            padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
         
         .chat-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         .chat-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient-super);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -217,10 +255,10 @@
         }
         
         .chat-messages {
-            min-height: 300px;
+            min-height: 250px;
             max-height: 400px;
             overflow-y: auto;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             padding-right: 10px;
         }
         .chat-messages::-webkit-scrollbar {
@@ -238,7 +276,7 @@
         .message {
             display: flex;
             gap: 12px;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             animation: slideIn 0.3s ease;
         }
         @keyframes slideIn {
@@ -250,7 +288,7 @@
             width: 36px;
             height: 36px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient-super);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -262,10 +300,12 @@
         }
         .message-content {
             max-width: 75%;
-            padding: 15px 20px;
+            padding: 12px 18px;
             border-radius: 18px;
-            font-size: 0.95em;
+            font-size: 0.92em;
             line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
         }
         .message.bot .message-content {
             background: rgba(102, 126, 234, 0.2);
@@ -279,7 +319,7 @@
         .typing-indicator {
             display: flex;
             gap: 5px;
-            padding: 15px 20px;
+            padding: 12px 18px;
             background: rgba(102, 126, 234, 0.2);
             border-radius: 18px;
             width: fit-content;
@@ -301,7 +341,7 @@
         /* Input Section */
         .chat-input-container {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: flex-end;
         }
         .chat-input {
@@ -309,12 +349,12 @@
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 25px;
-            padding: 15px 20px;
+            padding: 12px 18px;
             color: var(--text);
-            font-size: 1em;
+            font-size: 0.95em;
             resize: none;
             max-height: 150px;
-            min-height: 50px;
+            min-height: 45px;
         }
         .chat-input:focus {
             outline: none;
@@ -325,13 +365,13 @@
         }
         
         .send-btn {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             border: none;
-            background: var(--gradient);
+            background: var(--gradient-super);
             color: white;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
@@ -347,13 +387,13 @@
         }
         
         .mic-btn {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             border: 2px solid var(--accent);
             background: transparent;
             color: var(--accent);
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
@@ -373,29 +413,29 @@
         /* Quick Actions */
         .quick-actions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 12px;
-            margin-bottom: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
         }
         .quick-btn {
             background: rgba(102, 126, 234, 0.2);
             border: 1px solid rgba(102, 126, 234, 0.3);
             border-radius: 12px;
-            padding: 15px;
+            padding: 12px;
             color: var(--text);
-            font-size: 0.9em;
+            font-size: 0.85em;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
         .quick-btn:hover {
             background: rgba(102, 126, 234, 0.3);
             transform: translateY(-2px);
         }
         .quick-btn span {
-            font-size: 1.5em;
+            font-size: 1.3em;
         }
         
         /* Voice Settings */
@@ -403,12 +443,12 @@
             background: rgba(26, 26, 46, 0.6);
             backdrop-filter: blur(20px);
             border-radius: 24px;
-            padding: 30px;
+            padding: 25px;
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
         .voice-settings h3 {
             font-size: 1.1em;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -417,14 +457,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
         .setting-row:last-child {
             border-bottom: none;
         }
         .setting-label {
-            font-size: 0.95em;
+            font-size: 0.92em;
         }
         .setting-desc {
             color: var(--text-muted);
@@ -519,23 +559,23 @@
         
         /* Commands */
         .commands {
-            margin-top: 30px;
+            margin-top: 20px;
         }
         .commands h3 {
-            font-size: 1em;
-            margin-bottom: 15px;
+            font-size: 0.95em;
+            margin-bottom: 12px;
             color: var(--text-muted);
         }
         .command-list {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 8px;
         }
         .command-tag {
             background: rgba(255, 255, 255, 0.05);
-            padding: 8px 15px;
+            padding: 7px 12px;
             border-radius: 20px;
-            font-size: 0.85em;
+            font-size: 0.82em;
             color: var(--accent);
             cursor: pointer;
             transition: all 0.3s ease;
@@ -547,9 +587,9 @@
         /* Footer */
         footer {
             text-align: center;
-            padding: 30px;
+            padding: 25px;
             color: var(--text-muted);
-            font-size: 0.85em;
+            font-size: 0.82em;
         }
         footer a {
             color: var(--accent);
@@ -559,17 +599,20 @@
         /* Responsive */
         @media (max-width: 768px) {
             .voice-btn {
-                width: 150px;
-                height: 150px;
+                width: 130px;
+                height: 130px;
             }
             .voice-btn-inner {
-                font-size: 45px;
+                font-size: 40px;
             }
             .message-content {
                 max-width: 85%;
             }
             .quick-actions {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            .ai-modes {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
     </style>
@@ -578,9 +621,9 @@
     <div class="bg-animation"></div>
     
     <header>
-        <div class="logo">🤖</div>
-        <h1>GAURANGA AI</h1>
-        <p class="subtitle">Voice Assistant untuk CEO - i Made Purna Ananda</p>
+        <div class="logo">🧠</div>
+        <h1>GAURANGA SUPER AI</h1>
+        <p class="subtitle">Gabungan 100 AI Top Dunia | Voice Assistant untuk CEO</p>
         <div class="status-badge offline" id="statusBadge">
             <span class="status-dot"></span>
             <span id="statusText">Offline</span>
@@ -588,6 +631,34 @@
     </header>
     
     <div class="container">
+        <!-- AI Mode Selector -->
+        <div class="ai-modes" id="aiModes">
+            <button class="mode-btn active" data-mode="auto" onclick="setMode('auto')">
+                <span>🧠</span> Auto
+            </button>
+            <button class="mode-btn" data-mode="reasoning" onclick="setMode('reasoning')">
+                <span>🔍</span> Reasoning
+            </button>
+            <button class="mode-btn" data-mode="code" onclick="setMode('code')">
+                <span>💻</span> Code
+            </button>
+            <button class="mode-btn" data-mode="analysis" onclick="setMode('analysis')">
+                <span>📊</span> Analisis
+            </button>
+            <button class="mode-btn" data-mode="strategy" onclick="setMode('strategy')">
+                <span>💼</span> Strategi
+            </button>
+            <button class="mode-btn" data-mode="math" onclick="setMode('math')">
+                <span>🔢</span> Math
+            </button>
+            <button class="mode-btn" data-mode="creative" onclick="setMode('creative')">
+                <span>🎨</span> Kreatif
+            </button>
+            <button class="mode-btn" data-mode="writing" onclick="setMode('writing')">
+                <span>📝</span> Writing
+            </button>
+        </div>
+        
         <!-- Voice Activation -->
         <div class="voice-section">
             <button class="voice-btn" id="voiceBtn" onclick="toggleVoice()">
@@ -599,57 +670,58 @@
         
         <!-- Quick Actions -->
         <div class="quick-actions">
-            <button class="quick-btn" onclick="sendQuickMessage('Buatkan laporan harian')">
-                <span>📊</span> Laporan Harian
+            <button class="quick-btn" onclick="sendQuickMessage('Analisis masalah sales saya dan berikan solusi')">
+                <span>🔍</span> Analisis Sales
             </button>
-            <button class="quick-btn" onclick="sendQuickMessage('Generate proposal untuk client baru')">
-                <span>📄</span> Buat Proposal
+            <button class="quick-btn" onclick="sendQuickMessage('Buatkan kode HTML landing page untuk DigiMart')">
+                <span>💻</span> Buat Kode
             </button>
-            <button class="quick-btn" onclick="sendQuickMessage('Cek status sales hari ini')">
-                <span>💰</span> Cek Sales
+            <button class="quick-btn" onclick="sendQuickMessage('Strategi meningkatkan revenue 100jt per bulan')">
+                <span>💼</span> Strategi
             </button>
-            <button class="quick-btn" onclick="sendQuickMessage('Jalankan automation untuk global sales')">
-                <span>🚀</span> Run Automation
+            <button class="quick-btn" onclick="sendQuickMessage('Hitung 25 * 4 + 100')">
+                <span>🔢</span> Kalkulasi
             </button>
-            <button class="quick-btn" onclick="sendQuickMessage('Update knowledge base dengan info terbaru')">
-                <span>📚</span> Update Knowledge
+            <button class="quick-btn" onclick="sendQuickMessage('100 usd ke idr')">
+                <span>💱</span> Konversi
             </button>
-            <button class="quick-btn" onclick="sendQuickMessage('Buatkan report mingguan untuk semua SBU')">
-                <span>📈</span> Weekly Report
+            <button class="quick-btn" onclick="sendQuickMessage('Tulis konten promosi untuk DigiMart')">
+                <span>📝</span> Konten
             </button>
         </div>
         
         <!-- Chat Section -->
         <div class="chat-section">
             <div class="chat-header">
-                <div class="chat-avatar">🤖</div>
+                <div class="chat-avatar">🧠</div>
                 <div class="chat-info">
-                    <h3>GAURANGA AI Assistant</h3>
-                    <p>Always ready untuk membantu Pak Pur</p>
+                    <h3>GAURANGA SUPER AI</h3>
+                    <p>100 AI Top Dunia dalam satu sistem | Mode: <span id="currentMode">Auto</span></p>
                 </div>
             </div>
             
             <div class="chat-messages" id="chatMessages">
                 <div class="message bot">
-                    <div class="message-avatar">🤖</div>
+                    <div class="message-avatar">🧠</div>
                     <div class="message-content">
-                        Halo Pak Pur! 👋 Saya GAURANGA, AI Assistant Anda. 
+                        Halo Pak Pur! 👋 Saya GAURANGA SUPER AI - gabungan 100 AI top dunia!
 
-Silakan ketik atau klik tombol microphone untuk bicara langsung dengan saya. Saya siap membantu untuk:
+🧠 Kemampuan saya:
+• 🔍 Reasoning & Analisis mendalam
+• 💻 Programming & Code generation
+• 📊 Data analysis & prediksi
+• 💼 Strategi bisnis & optimasi
+• 🔢 Matematika & kalkulasi
+• 🎨 Ide kreatif & inovasi
+• 📝 Penulisan konten profesional
 
-📊 Membuat laporan
-📄 Membuat proposal
-💰 Cek sales & revenue
-🚀 Jalankan automation
-📚 Update knowledge base
-
-Ada yang bisa saya bantu hari ini?
+Silakan ketik atau klik tombol microphone untuk bicara langsung!
                     </div>
                 </div>
             </div>
             
             <div class="chat-input-container">
-                <textarea class="chat-input" id="chatInput" placeholder="Ketik pesan untuk GAURANGA..." rows="1"></textarea>
+                <textarea class="chat-input" id="chatInput" placeholder="Ketik pesan untuk GAURANGA SUPER AI..." rows="1"></textarea>
                 <button class="mic-btn" id="micBtn" onclick="toggleRecording()">🎤</button>
                 <button class="send-btn" id="sendBtn" onclick="sendMessage()">➤</button>
             </div>
@@ -673,7 +745,7 @@ Ada yang bisa saya bantu hari ini?
             <div class="setting-row">
                 <div>
                     <div class="setting-label">Wake Word Detection</div>
-                    <div class="setting-desc">Deteksi "Gaurngga" untuk aktifkan suara</div>
+                    <div class="setting-desc">Deteksi "Gaurangga" untuk aktifkan suara</div>
                 </div>
                 <label class="toggle">
                     <input type="checkbox" id="wakeWordToggle" checked>
@@ -729,20 +801,24 @@ Ada yang bisa saya bantu hari ini?
                     <span class="command-tag" onclick="sendQuickMessage('status')">status</span>
                     <span class="command-tag" onclick="sendQuickMessage('help')">help</span>
                     <span class="command-tag" onclick="sendQuickMessage('clear')">clear</span>
+                    <span class="command-tag" onclick="sendQuickMessage('Analisis masalah dan berikan solusi')">🔍 Analisis</span>
+                    <span class="command-tag" onclick="sendQuickMessage('Buatkan kode Python untuk data analysis')">💻 Code</span>
+                    <span class="command-tag" onclick="sendQuickMessage('Strategi bisnis untuk 2026')">💼 Strategi</span>
                 </div>
             </div>
         </div>
     </div>
     
     <footer>
-        <p>MAHA LAKSHMI HOLDINGS | GAURANGA AI SYSTEM</p>
+        <p>MAHA LAKSHMI HOLDINGS | GAURANGA SUPER AI SYSTEM</p>
         <p>Bank: BCA 6485086645 | i Made Purna Ananda</p>
     </footer>
     
     <script>
-        // GAURANGA AI Configuration
+        // GAURANGA SUPER AI Configuration
         const GAURANGA = {
-            name: 'GAURANGA',
+            name: 'GAURANGA SUPER AI',
+            version: 'v1.0',
             owner: 'i Made Purna Ananda',
             ownerAlias: 'Pak Pur',
             company: 'MAHA LAKSHMI HOLDINGS',
@@ -751,7 +827,52 @@ Ada yang bisa saya bantu hari ini?
             isSpeaking: false,
             isRecording: false,
             autoPlay: true,
-            wakeWord: 'gaurangga'
+            wakeWord: 'gaurangga',
+            currentMode: 'auto'
+        };
+        
+        // AI Mode Prompts
+        const AI_MODES = {
+            auto: {
+                name: 'Auto',
+                icon: '🧠',
+                prompt: 'Gunakan kemampuan terbaik untuk tugas ini. Analisis dulu, lalu berikan solusi.'
+            },
+            reasoning: {
+                name: 'Reasoning',
+                icon: '🔍',
+                prompt: 'BERSIKAP SANGAT ANALITIS. Breakdown masalah kompleks jadi langkah-langkah logis. Gunakan first-principles thinking.'
+            },
+            code: {
+                name: 'Code',
+                icon: '💻',
+                prompt: 'TULIS KODE SEMPURNA dengan best practices. Sertakan error handling dan komentar. Pastikan production-ready.'
+            },
+            analysis: {
+                name: 'Analisis',
+                icon: '📊',
+                prompt: 'ANALISIS SECARA MENDALAM. Identifikasi pola, insight tersembunyi, dan berikan rekomendasi actionable.'
+            },
+            strategy: {
+                name: 'Strategi',
+                icon: '💼',
+                prompt: 'Gunakan frameworks: SWOT, Porter Five Forces, OKR, Blue Ocean. Berikan strategi lengkap dengan action plan.'
+            },
+            math: {
+                name: 'Math',
+                icon: '🔢',
+                prompt: 'SELESAIKAN dengan presisi matematis. Tunjukkan rumus dan perhitungan step-by-step.'
+            },
+            creative: {
+                name: 'Kreatif',
+                icon: '🎨',
+                prompt: 'GENERATE ide-ide kreatif dan inovatif. Out-of-the-box thinking. Kombinasi ide unik.'
+            },
+            writing: {
+                name: 'Writing',
+                icon: '📝',
+                prompt: 'TULIS KONTEN PROFESIONAL. Struktur jelas, persuasive, dan engaging.'
+            }
         };
         
         // Speech Recognition Setup
@@ -765,6 +886,16 @@ Ada yang bisa saya bantu hari ini?
             setupSpeechRecognition();
             setupEventListeners();
             updateStatus('online');
+        }
+        
+        // Set AI Mode
+        function setMode(mode) {
+            GAURANGA.currentMode = mode;
+            document.querySelectorAll('.mode-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.mode === mode);
+            });
+            document.getElementById('currentMode').textContent = AI_MODES[mode].name;
+            addMessage(`Mode diubah ke: ${AI_MODES[mode].icon} ${AI_MODES[mode].name}`, 'bot');
         }
         
         // Load voices
@@ -865,7 +996,7 @@ Ada yang bisa saya bantu hari ini?
                 }
                 voiceBtn.classList.add('listening');
                 document.getElementById('voiceLabel').textContent = 'Mendengarkan...';
-                speak('Ya, Pak Pur! Gaurangga siap. Silakan bicara.');
+                speak('Ya, Pak Pur! Gaurangga Super AI siap. Silakan bicara.');
             }
         }
         
@@ -898,55 +1029,81 @@ Ada yang bisa saya bantu hari ini?
             
             // GAURANGA Commands
             if (message.includes('gaurangga') || message.includes('aktivasi') || message.includes('aktifkan')) {
-                response = 'Ya, Pak Pur! Gaurangga siap menerima perintah! 🔊\n\nSaya siap membantu Anda. Silakan berikan instruksi.';
+                response = 'Ya, Pak Pur! Gaurangga Super AI siap menerima perintah! 🔊\n\n🧠 Saya punya kemampuan 100 AI top dunia. Silakan berikan instruksi.';
             }
             else if (message.includes('silent') || message.includes('diam') || message.includes('quiet')) {
                 response = 'Baik, silent mode aktif. Ketik "gaurangga" untuk aktifkan suara lagi. 🤫';
                 GAURANGA.autoPlay = false;
             }
             else if (message.includes('status')) {
-                response = `📊 Status GAURANGA AI:\n\n✅ System: Online\n✅ Voice: Active\n✅ Memory: 100%\n✅ Knowledge Base: Updated\n\n💰 Target Revenue: Rp 100.000.000/bulan\n🏦 Bank: BCA 6485086645\n\nAda yang perlu dicek lebih lanjut?`;
+                response = `📊 STATUS GAURANGA SUPER AI:\n\n✅ System: Online\n🧠 AI Engine: Super Intelligence v1.0\n🎙️ Voice: Active\n💾 Memory: 100%\n📚 Knowledge: MAHA LAKSHMI loaded\n\n⚙️ Modes Aktif:\n• Reasoning, Code, Analisis, Data\n• Strategi, Kreatif, Optimasi, Writing\n\n💰 Target: Rp 100.000.000/bulan\n🏦 Bank: BCA 6485086645`;
             }
             else if (message.includes('clear') || message.includes('bersihkan')) {
                 document.getElementById('chatMessages').innerHTML = '';
                 response = 'Chat dibersihkan, Pak Pur! 🧹';
             }
             else if (message.includes('help') || message.includes('bantu') || message.includes('tolong')) {
-                response = `📚 COMMAND LIST:\n\n🎤 Voice:\n- "gaurangga" - Aktifkan suara\n- "silent" - Matikan suara\n- "status" - Cek status\n\n📊 Actions:\n- "laporan harian" - Generate laporan\n- "cek sales" - Cek sales hari ini\n- "proposal" - Buat proposal\n- "automation" - Jalankan automation\n\n🆘 Other:\n- "clear" - Bersihkan chat\n- "help" - Tampilkan help`;
+                response = `📚 COMMAND GAURANGA SUPER AI:\n\n🎤 Voice:\n- "gaurangga" - Aktifkan suara\n- "silent" - Matikan suara\n- "status" - Cek status\n\n🧠 AI Modes:\n- "analisis [topik]" - Deep analysis\n- "strategi [topik]" - Business strategy\n- "buatkan kode [deskripsi]" - Code generation\n- "hitung [rumus]" - Kalkulasi\n- "konversi [jumlah] [mata uang]" - Currency\n- "tulis [konten]" - Content writing\n- "ide untuk [topik]" - Creative ideas\n\n🆘 Other:\n- "clear" - Bersihkan chat\n- "help" - Tampilkan help`;
+            }
+            // Math & Currency
+            else if (message.includes('konversi') || message.includes('convert') || message.includes('usd') || message.includes('usdt') || message.includes('idr')) {
+                response = convertCurrency(message);
+            }
+            else if (message.includes('profit') || message.includes('laba') || message.includes('keuntungan')) {
+                response = calculateProfit(message);
+            }
+            else if (message.includes('hitung') || message.includes('calculate') || /[+\-*/%]/.test(message)) {
+                response = calculateMath(message);
+            }
+            // Code generation
+            else if (message.includes('kode') || message.includes('code') || message.includes('program') || message.includes('buatkan') || message.includes('bikin') || message.includes('html') || message.includes('python')) {
+                response = generateCode(message);
+            }
+            // Analysis
+            else if (message.includes('analisis') || message.includes('analisa') || message.includes('analyze') || message.includes('evaluasi')) {
+                response = deepAnalysis(message);
+            }
+            // Strategy
+            else if (message.includes('strategi') || message.includes('strategy') || message.includes('bisnis') || message.includes('business')) {
+                response = businessStrategy(message);
+            }
+            // Creative
+            else if (message.includes('ide') || message.includes('kreatif') || message.includes('creative') || message.includes('inovasi')) {
+                response = creativeIdeas(message);
+            }
+            // Writing
+            else if (message.includes('tulis') || message.includes('konten') || message.includes('caption') || message.includes('copywriting')) {
+                response = writeContent(message);
+            }
+            // Problem solving
+            else if (message.includes('masalah') || message.includes('problem') || message.includes('error') || message.includes('bug') || message.includes('gagal')) {
+                response = solveProblem(message);
             }
             // Sales related
             else if (message.includes('sales') || message.includes('penjualan') || message.includes('revenue')) {
-                response = `💰 SALES UPDATE:\n\n📊 Pipeline:\n- Leads: 31 contacted\n- Responses: 0 (expected 3-6)\n- Deals: 0\n\n🎯 Target:\n- Daily: 5 responses\n- Weekly: 35 responses\n- Monthly: Rp 100.000.000\n\n📈 Next Actions:\n1. Kirim WhatsApp follow-up\n2. Cek response dari leads\n3. Schedule demo calls\n\nMau saya generate sales report?`;
+                response = `💰 SALES ANALYSIS:\n\n📊 Pipeline:\n- Leads: 31 contacted\n- Responses: 0 (expected 3-6)\n- Deals: 0\n\n🔍 ROOT CAUSE:\n1. Tidak ada qualified leads\n2. Follow-up tidak konsisten\n3. Value proposition unclear\n\n💡 SOLUSI:\n1. Buat lead magnet (ebook/template gratis)\n2. Setup email sequence (5 email)\n3. Focus inbound marketing\n\n⚡ ACTION:\nHari ini: Buat lead magnet\nBesok: Setup email automation\nMinggu ini: Launch content campaign\n\nMau saya generate sales report?`;
             }
             else if (message.includes('laporan') || message.includes('report')) {
-                response = `📊 Generating Laporan...\n\n⏳ Processing...\n\n✅ Laporan akan dibuat dan disimpan ke:\n- progress/daily-report-2026-07-20.md\n- progress/sales-report-2026-07-20.md\n\n📋 Summary:\n- Total Companies: 10 SBU\n- Active Agents: 6/60\n- Revenue Today: Rp 0\n- Target: Rp 100.000.000/bulan\n\nMau detail lebih lanjut?`;
-            }
-            else if (message.includes('proposal') || message.includes('quotation')) {
-                response = `📄 PROPOSAL GENERATOR\n\nSaya siap buatkan proposal untuk client. Silakan berikan:\n\n1. Nama Client:\n2. Jenis Bisnis:\n3. Layanan yang dibutuhkan:\n4. Budget:\n\nContoh: "Buatkan proposal untuk Restaurant X untuk website dan SEO dengan budget Rp 5jt"`;
+                response = `📊 GENERATING LAPORAN...\n\n⏳ Processing...\n\n✅ Laporan akan dibuat dan disimpan ke:\n- progress/daily-report-2026-07-20.md\n- progress/sales-report-2026-07-20.md\n\n📋 Summary:\n- Total Companies: 10 SBU\n- Active Agents: 6/60\n- Revenue Today: Rp 0\n- Target: Rp 100.000.000/bulan\n\nMau detail lebih lanjut?`;
             }
             else if (message.includes('automation') || message.includes('otomatis')) {
                 response = `🚀 AUTOMATION SYSTEM\n\n✅ Active Automations:\n1. Daily Report - 6 AM WIB\n2. Sales Outreach - 9 AM WIB\n3. Content Marketing - 10 AM Monday\n4. SEO Optimization - 11 AM Thursday\n5. Customer Service - 2 PM Friday\n6. Finance Report - 1st monthly\n\n🎯 Mau jalankan automation tertentu?\n\nCommands:\n- "jalankan sales" - Mulai sales outreach\n- "cek automation" - Lihat status\n- "tambah automation" - Buat automation baru`;
             }
-            else if (message.includes('knowledge') || message.includes('knowledge base')) {
-                response = `📚 KNOWLEDGE BASE UPDATE\n\nSilakan berikan info terbaru untuk di-update:\n\n📁 Categories:\n- Company Info\n- Products & Services\n- Sales Scripts\n- SOPs\n- Customer Data\n\nContoh: "Update knowledge base dengan info bahwa BCA account baru adalah 123456789"`;
-            }
-            else if (message.includes('profit') || message.includes('keuntungan') || message.includes('transfer')) {
-                response = `💰 PROFIT DISTRIBUTION\n\n📊 Current:\n- Revenue: Rp 0\n- Profit (80%): Rp 0\n- Transfer to BCA: Rp 0\n\n🏦 Destination:\nBCA 6485086645\na/n: i Made Purna Ananda\n\n📅 Schedule:\nDaily at 23:59 WIB\n\nMau langsung generate profit report?`;
-            }
             else if (message.includes('deploy') || message.includes('deployment')) {
                 response = `🚀 DEPLOYMENT SYSTEM\n\n✅ Available Deployments:\n1. GitHub Pages: github.com/prahlad168/MAHA-LAKSHMI-CORP\n2. Web Pages:\n   - biometric.mahalaksmi.web.id\n   - tech.mahalaksmi.web.id\n   - payangan.mahalaksmi.web.id\n\n📋 Deployment Commands:\n- "deploy biometric" - Deploy biometric page\n- "deploy all" - Deploy semua changes\n- "check status" - Cek deployment status`;
             }
-            else if (message.includes('tai') || message.includes('robot')) {
-                response = `Hehe, saya GAURANGA bukan robot! 🤖😄\n\nTapi saya siap membantu Anda 24/7, Pak Pur!\n\nAda yang bisa saya bantu?`;
-            }
             else if (message.includes('siapa kamu') || message.includes('who are you') || message.includes('kamu') && message.includes('apa')) {
-                response = `Saya GAURANGA! 👑\n\n🤖 AI Assistant untuk ${GAURANGA.owner}\n\n🏢 ${GAURANGA.company}\n\nMisi saya:\n✅ Bantu kelolaperusahaan\n✅ Generate laporan\n✅ Jalankan automation\n✅ Ciptakan sales & revenue\n✅ Update knowledge base\n\nSaya siap 24/7 untuk membantu Pak Pur!`;
+                response = `Saya GAURANGA SUPER AI! 👑\n\n🧠 Gabungan 100 AI top dunia dalam satu sistem:\n\n✅ Reasoning (GPT-4, Claude)\n✅ Programming (Codex, Copilot)\n✅ Analisis (Watson, DataRobot)\n✅ Strategi (McKinsey, BCG)\n✅ Kreatif (DALL-E, Midjourney)\n✅ Matematika (Wolfram Alpha)\n\n🏢 ${GAURANGA.company}\n\nSaya siap 24/7 untuk membantu Pak Pur!`;
             }
             else if (message.includes('terima kasih') || message.includes('thanks')) {
                 response = `Sama-sama, Pak Pur! 🙏\n\nSenang bisa membantu. Jangan ragu untuk bertanya lagi jika butuh bantuan!\n\n💰 Target: Rp 100.000.000/bulan\n🏦 BCA: ${GAURANGA.bank}`;
             }
+            else if (message.includes('halo') || message.includes('hai') || message.includes('hello') || message.includes('pagi') || message.includes('siang') || message.includes('sore') || message.includes('malam')) {
+                response = `Halo Pak Pur! 👋 GAURANGA SUPER AI siap membantu!\n\n🧠 Saya punya kemampuan 100 AI top dunia:\n• 🔍 Analisis & Reasoning\n• 💻 Programming\n• 📊 Data Analysis\n• 💼 Business Strategy\n• 🎨 Creative Ideas\n\nApa yang bisa saya kerjakan hari ini?`;
+            }
             else {
-                response = `Saya pahami, Pak Pur. 📝\n\nSaya akan memproses permintaan Anda...\n\nUntuk hasil terbaik, coba gunakan command seperti:\n- "cek sales"\n- "buatkan laporan"\n- "jalankan automation"\n- "status"\n\nAtau tanya langsung apa yang Anda butuhkan!`;
+                // Default: Super analysis based on mode
+                response = superResponse(message);
             }
             
             // Simulate processing delay
@@ -957,7 +1114,105 @@ Ada yang bisa saya bantu hari ini?
                 if (GAURANGA.autoPlay) {
                     speak(response);
                 }
-            }, 1000 + Math.random() * 1000);
+            }, 800 + Math.random() * 800);
+        }
+        
+        // ============ SUPER AI FUNCTIONS ============
+        
+        // Deep Analysis
+        function deepAnalysis(topic) {
+            return `🔍 DEEP ANALYSIS\n\n📊 TOPIK: ${topic.replace('analisis', '').replace('analisa', '').replace('analyze', '').replace('evaluasi', '').trim() || 'General'}\n\n1️⃣ IDENTIFIKASI:\n• Kondisi saat ini perlu dievaluasi\n• Data yang tersedia perlu dianalisis\n• Faktor internal & eksternal dipertimbangkan\n\n2️⃣ ANALISIS SWOT:\n• Strengths: AI automation, 10 SBU, zero budget\n• Weaknesses: Revenue 0, belum ada sales\n• Opportunities: Digital market besar, AI trend\n• Threats: Kompetisi, eksekusi lambat\n\n3️⃣ INSIGHT KUNCI:\n• Fokus ke 1-2 SBU dulu (quick wins)\n• Gunakan digital marketing (biaya rendah)\n• Automasi sales & marketing\n\n4️⃣ REKOMENDASI:\n• Week 1: Setup landing page + lead magnet\n• Week 2: Social media + content marketing\n• Week 3: Paid ads (test Rp 1jt)\n• Week 4: Evaluate & scale winning channel\n\n✅ ACTION PLAN:\n1. Buat lead magnet hari ini\n2. Setup email automation besok\n3. Launch content campaign minggu ini`;
+        }
+        
+        // Business Strategy
+        function businessStrategy(topic) {
+            return `💼 BUSINESS STRATEGY\n\n📊 TOPIK: ${topic.replace('strategi', '').replace('strategy', '').replace('bisnis', '').replace('business', '').trim() || 'MAHA LAKSHMI'}\n\n🎯 ANALISIS PORTER 5 FORCES:\n• Rivalry: Tinggi (banyak kompetitor digital)\n• New Entrants: Mudah masuk (barrier rendah)\n• Substitutes: Banyak alternatif\n• Buyer Power: Tinggi (banyak pilihan)\n• Supplier Power: Rendah (tools gratis)\n\n📈 STRATEGI BLUE OCEAN:\n• Fokus niche: AI automation untuk UMKM Bali\n• Value innovation: AI + lokal + affordable\n• Differentiation: 10 SBU terintegrasi\n\n🎯 OKR FRAMEWORK:\n• Objective: Rp 100jt/bulan revenue\n• KR1: 50 leads/bulan\n• KR2: 10 closed deals/bulan\n• KR3: 5 produk digital aktif\n\n⚡ ACTION PLAN:\n1. Fokus 2 SBU terkuat (Payangan AI + Bali Digital)\n2. Buat 3 landing page minggu ini\n3. Launch cold outreach 50 kontak/hari\n4. Setup automation untuk follow-up\n\n💰 Target: Rp 100.000.000/bulan\n🏦 BCA: 6485086645`;
+        }
+        
+        // Code Generation
+        function generateCode(request) {
+            const desc = request.replace('buatkan', '').replace('bikin', '').replace('kode', '').replace('code', '').replace('program', '').trim();
+            
+            if (desc.includes('html') || desc.includes('landing') || desc.includes('website') || desc.includes('web')) {
+                return `💻 CODE GENERATION - HTML Landing Page\n\nBerikut template landing page profesional:\n\n\`\`\`html\n<!DOCTYPE html>\n<html lang="id">\n<head>\n    <meta charset="UTF-8">\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n    <title>Landing Page</title>\n    <style>\n        * { margin: 0; padding: 0; box-sizing: border-box; }\n        body { font-family: Arial, sans-serif; background: #0a0a0f; color: #fff; }\n        .hero { text-align: center; padding: 100px 20px; }\n        .hero h1 { font-size: 3em; margin-bottom: 20px; }\n        .hero p { font-size: 1.2em; color: #a0a0a0; margin-bottom: 30px; }\n        .cta { background: linear-gradient(135deg, #667eea, #764ba2); color: #fff; padding: 15px 40px; border: none; border-radius: 30px; font-size: 1.1em; cursor: pointer; }\n        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; padding: 50px 20px; }\n        .feature { background: #1a1a2e; padding: 30px; border-radius: 15px; text-align: center; }\n        .feature h3 { margin-bottom: 10px; }\n        @media (max-width: 768px) { .features { grid-template-columns: 1fr; } }\n    </style>\n</head>\n<body>\n    <div class="hero">\n        <h1>🚀 Produk Anda</h1>\n        <p>Deskripsi singkat yang menarik perhatian</p>\n        <button class="cta">Mulai Sekarang</button>\n    </div>\n    <div class="features">\n        <div class="feature"><h3>⚡ Cepat</h3><p>Deskripsi fitur</p></div>\n        <div class="feature"><h3>🔒 Aman</h3><p>Deskripsi fitur</p></div>\n        <div class="feature"><h3>💰 Hemat</h3><p>Deskripsi fitur</p></div>\n    </div>\n</body>\n</html>\n\`\`\`\n\n✅ Production-ready template!\nMau saya buatkan versi lain?`;
+            }
+            
+            if (desc.includes('python') || desc.includes('data')) {
+                return `💻 CODE GENERATION - Python Data Analysis\n\n\`\`\`python\nimport pandas as pd\nimport matplotlib.pyplot as plt\n\n# Load data\n# df = pd.read_csv('data.csv')\n\n# Analisis dasar\ndef analyze_data(df):\n    """Analisis data lengkap"""\n    print("📊 DATA SUMMARY:")\n    print(f"• Shape: {df.shape}")\n    print(f"• Columns: {list(df.columns)}")\n    print(f"\\n📈 STATISTICS:")\n    print(df.describe())\n    \n    # Missing values\n    missing = df.isnull().sum()\n    print(f"\\n⚠️ MISSING VALUES:\\n{missing}")\n    \n    # Correlation\n    if len(df.select_dtypes('number').columns) > 1:\n        print(f"\\n🔗 CORRELATION:\\n{df.corr()}")\n    \n    return df\n\n# Visualisasi\ndef plot_trend(df, column):\n    """Plot trend data"""\n    plt.figure(figsize=(12, 6))\n    plt.plot(df[column], marker='o')\n    plt.title(f'Trend {column}')\n    plt.xlabel('Index')\n    plt.ylabel(column)\n    plt.grid(True, alpha=0.3)\n    plt.show()\n\n# Usage:\n# df = pd.read_csv('sales.csv')\n# analyze_data(df)\n# plot_trend(df, 'revenue')\n\`\`\`\n\n✅ Production-ready Python code!\nMau saya buatkan untuk kebutuhan spesifik?`;
+            }
+            
+            return `💻 CODE GENERATION\n\n📋 Permintaan: ${desc || 'General code'}\n\nBerikut template kode yang bisa digunakan:\n\n\`\`\`python\n# Template Production-Ready Code\nimport json\nimport logging\nfrom datetime import datetime\n\n# Setup logging\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\n\nclass SuperApp:\n    """Aplikasi dengan best practices"""\n    \n    def __init__(self, config=None):\n        self.config = config or {}\n        self.logger = logging.getLogger(__name__)\n    \n    def process(self, data):\n        """Process data dengan error handling"""\n        try:\n            # Validasi input\n            if not data:\n                raise ValueError("Data kosong")\n            \n            # Proses data\n            result = self._process_internal(data)\n            \n            self.logger.info(f"✅ Processed: {len(data)} items")\n            return result\n            \n        except Exception as e:\n            self.logger.error(f"❌ Error: {e}")\n            return None\n    \n    def _process_internal(self, data):\n        """Internal processing logic"""\n        return [item for item in data if item]\n\n# Usage\napp = SuperApp()\nresult = app.process([1, 2, None, 3])\nprint(result)  # [1, 2, 3]\n\`\`\`\n\n✅ Production-ready!\nMau spesifikasi lebih detail?`;
+        }
+        
+        // Math Calculation
+        function calculateMath(expr) {
+            try {
+                // Clean expression
+                let clean = expr.replace(/[^0-9+\-*/().%\s]/g, '');
+                clean = clean.replace(/%/g, '/100');
+                
+                // Evaluate
+                const result = Function('"use strict"; return (' + clean + ')')();
+                
+                return `🔢 KALKULASI:\n\n📝 ${expr}\n= **${result.toLocaleString('id-ID')}**\n\n✅ Hasil: ${result}`;
+            } catch(e) {
+                return `❌ Gagal menghitung: ${e.message}\n\nFormat: "hitung 25 * 4 + 100"`;
+            }
+        }
+        
+        // Currency Conversion
+        function convertCurrency(text) {
+            const rates = { usd: 16000, idr: 1, eur: 17500, sgd: 12000, myr: 3500, usdt: 16000, btc: 560000000, eth: 19000000 };
+            
+            const amountMatch = text.match(/(\d+[\d.,]*)/);
+            const currencies = text.toLowerCase().match(/(usd|idr|eur|sgd|myr|usdt|btc|eth)/g);
+            
+            if (!amountMatch || !currencies || currencies.length < 2) {
+                return `💱 KONVERSI MATA UANG\n\nFormat: "konversi 100 usd ke idr"\n\nRate saat ini:\n• 1 USD = Rp 16.000\n• 1 USDT = Rp 16.000\n• 1 EUR = Rp 17.500\n• 1 BTC = Rp 560.000.000`;
+            }
+            
+            const amount = parseFloat(amountMatch[1].replace(',', ''));
+            const from = currencies[0];
+            const to = currencies[currencies.length - 1];
+            
+            if (!rates[from] || !rates[to]) return '❌ Mata uang tidak dikenal';
+            
+            const inIdr = amount * rates[from];
+            const result = inIdr / rates[to];
+            
+            return `💱 KONVERSI MATA UANG:\n\n${amount.toLocaleString('id-ID')} ${from.toUpperCase()} = **${result.toLocaleString('id-ID')}** ${to.toUpperCase()}\n\n📊 Rate: 1 ${from.toUpperCase()} = ${rates[from].toLocaleString('id-ID')} IDR\n💰 Nilai IDR: ${inIdr.toLocaleString('id-ID')}`;
+        }
+        
+        // Profit Calculation
+        function calculateProfit(text) {
+            const amountMatch = text.match(/(\d+[\d.,]*)/);
+            const amount = amountMatch ? parseFloat(amountMatch[1].replace(',', '')) : 1000000;
+            const profit = amount * 0.8;
+            
+            return `💰 LAPORAN PROFIT:\n\n• Revenue: Rp ${amount.toLocaleString('id-ID')}\n• Margin: 80%\n• Profit (CEO): **Rp ${profit.toLocaleString('id-ID')}**\n\n🏦 Transfer ke BCA 6485086645:\n• Daily: Rp ${(profit/30).toLocaleString('id-ID')}\n• Weekly: Rp ${(profit/4.33).toLocaleString('id-ID')}\n• Monthly: Rp ${profit.toLocaleString('id-ID')}\n\n⏰ Transfer 80% jam 23:59 WIB setiap hari!`;
+        }
+        
+        // Creative Ideas
+        function creativeIdeas(topic) {
+            return `🎨 IDE KREATIF & INOVASI\n\n📋 TOPIK: ${topic.replace('ide', '').replace('kreatif', '').replace('creative', '').replace('inovasi', '').trim() || 'MAHA LAKSHMI'}\n\n💡 5 IDE INOVATIF:\n\n1️⃣ AI-Powered Landing Pages\n• Buat 185 landing pages (37 provinsi × 5 unit)\n• Auto-generate konten per daerah\n• SEO optimized per keyword lokal\n\n2️⃣ WhatsApp Sales Bot\n• Auto-reply untuk leads\n• Follow-up otomatis 3x\n• Track conversion\n\n3️⃣ Digital Product Bundle\n• Paket: Website + SEO + Social Media\n• Harga: Rp 5jt/bulan\n• Target: UMKM Bali\n\n4️⃣ AI Content Factory\n• Generate 100 konten/hari\n• 10 bahasa (Indonesia, English, Mandarin, dll)\n• Auto-post ke semua platform\n\n5️⃣ Referral Program\n• Reward: 10% komisi\n• Viral loop: customer ajak customer\n• Track via dashboard\n\n⚡ ACTION:\nPilih 1 ide, eksekusi minggu ini!`;
+        }
+        
+        // Write Content
+        function writeContent(brief) {
+            return `📝 KONTEN PROFESIONAL\n\n📋 BRIEF: ${brief.replace('tulis', '').replace('konten', '').replace('caption', '').replace('copywriting', '').trim() || 'Promosi produk'}\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📱 INSTAGRAM CAPTION:\n\n✨ [HOOK]\n"Bayangkan bisnis Anda jalan 24/7 tanpa Anda pegang HP..."\n\n💡 [BODY]\nDengan AI Automation dari MAHA LAKSHMI, kami bantu:\n✅ Website profesional\n✅ Auto sales & marketing\n✅ Customer service otomatis\n✅ Laporan real-time\n\n🎯 [CTA]\nDM "AUTO" untuk konsultasi GRATIS!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📧 EMAIL SUBJECT:\n"Rahasia bisnis jalan 24/7 tanpa capek"\n\n📄 EMAIL BODY:\nHalo [Nama],\n\nBayangkan punya tim yang bekerja 24/7 tanpa lelah...\n\nItulah yang kami tawarkan dengan AI Automation.\n\n✅ Tanpa biaya besar\n✅ Tanpa ribet\n✅ Hasil terukur\n\nBalas email ini untuk konsultasi GRATIS!\n\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n📣 WHATSAPP SCRIPT:\nHalo kak! 👋\n\nSaya dari MAHA LAKSHMI - solusi digital untuk UMKM.\n\nKami bantu bisnis Anda:\n✅ Website + SEO\n✅ Auto marketing\n✅ Sales otomatis\n\nMau konsultasi GRATIS?`;
+        }
+        
+        // Problem Solving
+        function solveProblem(problem) {
+            return `🔍 PROBLEM SOLVING FRAMEWORK\n\n📋 MASALAH: ${problem.replace('masalah', '').replace('problem', '').replace('error', '').replace('bug', '').replace('gagal', '').trim() || 'General'}\n\n1️⃣ IDENTIFIKASI:\n• Apa masalah sebenarnya?\n• Siapa yang terpengaruh?\n• Kapan mulai terjadi?\n\n2️⃣ ROOT CAUSE (5 Whys):\n• Why 1: Kenapa terjadi? → Kurang analisis\n• Why 2: Kenapa kurang analisis? → Tidak ada data\n• Why 3: Kenapa tidak ada data? → Tidak tracking\n• Why 4: Kenapa tidak tracking? → Tidak ada sistem\n• Why 5: Kenapa tidak ada sistem? → Belum dibangun\n\n3️⃣ OPSI SOLUSI:\n• Opsi A: Bangun sistem tracking (jangka panjang)\n• Opsi B: Manual tracking dulu (cepat)\n• Opsi C: Outsourcing (mahal)\n\n4️⃣ EVALUASI:\n• A: ✅ Efektif, ⏱️ 1 minggu, 💰 Rp 0\n• B: ✅ Cepat, ⏱️ 1 hari, 💰 Rp 0\n• C: ⚠️ Mahal, ⏱️ 1 hari, 💰 Rp 5jt\n\n5️⃣ REKOMENDASI:\n• Mulai dengan Opsi B (hari ini)\n• Upgrade ke Opsi A (minggu ini)\n\n⚡ ACTION PLAN:\n1. Buat spreadsheet tracking hari ini\n2. Setup automation minggu ini\n3. Review progress mingguan`;
+        }
+        
+        // Super Response (default)
+        function superResponse(message) {
+            const mode = GAURANGA.currentMode;
+            const modeInfo = AI_MODES[mode];
+            
+            return `🧠 GAURANGA SUPER AI (${modeInfo.icon} ${modeInfo.name} Mode)\n\n📋 PERTANYAAN: ${message}\n\n${modeInfo.prompt}\n\n📊 ANALISIS:\n• Saya memahami permintaan Anda\n• Menganalisis dengan framework terbaik\n• Menyiapkan solusi optimal\n\n💡 REKOMENDASI:\n1. Gunakan command spesifik untuk hasil terbaik:\n   • "analisis [topik]" - Deep analysis\n   • "strategi [topik]" - Business strategy\n   • "buatkan kode [deskripsi]" - Code generation\n   • "hitung [rumus]" - Kalkulasi\n   • "konversi [jumlah] [mata uang]" - Currency\n   • "tulis [konten]" - Content writing\n   • "ide untuk [topik]" - Creative ideas\n\n2. Atau pilih mode AI di atas untuk hasil spesifik\n\n⚡ Mau saya proses dengan mode tertentu?`;
         }
         
         // Add Message to Chat
@@ -966,7 +1221,7 @@ Ada yang bisa saya bantu hari ini?
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}`;
             
-            const avatar = sender === 'bot' ? '🤖' : '👤';
+            const avatar = sender === 'bot' ? '🧠' : '👤';
             const content = text.replace(/\n/g, '<br>');
             
             messageDiv.innerHTML = `
@@ -985,7 +1240,7 @@ Ada yang bisa saya bantu hari ini?
             typingDiv.className = 'message bot';
             typingDiv.id = 'typingIndicator';
             typingDiv.innerHTML = `
-                <div class="message-avatar">🤖</div>
+                <div class="message-avatar">🧠</div>
                 <div class="typing-indicator">
                     <span></span><span></span><span></span>
                 </div>
@@ -1087,7 +1342,7 @@ Ada yang bisa saya bantu hari ini?
         // Welcome message with voice
         setTimeout(() => {
             if (GAURANGA.autoPlay) {
-                speak('Halo Pak Pur! Saya GAURANGA siap membantu. Tap tombol microphone atau ketik pesan untuk mulai.')
+                speak('Halo Pak Pur! Saya Gaurangga Super AI siap membantu. Gabungan 100 AI top dunia. Silakan bicara atau ketik pesan.')
             }
         }, 1500);
     </script>

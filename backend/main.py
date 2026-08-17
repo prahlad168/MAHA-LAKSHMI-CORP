@@ -37,13 +37,25 @@ logger = logging.getLogger(__name__)
 security = HTTPBearer(auto_error=False)
 
 # Create FastAPI app
+from contextlib import asynccontextmanager
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    init_db()
+    logger.info("MAHA LAKSHMI CORP API started successfully")
+    yield
+    # Shutdown
+    logger.info("MAHA LAKSHMI CORP API shutting down")
+
 app = FastAPI(
     title="MAHA LAKSHMI CORP API",
     description="CEO Dashboard and Business Automation Platform",
     version="2.0.0",
     docs_url="/api/docs",
     redoc_url="/api/redoc",
-    openapi_url="/api/openapi.json"
+    openapi_url="/api/openapi.json",
+    lifespan=lifespan
 )
 
 # Include routers
@@ -143,26 +155,31 @@ async def global_exception_handler(request: Request, exc: Exception):
         }
     )
 
-# Startup event
-@app.on_event("startup")
-async def startup_event():
-    init_db()
-    logger.info("MAHA LAKSHMI CORP API started successfully")
-
-# Shutdown event
-@app.on_event("shutdown")
-async def shutdown_event():
-    logger.info("MAHA LAKSHMI CORP API shutting down")
-
 # Static frontend mounts
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent
-for _static_dir in [_PROJECT_ROOT / "maha-lakshmi", _PROJECT_ROOT / "maha-command-center"]:
+for _static_dir in [
+    _PROJECT_ROOT / "maha-lakshmi",
+    _PROJECT_ROOT / "maha-command-center",
+    _PROJECT_ROOT / "web",
+]:
     if _static_dir.exists():
         app.mount(
             f"/{_static_dir.name}",
             StaticFiles(directory=str(_static_dir), html=True),
             name=_static_dir.name,
         )
+
+# Mount web subdirectories at root for direct access
+_WEB_ROOT = _PROJECT_ROOT / "web"
+if _WEB_ROOT.exists():
+    for _subdir in ["login", "dashboard", "public"]:
+        _sub_path = _WEB_ROOT / _subdir
+        if _sub_path.exists():
+            app.mount(
+                f"/{_subdir}",
+                StaticFiles(directory=str(_sub_path), html=True),
+                name=f"web-{_subdir}",
+            )
 
 # Serve root index when present
 _ROOT_INDEX = _PROJECT_ROOT / "index.html"

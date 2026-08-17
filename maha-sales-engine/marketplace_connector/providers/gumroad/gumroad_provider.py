@@ -31,7 +31,9 @@ class GumroadProvider(MarketplaceProvider):
     def __init__(self, config: Dict[str, Any]):
         super().__init__(config)
         self.provider_type = ProviderType.GUMROAD
-        self.api_key = config.get("api_key")
+        self.api_key = config.get("api_key") or os.getenv("GUMROAD_API_KEY", "")
+        if not self.api_key:
+            raise ValueError("GUMROAD_API_KEY is required for real Gumroad publishing")
         self.base_url = "https://api.gumroad.com/v2"
         self.session: Optional[aiohttp.ClientSession] = None
     
@@ -48,12 +50,6 @@ class GumroadProvider(MarketplaceProvider):
     async def validate(self) -> Dict[str, Any]:
         """Validate credentials"""
         try:
-            if not self.api_key:
-                return {"valid": False, "error": "Missing API key"}
-            
-            if self.api_key == "test-key" or self.api_key.startswith("test"):
-                return {"valid": True, "message": "Test credentials accepted"}
-            
             if not self.session:
                 self.session = aiohttp.ClientSession()
             
@@ -78,13 +74,6 @@ class GumroadProvider(MarketplaceProvider):
         try:
             if not os.path.exists(file_path):
                 return {"success": False, "error": "File not found"}
-            
-            if not self.api_key or self.api_key.startswith("test"):
-                return {
-                    "success": True,
-                    "file_url": f"https://gumroad.com/files/{uuid.uuid4().hex[:8]}",
-                    "file_type": file_type
-                }
             
             file_size = os.path.getsize(file_path)
             file_name = Path(file_path).name
@@ -146,23 +135,17 @@ class GumroadProvider(MarketplaceProvider):
         try:
             gumroad_payload = self._build_gumroad_payload(payload)
             
-            if not self.api_key or self.api_key.startswith("test"):
-                product_id = f"gumroad-{uuid.uuid4().hex[:8]}"
-                return {
-                    "success": True,
-                    "product_id": product_id,
-                    "url": f"https://gumroad.com/l/{product_id}",
-                    "data": gumroad_payload
-                }
-            
             resp = await self._request("POST", "/products", json=gumroad_payload)
             if not resp.get("success"):
                 return {"success": False, "error": resp.get("error", "Create listing failed")}
             
-            product = resp.get("product", {})
+            product = resp.get("data", {}).get("product", {})
             product_id = product.get("id")
             permalink = product.get("permalink")
             url = f"https://gumroad.com/l/{permalink}" if permalink else None
+            
+            if not url:
+                return {"success": False, "error": "Gumroad API did not return a permalink"}
             
             return {
                 "success": True,
@@ -177,16 +160,13 @@ class GumroadProvider(MarketplaceProvider):
     async def update_listing(self, marketplace_product_id: str, payload: Dict[str, Any]) -> Dict[str, Any]:
         """Update existing listing"""
         try:
-            if not self.api_key or self.api_key.startswith("test"):
-                return {"success": True, "product_id": marketplace_product_id, "updated": True}
-            
             gumroad_payload = self._build_gumroad_payload(payload)
             resp = await self._request("PUT", f"/products/{marketplace_product_id}", json=gumroad_payload)
             
             if not resp.get("success"):
                 return {"success": False, "error": resp.get("error", "Update failed")}
             
-            return {"success": True, "product_id": marketplace_product_id, "updated": True, "data": resp.get("product")}
+            return {"success": True, "product_id": marketplace_product_id, "updated": True, "data": resp.get("data", {}).get("product")}
         except Exception as e:
             logger.error(f"Update listing failed: {e}")
             return {"success": False, "error": str(e)}
@@ -194,14 +174,11 @@ class GumroadProvider(MarketplaceProvider):
     async def publish(self, marketplace_product_id: str) -> Dict[str, Any]:
         """Publish listing"""
         try:
-            if not self.api_key or self.api_key.startswith("test"):
-                return {"success": True, "product_id": marketplace_product_id, "status": "published"}
-            
             resp = await self._request("PUT", f"/products/{marketplace_product_id}/enable")
             if not resp.get("success"):
                 return {"success": False, "error": resp.get("error", "Publish failed")}
             
-            return {"success": True, "product_id": marketplace_product_id, "status": "published", "data": resp.get("product")}
+            return {"success": True, "product_id": marketplace_product_id, "status": "published", "data": resp.get("data", {}).get("product")}
         except Exception as e:
             logger.error(f"Publish failed: {e}")
             return {"success": False, "error": str(e)}
@@ -209,9 +186,6 @@ class GumroadProvider(MarketplaceProvider):
     async def archive(self, marketplace_product_id: str) -> Dict[str, Any]:
         """Archive listing"""
         try:
-            if not self.api_key or self.api_key.startswith("test"):
-                return {"success": True, "product_id": marketplace_product_id, "status": "archived"}
-            
             resp = await self._request("PUT", f"/products/{marketplace_product_id}/disable")
             if not resp.get("success"):
                 return {"success": False, "error": resp.get("error", "Archive failed")}
@@ -224,9 +198,6 @@ class GumroadProvider(MarketplaceProvider):
     async def delete(self, marketplace_product_id: str) -> Dict[str, Any]:
         """Delete listing"""
         try:
-            if not self.api_key or self.api_key.startswith("test"):
-                return {"success": True, "product_id": marketplace_product_id, "deleted": True}
-            
             resp = await self._request("DELETE", f"/products/{marketplace_product_id}")
             if not resp.get("success"):
                 return {"success": False, "error": resp.get("error", "Delete failed")}
@@ -239,9 +210,6 @@ class GumroadProvider(MarketplaceProvider):
     async def sync(self, product_id: Optional[str] = None) -> Dict[str, Any]:
         """Sync product data"""
         try:
-            if not self.api_key or self.api_key.startswith("test"):
-                return {"success": True, "synced_count": 1 if product_id else 0, "timestamp": datetime.now().isoformat()}
-            
             if product_id:
                 resp = await self._request("GET", f"/products/{product_id}")
                 if not resp.get("success"):
@@ -305,8 +273,7 @@ class GumroadProvider(MarketplaceProvider):
         
         url = f"{self.base_url}{path}"
         params = kwargs.pop("params", {})
-        if self.api_key and not self.api_key.startswith("test"):
-            params.setdefault("access_token", self.api_key)
+        params.setdefault("access_token", self.api_key)
         
         try:
             async with self.session.request(method, url, params=params, **kwargs) as response:

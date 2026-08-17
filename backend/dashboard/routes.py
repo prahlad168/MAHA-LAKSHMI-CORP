@@ -211,3 +211,153 @@ async def update_user_settings(
     except Exception as e:
         logger.error(f"Failed to update settings: {e}")
         raise HTTPException(status_code=500, detail="Failed to update settings")
+
+
+@router.get("/products", tags=["Dashboard"])
+async def get_dashboard_products(current_user: Dict = Depends(get_current_user)):
+    """Get products dashboard data"""
+    try:
+        products = execute_query(
+            "SELECT * FROM products ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        return {
+            "products": products or [],
+            "total": len(products) if products else 0
+        }
+    except Exception as e:
+        logger.error(f"Failed to fetch products: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch products")
+
+
+@router.get("/ai-factory", tags=["Dashboard"])
+async def get_dashboard_ai_factory(current_user: Dict = Depends(get_current_user)):
+    """Get AI factory dashboard data"""
+    try:
+        workers = execute_query(
+            "SELECT * FROM ai_workers ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        jobs = execute_query(
+            "SELECT * FROM product_generation_jobs ORDER BY created_at DESC LIMIT 20",
+            fetch="all"
+        )
+        return {
+            "workers": workers or [],
+            "jobs": jobs or [],
+            "total_workers": len(workers) if workers else 0,
+            "total_jobs": len(jobs) if jobs else 0
+        }
+    except Exception as e:
+        logger.error(f"Failed to fetch AI factory data: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch AI factory data")
+
+
+@router.get("/marketplace", tags=["Dashboard"])
+async def get_dashboard_marketplace(current_user: Dict = Depends(get_current_user)):
+    """Get marketplace dashboard data"""
+    try:
+        accounts = execute_query(
+            "SELECT * FROM marketplace_accounts ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        publications = execute_query(
+            "SELECT * FROM marketplace_publications ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        sales = execute_query(
+            "SELECT * FROM marketplace_sales ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        return {
+            "accounts": accounts or [],
+            "publications": publications or [],
+            "sales": sales or [],
+            "total_accounts": len(accounts) if accounts else 0,
+            "total_publications": len(publications) if publications else 0,
+            "total_sales": len(sales) if sales else 0
+        }
+    except Exception as e:
+        logger.error(f"Failed to fetch marketplace data: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch marketplace data")
+
+
+@router.get("/marketing", tags=["Dashboard"])
+async def get_dashboard_marketing(current_user: Dict = Depends(get_current_user)):
+    """Get marketing dashboard data"""
+    try:
+        campaigns = execute_query(
+            "SELECT * FROM marketing_campaigns ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        content = execute_query(
+            "SELECT * FROM content_assets ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        ab_tests = execute_query(
+            "SELECT * FROM ab_tests ORDER BY created_at DESC LIMIT 20",
+            fetch="all"
+        )
+        return {
+            "campaigns": campaigns or [],
+            "content": content or [],
+            "ab_tests": ab_tests or [],
+            "total_campaigns": len(campaigns) if campaigns else 0,
+            "total_content": len(content) if content else 0
+        }
+    except Exception as e:
+        logger.error(f"Failed to fetch marketing data: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch marketing data")
+
+
+@router.get("/automation", tags=["Dashboard"])
+async def get_dashboard_automation(current_user: Dict = Depends(get_current_user)):
+    """Get automation dashboard data"""
+    try:
+        workflows = execute_query(
+            "SELECT * FROM automation_workflows ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        optimizations = execute_query(
+            "SELECT * FROM optimizations ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        return {
+            "workflows": workflows or [],
+            "optimizations": optimizations or [],
+            "total_workflows": len(workflows) if workflows else 0,
+            "total_optimizations": len(optimizations) if optimizations else 0
+        }
+    except Exception as e:
+        logger.error(f"Failed to fetch automation data: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch automation data")
+
+
+@router.get("/optimization", tags=["Dashboard"])
+async def get_dashboard_optimization(current_user: Dict = Depends(get_current_user)):
+    """Get optimization dashboard data"""
+    try:
+        optimizations = execute_query(
+            "SELECT * FROM optimizations ORDER BY created_at DESC LIMIT 50",
+            fetch="all"
+        )
+        experiments = execute_query(
+            "SELECT * FROM experiments ORDER BY created_at DESC LIMIT 20",
+            fetch="all"
+        )
+        insights = execute_query(
+            "SELECT * FROM insights ORDER BY created_at DESC LIMIT 20",
+            fetch="all"
+        )
+        return {
+            "optimizations": optimizations or [],
+            "experiments": experiments or [],
+            "insights": insights or [],
+            "total_optimizations": len(optimizations) if optimizations else 0
+        }
+    except Exception as e:
+        logger.error(f"Failed to fetch optimization data: {e}")
+        raise HTTPException(status_code=500, detail="Failed to fetch optimization data")
+    except Exception as e:
+        logger.error(f"Failed to update settings: {e}")
+        raise HTTPException(status_code=500, detail="Failed to update settings")

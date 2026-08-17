@@ -6,11 +6,12 @@ Production-grade FastAPI application with unified routing.
 import os
 import sys
 import logging
+from contextlib import asynccontextmanager
 from pathlib import Path
 
-# Add backend to path
-backend_path = Path(__file__).parent
-sys.path.insert(0, str(backend_path))
+# Add project root to path so 'backend' package imports resolve
+project_root = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(project_root))
 
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -41,6 +42,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # Startup
+    from backend.db.connection import init_db
+    init_db()
+    logger.info("MAHA LAKSHMI CORP API started successfully")
+    yield
+    # Shutdown
+    logger.info("MAHA LAKSHMI CORP API shutting down")
+
 # Create FastAPI app
 app = FastAPI(
     title="MAHA LAKSHMI CORP API",
@@ -48,7 +59,8 @@ app = FastAPI(
     version="2.0.0",
     docs_url="/api/docs",
     redoc_url="/api/redoc",
-    openapi_url="/api/openapi.json"
+    openapi_url="/api/openapi.json",
+    lifespan=lifespan
 )
 
 # Security Middleware
@@ -128,19 +140,6 @@ async def global_exception_handler(request: Request, exc: Exception):
             "request_id": request.headers.get("X-Request-ID", "unknown")
         }
     )
-
-# Startup event
-@app.on_event("startup")
-async def startup_event():
-    # Initialize database
-    from backend.db.connection import init_db
-    init_db()
-    logger.info("MAHA LAKSHMI CORP API started successfully")
-
-# Shutdown event
-@app.on_event("shutdown")
-async def shutdown_event():
-    logger.info("MAHA LAKSHMI CORP API shutting down")
 
 if __name__ == "__main__":
     import uvicorn

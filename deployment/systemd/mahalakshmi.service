@@ -1,0 +1,26 @@
+[Unit]
+Description=MAHA LAKSHMI CORP Backend API
+Documentation=https://mahalaksmi.web.id
+After=network.target postgresql.service redis.service
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/opt/mahalakshmi
+Environment="PATH=/opt/mahalakshmi/venv/bin:/usr/local/bin:/usr/bin:/bin"
+EnvironmentFile=/opt/mahalakshmi/.env
+ExecStart=/opt/mahalakshmi/venv/bin/uvicorn backend.main:app --host 0.0.0.0 --port 8000 --log-level info
+ExecReload=/bin/kill -SIGTERM $MAINPID
+Restart=always
+RestartSec=5
+LimitNOFILE=65536
+
+# Security
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=full
+ProtectHome=read-only
+
+[Install]
+WantedBy=multi-user.target

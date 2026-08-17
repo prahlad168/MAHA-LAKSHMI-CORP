@@ -1,0 +1,26 @@
+{
+  "price_usd": 19.0,
+  "price_idr": 285000,
+  "currency": "USD",
+  "alternate_currency": "IDR",
+  "exchange_rate": 16000,
+  "last_updated": "",
+  "market_specific_pricing": {
+    "id": {
+      "price_idr": 285000,
+      "currency": "IDR"
+    },
+    "en": {
+      "price_usd": 19.0,
+      "currency": "USD"
+    },
+    "pt": {
+      "price_usd": 19.0,
+      "currency": "USD"
+    },
+    "zh": {
+      "price_usd": 19.0,
+      "currency": "USD"
+    }
+  }
+}

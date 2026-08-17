@@ -217,7 +217,7 @@ class EndToEndVerification:
         logger.info(f"[{stage_name}] Initializing components...")
         
         try:
-            provider = GumroadProvider({"api_key": "test-key"})
+            provider = GumroadProvider({"api_key": os.getenv("GUMROAD_API_KEY", "")})
             validation_engine = ValidationEngine()
             db_manager = MagicMock()
             pipeline = PublicationPipeline(provider, validation_engine, db_manager)

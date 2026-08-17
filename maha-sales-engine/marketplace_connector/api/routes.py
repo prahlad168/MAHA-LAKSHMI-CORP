@@ -52,7 +52,7 @@ app = FastAPI(
 # Dependency injection
 def get_provider():
     from marketplace_connector.providers.gumroad.gumroad_provider import GumroadProvider
-    return GumroadProvider({})
+    return GumroadProvider({"api_key": os.getenv("GUMROAD_API_KEY", "")})
 
 
 def get_validation_engine():
@@ -365,7 +365,7 @@ def get_db_manager():
 
 def get_provider():
     from marketplace_connector.providers.gumroad.gumroad_provider import GumroadProvider
-    return GumroadProvider({})
+    return GumroadProvider({"api_key": os.getenv("GUMROAD_API_KEY", "")})
 
 
 def get_validation_engine():

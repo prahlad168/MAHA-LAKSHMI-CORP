@@ -1,7 +1,5 @@
-"""
-MAHA LAKSHMI CORP - Backend Requirements
-Python dependencies for the production backend.
-"""
+# MAHA LAKSHMI CORP - Backend Requirements
+# Python dependencies for the production backend.
 
 fastapi==0.104.1
 uvicorn[standard]==0.24.0

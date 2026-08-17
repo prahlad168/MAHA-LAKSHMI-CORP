@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.mahalakshmi.backend</string>
+    
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/python3</string>
+        <string>-m</string>
+        <string>uvicorn</string>
+        <string>backend.main:app</string>
+        <string>--host</string>
+        <string>0.0.0.0</string>
+        <string>--port</string>
+        <string>8000</string>
+        <string>--log-level</string>
+        <string>info</string>
+    </array>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/macpayanganhospital/MY PROJECT/MAHA-LAKSHMI-CORP</string>
+    
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>PATH</key>
+        <string>/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <key>JWT_SECRET_KEY</key>
+        <string>change-me-to-a-random-secret-key-in-production</string>
+        <key>CORS_ORIGINS</key>
+        <string>https://mahalaksmi.web.id,https://www.mahalaksmi.web.id</string>
+        <key>LOG_LEVEL</key>
+        <string>INFO</string>
+    </dict>
+    
+    <key>RunAtLoad</key>
+    <true/>
+    
+    <key>KeepAlive</key>
+    <true/>
+    
+    <key>StandardOutPath</key>
+    <string>/Users/macpayanganhospital/MY PROJECT/MAHA-LAKSHMI-CORP/logs/server.log</string>
+    
+    <key>StandardErrorPath</key>
+    <string>/Users/macpayanganhospital/MY PROJECT/MAHA-LAKSHMI-CORP/logs/server-error.log</string>
+    
+    <key>WorkingDirectory</key>
+    <string>/Users/macpayanganhospital/MY PROJECT/MAHA-LAKSHMI-CORP</string>
+</dict>
+</plist>
