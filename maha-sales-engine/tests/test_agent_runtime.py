@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from maha_sales_engine.agent_runtime import (
+from agent_runtime import (
     ActionRegistry,
     Agent,
     AgentRegistry,
@@ -10,8 +10,8 @@ from maha_sales_engine.agent_runtime import (
     Task,
     TaskStatus,
 )
-from maha_sales_engine.agent_runtime.actions import ActionRequest
-from maha_sales_engine.agent_runtime.vertical_slice import build_sales_runtime
+from agent_runtime.actions import ActionRequest
+from agent_runtime.vertical_slice import build_sales_runtime
 
 
 def test_task_lifecycle_and_event_log():
