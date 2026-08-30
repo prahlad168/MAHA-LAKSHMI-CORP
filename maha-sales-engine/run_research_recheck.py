@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from research.recheck import ResearchRecheckAgent
+from research.recheck_v2 import ResearchRecheckAgentV2
 
 
 def main() -> int:
@@ -12,7 +12,10 @@ def main() -> int:
     parser.add_argument("--limit", type=int, default=20)
     args = parser.parse_args()
 
-    agent = ResearchRecheckAgent(args.db)
+    if not 1 <= args.limit <= 50:
+        parser.error("--limit must be between 1 and 50")
+
+    agent = ResearchRecheckAgentV2(args.db)
     results = agent.recheck_required(limit=args.limit)
     print(f"rechecked={len(results)}")
     for result in results:
