@@ -1,9 +1,9 @@
 from pathlib import Path
 
-from maha_sales_engine.agent_runtime.real_research import build_default_content_engine
-from maha_sales_engine.agent_runtime.store import AgentStore
-from maha_sales_engine.agent_runtime.task import Task, TaskStatus
-from maha_sales_engine.agent_runtime.vertical_slice import build_sales_runtime
+from agent_runtime.real_research import build_default_content_engine
+from agent_runtime.store import AgentStore
+from agent_runtime.task import Task, TaskStatus
+from agent_runtime.vertical_slice import build_sales_runtime
 
 
 def test_task_and_events_survive_new_store_instance(tmp_path: Path):
@@ -11,7 +11,7 @@ def test_task_and_events_survive_new_store_instance(tmp_path: Path):
     store = AgentStore(db)
     task = Task("persist me")
     store.save_task(task)
-    store.append_event(__import__("maha_sales_engine.agent_runtime.events", fromlist=["TaskEvent"]).TaskEvent(task.id, "TASK_CREATED"))
+    store.append_event(__import__("agent_runtime.events", fromlist=["TaskEvent"]).TaskEvent(task.id, "TASK_CREATED"))
 
     restored = AgentStore(db)
     loaded = restored.load_task(task.id)
