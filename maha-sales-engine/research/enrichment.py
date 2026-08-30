@@ -92,7 +92,9 @@ class WebsiteEnricher:
         for link in candidates[: max(0, self.config.max_pages - 1)]:
             fetched = self._fetch(link)
             if fetched:
-                pages.append(fetched)
+                # Keep the requested URL as evidence identity. The fetched response
+                # URL may be canonicalized/redirected by the server.
+                pages.append((link, fetched[0]))
 
         emails: list[str] = []
         phones: list[str] = []
