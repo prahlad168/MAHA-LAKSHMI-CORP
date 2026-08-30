@@ -127,7 +127,7 @@ maha-tukang-landing/
 4. Pasang Google Analytics
 5. Setup WhatsApp Business
 6. Mulai marketing lokal
-
+CI verification trigger
 ---
 
 **Target:** Platform jasa tukang #1 di Indonesia! 🇮🇩
