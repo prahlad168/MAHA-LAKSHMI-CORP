@@ -12,6 +12,8 @@ from agent_runtime.store import AgentStore
 
 from .agent_v2 import SOURCE_QUERIES, ResearchAgentV2
 from .multi_source import SourcePolicy
+from .ranking import rank_maha_hot_leads
+from .qualification import qualify_lead
 
 
 @dataclass(frozen=True)
@@ -23,18 +25,9 @@ class RecheckPolicy:
 
 
 class ResearchRecheckAgent:
-    """Targeted re-research for leads whose evidence is stale or incomplete.
+    """Targeted re-research for CRM leads whose evidence is stale/incomplete."""
 
-    The agent never creates a new CRM identity intentionally: it updates the
-    existing lead by its stable CRM id and appends fresh evidence.
-    """
-
-    def __init__(
-        self,
-        db_path,
-        research_agent: ResearchAgentV2 | None = None,
-        policy: RecheckPolicy | None = None,
-    ) -> None:
+    def __init__(self, db_path, research_agent: ResearchAgentV2 | None = None, policy: RecheckPolicy | None = None) -> None:
         self.store = AgentStore(db_path)
         self.evidence = LeadEvidenceStore(db_path)
         self.crm = CRM(db_path)
@@ -64,6 +57,21 @@ class ResearchRecheckAgent:
         right = " ".join(str(candidate.get("company", "")).casefold().split())
         return left == right
 
+    def queue_stale_leads(self, limit: int | None = None, now: datetime | None = None) -> list[str]:
+        """Materialize intelligence decisions as the CRM research_required state."""
+        now = now or datetime.now(timezone.utc)
+        ids: list[str] = []
+        for lead in self._all_leads((limit or self.policy.max_leads) * 2):
+            needed, _ = self._needs_research(lead, now)
+            if needed and lead.get("status") not in {"won", "do_not_contact", "lost"}:
+                self.crm.set_status(lead["id"], "research_required")
+                ids.append(lead["id"])
+            elif not needed and lead.get("status") == "research_required":
+                self.crm.set_status(lead["id"], "qualified")
+            if len(ids) >= (limit or self.policy.max_leads):
+                break
+        return ids
+
     def _candidate_for(self, lead: dict[str, Any]) -> dict[str, Any] | None:
         company = lead["company"]
         industry = str(lead.get("industry") or "business")
@@ -88,7 +96,6 @@ class ResearchRecheckAgent:
                     }
                     if self._same_business(lead, candidate):
                         return self.research_agent.enricher.enrich({**lead, **candidate})
-        # If discovery fails, re-enrich the existing official website only.
         if lead.get("website"):
             return self.research_agent.enricher.enrich({**lead, "researched_at": datetime.now(timezone.utc).isoformat()})
         return None
@@ -101,17 +108,14 @@ class ResearchRecheckAgent:
 
         refreshed = self._candidate_for(lead)
         if refreshed is None:
-            self.crm.set_status(lead["id"], "nurture")
-            return {
-                "lead_id": lead["id"],
-                "status": "research_failed",
-                "decision": "RESEARCH_REQUIRED",
-                "reason": "targeted recheck found no matching public source",
-            }
+            self.crm.set_status(lead["id"], "research_required")
+            return {"lead_id": lead["id"], "status": "research_failed", "decision": "RESEARCH_REQUIRED", "reason": "targeted recheck found no matching public source"}
 
+        refreshed = qualify_lead(refreshed)
+        ranked = rank_maha_hot_leads([refreshed], limit=1)
+        refreshed = ranked[0] if ranked else refreshed
         refreshed["id"] = lead["id"]
-        # Preserve CRM lifecycle and follow-up state during a research refresh.
-        refreshed["status"] = lead.get("status") if lead.get("status") not in {"new", "researched"} else "researched"
+        refreshed["status"] = "researched"
         refreshed["follow_up_state"] = lead.get("follow_up_state", "not_started")
         persisted = self.store.upsert_lead(refreshed)
         evidence_count = self.evidence.save(lead["id"], refreshed)
@@ -121,6 +125,7 @@ class ResearchRecheckAgent:
             self.crm.set_status(lead["id"], "qualified")
             final_status = "hot_ready"
         else:
+            self.crm.set_status(lead["id"], "research_required")
             final_status = "research_required"
         return {
             "lead_id": lead["id"],
@@ -134,19 +139,29 @@ class ResearchRecheckAgent:
     def recheck_required(self, limit: int | None = None, now: datetime | None = None) -> list[dict[str, Any]]:
         now = now or datetime.now(timezone.utc)
         max_leads = min(limit or self.policy.max_leads, self.policy.max_leads)
-        leads = self._all_leads(max_leads)
-        results = []
-        for lead in leads:
-            needed, _ = self._needs_research(lead, now)
-            if needed:
-                results.append(self.recheck_lead(lead, now=now))
-        return results
+        ids = self.queue_stale_leads(max_leads, now=now)
+        leads = self._research_required(max_leads, ids=ids)
+        return [self.recheck_lead(lead, now=now) for lead in leads]
+
+    def _research_required(self, limit: int, ids: list[str] | None = None) -> list[dict[str, Any]]:
+        import sqlite3
+        with sqlite3.connect(self.store.db_path) as conn:
+            conn.row_factory = sqlite3.Row
+            if ids:
+                placeholders = ",".join("?" for _ in ids)
+                rows = conn.execute(
+                    f"SELECT * FROM crm_leads WHERE status='research_required' AND id IN ({placeholders}) ORDER BY score DESC, updated_at ASC LIMIT ?",
+                    [*ids, limit],
+                ).fetchall()
+            else:
+                rows = conn.execute(
+                    "SELECT * FROM crm_leads WHERE status='research_required' ORDER BY score DESC, updated_at ASC LIMIT ?", (limit,)
+                ).fetchall()
+        return [dict(row) for row in rows]
 
     def _all_leads(self, limit: int) -> list[dict[str, Any]]:
         import sqlite3
         with sqlite3.connect(self.store.db_path) as conn:
             conn.row_factory = sqlite3.Row
-            rows = conn.execute(
-                "SELECT * FROM crm_leads ORDER BY score DESC, updated_at DESC LIMIT ?", (limit,)
-            ).fetchall()
+            rows = conn.execute("SELECT * FROM crm_leads ORDER BY score DESC, updated_at DESC LIMIT ?", (limit,)).fetchall()
         return [dict(row) for row in rows]
