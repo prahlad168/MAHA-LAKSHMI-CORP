@@ -106,3 +106,7 @@ class StateMachine:
     def get_terminal_statuses(cls) -> List[str]:
         """Get terminal statuses (no outgoing transitions)"""
         return [status for status, targets in cls.VALID_TRANSITIONS.items() if not targets]
+
+
+# Backward-compatible name used by the legacy marketplace API/tests.
+StatusManager = StateMachine
