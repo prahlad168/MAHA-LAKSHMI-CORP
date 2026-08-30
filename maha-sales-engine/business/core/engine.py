@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """
 MAHA SALES ENGINE V1 - Business Execution Core
-Autonomous business execution pipeline.
+Business reporting and revenue transaction persistence.
+
+This module is intentionally kept separate from agent orchestration.
+Agents should request business actions through a controlled action layer.
 """
 
 import sys
@@ -18,10 +21,15 @@ from core.engine import ConfigManager, DatabaseManager
 
 logger = logging.getLogger("maha-sales-engine.business.core")
 
+# Profit allocation policy. Must total 100%.
+CEO_SHARE_RATE = 0.60
+REINVESTMENT_RATE = 0.25
+OPERATIONAL_RATE = 0.15
+
 
 @dataclass
 class DailyReport:
-    """Daily business report"""
+    """Daily business report."""
     report_date: str
     products_generated: int = 0
     products_published: int = 0
@@ -44,25 +52,24 @@ class DailyReport:
 
 
 class BusinessExecutionEngine:
-    """Main business execution orchestrator"""
-    
+    """Business reporting and revenue persistence engine."""
+
     def __init__(self, base_dir: Path):
         self.base_dir = base_dir
         self.output_dir = base_dir / "business" / "output"
-        self.output_dir.mkdir(exist_ok=True)
-        
+        self.output_dir.mkdir(parents=True, exist_ok=True)
+
         config_path = base_dir / "config" / "engine.yaml"
         self.config = ConfigManager(config_path)
         self.db = DatabaseManager(Path(self.config.get("database.path")))
-        
         self._init_database()
         logger.info("Business Execution Engine initialized")
-    
+
     def _init_database(self):
-        """Initialize business tables"""
+        """Initialize business tables."""
         conn = self.db.get_connection()
         cursor = conn.cursor()
-        
+
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS daily_reports (
                 id TEXT PRIMARY KEY,
@@ -87,7 +94,10 @@ class BusinessExecutionEngine:
                 created_at TEXT
             )
         """)
-        
+
+        # report_id is retained for compatibility with the existing schema.
+        # A revenue record is assigned to a deterministic daily bucket because
+        # transactions can be recorded before the daily report is generated.
         cursor.execute("""
             CREATE TABLE IF NOT EXISTS revenue_transactions (
                 id TEXT PRIMARY KEY,
@@ -103,62 +113,77 @@ class BusinessExecutionEngine:
                 created_at TEXT
             )
         """)
-        
+
         conn.commit()
         logger.info("Business tables initialized")
-    
+
+    @staticmethod
+    def _allocate_profit(net_profit: float) -> Dict[str, float]:
+        """Allocate net profit according to the 60/25/15 policy."""
+        if net_profit < 0:
+            raise ValueError("net_profit cannot be negative")
+
+        allocations = {
+            "ceo_share": net_profit * CEO_SHARE_RATE,
+            "reinvestment": net_profit * REINVESTMENT_RATE,
+            "operational": net_profit * OPERATIONAL_RATE,
+        }
+        # Keep the accounting invariant explicit.
+        if abs(sum(allocations.values()) - net_profit) > 1e-9:
+            raise RuntimeError("profit allocation policy does not total 100%")
+        return allocations
+
     def generate_daily_report(self, report_date: Optional[str] = None) -> DailyReport:
-        """Generate daily business report"""
-        if not report_date:
-            report_date = datetime.now().strftime("%Y-%m-%d")
-        
+        """Generate and persist a daily business report."""
+        report_date = report_date or datetime.now().strftime("%Y-%m-%d")
         report = DailyReport(report_date=report_date)
-        
+
         try:
             conn = self.db.get_connection()
             cursor = conn.cursor()
-            
-            # Count products generated
+
+            # Optional product-factory tables may not exist in every deployment.
+            for table, column in (("pf_generation_jobs", "created_at"), ("pf_products", "updated_at")):
+                cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name=?", (table,))
+                exists = cursor.fetchone() is not None
+                if not exists:
+                    continue
+                if table == "pf_generation_jobs":
+                    cursor.execute("SELECT COUNT(*) FROM pf_generation_jobs WHERE DATE(created_at) = ?", (report_date,))
+                    report.products_generated = cursor.fetchone()[0]
+                else:
+                    cursor.execute("SELECT COUNT(*) FROM pf_products WHERE status = 'published' AND DATE(updated_at) = ?", (report_date,))
+                    report.products_published = cursor.fetchone()[0]
+
             cursor.execute("""
-                SELECT COUNT(*) FROM pf_generation_jobs 
-                WHERE DATE(created_at) = ?
-            """, (report_date,))
-            row = cursor.fetchone()
-            report.products_generated = row[0] if row else 0
-            
-            # Count products published
-            cursor.execute("""
-                SELECT COUNT(*) FROM pf_products 
-                WHERE status = 'published' AND DATE(updated_at) = ?
-            """, (report_date,))
-            row = cursor.fetchone()
-            report.products_published = row[0] if row else 0
-            
-            # Calculate revenue
-            cursor.execute("""
-                SELECT SUM(amount_usd), SUM(amount_idr), SUM(cogs_usd), SUM(net_profit_usd), SUM(net_profit_idr)
-                FROM revenue_transactions 
+                SELECT
+                    COUNT(*),
+                    COALESCE(SUM(amount_usd), 0),
+                    COALESCE(SUM(amount_idr), 0),
+                    COALESCE(SUM(cogs_usd), 0),
+                    COALESCE(SUM(net_profit_usd), 0),
+                    COALESCE(SUM(net_profit_idr), 0)
+                FROM revenue_transactions
                 WHERE DATE(transaction_date) = ?
             """, (report_date,))
             row = cursor.fetchone()
-            if row and row[0]:
-                report.revenue_usd = float(row[0])
-                report.revenue_idr = float(row[1])
-                report.cogs_usd = float(row[2])
-                report.net_profit_usd = float(row[3])
-                report.net_profit_idr = float(row[4])
-            
-            # Calculate profit distribution
-            report.ceo_share_usd = report.net_profit_usd * 0.8
-            report.ceo_share_idr = report.net_profit_idr * 0.8
-            report.reinvestment_usd = report.net_profit_usd * 0.25
-            report.reinvestment_idr = report.net_profit_idr * 0.25
-            report.operational_usd = report.net_profit_usd * 0.15
-            report.operational_idr = report.net_profit_idr * 0.15
-            
+            report.sales_count = int(row[0] or 0)
+            report.revenue_usd = float(row[1] or 0)
+            report.revenue_idr = float(row[2] or 0)
+            report.cogs_usd = float(row[3] or 0)
+            report.net_profit_usd = float(row[4] or 0)
+            report.net_profit_idr = float(row[5] or 0)
+
+            usd = self._allocate_profit(report.net_profit_usd)
+            idr = self._allocate_profit(report.net_profit_idr)
+            report.ceo_share_usd = usd["ceo_share"]
+            report.reinvestment_usd = usd["reinvestment"]
+            report.operational_usd = usd["operational"]
+            report.ceo_share_idr = idr["ceo_share"]
+            report.reinvestment_idr = idr["reinvestment"]
+            report.operational_idr = idr["operational"]
             report.status = "completed"
-            
-            # Save report
+
             report_id = f"RPT-{report_date}-{uuid.uuid4().hex[:8].upper()}"
             cursor.execute("""
                 INSERT INTO daily_reports (
@@ -177,86 +202,79 @@ class BusinessExecutionEngine:
                 report.operational_idr, report.status, report.created_at
             ))
             conn.commit()
-            
-            logger.info(f"Daily report generated: {report_date}")
+            logger.info("Daily report generated: %s", report_date)
             return report
-            
-        except Exception as e:
-            logger.error(f"Failed to generate daily report: {e}")
+
+        except Exception as exc:
+            logger.exception("Failed to generate daily report: %s", exc)
             report.status = "failed"
             return report
-    
-    def record_revenue(self, product_id: str, marketplace_id: str, amount_usd: float, amount_idr: float, cogs_usd: float = 0.0) -> bool:
-        """Record revenue transaction"""
+
+    def record_revenue(
+        self,
+        product_id: str,
+        marketplace_id: str,
+        amount_usd: float,
+        amount_idr: float,
+        cogs_usd: float = 0.0,
+    ) -> bool:
+        """Record a revenue transaction."""
+        if amount_usd < 0 or amount_idr < 0 or cogs_usd < 0:
+            raise ValueError("amounts and cogs must be non-negative")
+
         try:
+            now = datetime.now()
+            transaction_id = f"REV-{now.strftime('%Y%m%d%H%M%S')}-{uuid.uuid4().hex[:8].upper()}"
+            # Daily bucket; the report itself can be generated later.
+            report_id = f"DAY-{now.strftime('%Y-%m-%d')}"
             net_profit_usd = amount_usd - cogs_usd
             net_profit_idr = amount_idr - (cogs_usd * 16000)
-            
-            transaction_id = f"REV-{datetime.now().strftime('%Y%m%d%H%M%S')}-{uuid.uuid4().hex[:8].upper()}"
+            if net_profit_usd < 0 or net_profit_idr < 0:
+                raise ValueError("COGS cannot exceed revenue")
+
             conn = self.db.get_connection()
-            cursor = conn.cursor()
-            
-            cursor.execute("""
+            conn.execute("""
                 INSERT INTO revenue_transactions (
-                    id, product_id, marketplace_id, amount_usd, amount_idr,
+                    id, report_id, product_id, marketplace_id, amount_usd, amount_idr,
                     cogs_usd, net_profit_usd, net_profit_idr, transaction_date, created_at
-                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
             """, (
-                transaction_id, product_id, marketplace_id, amount_usd, amount_idr,
-                cogs_usd, net_profit_usd, net_profit_idr,
-                datetime.now().isoformat(), datetime.now().isoformat()
+                transaction_id, report_id, product_id, marketplace_id,
+                amount_usd, amount_idr, cogs_usd, net_profit_usd, net_profit_idr,
+                now.isoformat(), now.isoformat()
             ))
             conn.commit()
-            
-            logger.info(f"Revenue recorded: {amount_usd} USD / {amount_idr} IDR")
+            logger.info("Revenue recorded: %s USD / %s IDR", amount_usd, amount_idr)
             return True
-            
-        except Exception as e:
-            logger.error(f"Failed to record revenue: {e}")
+
+        except Exception as exc:
+            logger.exception("Failed to record revenue: %s", exc)
             return False
-    
+
     def get_status(self) -> Dict[str, Any]:
-        """Get module status"""
+        """Get module status."""
         try:
             conn = self.db.get_connection()
             cursor = conn.cursor()
-            
             cursor.execute("SELECT COUNT(*) FROM daily_reports")
             total_reports = cursor.fetchone()[0]
-            
             cursor.execute("SELECT COUNT(*) FROM revenue_transactions")
             total_transactions = cursor.fetchone()[0]
-            
             cursor.execute("SELECT SUM(amount_usd), SUM(amount_idr) FROM revenue_transactions")
             row = cursor.fetchone()
-            total_revenue_usd = float(row[0]) if row and row[0] else 0.0
-            total_revenue_idr = float(row[1]) if row and row[1] else 0.0
-            
             return {
                 "module": "business",
                 "status": "running",
                 "total_reports": total_reports,
                 "total_transactions": total_transactions,
-                "total_revenue_usd": total_revenue_usd,
-                "total_revenue_idr": total_revenue_idr
+                "total_revenue_usd": float(row[0] or 0) if row else 0.0,
+                "total_revenue_idr": float(row[1] or 0) if row else 0.0,
+                "profit_allocation": {
+                    "ceo_share": CEO_SHARE_RATE,
+                    "reinvestment": REINVESTMENT_RATE,
+                    "operational": OPERATIONAL_RATE,
+                },
             }
-        except Exception as e:
-            logger.error(f"Failed to get status: {e}")
-            return {"module": "business", "status": "error", "error": str(e)}
-
-
-def main():
-    """Test business engine"""
-    from pathlib import Path
-    base_dir = Path(__file__).parent.parent.parent
-    engine = BusinessExecutionEngine(base_dir)
-    
-    report = engine.generate_daily_report()
-    print(f"Daily Report: {report.report_date}")
-    print(f"  Products Generated: {report.products_generated}")
-    print(f"  Revenue: ${report.revenue_usd:.2f} / Rp {report.revenue_idr:,.0f}")
-    print(f"  CEO Share: ${report.ceo_share_usd:.2f} / Rp {report.ceo_share_idr:,.0f}")
-
-
-if __name__ == "__main__":
-    main()
+        except Exception as exc:
+            logger.exception("Failed to get status: %s", exc)
+            return {"module": "business", "status": "error", "error": str(exc)}
