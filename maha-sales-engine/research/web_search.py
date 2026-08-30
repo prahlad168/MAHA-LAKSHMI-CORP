@@ -15,6 +15,8 @@ class WebResearchError(RuntimeError):
 class DuckDuckGoResearchProvider:
     """Lightweight public-web research provider using DuckDuckGo HTML results."""
 
+    name = "duckduckgo"
+    source_type = "search_engine"
     endpoint = "https://html.duckduckgo.com/html/"
 
     def __init__(self, timeout: float = 15.0, user_agent: str = "MAHA-Research/1.0") -> None:
@@ -31,8 +33,7 @@ class DuckDuckGoResearchProvider:
         emails = re.findall(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", html, flags=re.I)
         phones = re.findall(r"(?:\+?62|0)(?:[\s().-]*\d){8,13}", html)
         email = next((e for e in emails if not e.lower().endswith((".png", ".jpg"))), None)
-        phone = phones[0] if phones else None
-        return email, phone
+        return email, phones[0] if phones else None
 
     def _enrich(self, url: str) -> tuple[str | None, str | None]:
         parsed = urlparse(url)
@@ -97,8 +98,8 @@ def discover_bali_businesses(
             seen.add(key)
             candidates.append({
                 "company": result["title"], "industry": category, "country": "Indonesia",
-                "source": "web_search", "source_url": url, "website": url,
-                "email": result.get("email"), "phone": result.get("phone"),
+                "source": provider.name, "source_type": provider.source_type, "source_url": url,
+                "website": url, "email": result.get("email"), "phone": result.get("phone"),
                 "research_snippet": result["snippet"], "research_host": urlparse(url).netloc,
             })
             if len(candidates) >= limit:
