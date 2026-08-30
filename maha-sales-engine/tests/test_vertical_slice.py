@@ -15,19 +15,21 @@ def test_research_lead_generation_sales_slice(tmp_path: Path):
 
     task = runtime.run("Find suitable Bali businesses for WhatsApp Marketing Kit", candidates)
 
-    assert task.status is TaskStatus.COMPLETED
+    assert task.status is TaskStatus.WAITING
     assert len(task.result) == 2
     assert task.result[0]["company"] == "Cafe Bali"
     assert task.result[0]["channel"] == "whatsapp"
     assert "WhatsApp Marketing Kit" in task.result[0]["message"]
+    assert task.result[0]["status"] == "pending_approval"
 
     events = runtime.events.for_task(task.id)
     assert [event.event_type for event in events] == [
+        "TASK_CREATED",
         "AGENT_STARTED",
         "ACTION_REQUESTED",
         "ACTION_EXECUTED",
         "AGENT_STARTED",
         "ACTION_REQUESTED",
         "ACTION_EXECUTED",
-        "TASK_COMPLETED",
+        "WAITING_FOR_APPROVAL",
     ]
