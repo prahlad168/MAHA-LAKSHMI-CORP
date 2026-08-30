@@ -9,27 +9,25 @@ Responsibilities:
 - Localization-ready content
 """
 
-import json
-import time
 import logging
+import random
+from datetime import datetime, timedelta
 from typing import Dict, Any, Optional, List
-from datetime import datetime
-from pathlib import Path
 
 logger = logging.getLogger("maha-sales-engine.content")
 
 
 class ContentEngine:
-    """Generate and manage marketing content"""
-    
+    """Generate and manage marketing content."""
+
     def __init__(self, config, product_manager):
         self.config = config
         self.product_manager = product_manager
         self.content_templates: Dict[str, Dict[str, Any]] = {}
         self.load_templates()
-    
+
     def load_templates(self):
-        """Load content templates"""
+        """Load content templates."""
         self.content_templates = {
             "email_initial": {
                 "subjects": [
@@ -38,7 +36,7 @@ class ContentEngine:
                     "I noticed something interesting about {company}"
                 ],
                 "bodies": [
-                    "Hi {first_name},\n\nI noticed {company} is doing interesting work in {industry}.\n\nWe help {industry} companies like yours increase leads by 40-60% within 90 days.\n\nWould you be open to a quick 15-minute call this week?\n\nBest,\nAlex Johnson\nMAHA LAKSHMI HOLDINGS"
+                    "Hi {first_name},\n\nI noticed {company} is doing interesting work in {industry}.\n\nWe help {industry} companies like yours improve lead generation.\n\nWould you be open to a quick 15-minute call this week?\n\nBest,\nMAHA LAKSHMI"
                 ]
             },
             "email_followup": {
@@ -47,13 +45,13 @@ class ContentEngine:
                     "Following up on helping {company} grow"
                 ],
                 "bodies": [
-                    "Hi {first_name},\n\nFollowing up on my previous email about helping {company} grow.\n\nWe recently helped a {industry} company in {country}:\n   - 150% increase in website traffic\n   - 3x more demo requests\n\nWould a quick 15-min call this Thursday work?\n\nBest,\nAlex Johnson"
+                    "Hi {first_name},\n\nFollowing up on my previous email about helping {company} grow.\n\nWould a quick 15-minute conversation this week be useful?\n\nBest,\nMAHA LAKSHMI"
                 ]
             },
             "whatsapp_initial": {
                 "templates": [
-                    "Hi {first_name}! I'm from MAHA LAKSHMI. We help {industry} companies like {company} increase leads by 40-60%. Would you be interested in a free 15-min consultation?",
-                    "Halo {first_name}! Saya dari MAHA LAKSHMI. Kami membantu perusahaan {industry} seperti {company} meningkatkan leads 40-60%. Mau konsultasi gratis 15 menit?"
+                    "Hi {first_name}! I'm from MAHA LAKSHMI. We help {industry} businesses like {company} improve lead generation. Would you be interested in a free 15-minute consultation?",
+                    "Halo {first_name}! Saya dari MAHA LAKSHMI. Kami membantu bisnis {industry} seperti {company} meningkatkan lead generation. Mau konsultasi gratis 15 menit?"
                 ]
             },
             "linkedin_connection": {
@@ -63,75 +61,62 @@ class ContentEngine:
                 ]
             }
         }
-    
+
+    @staticmethod
+    def _first_name(lead: Dict[str, Any]) -> str:
+        name = str(lead.get("name", "")).strip()
+        return name.split()[0] if name else "there"
+
+    def _format_context(self, lead: Dict[str, Any]) -> Dict[str, str]:
+        return {
+            "company": str(lead.get("company", "your company")),
+            "first_name": self._first_name(lead),
+            "industry": str(lead.get("industry", "business")),
+            "country": str(lead.get("country", ""))
+        }
+
     def generate_email_content(self, template_type: str, lead: Dict[str, Any]) -> Dict[str, str]:
-        """Generate personalized email content"""
+        """Generate personalized email content."""
         templates = self.content_templates.get(template_type, {})
-        
         if not templates:
             return {"subject": "", "body": ""}
-        
-        subject = random.choice(templates.get("subjects", [""])).format(
-            company=lead.get("company", ""),
-            first_name=lead.get("name", "").split()[0],
-            industry=lead.get("industry", ""),
-            country=lead.get("country", "")
-        )
-        
-        body = random.choice(templates.get("bodies", [""])).format(
-            company=lead.get("company", ""),
-            first_name=lead.get("name", "").split()[0],
-            industry=lead.get("industry", ""),
-            country=lead.get("country", "")
-        )
-        
+
+        context = self._format_context(lead)
+        subject = random.choice(templates.get("subjects", [""])).format(**context)
+        body = random.choice(templates.get("bodies", [""])).format(**context)
         return {"subject": subject, "body": body}
-    
+
     def generate_whatsapp_content(self, template_type: str, lead: Dict[str, Any]) -> str:
-        """Generate personalized WhatsApp message"""
+        """Generate personalized WhatsApp message."""
         templates = self.content_templates.get(template_type, {})
         template_list = templates.get("templates", [])
-        
         if not template_list:
             return ""
-        
-        return random.choice(template_list).format(
-            company=lead.get("company", ""),
-            first_name=lead.get("name", "").split()[0],
-            industry=lead.get("industry", ""),
-            country=lead.get("country", "")
-        )
-    
+        return random.choice(template_list).format(**self._format_context(lead))
+
     def generate_linkedin_content(self, template_type: str, lead: Dict[str, Any]) -> str:
-        """Generate personalized LinkedIn message"""
+        """Generate personalized LinkedIn message."""
         templates = self.content_templates.get(template_type, {})
         template_list = templates.get("templates", [])
-        
         if not template_list:
             return ""
-        
-        return random.choice(template_list).format(
-            company=lead.get("company", ""),
-            first_name=lead.get("name", "").split()[0],
-            industry=lead.get("industry", "")
-        )
-    
+        return random.choice(template_list).format(**self._format_context(lead))
+
     def generate_product_description(self, product_id: str, language: str = "en") -> str:
-        """Generate product description"""
+        """Generate product description."""
         product = self.product_manager.get_product(product_id)
         if not product:
             return ""
-        
+
         descriptions = {
-            "en": f"{product.name}\n\n{product.description}\n\nFeatures:\n" + "\n".join([f"- {f}" for f in product.features]),
-            "id": f"{product.name}\n\n{product.description}\n\nFitur:\n" + "\n".join([f"- {f}" for f in product.features]),
-            "pt": f"{product.name}\n\n{product.description}\n\nRecursos:\n" + "\n".join([f"- {f}" for f in product.features])
+            "en": f"{product.name}\n\n{product.description}\n\nFeatures:\n" + "\n".join(f"- {f}" for f in product.features),
+            "id": f"{product.name}\n\n{product.description}\n\nFitur:\n" + "\n".join(f"- {f}" for f in product.features),
+            "pt": f"{product.name}\n\n{product.description}\n\nRecursos:\n" + "\n".join(f"- {f}" for f in product.features)
         }
-        
         return descriptions.get(language, descriptions["en"])
-    
+
     def get_seo_keywords(self, market: str, product: Optional[str] = None) -> List[str]:
-        """Get SEO keywords for market and product"""
+        """Get SEO keywords for market and product."""
         keywords_db = {
             "id": {
                 "social-media-kit": ["template Instagram bisnis", "desain sosial media", "template Instagram UMKM"],
@@ -149,47 +134,47 @@ class ContentEngine:
                 "whatsapp-marketing": ["marketing WhatsApp", "templates WhatsApp", "automação WhatsApp"]
             }
         }
-        
+
         if product:
             return keywords_db.get(market, {}).get(product, [])
-        
-        # Return all keywords for market
-        all_keywords = []
+
+        all_keywords: List[str] = []
         for keywords in keywords_db.get(market, {}).values():
             all_keywords.extend(keywords)
-        return list(set(all_keywords))
-    
+        return list(dict.fromkeys(all_keywords))
+
     def generate_landing_page_content(self, product_id: str, market: str) -> Dict[str, str]:
-        """Generate landing page content"""
+        """Generate landing page content."""
         product = self.product_manager.get_product(product_id)
         if not product:
             return {}
-        
+
         keywords = self.get_seo_keywords(market, product_id)
         primary_keyword = keywords[0] if keywords else product.name.lower()
-        
-        content = {
+        return {
             "title": f"{product.name} - {primary_keyword.title()} | MAHA LAKSHMI",
-            "meta_description": f"Get {product.name}. {product.description[:150]}... Best price guaranteed.",
-            "h1": f"{product.name}",
+            "meta_description": f"Get {product.name}. {product.description[:150]}...",
+            "h1": product.name,
             "h2": f"Everything you need to succeed with {primary_keyword}",
-            "features": "\n".join([f"- {f}" for f in product.features]),
+            "features": "\n".join(f"- {f}" for f in product.features),
             "price": f"${product.price_usd}",
             "cta": "Get Instant Access",
             "keywords": ", ".join(keywords[:5])
         }
-        
-        return content
-    
+
     def get_content_calendar(self, days: int = 7) -> List[Dict[str, Any]]:
-        """Generate content calendar"""
-        calendar = []
+        """Generate content calendar safely."""
+        if days < 0:
+            raise ValueError("days must be >= 0")
+
         products = self.product_manager.get_active_products()
-        
+        if not products or days == 0:
+            return []
+
+        calendar: List[Dict[str, Any]] = []
         for i in range(days):
             date = (datetime.now() + timedelta(days=i)).strftime("%Y-%m-%d")
             product = products[i % len(products)]
-            
             calendar.append({
                 "date": date,
                 "product_id": product.id,
@@ -198,42 +183,4 @@ class ContentEngine:
                 "channel": random.choice(["instagram", "email", "linkedin", "facebook"]),
                 "status": "scheduled"
             })
-        
         return calendar
-
-
-import random
-
-
-def main():
-    """Test content engine"""
-    from core.engine import ConfigManager, DatabaseManager
-    from pathlib import Path
-    from products.product_manager import ProductManager
-    
-    config = ConfigManager(Path("config/engine.yaml"))
-    db = DatabaseManager(Path(config.get("database.path")))
-    pm = ProductManager(db)
-    
-    ce = ContentEngine(config, pm)
-    
-    # Test content generation
-    lead = {
-        "name": "John Smith",
-        "company": "TechStart",
-        "industry": "Technology",
-        "country": "USA"
-    }
-    
-    email = ce.generate_email_content("email_initial", lead)
-    print(f"\nEmail Subject: {email['subject']}")
-    print(f"Email Body: {email['body'][:100]}...")
-    
-    keywords = ce.get_seo_keywords("id", "social-media-kit")
-    print(f"\nSEO Keywords (ID): {keywords}")
-    
-    db.close()
-
-
-if __name__ == "__main__":
-    main()
