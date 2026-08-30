@@ -16,11 +16,7 @@ class ResearchProvider(Protocol):
 
 @dataclass(frozen=True)
 class SourcePolicy:
-    """Quality weights for public-source discovery.
-
-    Official association/member directories rank above general directories and
-    generic search. These weights affect confidence, not truthfulness.
-    """
+    """Quality weights for public-source discovery."""
 
     domain_weights: tuple[tuple[str, float], ...] = (
         ("asitabali.org", 1.00),
@@ -39,18 +35,9 @@ class SourcePolicy:
         return self.default_weight
 
 
-@dataclass
-class SourceRecord:
-    provider: str
-    source_type: str
-    url: str | None
-    title: str
-    snippet: str
-    quality: float
-    queried_at: str
-
-
 class MultiSourceResearcher:
+    """Run multiple public-search providers and merge corroborating records."""
+
     def __init__(self, providers: list[ResearchProvider], policy: SourcePolicy | None = None) -> None:
         if not providers:
             raise ValueError("at least one research provider is required")
@@ -104,8 +91,8 @@ class MultiSourceResearcher:
                 title = str(raw.get("company") or raw.get("title") or "").strip()
                 if not title:
                     continue
-                key = self._dedupe_key(raw)
                 quality = self.policy.weight_for(url)
+                key = self._dedupe_key(raw)
                 candidate = {
                     **raw,
                     "company": title,
@@ -127,20 +114,21 @@ class MultiSourceResearcher:
                 if existing is None:
                     merged[key] = candidate
                     continue
+                existing_quality = float(existing.get("source_quality", 0.0))
                 existing["sources"].extend(candidate["sources"])
-                existing["source_quality"] = max(existing["source_quality"], quality)
+                existing["source_quality"] = max(existing_quality, quality)
                 existing["source_count"] = len(existing["sources"])
-                # Prefer the highest-quality source's contact fields.
-                if quality > float(existing.get("source_quality", 0)):
+                if quality > existing_quality:
                     for field in ("phone", "email", "website", "source_url"):
                         if candidate.get(field):
                             existing[field] = candidate[field]
+                    existing["source"] = provider.name
+                    existing["source_type"] = provider.source_type
                 for field in ("phone", "email", "website"):
                     if not existing.get(field) and candidate.get(field):
                         existing[field] = candidate[field]
-                existing["research_snippet"] = " | ".join(dict.fromkeys(
-                    [existing.get("research_snippet", ""), str(raw.get("snippet", ""))]
-                )).strip(" |")
+                snippets = [existing.get("research_snippet", ""), str(raw.get("snippet", ""))]
+                existing["research_snippet"] = " | ".join(dict.fromkeys(x for x in snippets if x)).strip()
         ranked = list(merged.values())
         for item in ranked:
             item["source_count"] = len(item.get("sources", []))
