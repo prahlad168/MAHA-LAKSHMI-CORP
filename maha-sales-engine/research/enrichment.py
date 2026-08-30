@@ -9,7 +9,7 @@ import requests
 
 
 EMAIL_RE = re.compile(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", re.I)
-PHONE_RE = re.compile(r"(?:\+?62|0)(?:[\s().-]*\d){8,13}")
+PHONE_RE = re.compile(r"(?<!\d)(?:\+?62|0)(?:[\s().-]*\d){8,13}(?!\d)")
 WA_RE = re.compile(r"https?://(?:wa\.me|api\.whatsapp\.com|chat\.whatsapp\.com)/[^\"'<>\s]+", re.I)
 
 
@@ -58,6 +58,17 @@ class WebsiteEnricher:
         except requests.RequestException:
             return None
 
+    @staticmethod
+    def _unique_phones(values: list[str]) -> list[str]:
+        normalized = [WebsiteEnricher._normalize_phone(value) for value in values]
+        normalized = [value for value in normalized if value]
+        result: list[str] = []
+        for candidate in sorted(set(normalized), key=len, reverse=True):
+            if any(candidate.startswith(existing) or existing.startswith(candidate) for existing in result):
+                continue
+            result.append(candidate)
+        return result
+
     def enrich(self, lead: dict[str, Any]) -> dict[str, Any]:
         website = str(lead.get("website") or lead.get("source_url") or "").strip()
         if not website:
@@ -94,7 +105,7 @@ class WebsiteEnricher:
             if any(hint in urlparse(url).path.casefold() for hint in self.PATH_HINTS):
                 contact_pages.append(url)
 
-        normalized_phones = list(dict.fromkeys(p for p in (self._normalize_phone(x) for x in phones) if p))
+        normalized_phones = self._unique_phones(phones)
         emails = list(dict.fromkeys(e.lower() for e in emails))
         whatsapp_urls = list(dict.fromkeys(whatsapp_urls))
         score = 0.35
@@ -109,7 +120,7 @@ class WebsiteEnricher:
             "email": lead.get("email") or (emails[0] if emails else None),
             "phone": lead.get("phone") or (normalized_phones[0] if normalized_phones else None),
             "whatsapp": lead.get("whatsapp") or (whatsapp_urls[0] if whatsapp_urls else None),
-            "contact_pages": contact_pages,
+            "contact_pages": list(dict.fromkeys(contact_pages)),
             "discovered_emails": emails,
             "discovered_phones": normalized_phones,
             "whatsapp_urls": whatsapp_urls,
