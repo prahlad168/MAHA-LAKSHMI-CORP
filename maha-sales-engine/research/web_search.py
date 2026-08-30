@@ -3,7 +3,7 @@ from __future__ import annotations
 import re
 from html import unescape
 from typing import Any
-from urllib.parse import quote_plus, urlparse
+from urllib.parse import urlparse
 
 import requests
 
@@ -13,11 +13,7 @@ class WebResearchError(RuntimeError):
 
 
 class DuckDuckGoResearchProvider:
-    """Lightweight public-web research provider using DuckDuckGo HTML results.
-
-    This intentionally returns research candidates only. It does not claim that a
-    listing is an official contact channel; outreach must re-verify the target.
-    """
+    """Lightweight public-web research provider using DuckDuckGo HTML results."""
 
     endpoint = "https://html.duckduckgo.com/html/"
 
@@ -30,24 +26,37 @@ class DuckDuckGoResearchProvider:
         value = re.sub(r"<[^>]+>", " ", value)
         return re.sub(r"\s+", " ", unescape(value)).strip()
 
-    def search(self, query: str, limit: int = 10) -> list[dict[str, Any]]:
+    @staticmethod
+    def _extract_contacts(html: str) -> tuple[str | None, str | None]:
+        emails = re.findall(r"[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}", html, flags=re.I)
+        phones = re.findall(r"(?:\+?62|0)(?:[\s().-]*\d){8,13}", html)
+        email = next((e for e in emails if not e.lower().endswith((".png", ".jpg"))), None)
+        phone = phones[0] if phones else None
+        return email, phone
+
+    def _enrich(self, url: str) -> tuple[str | None, str | None]:
+        parsed = urlparse(url)
+        if parsed.scheme not in {"http", "https"}:
+            return None, None
+        try:
+            response = requests.get(url, headers=self.headers, timeout=self.timeout)
+            response.raise_for_status()
+            return self._extract_contacts(response.text)
+        except requests.RequestException:
+            return None, None
+
+    def search(self, query: str, limit: int = 10, enrich: bool = True) -> list[dict[str, Any]]:
         if not query.strip():
             raise ValueError("query must not be empty")
         if not 1 <= limit <= 50:
             raise ValueError("limit must be between 1 and 50")
         try:
-            response = requests.get(
-                self.endpoint,
-                params={"q": query},
-                headers=self.headers,
-                timeout=self.timeout,
-            )
+            response = requests.get(self.endpoint, params={"q": query}, headers=self.headers, timeout=self.timeout)
             response.raise_for_status()
         except requests.RequestException as exc:
             raise WebResearchError(f"web search failed: {exc}") from exc
 
-        html = response.text
-        blocks = re.split(r'<div[^>]+class="result[^>]*>', html, flags=re.I)
+        blocks = re.split(r'<div[^>]+class="result[^>]*>', response.text, flags=re.I)
         results: list[dict[str, Any]] = []
         for block in blocks[1:]:
             link_match = re.search(r'class="result__a"[^>]+href="([^"]+)"', block, flags=re.I)
@@ -60,7 +69,8 @@ class DuckDuckGoResearchProvider:
             snippet = self._strip_html(snippet_match.group(1)) if snippet_match else ""
             if not title or not url:
                 continue
-            results.append({"title": title, "url": url, "snippet": snippet, "query": query})
+            email, phone = self._enrich(url) if enrich else (None, None)
+            results.append({"title": title, "url": url, "snippet": snippet, "query": query, "email": email, "phone": phone})
             if len(results) >= limit:
                 break
         return results
@@ -81,20 +91,15 @@ def discover_bali_businesses(
         query = f"{category} Bali Indonesia business"
         for result in provider.search(query, per_query):
             url = result["url"]
-            host = urlparse(url).netloc
             key = (result["title"] + "|" + url).casefold()
             if key in seen:
                 continue
             seen.add(key)
             candidates.append({
-                "company": result["title"],
-                "industry": category,
-                "country": "Indonesia",
-                "source": "web_search",
-                "source_url": url,
-                "website": url,
-                "research_snippet": result["snippet"],
-                "research_host": host,
+                "company": result["title"], "industry": category, "country": "Indonesia",
+                "source": "web_search", "source_url": url, "website": url,
+                "email": result.get("email"), "phone": result.get("phone"),
+                "research_snippet": result["snippet"], "research_host": urlparse(url).netloc,
             })
             if len(candidates) >= limit:
                 return candidates
