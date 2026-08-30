@@ -1,0 +1,190 @@
+from __future__ import annotations
+
+import json
+import sqlite3
+from datetime import datetime, timezone
+from pathlib import Path
+from typing import Any
+
+from .events import TaskEvent
+from .task import Task, TaskStatus
+
+
+class AgentStore:
+    """SQLite-backed task, event, lead and approval store."""
+
+    def __init__(self, db_path: Path) -> None:
+        self.db_path = Path(db_path)
+        self.db_path.parent.mkdir(parents=True, exist_ok=True)
+        self._init_schema()
+
+    def _connect(self) -> sqlite3.Connection:
+        conn = sqlite3.connect(self.db_path)
+        conn.row_factory = sqlite3.Row
+        return conn
+
+    def _init_schema(self) -> None:
+        with self._connect() as conn:
+            conn.executescript("""
+                CREATE TABLE IF NOT EXISTS agent_tasks (
+                    id TEXT PRIMARY KEY,
+                    request TEXT NOT NULL,
+                    status TEXT NOT NULL,
+                    current_agent TEXT,
+                    current_skill TEXT,
+                    current_action TEXT,
+                    result_json TEXT,
+                    error TEXT,
+                    metadata_json TEXT NOT NULL DEFAULT '{}',
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL
+                );
+                CREATE TABLE IF NOT EXISTS agent_events (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    task_id TEXT NOT NULL,
+                    event_type TEXT NOT NULL,
+                    data_json TEXT NOT NULL DEFAULT '{}',
+                    timestamp TEXT NOT NULL,
+                    FOREIGN KEY(task_id) REFERENCES agent_tasks(id)
+                );
+                CREATE INDEX IF NOT EXISTS idx_agent_events_task ON agent_events(task_id, id);
+                CREATE TABLE IF NOT EXISTS crm_leads (
+                    id TEXT PRIMARY KEY,
+                    name TEXT NOT NULL,
+                    email TEXT,
+                    phone TEXT,
+                    whatsapp TEXT,
+                    website TEXT,
+                    company TEXT NOT NULL,
+                    industry TEXT,
+                    country TEXT,
+                    language TEXT,
+                    source TEXT,
+                    status TEXT NOT NULL DEFAULT 'new',
+                    score INTEGER NOT NULL DEFAULT 0,
+                    tier TEXT NOT NULL DEFAULT 'new',
+                    notes TEXT,
+                    source_url TEXT,
+                    researched_at TEXT,
+                    created_at TEXT NOT NULL,
+                    updated_at TEXT NOT NULL,
+                    UNIQUE(company, source_url)
+                );
+                CREATE INDEX IF NOT EXISTS idx_crm_leads_status ON crm_leads(status);
+                CREATE INDEX IF NOT EXISTS idx_crm_leads_score ON crm_leads(score);
+                CREATE TABLE IF NOT EXISTS sales_approvals (
+                    id TEXT PRIMARY KEY,
+                    task_id TEXT NOT NULL,
+                    lead_id TEXT NOT NULL,
+                    channel TEXT NOT NULL,
+                    payload_json TEXT NOT NULL,
+                    status TEXT NOT NULL DEFAULT 'pending',
+                    reviewer TEXT,
+                    reviewed_at TEXT,
+                    created_at TEXT NOT NULL,
+                    FOREIGN KEY(task_id) REFERENCES agent_tasks(id),
+                    FOREIGN KEY(lead_id) REFERENCES crm_leads(id)
+                );
+            """)
+
+    def save_task(self, task: Task) -> None:
+        now = datetime.now(timezone.utc).isoformat()
+        task.updated_at = datetime.fromisoformat(now)
+        with self._connect() as conn:
+            conn.execute("""
+                INSERT INTO agent_tasks
+                (id, request, status, current_agent, current_skill, current_action,
+                 result_json, error, metadata_json, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ON CONFLICT(id) DO UPDATE SET
+                  status=excluded.status,
+                  current_agent=excluded.current_agent,
+                  current_skill=excluded.current_skill,
+                  current_action=excluded.current_action,
+                  result_json=excluded.result_json,
+                  error=excluded.error,
+                  metadata_json=excluded.metadata_json,
+                  updated_at=excluded.updated_at
+            """, (
+                task.id, task.request, task.status.value, task.current_agent,
+                task.current_skill, task.current_action,
+                json.dumps(task.result, ensure_ascii=False, default=str),
+                task.error,
+                json.dumps(task.metadata, ensure_ascii=False, default=str),
+                task.created_at.isoformat(), task.updated_at.isoformat(),
+            ))
+
+    def load_task(self, task_id: str) -> Task | None:
+        with self._connect() as conn:
+            row = conn.execute("SELECT * FROM agent_tasks WHERE id = ?", (task_id,)).fetchone()
+        if row is None:
+            return None
+        task = Task(
+            request=row["request"], id=row["id"], status=TaskStatus(row["status"]),
+            current_agent=row["current_agent"], current_skill=row["current_skill"],
+            current_action=row["current_action"], result=json.loads(row["result_json"] or "null"),
+            error=row["error"], metadata=json.loads(row["metadata_json"] or "{}"),
+            created_at=datetime.fromisoformat(row["created_at"]),
+            updated_at=datetime.fromisoformat(row["updated_at"]),
+        )
+        return task
+
+    def append_event(self, event: TaskEvent) -> None:
+        with self._connect() as conn:
+            conn.execute(
+                "INSERT INTO agent_events(task_id,event_type,data_json,timestamp) VALUES (?,?,?,?)",
+                (event.task_id, event.event_type, json.dumps(event.data, ensure_ascii=False, default=str), event.timestamp.isoformat()),
+            )
+
+    def events_for_task(self, task_id: str) -> list[TaskEvent]:
+        with self._connect() as conn:
+            rows = conn.execute("SELECT * FROM agent_events WHERE task_id = ? ORDER BY id", (task_id,)).fetchall()
+        return [TaskEvent(task_id=r["task_id"], event_type=r["event_type"], data=json.loads(r["data_json"]), timestamp=datetime.fromisoformat(r["timestamp"])) for r in rows]
+
+    def upsert_lead(self, lead: dict[str, Any]) -> dict[str, Any]:
+        now = datetime.now(timezone.utc).isoformat()
+        lead_id = str(lead.get("id") or f"LEAD-{abs(hash((lead.get('company'), lead.get('source_url')))):012d}")
+        values = (
+            lead_id, lead.get("name") or "Business Owner", lead.get("email"), lead.get("phone"),
+            lead.get("whatsapp"), lead.get("website"), lead["company"], lead.get("industry"),
+            lead.get("country", "Indonesia"), lead.get("language", "id"), lead.get("source", "research"),
+            lead.get("status", lead.get("tier", "new")), int(lead.get("score", 0)), lead.get("tier", "new"),
+            lead.get("notes"), lead.get("source_url"), lead.get("researched_at", now), now, now,
+        )
+        with self._connect() as conn:
+            conn.execute("""
+                INSERT INTO crm_leads
+                (id,name,email,phone,whatsapp,website,company,industry,country,language,source,status,score,tier,notes,source_url,researched_at,created_at,updated_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                ON CONFLICT(company, source_url) DO UPDATE SET
+                  name=excluded.name, email=excluded.email, phone=excluded.phone,
+                  whatsapp=excluded.whatsapp, website=excluded.website, industry=excluded.industry,
+                  country=excluded.country, language=excluded.language, source=excluded.source,
+                  status=excluded.status, score=excluded.score, tier=excluded.tier,
+                  notes=excluded.notes, researched_at=excluded.researched_at, updated_at=excluded.updated_at
+            """, values)
+            row = conn.execute("SELECT * FROM crm_leads WHERE id = ?", (lead_id,)).fetchone()
+        return dict(row)
+
+    def create_approval(self, task_id: str, lead_id: str, channel: str, payload: dict[str, Any]) -> str:
+        from uuid import uuid4
+        approval_id = f"APR-{uuid4().hex[:12].upper()}"
+        now = datetime.now(timezone.utc).isoformat()
+        with self._connect() as conn:
+            conn.execute("""
+                INSERT INTO sales_approvals(id,task_id,lead_id,channel,payload_json,created_at)
+                VALUES (?,?,?,?,?,?)
+            """, (approval_id, task_id, lead_id, channel, json.dumps(payload, ensure_ascii=False), now))
+        return approval_id
+
+    def review_approval(self, approval_id: str, status: str, reviewer: str) -> None:
+        if status not in {"approved", "rejected"}:
+            raise ValueError("status must be approved or rejected")
+        now = datetime.now(timezone.utc).isoformat()
+        with self._connect() as conn:
+            updated = conn.execute(
+                "UPDATE sales_approvals SET status=?, reviewer=?, reviewed_at=? WHERE id=? AND status='pending'",
+                (status, reviewer, now, approval_id),
+            ).rowcount
+        if updated != 1:
+            raise ValueError("approval not found or no longer pending")
