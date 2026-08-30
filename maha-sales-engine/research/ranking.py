@@ -4,15 +4,26 @@ from typing import Any
 
 
 def rank_maha_hot_leads(leads: list[dict[str, Any]], limit: int = 50) -> list[dict[str, Any]]:
-    """Rank research candidates by commercial fit, contactability and research confidence."""
+    """Rank candidates using business fit, contactability, research corroboration and enrichment."""
     ranked: list[dict[str, Any]] = []
     for lead in leads:
-        score = float(lead.get("score", 0))
+        base_score = float(lead.get("score", 0))
         confidence = float(lead.get("research_confidence", 0))
+        enrichment = float(lead.get("enrichment_confidence", 0))
         source_count = int(lead.get("source_count", 1))
-        bonus = min(10.0, max(0, source_count - 1) * 5.0)
-        hot_score = min(100, round(score * 0.75 + confidence * 15 + bonus))
+        corroboration = min(10.0, max(0, source_count - 1) * 5.0)
+        contactability = 0.0
+        contactability += 5.0 if lead.get("phone") else 0
+        contactability += 5.0 if lead.get("email") else 0
+        contactability += 5.0 if lead.get("whatsapp") else 0
+        hot_score = min(100, round(
+            base_score * 0.65
+            + confidence * 10
+            + enrichment * 10
+            + corroboration
+            + contactability
+        ))
         tier = "hot" if hot_score >= 80 else "qualified" if hot_score >= 60 else "nurture" if hot_score >= 40 else "reject"
         ranked.append({**lead, "maha_hot_score": hot_score, "maha_tier": tier})
-    ranked.sort(key=lambda item: (-item["maha_hot_score"], -float(item.get("research_confidence", 0)), item["company"]))
+    ranked.sort(key=lambda item: (-item["maha_hot_score"], -float(item.get("enrichment_confidence", 0)), -float(item.get("research_confidence", 0)), item["company"]))
     return ranked[:limit]
