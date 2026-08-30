@@ -5,30 +5,13 @@ from typing import Any
 
 from .store import AgentStore
 
-
 CRM_STATUSES = {
-    "new",
-    "researched",
-    "qualified",
-    "nurture",
-    "contacted",
-    "replied",
-    "interested",
-    "proposal",
-    "won",
-    "lost",
-    "do_not_contact",
+    "new", "researched", "qualified", "nurture", "contacted", "replied",
+    "interested", "proposal", "won", "lost", "do_not_contact",
 }
-
 FOLLOWUP_STATES = {
-    "not_started",
-    "queued",
-    "awaiting_approval",
-    "scheduled",
-    "sent",
-    "replied",
-    "completed",
-    "stopped",
+    "not_started", "awaiting_approval", "scheduled", "sent", "replied",
+    "completed", "stopped",
 }
 
 
@@ -37,13 +20,13 @@ class CRMError(ValueError):
 
 
 class CRM:
-    """Small CRM facade over AgentStore for lifecycle-safe lead management."""
+    """Lead lifecycle facade over the durable AgentStore."""
 
     def __init__(self, db_path: Path):
         self.store = AgentStore(db_path)
 
     def upsert_researched_lead(self, lead: dict[str, Any]) -> dict[str, Any]:
-        return self.store.upsert_lead({**lead, "status": "researched"})
+        return self.store.upsert_lead({**lead, "status": lead.get("status", "researched")})
 
     def set_status(self, lead_id: str, status: str) -> None:
         if status not in CRM_STATUSES:
@@ -54,3 +37,9 @@ class CRM:
         if state not in FOLLOWUP_STATES:
             raise CRMError(f"invalid follow-up state: {state}")
         self.store.set_followup_state(lead_id, state, next_followup_at=next_followup_at)
+
+    def get_lead(self, lead_id: str) -> dict[str, Any] | None:
+        return self.store.get_lead(lead_id)
+
+    def due_followups(self, before: str | None = None) -> list[dict[str, Any]]:
+        return self.store.due_followups(before)
