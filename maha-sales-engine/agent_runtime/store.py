@@ -54,7 +54,7 @@ class AgentStore:
                     id TEXT PRIMARY KEY, task_id TEXT NOT NULL, lead_id TEXT NOT NULL,
                     channel TEXT NOT NULL, payload_json TEXT NOT NULL,
                     status TEXT NOT NULL DEFAULT 'pending', reviewer TEXT,
-                    reviewed_at TEXT, created_at TEXT NOT NULL,
+                    reviewed_at TEXT, sent_at TEXT, created_at TEXT NOT NULL,
                     FOREIGN KEY(task_id) REFERENCES agent_tasks(id),
                     FOREIGN KEY(lead_id) REFERENCES crm_leads(id)
                 );
@@ -69,17 +69,14 @@ class AgentStore:
                 INSERT INTO agent_tasks
                 (id,request,status,current_agent,current_skill,current_action,result_json,error,metadata_json,created_at,updated_at)
                 VALUES (?,?,?,?,?,?,?,?,?,?,?)
-                ON CONFLICT(id) DO UPDATE SET
-                  status=excluded.status, current_agent=excluded.current_agent,
-                  current_skill=excluded.current_skill, current_action=excluded.current_action,
-                  result_json=excluded.result_json, error=excluded.error,
-                  metadata_json=excluded.metadata_json, updated_at=excluded.updated_at
+                ON CONFLICT(id) DO UPDATE SET status=excluded.status,
+                  current_agent=excluded.current_agent,current_skill=excluded.current_skill,
+                  current_action=excluded.current_action,result_json=excluded.result_json,
+                  error=excluded.error,metadata_json=excluded.metadata_json,updated_at=excluded.updated_at
             """, (
-                task.id, task.request, task.status.value, task.current_agent,
-                task.current_skill, task.current_action,
-                json.dumps(task.result, ensure_ascii=False, default=str), task.error,
-                json.dumps(task.metadata, ensure_ascii=False, default=str),
-                task.created_at.isoformat(), task.updated_at.isoformat(),
+                task.id, task.request, task.status.value, task.current_agent, task.current_skill,
+                task.current_action, json.dumps(task.result, ensure_ascii=False, default=str), task.error,
+                json.dumps(task.metadata, ensure_ascii=False, default=str), task.created_at.isoformat(), now.isoformat(),
             ))
 
     def load_task(self, task_id: str) -> Task | None:
@@ -92,8 +89,7 @@ class AgentStore:
             current_agent=row["current_agent"], current_skill=row["current_skill"],
             current_action=row["current_action"], result=json.loads(row["result_json"] or "null"),
             error=row["error"], metadata=json.loads(row["metadata_json"] or "{}"),
-            created_at=datetime.fromisoformat(row["created_at"]),
-            updated_at=datetime.fromisoformat(row["updated_at"]),
+            created_at=datetime.fromisoformat(row["created_at"]), updated_at=datetime.fromisoformat(row["updated_at"]),
         )
 
     def append_event(self, event: TaskEvent) -> None:
@@ -130,11 +126,11 @@ class AgentStore:
                 INSERT INTO crm_leads
                 (id,name,email,phone,whatsapp,website,company,industry,country,language,source,status,score,tier,notes,source_url,researched_at,created_at,updated_at)
                 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-                ON CONFLICT(company, source_url) DO UPDATE SET
-                  name=excluded.name,email=excluded.email,phone=excluded.phone,
-                  whatsapp=excluded.whatsapp,website=excluded.website,industry=excluded.industry,
-                  country=excluded.country,language=excluded.language,source=excluded.source,
-                  status=excluded.status,score=excluded.score,tier=excluded.tier,notes=excluded.notes,
+                ON CONFLICT(company, source_url) DO UPDATE SET name=excluded.name,
+                  email=excluded.email,phone=excluded.phone,whatsapp=excluded.whatsapp,
+                  website=excluded.website,industry=excluded.industry,country=excluded.country,
+                  language=excluded.language,source=excluded.source,status=excluded.status,
+                  score=excluded.score,tier=excluded.tier,notes=excluded.notes,
                   researched_at=excluded.researched_at,updated_at=excluded.updated_at
             """, values)
             row = conn.execute("SELECT * FROM crm_leads WHERE company=? AND source_url IS ?", (company, source_url)).fetchone()
@@ -149,6 +145,15 @@ class AgentStore:
                          (approval_id, task_id, lead_id, channel, json.dumps(payload, ensure_ascii=False), now))
         return approval_id
 
+    def get_approval(self, approval_id: str) -> dict[str, Any] | None:
+        with self._connect() as conn:
+            row = conn.execute("SELECT * FROM sales_approvals WHERE id=?", (approval_id,)).fetchone()
+        if row is None:
+            return None
+        result = dict(row)
+        result["payload"] = json.loads(result.pop("payload_json"))
+        return result
+
     def review_approval(self, approval_id: str, status: str, reviewer: str) -> None:
         if status not in {"approved", "rejected"}:
             raise ValueError("status must be approved or rejected")
@@ -160,3 +165,13 @@ class AgentStore:
             ).rowcount
         if updated != 1:
             raise ValueError("approval not found or no longer pending")
+
+    def mark_approval_sent(self, approval_id: str) -> None:
+        now = datetime.now(timezone.utc).isoformat()
+        with self._connect() as conn:
+            updated = conn.execute(
+                "UPDATE sales_approvals SET status='sent', sent_at=? WHERE id=? AND status='approved'",
+                (now, approval_id),
+            ).rowcount
+        if updated != 1:
+            raise ValueError("approval is not approved or no longer available")
