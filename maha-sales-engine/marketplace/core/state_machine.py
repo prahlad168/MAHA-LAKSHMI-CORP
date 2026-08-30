@@ -5,8 +5,8 @@ Publication status state machine with transition validation.
 """
 
 import logging
-from enum import Enum
 from typing import Any, Dict, List, Optional
+from enum import Enum
 
 logger = logging.getLogger("maha-sales-engine.marketplace.state_machine")
 
@@ -106,7 +106,60 @@ class StateMachine:
     def get_terminal_statuses(cls) -> List[str]:
         """Get terminal statuses (no outgoing transitions)"""
         return [status for status, targets in cls.VALID_TRANSITIONS.items() if not targets]
+    
+    @classmethod
+    def get_initial_statuses(cls) -> List[str]:
+        """Get initial statuses (valid starting points)"""
+        return [PublicationStatus.DRAFT.value, PublicationStatus.FAILED.value]
 
 
-# Backward-compatible name used by the legacy marketplace API/tests.
-StatusManager = StateMachine
+class StatusManager:
+    """Manage publication status with state machine validation."""
+    
+    def __init__(self):
+        self.state_machine = StateMachine()
+    
+    def transition(self, mapping: Dict[str, Any], new_status: str) -> Dict[str, Any]:
+        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
+        validation = self.state_machine.validate_transition(current_status, new_status)
+        if not validation["valid"]:
+            return {"success": False, "error": validation["error"], "current_status": current_status, "attempted_status": new_status}
+        old_status = mapping.get("publication_status")
+        mapping["publication_status"] = new_status
+        logger.info("Status transition: %s -> %s", old_status, new_status)
+        return {"success": True, "old_status": old_status, "new_status": new_status, "mapping": mapping}
+
+    def can_publish(self, mapping: Dict[str, Any]) -> bool:
+        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
+        return PublicationStatus.PUBLISHING.value in self.state_machine.get_valid_transitions(current_status)
+
+    def can_update(self, mapping: Dict[str, Any]) -> bool:
+        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
+        return PublicationStatus.UPDATING.value in self.state_machine.get_valid_transitions(current_status)
+
+    def can_archive(self, mapping: Dict[str, Any]) -> bool:
+        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
+        return PublicationStatus.ARCHIVED.value in self.state_machine.get_valid_transitions(current_status)
+
+    def can_delete(self, mapping: Dict[str, Any]) -> bool:
+        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
+        return PublicationStatus.DELETED.value in self.state_machine.get_valid_transitions(current_status)
+
+
+def main():
+    """Test state machine"""
+    sm = StateMachine()
+    manager = StatusManager()
+    mapping = {"publication_status": PublicationStatus.DRAFT.value}
+    result = manager.transition(mapping, PublicationStatus.PUBLISHING.value)
+    print(f"Draft -> Publishing: {result['success']}")
+    mapping = {"publication_status": PublicationStatus.DRAFT.value}
+    result = manager.transition(mapping, PublicationStatus.DELETED.value)
+    print(f"Draft -> Deleted: {result['success']}")
+    mapping = {"publication_status": PublicationStatus.PUBLISHED.value}
+    valid = sm.get_valid_transitions(PublicationStatus.PUBLISHED.value)
+    print(f"Valid from Published: {valid}")
+
+
+if __name__ == "__main__":
+    main()
