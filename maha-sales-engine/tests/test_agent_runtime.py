@@ -66,5 +66,6 @@ def test_sales_runtime_uses_content_engine(tmp_path: Path):
         [{"name": "Made", "company": "Bali Cafe", "phone": "0812", "industry": "cafe"}],
     )
 
-    assert task.status is TaskStatus.COMPLETED
+    assert task.status is TaskStatus.WAITING
     assert task.result[0]["message"] == "CONTENT-ENGINE:Bali Cafe"
+    assert task.result[0]["status"] == "pending_approval"
