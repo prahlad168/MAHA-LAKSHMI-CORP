@@ -1,10 +1,11 @@
 import sqlite3
 from pathlib import Path
 
-from agent_runtime.evidence_store import LeadEvidenceStore
+from agent_runtime.events import TaskEvent
 from agent_runtime.intelligence import CRMIntelligence
 from agent_runtime.sales_runtime_v3 import build_sales_runtime_v3
 from agent_runtime.store import AgentStore
+from agent_runtime.task import Task
 from research.enrichment import WebsiteEnricher
 
 
@@ -16,9 +17,9 @@ class FakeContentEngine:
 def test_database_restart_resume_preserves_task_and_events(tmp_path: Path):
     db = tmp_path / "maha.db"
     store = AgentStore(db)
-    task = __import__("agent_runtime.task", fromlist=["Task"]).Task("restart test")
+    task = Task("restart test")
     store.save_task(task)
-    store.append_event(__import__("agent_runtime.events", fromlist=["TaskEvent"]).TaskEvent(task.id, "TASK_CREATED"))
+    store.append_event(TaskEvent(task.id, "TASK_CREATED"))
 
     reloaded_store = AgentStore(db)
     loaded = reloaded_store.load_task(task.id)
@@ -31,14 +32,6 @@ def test_database_restart_resume_preserves_task_and_events(tmp_path: Path):
 
 
 def test_research_enrichment_and_crm_intelligence_smoke(tmp_path: Path):
-    class FakeResponse:
-        url = "https://example.com/"
-        encoding = "utf-8"
-        content = b''
-
-    class FakeSession:
-        pass
-
     class FakeEnricher(WebsiteEnricher):
         def _fetch(self, url):
             return (
@@ -48,16 +41,10 @@ def test_research_enrichment_and_crm_intelligence_smoke(tmp_path: Path):
                 "https://example.com/",
             )
 
-    enricher = FakeEnricher()
-    lead = enricher.enrich({
-        "company": "Example Bali Cafe",
-        "industry": "cafe",
-        "country": "Indonesia",
-        "website": "https://example.com/",
-        "source": "test",
-        "source_url": "https://example.com/result",
-        "research_confidence": 0.9,
-        "source_count": 2,
+    lead = FakeEnricher().enrich({
+        "company": "Example Bali Cafe", "industry": "cafe", "country": "Indonesia",
+        "website": "https://example.com/", "source": "test",
+        "source_url": "https://example.com/result", "research_confidence": 0.9, "source_count": 2,
     })
 
     assert lead["enrichment_status"] == "enriched"
@@ -66,15 +53,14 @@ def test_research_enrichment_and_crm_intelligence_smoke(tmp_path: Path):
     assert lead["whatsapp_urls"] == ["https://wa.me/628123456789"]
     assert lead["contact_pages"] == ["https://example.com/contact"]
 
-    runtime = build_sales_runtime_v3(tmp_path / "sales.db", FakeContentEngine())
-    task = runtime.run("integration", [
-        {**lead, "maha_hot_score": 88, "maha_tier": "hot"}
-    ])
+    db = tmp_path / "sales.db"
+    runtime = build_sales_runtime_v3(db, FakeContentEngine())
+    task = runtime.run("integration", [{**lead, "maha_hot_score": 88, "maha_tier": "hot"}])
     assert task.status.value == "waiting"
 
-    with sqlite3.connect(tmp_path / "sales.db") as conn:
+    with sqlite3.connect(db) as conn:
         lead_id = conn.execute("SELECT id FROM crm_leads LIMIT 1").fetchone()[0]
-    intelligence = CRMIntelligence(AgentStore(tmp_path / "sales.db")).get_lead_intelligence(lead_id)
+    intelligence = CRMIntelligence(AgentStore(db)).get_lead_intelligence(lead_id)
     assert intelligence["evidence_count"] >= 4
     assert intelligence["latest_evidence_at"]
     assert intelligence["outreach_decision"]["decision"] in {"READY_FOR_HUMAN_APPROVAL", "RESEARCH_REQUIRED"}
