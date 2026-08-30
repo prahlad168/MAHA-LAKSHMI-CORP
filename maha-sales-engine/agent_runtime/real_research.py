@@ -1,14 +1,13 @@
 from __future__ import annotations
 
-import os
 from pathlib import Path
 from typing import Any
 
 from content.engine import ContentEngine
-from research.agent import ResearchAgent
+from research.agent_v2 import ResearchAgentV2
 from research.multi_source import SourcePolicy
 
-from .sales_runtime_v2 import build_sales_runtime_v2
+from .sales_runtime_v3 import build_sales_runtime_v3
 
 
 def build_default_content_engine() -> ContentEngine:
@@ -18,17 +17,20 @@ def build_default_content_engine() -> ContentEngine:
 def run_bali_research(
     limit: int = 10,
     db_path: Path | None = None,
-    research_agent: ResearchAgent | None = None,
+    research_agent: ResearchAgentV2 | None = None,
 ) -> Any:
-    """Dynamically research, rank and queue Bali outreach for human approval."""
+    """Dynamic ResearchAgentV2 -> CRM evidence -> Hot Leads -> Sales approvals."""
     if not 1 <= limit <= 50:
         raise ValueError("limit must be between 1 and 50")
-    agent = research_agent or ResearchAgent(policy=SourcePolicy())
-    candidates = agent.run(limit=limit)
+    agent = research_agent or ResearchAgentV2(policy=SourcePolicy())
+    candidates = agent.run(limit=limit, enrich=True)
     if not candidates:
-        raise RuntimeError("multi-source research returned no candidates")
-    runtime = build_sales_runtime_v2(db_path or Path("db/maha_sales_engine.db"), build_default_content_engine())
+        raise RuntimeError("ResearchAgentV2 returned no candidates")
+    runtime = build_sales_runtime_v3(
+        db_path or Path("db/maha_sales_engine.db"),
+        build_default_content_engine(),
+    )
     return runtime.run(
-        f"Multi-source research and prepare outreach for top {limit} Bali businesses",
+        f"ResearchAgentV2 and prepare outreach for top {limit} Bali businesses",
         candidates,
     )
