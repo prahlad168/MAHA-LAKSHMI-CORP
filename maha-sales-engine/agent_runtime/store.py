@@ -45,11 +45,14 @@ class AgentStore:
                     whatsapp TEXT, website TEXT, company TEXT NOT NULL, industry TEXT,
                     country TEXT, language TEXT, source TEXT, status TEXT NOT NULL DEFAULT 'new',
                     score INTEGER NOT NULL DEFAULT 0, tier TEXT NOT NULL DEFAULT 'new',
-                    notes TEXT, source_url TEXT, researched_at TEXT, created_at TEXT NOT NULL,
+                    notes TEXT, source_url TEXT NOT NULL DEFAULT '', researched_at TEXT,
+                    follow_up_state TEXT NOT NULL DEFAULT 'not_started',
+                    next_follow_up_at TEXT, last_contacted_at TEXT, created_at TEXT NOT NULL,
                     updated_at TEXT NOT NULL, UNIQUE(company, source_url)
                 );
                 CREATE INDEX IF NOT EXISTS idx_crm_leads_status ON crm_leads(status);
                 CREATE INDEX IF NOT EXISTS idx_crm_leads_score ON crm_leads(score);
+                CREATE INDEX IF NOT EXISTS idx_crm_followup ON crm_leads(follow_up_state, next_follow_up_at);
                 CREATE TABLE IF NOT EXISTS sales_approvals (
                     id TEXT PRIMARY KEY, task_id TEXT NOT NULL, lead_id TEXT NOT NULL,
                     channel TEXT NOT NULL, payload_json TEXT NOT NULL,
@@ -60,6 +63,23 @@ class AgentStore:
                 );
                 CREATE INDEX IF NOT EXISTS idx_sales_approvals_status ON sales_approvals(status);
             """)
+            self._ensure_crm_columns(conn)
+
+    @staticmethod
+    def _ensure_crm_columns(conn: sqlite3.Connection) -> None:
+        existing = {row[1] for row in conn.execute("PRAGMA table_info(crm_leads)")}
+        additions = {
+            "whatsapp": "TEXT",
+            "website": "TEXT",
+            "source_url": "TEXT NOT NULL DEFAULT ''",
+            "researched_at": "TEXT",
+            "follow_up_state": "TEXT NOT NULL DEFAULT 'not_started'",
+            "next_follow_up_at": "TEXT",
+            "last_contacted_at": "TEXT",
+        }
+        for name, definition in additions.items():
+            if name not in existing:
+                conn.execute(f"ALTER TABLE crm_leads ADD COLUMN {name} {definition}")
 
     def save_task(self, task: Task) -> None:
         now = datetime.now(timezone.utc)
@@ -111,7 +131,7 @@ class AgentStore:
 
     def upsert_lead(self, lead: dict[str, Any]) -> dict[str, Any]:
         company = str(lead["company"]).strip()
-        source_url = lead.get("source_url")
+        source_url = str(lead.get("source_url") or "")
         now = datetime.now(timezone.utc).isoformat()
         lead_id = str(lead.get("id") or f"LEAD-{self._lead_key(company, source_url)}")
         values = (
@@ -119,13 +139,14 @@ class AgentStore:
             lead.get("whatsapp"), lead.get("website"), company, lead.get("industry"),
             lead.get("country", "Indonesia"), lead.get("language", "id"), lead.get("source", "research"),
             lead.get("status", lead.get("tier", "new")), int(lead.get("score", 0)), lead.get("tier", "new"),
-            lead.get("notes"), source_url, lead.get("researched_at", now), now, now,
+            lead.get("notes"), source_url, lead.get("researched_at", now), lead.get("follow_up_state", "not_started"),
+            lead.get("next_follow_up_at"), lead.get("last_contacted_at"), now, now,
         )
         with self._connect() as conn:
             conn.execute("""
                 INSERT INTO crm_leads
-                (id,name,email,phone,whatsapp,website,company,industry,country,language,source,status,score,tier,notes,source_url,researched_at,created_at,updated_at)
-                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+                (id,name,email,phone,whatsapp,website,company,industry,country,language,source,status,score,tier,notes,source_url,researched_at,follow_up_state,next_follow_up_at,last_contacted_at,created_at,updated_at)
+                VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
                 ON CONFLICT(company, source_url) DO UPDATE SET name=excluded.name,
                   email=excluded.email,phone=excluded.phone,whatsapp=excluded.whatsapp,
                   website=excluded.website,industry=excluded.industry,country=excluded.country,
@@ -133,8 +154,18 @@ class AgentStore:
                   score=excluded.score,tier=excluded.tier,notes=excluded.notes,
                   researched_at=excluded.researched_at,updated_at=excluded.updated_at
             """, values)
-            row = conn.execute("SELECT * FROM crm_leads WHERE company=? AND source_url IS ?", (company, source_url)).fetchone()
+            row = conn.execute("SELECT * FROM crm_leads WHERE company=? AND source_url=?", (company, source_url)).fetchone()
         return dict(row)
+
+    def set_lead_status(self, lead_id: str, status: str) -> None:
+        with self._connect() as conn:
+            if conn.execute("UPDATE crm_leads SET status=?, updated_at=? WHERE id=?", (status, datetime.now(timezone.utc).isoformat(), lead_id)).rowcount != 1:
+                raise ValueError("lead not found")
+
+    def set_followup_state(self, lead_id: str, state: str, *, next_follow_up_at: str | None = None) -> None:
+        with self._connect() as conn:
+            if conn.execute("UPDATE crm_leads SET follow_up_state=?, next_follow_up_at=?, updated_at=? WHERE id=?", (state, next_follow_up_at, datetime.now(timezone.utc).isoformat(), lead_id)).rowcount != 1:
+                raise ValueError("lead not found")
 
     def create_approval(self, task_id: str, lead_id: str, channel: str, payload: dict[str, Any]) -> str:
         from uuid import uuid4
@@ -159,19 +190,13 @@ class AgentStore:
             raise ValueError("status must be approved or rejected")
         now = datetime.now(timezone.utc).isoformat()
         with self._connect() as conn:
-            updated = conn.execute(
-                "UPDATE sales_approvals SET status=?, reviewer=?, reviewed_at=? WHERE id=? AND status='pending'",
-                (status, reviewer, now, approval_id),
-            ).rowcount
+            updated = conn.execute("UPDATE sales_approvals SET status=?, reviewer=?, reviewed_at=? WHERE id=? AND status='pending'", (status, reviewer, now, approval_id)).rowcount
         if updated != 1:
             raise ValueError("approval not found or no longer pending")
 
     def mark_approval_sent(self, approval_id: str) -> None:
         now = datetime.now(timezone.utc).isoformat()
         with self._connect() as conn:
-            updated = conn.execute(
-                "UPDATE sales_approvals SET status='sent', sent_at=? WHERE id=? AND status='approved'",
-                (now, approval_id),
-            ).rowcount
+            updated = conn.execute("UPDATE sales_approvals SET status='sent', sent_at=? WHERE id=? AND status='approved'", (now, approval_id)).rowcount
         if updated != 1:
             raise ValueError("approval is not approved or no longer available")
