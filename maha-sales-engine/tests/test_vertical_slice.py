@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from maha_sales_engine.agent_runtime import TaskStatus, build_sales_runtime
+from agent_runtime import TaskStatus, build_sales_runtime
 
 
 def test_research_lead_generation_sales_slice(tmp_path: Path):
