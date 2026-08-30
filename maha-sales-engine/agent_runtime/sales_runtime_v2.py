@@ -9,7 +9,6 @@ from .actions import ActionRegistry, ActionRequest
 from .agents import Agent, AgentRegistry
 from .director import Director
 from .events import EventLog
-from .qualification import qualify_lead
 from .skills import Skill, SkillRegistry
 from .store import AgentStore
 from .task import Task, TaskStatus
@@ -85,6 +84,7 @@ class SalesRuntimeV2:
 
 
 def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Normalize candidates while preserving ResearchAgent's Hot Lead ranking."""
     output: list[dict[str, Any]] = []
     seen: set[str] = set()
     for raw in candidates:
@@ -105,11 +105,17 @@ def normalize_candidates(candidates: list[dict[str, Any]]) -> list[dict[str, Any
             "source": str(raw.get("source", "web_search")).strip() or "web_search",
             "source_url": raw.get("source_url"),
             "researched_at": raw.get("researched_at"),
+            "research_confidence": float(raw.get("research_confidence", 0.0)),
+            "source_count": int(raw.get("source_count", 1)),
         }
-        scored = qualify_lead(lead)
-        if scored["tier"] != "reject":
-            output.append(scored)
-    return sorted(output, key=lambda item: (-item["score"], item["company"]))
+        # ResearchAgent has already performed qualification + hot-lead ranking.
+        # Do not overwrite the ranking with a second, divergent scoring formula.
+        lead["score"] = int(raw.get("maha_hot_score", raw.get("score", 0)))
+        lead["tier"] = str(raw.get("maha_tier", raw.get("tier", "new")))
+        if lead["tier"] == "reject":
+            continue
+        output.append(lead)
+    return sorted(output, key=lambda item: (-item["score"], -item["research_confidence"], item["company"]))
 
 
 def build_sales_runtime_v2(db_path: Path, content_engine: Any) -> SalesRuntimeV2:
@@ -119,13 +125,12 @@ def build_sales_runtime_v2(db_path: Path, content_engine: Any) -> SalesRuntimeV2
     agents = AgentRegistry()
     skills = SkillRegistry()
 
-    skills.register(Skill("lead-generation", lambda task: normalize_candidates(task.metadata.get("candidates", [])), "1.3.0"))
+    skills.register(Skill("lead-generation", lambda task: normalize_candidates(task.metadata.get("candidates", [])), "1.4.0"))
 
     def research_plan(task: Task) -> ActionRequest:
         skill = skills.get("lead-generation")
         assert skill is not None
-        leads = skill.run(task)
-        return ActionRequest("persist_leads", {"leads": leads})
+        return ActionRequest("persist_leads", {"leads": skill.run(task)})
 
     def sales_plan(task: Task) -> ActionRequest:
         return ActionRequest("generate_sales_outreach", {"leads": task.result or [], "task_id": task.id})
@@ -139,7 +144,12 @@ def build_sales_runtime_v2(db_path: Path, content_engine: Any) -> SalesRuntimeV2
         results = []
         for lead in parameters.get("leads", []):
             message = content_engine.generate_whatsapp_content("whatsapp_initial", lead)
-            payload = {"lead_id": lead["id"], "company": lead["company"], "phone": lead.get("phone"), "channel": "whatsapp", "tier": lead["tier"], "score": lead["score"], "message": message}
+            payload = {
+                "lead_id": lead["id"], "company": lead["company"], "phone": lead.get("phone"),
+                "channel": "whatsapp", "tier": lead["tier"], "score": lead["score"],
+                "maha_rank": lead.get("maha_rank"), "research_confidence": lead.get("research_confidence"),
+                "source_count": lead.get("source_count", 1), "message": message,
+            }
             approval_id = store.create_approval(parameters["task_id"], lead["id"], "whatsapp", payload)
             store.set_followup_state(lead["id"], "awaiting_approval")
             results.append({**payload, "approval_id": approval_id, "status": "pending_approval"})
