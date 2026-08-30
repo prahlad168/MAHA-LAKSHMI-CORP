@@ -9,11 +9,10 @@ from agent_runtime.crm import CRM
 from agent_runtime.evidence_store import LeadEvidenceStore
 from agent_runtime.intelligence import CRMIntelligence, IntelligencePolicy
 from agent_runtime.store import AgentStore
-
-from .agent_v2 import SOURCE_QUERIES, ResearchAgentV2
-from .multi_source import SourcePolicy
-from .ranking import rank_maha_hot_leads
-from .qualification import qualify_lead
+from agent_runtime.qualification import qualify_lead
+from research.agent_v2 import SOURCE_QUERIES, ResearchAgentV2
+from research.multi_source import SourcePolicy
+from research.ranking import rank_maha_hot_leads
 
 
 @dataclass(frozen=True)
@@ -88,7 +87,7 @@ class ResearchRecheckAgent:
                         "company": str(result.get("company") or result.get("title") or "").strip(),
                         "website": result.get("website") or result.get("url"),
                         "source_url": result.get("source_url") or result.get("url"),
-                        "source": result.get("source") or provider.name,
+                        "source": result.get("source") or getattr(provider, "name", "research"),
                         "industry": industry,
                         "country": lead.get("country", "Indonesia"),
                         "language": lead.get("language", "id"),
