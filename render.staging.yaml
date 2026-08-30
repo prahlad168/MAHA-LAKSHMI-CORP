@@ -10,7 +10,7 @@ services:
       - key: JWT_SECRET_KEY
         generateValue: true
       - key: CORS_ORIGINS
-        value: https://mahalaksmi.web.id,https://www.mahalaksmi.web.id
+        value: http://localhost:3000
       - key: LOG_LEVEL
         value: INFO
       - key: MAHA_ENV
