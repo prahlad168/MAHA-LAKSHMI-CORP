@@ -127,7 +127,11 @@ def _generate_sales(parameters: dict[str, Any]) -> list[dict[str, Any]]:
     return results
 
 
-def build_sales_runtime(db_path: Path, content_engine: Any) -> SalesRuntime:
+def build_sales_runtime(db_path: Path, content_engine: Any | None = None) -> SalesRuntime:
+    """Build the compatibility V1 runtime; the active production path uses V3."""
+    if content_engine is None:
+        from .real_research import build_default_content_engine
+        content_engine = build_default_content_engine()
     store = AgentStore(db_path)
     events, actions, agents, skills = EventLog(store), ActionRegistry(), AgentRegistry(), SkillRegistry()
     skills.register(Skill("lead-generation", _normalize_leads, version="1.2.0"))
