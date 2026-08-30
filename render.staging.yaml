@@ -9,15 +9,6 @@ services:
     envVars:
       - key: JWT_SECRET_KEY
         generateValue: true
-      - key: DATABASE_URL
-        fromDatabase:
-          name: mahalakshmi_staging_db
-          property: connectionString
-      - key: REDIS_URL
-        fromService:
-          name: mahalakshmi_staging_redis
-          type: redis
-          property: connectionString
       - key: CORS_ORIGINS
         value: https://mahalaksmi.web.id,https://www.mahalaksmi.web.id
       - key: LOG_LEVEL
@@ -26,14 +17,3 @@ services:
         value: staging
       - key: MAHA_RESEARCH_TIMEOUT
         value: "15"
-
-  - type: redis
-    name: mahalakshmi_staging_redis
-    plan: free
-    maxmemoryPolicy: allkeys-lru
-
-databases:
-  - name: mahalakshmi_staging_db
-    plan: free
-    databaseName: maha_lakshmi_staging
-    user: mahalakshmi_staging
