@@ -4,6 +4,7 @@ from dataclasses import dataclass
 from datetime import datetime, timedelta, timezone
 from typing import Any
 
+from .evidence_store import LeadEvidenceStore
 from .store import AgentStore
 
 
@@ -16,50 +17,53 @@ class IntelligencePolicy:
 
 
 class CRMIntelligence:
-    """Explainable lead intelligence built on CRM rows and stored evidence."""
+    """Explainable lead intelligence built on CRM rows and durable evidence."""
 
-    def __init__(self, store: AgentStore, policy: IntelligencePolicy | None = None) -> None:
+    def __init__(self, store: AgentStore, evidence_store: LeadEvidenceStore | None = None,
+                 policy: IntelligencePolicy | None = None) -> None:
         self.store = store
+        self.evidence = evidence_store or LeadEvidenceStore(store.db_path)
         self.policy = policy or IntelligencePolicy()
 
     def explain_lead(self, lead_id: str) -> dict[str, Any]:
         lead = self.store.get_lead(lead_id)
         if not lead:
             raise ValueError("lead not found")
-        evidence = self.store.get_lead_evidence(lead_id)
-        evidence_types: dict[str, int] = {}
+        evidence = self.evidence.list_for_lead(lead_id)
+        counts: dict[str, int] = {}
         latest_at: datetime | None = None
         for item in evidence:
-            evidence_types[item["evidence_type"]] = evidence_types.get(item["evidence_type"], 0) + 1
+            kind = item["evidence_type"]
+            counts[kind] = counts.get(kind, 0) + 1
             try:
                 ts = datetime.fromisoformat(item["captured_at"])
                 latest_at = max(latest_at, ts) if latest_at else ts
             except (TypeError, ValueError):
-                pass
+                continue
 
         reasons: list[str] = []
         score = int(lead.get("score") or 0)
-        if score >= self.policy.hot_score_threshold:
-            reasons.append(f"MAHA Hot Score is {score} (>= {self.policy.hot_score_threshold})")
-        elif score >= 60:
-            reasons.append(f"MAHA score is {score}, above qualified threshold")
-        else:
-            reasons.append(f"MAHA score is {score}, below hot threshold")
-        if evidence_types.get("source", 0):
-            reasons.append(f"{evidence_types['source']} research source(s) recorded")
-        if evidence_types.get("contact_page", 0):
-            reasons.append(f"{evidence_types['contact_page']} contact/about page(s) checked")
-        if evidence_types.get("whatsapp", 0):
-            reasons.append("public WhatsApp evidence found")
-        if evidence_types.get("phone", 0):
+        reasons.append(f"MAHA Hot Score is {score}")
+        if counts.get("source"):
+            reasons.append(f"{counts['source']} research source(s) recorded")
+        if counts.get("source") and int(lead.get("source_count") or 0) > 1:
+            reasons.append(f"cross-source corroboration count is {lead['source_count']}")
+        if counts.get("contact_page"):
+            reasons.append(f"{counts['contact_page']} contact/about page(s) checked")
+        if counts.get("phone"):
             reasons.append("public phone evidence found")
-        if evidence_types.get("email", 0):
+        if counts.get("email"):
             reasons.append("public email evidence found")
+        if counts.get("whatsapp"):
+            reasons.append("public WhatsApp evidence found")
+        if lead.get("enrichment_confidence") is not None:
+            reasons.append(f"enrichment confidence is {lead['enrichment_confidence']}")
 
         return {
             "lead": lead,
+            "score": score,
             "score_explanation": reasons,
-            "evidence_counts": evidence_types,
+            "evidence_counts": counts,
             "evidence_count": len(evidence),
             "latest_evidence_at": latest_at.isoformat() if latest_at else None,
             "evidence": evidence,
@@ -71,40 +75,41 @@ class CRMIntelligence:
         lead = report["lead"]
         latest_raw = report["latest_evidence_at"]
         latest = datetime.fromisoformat(latest_raw) if latest_raw else None
+        age_days = (now - latest).total_seconds() / 86400 if latest else None
+        fresh = bool(latest and age_days is not None and 0 <= age_days <= self.policy.evidence_fresh_days)
+        source_count = int(lead.get("source_count") or 0)
+        contactable = any(lead.get(k) for k in ("whatsapp", "phone", "email"))
+        confidence = float(lead.get("enrichment_confidence") or 0.0)
+        score = int(lead.get("score") or 0)
+        tier = str(lead.get("tier") or lead.get("maha_tier") or "").lower()
+
         reasons: list[str] = []
-
-        fresh = bool(latest and now - latest <= timedelta(days=self.policy.evidence_fresh_days))
-        sufficiently_enriched = float(lead.get("research_confidence") or 0.0) >= 0.0 and (
-            bool(lead.get("whatsapp")) or bool(lead.get("phone")) or bool(lead.get("email"))
-        )
-        has_source = int(lead.get("source_count") or 0) >= self.policy.min_source_count
-        score_ok = int(lead.get("score") or 0) >= self.policy.hot_score_threshold
-        tier_ok = str(lead.get("tier") or "").lower() in {"hot", "qualified"}
-
         if not fresh:
-            reasons.append("evidence is stale or no evidence timestamp exists")
-        if not has_source:
+            reasons.append("evidence is stale or has not been captured")
+        if source_count < self.policy.min_source_count:
             reasons.append("insufficient source corroboration")
-        if not sufficiently_enriched:
+        if not contactable:
             reasons.append("no usable public contact evidence")
-        if not score_ok:
+        if confidence < self.policy.min_enrichment_confidence:
+            reasons.append("enrichment confidence is below policy threshold")
+        if score < self.policy.hot_score_threshold:
             reasons.append(f"score below hot threshold ({self.policy.hot_score_threshold})")
-        if not tier_ok:
+        if tier not in {"hot", "qualified"}:
             reasons.append("lead tier is not outreach-eligible")
 
-        needs_research = not fresh or not has_source or not sufficiently_enriched
-        allowed = fresh and has_source and sufficiently_enriched and score_ok and tier_ok
+        needs_research = not fresh or source_count < self.policy.min_source_count or not contactable or confidence < self.policy.min_enrichment_confidence
+        allowed = not reasons
         return {
             "lead_id": lead_id,
             "allowed": allowed,
             "decision": "READY_FOR_HUMAN_APPROVAL" if allowed else "RESEARCH_REQUIRED",
             "needs_research": needs_research,
             "latest_evidence_at": latest_raw,
+            "evidence_age_days": round(age_days, 3) if age_days is not None else None,
             "freshness_window_days": self.policy.evidence_fresh_days,
-            "reasons": reasons or ["evidence is fresh and lead meets outreach policy"],
+            "reasons": reasons or ["evidence and lead quality meet outreach policy"],
         }
 
     def get_lead_intelligence(self, lead_id: str, now: datetime | None = None) -> dict[str, Any]:
-        explanation = self.explain_lead(lead_id)
-        decision = self.outreach_decision(lead_id, now=now)
-        return {**explanation, "outreach_decision": decision}
+        report = self.explain_lead(lead_id)
+        return {**report, "outreach_decision": self.outreach_decision(lead_id, now=now)}
