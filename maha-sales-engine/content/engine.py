@@ -50,8 +50,8 @@ class ContentEngine:
             },
             "whatsapp_initial": {
                 "templates": [
-                    "Hi {first_name}! I'm from MAHA LAKSHMI. We help {industry} businesses like {company} improve lead generation. Would you be interested in a free 15-minute consultation?",
-                    "Halo {first_name}! Saya dari MAHA LAKSHMI. Kami membantu bisnis {industry} seperti {company} meningkatkan lead generation. Mau konsultasi gratis 15 menit?"
+                    "Hi {first_name}! I'm from MAHA LAKSHMI. We help {industry} businesses like {company} improve lead generation with the WhatsApp Marketing Kit. Would you be interested in a free 15-minute consultation?",
+                    "Halo {first_name}! Saya dari MAHA LAKSHMI. Kami membantu bisnis {industry} seperti {company} meningkatkan lead generation dengan WhatsApp Marketing Kit. Mau konsultasi gratis 15 menit?"
                 ]
             },
             "linkedin_connection": {
