@@ -45,7 +45,7 @@ class ResearchAgent:
         if not 1 <= limit <= 50:
             raise ValueError("limit must be between 1 and 50")
         per_query = max(3, min(10, limit))
-        merged: dict[tuple[str, str], dict[str, Any]] = {}
+        merged: dict[str, dict[str, Any]] = {}
 
         for category in categories:
             queries = SOURCE_QUERIES.get(category, (f"{category} Bali Indonesia business",))
@@ -53,12 +53,13 @@ class ResearchAgent:
                 for item in self.researcher.search(query, limit=per_query):
                     company_key = self.researcher._name_key(str(item.get("company", "")))
                     domain = str(item.get("website") or item.get("source_url") or "").casefold()
-                    key = (company_key, domain)
+                    key = company_key or domain
+                    if not key:
+                        continue
                     existing = merged.get(key)
                     if existing is None:
                         merged[key] = item
                         continue
-                    # Merge source evidence across category/query runs.
                     existing_sources = existing.setdefault("sources", [])
                     for source in item.get("sources", []):
                         if source not in existing_sources:
@@ -72,6 +73,9 @@ class ResearchAgent:
                         1.0,
                         float(existing["source_quality"]) + 0.05 * max(0, existing["source_count"] - 1),
                     )
+                    for field in ("phone", "email", "website", "source_url"):
+                        if not existing.get(field) and item.get(field):
+                            existing[field] = item[field]
 
         ranked = rank_maha_hot_leads(list(merged.values()), limit=limit)
         for rank, lead in enumerate(ranked, start=1):
