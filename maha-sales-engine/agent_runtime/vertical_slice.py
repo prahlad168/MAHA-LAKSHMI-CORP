@@ -25,20 +25,17 @@ class SalesRuntime:
     def run(self, request: str, candidates: list[dict[str, Any]]) -> Task:
         task = Task(request=request, metadata={"candidates": candidates})
 
-        # Stage 1: research agent uses the lead-generation skill to normalize input.
-        research_result = self.director.run_once(task, "research")
+        # Stage 1: research agent uses the lead-generation skill and persists leads.
+        research_result = self.director.run_once(task, "research", finalize=False)
         if not research_result or not research_result.success:
             return task
 
-        # Stage 2: sales agent consumes the normalized leads produced by research.
-        task.transition(TaskStatus.PENDING)
-        task.result = research_result.data
-        sales_result = self.director.run_once(task, "sales")
+        # Stage 2: sales agent consumes the persisted, qualified leads.
+        sales_result = self.director.run_once(task, "sales", finalize=True)
         if not sales_result or not sales_result.success:
             return task
 
         task.result = sales_result.data
-        task.transition(TaskStatus.COMPLETED)
         return task
 
 
@@ -155,3 +152,11 @@ def build_sales_runtime(db_path: Path) -> SalesRuntime:
         agents=agents,
         skills=skills,
     )
+
+
+def register_with_core_engine(core_engine: Any) -> SalesRuntime:
+    """Attach the agent runtime to the existing CoreEngine without changing its lifecycle."""
+    db_path = Path(core_engine.db.db_path)
+    runtime = build_sales_runtime(db_path)
+    core_engine.register_module("agent_runtime", runtime)
+    return runtime
