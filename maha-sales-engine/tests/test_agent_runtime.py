@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from maha_sales_engine.agent_runtime import (
     ActionRegistry,
     Agent,
@@ -9,6 +11,7 @@ from maha_sales_engine.agent_runtime import (
     TaskStatus,
 )
 from maha_sales_engine.agent_runtime.actions import ActionRequest
+from maha_sales_engine.agent_runtime.vertical_slice import build_sales_runtime
 
 
 def test_task_lifecycle_and_event_log():
@@ -49,3 +52,19 @@ def test_unknown_action_fails_task():
     assert result is not None and not result.success
     assert task.status is TaskStatus.FAILED
     assert "Unknown action" in (task.error or "")
+
+
+def test_sales_runtime_uses_content_engine(tmp_path: Path):
+    class FakeContentEngine:
+        def generate_whatsapp_content(self, template_type, lead):
+            assert template_type == "whatsapp_initial"
+            return f"CONTENT-ENGINE:{lead['company']}"
+
+    runtime = build_sales_runtime(tmp_path / "maha.db", FakeContentEngine())
+    task = runtime.run(
+        "prepare outreach",
+        [{"name": "Made", "company": "Bali Cafe", "phone": "0812", "industry": "cafe"}],
+    )
+
+    assert task.status is TaskStatus.COMPLETED
+    assert task.result[0]["message"] == "CONTENT-ENGINE:Bali Cafe"
