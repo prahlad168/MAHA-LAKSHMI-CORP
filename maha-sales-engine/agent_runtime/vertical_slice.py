@@ -12,6 +12,7 @@ from .events import EventLog
 from .qualification import qualify_lead
 from .skills import Skill, SkillRegistry
 from .store import AgentStore
+from .task import Task, TaskStatus
 
 
 class WhatsAppSender(Protocol):
@@ -21,7 +22,6 @@ class WhatsAppSender(Protocol):
 @dataclass
 class SalesRuntime:
     """Durable Research -> Qualification -> CRM -> Sales -> Approval runtime."""
-
     director: Director
     events: EventLog
     actions: ActionRegistry
@@ -120,10 +120,7 @@ def _generate_sales(parameters: dict[str, Any]) -> list[dict[str, Any]]:
     results = []
     for lead in parameters.get("leads", []):
         message = content_engine.generate_whatsapp_content("whatsapp_initial", lead)
-        payload = {
-            "lead_id": lead["id"], "company": lead["company"], "phone": lead.get("phone"),
-            "channel": "whatsapp", "tier": lead["tier"], "score": lead["score"], "message": message,
-        }
+        payload = {"lead_id": lead["id"], "company": lead["company"], "phone": lead.get("phone"), "channel": "whatsapp", "tier": lead["tier"], "score": lead["score"], "message": message}
         approval_id = store.create_approval(task_id, lead["id"], "whatsapp", payload)
         store.set_followup_state(lead["id"], "awaiting_approval")
         results.append({**payload, "approval_id": approval_id, "status": "pending_approval"})
@@ -141,10 +138,7 @@ def build_sales_runtime(db_path: Path, content_engine: Any) -> SalesRuntime:
         return ActionRequest("persist_leads", {"store": store, "leads": skill.run(task)})
 
     def sales_plan(task: Task) -> ActionRequest:
-        return ActionRequest("generate_sales_outreach", {
-            "leads": task.result if isinstance(task.result, list) else [],
-            "content_engine": content_engine, "store": store, "task_id": task.id,
-        })
+        return ActionRequest("generate_sales_outreach", {"leads": task.result if isinstance(task.result, list) else [], "content_engine": content_engine, "store": store, "task_id": task.id})
 
     actions.register("persist_leads", _persist_leads)
     actions.register("generate_sales_outreach", _generate_sales)
