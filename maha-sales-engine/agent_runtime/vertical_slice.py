@@ -25,12 +25,10 @@ class SalesRuntime:
     def run(self, request: str, candidates: list[dict[str, Any]]) -> Task:
         task = Task(request=request, metadata={"candidates": candidates})
 
-        # Stage 1: research agent uses the lead-generation skill and persists leads.
         research_result = self.director.run_once(task, "research", finalize=False)
         if not research_result or not research_result.success:
             return task
 
-        # Stage 2: sales agent consumes the persisted, qualified leads.
         sales_result = self.director.run_once(task, "sales", finalize=True)
         if not sales_result or not sales_result.success:
             return task
@@ -108,21 +106,26 @@ def _persist_leads(parameters: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def _generate_sales(parameters: dict[str, Any]) -> list[dict[str, Any]]:
-    """Generate non-sending outreach copy; delivery remains outside this slice."""
+    """Generate non-sending outreach copy using the existing MAHA ContentEngine."""
+    from content.engine import ContentEngine
+
+    content_engine = parameters.get("content_engine")
+    if content_engine is None:
+        raise ValueError("content_engine is required for sales outreach generation")
+
     results = []
     for lead in parameters.get("leads", []):
-        first_name = lead.get("name", "").split()[0] if lead.get("name") else ""
-        greeting = f"Halo {first_name}!" if first_name else "Halo!"
-        message = (
-            f"{greeting} Saya dari MAHA LAKSHMI. Kami membantu bisnis {lead['industry']} "
-            f"seperti {lead['company']} meningkatkan lead generation melalui WhatsApp. "
-            "Apakah Anda terbuka untuk melihat contoh WhatsApp Marketing Kit kami?"
-        )
-        results.append({"lead_id": lead["id"], "company": lead["company"], "channel": "whatsapp", "message": message})
+        message = content_engine.generate_whatsapp_content("whatsapp_initial", lead)
+        results.append({
+            "lead_id": lead["id"],
+            "company": lead["company"],
+            "channel": "whatsapp",
+            "message": message,
+        })
     return results
 
 
-def build_sales_runtime(db_path: Path) -> SalesRuntime:
+def build_sales_runtime(db_path: Path, content_engine: Any) -> SalesRuntime:
     events = EventLog()
     actions = ActionRegistry()
     agents = AgentRegistry()
@@ -138,7 +141,10 @@ def build_sales_runtime(db_path: Path) -> SalesRuntime:
 
     def sales_plan(task: Task) -> ActionRequest:
         persisted = task.result if isinstance(task.result, list) else []
-        return ActionRequest("generate_sales_outreach", {"leads": persisted})
+        return ActionRequest(
+            "generate_sales_outreach",
+            {"leads": persisted, "content_engine": content_engine},
+        )
 
     actions.register("persist_leads", _persist_leads)
     actions.register("generate_sales_outreach", _generate_sales)
@@ -154,9 +160,9 @@ def build_sales_runtime(db_path: Path) -> SalesRuntime:
     )
 
 
-def register_with_core_engine(core_engine: Any) -> SalesRuntime:
+def register_with_core_engine(core_engine: Any, content_engine: Any) -> SalesRuntime:
     """Attach the agent runtime to the existing CoreEngine without changing its lifecycle."""
     db_path = Path(core_engine.db.db_path)
-    runtime = build_sales_runtime(db_path)
+    runtime = build_sales_runtime(db_path, content_engine)
     core_engine.register_module("agent_runtime", runtime)
     return runtime
