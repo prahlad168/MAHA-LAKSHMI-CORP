@@ -69,13 +69,9 @@ class AgentStore:
     def _ensure_crm_columns(conn: sqlite3.Connection) -> None:
         existing = {row[1] for row in conn.execute("PRAGMA table_info(crm_leads)")}
         additions = {
-            "whatsapp": "TEXT",
-            "website": "TEXT",
-            "source_url": "TEXT NOT NULL DEFAULT ''",
-            "researched_at": "TEXT",
-            "follow_up_state": "TEXT NOT NULL DEFAULT 'not_started'",
-            "next_follow_up_at": "TEXT",
-            "last_contacted_at": "TEXT",
+            "whatsapp": "TEXT", "website": "TEXT", "source_url": "TEXT NOT NULL DEFAULT ''",
+            "researched_at": "TEXT", "follow_up_state": "TEXT NOT NULL DEFAULT 'not_started'",
+            "next_follow_up_at": "TEXT", "last_contacted_at": "TEXT",
         }
         for name, definition in additions.items():
             if name not in existing:
@@ -114,10 +110,8 @@ class AgentStore:
 
     def append_event(self, event: TaskEvent) -> None:
         with self._connect() as conn:
-            conn.execute(
-                "INSERT INTO agent_events(task_id,event_type,data_json,timestamp) VALUES (?,?,?,?)",
-                (event.task_id, event.event_type, json.dumps(event.data, ensure_ascii=False, default=str), event.timestamp.isoformat()),
-            )
+            conn.execute("INSERT INTO agent_events(task_id,event_type,data_json,timestamp) VALUES (?,?,?,?)",
+                         (event.task_id, event.event_type, json.dumps(event.data, ensure_ascii=False, default=str), event.timestamp.isoformat()))
 
     def events_for_task(self, task_id: str) -> list[TaskEvent]:
         with self._connect() as conn:
@@ -136,35 +130,51 @@ class AgentStore:
         lead_id = str(lead.get("id") or f"LEAD-{self._lead_key(company, source_url)}")
         values = (
             lead_id, lead.get("name") or "Business Owner", lead.get("email"), lead.get("phone"),
-            lead.get("whatsapp"), lead.get("website"), company, lead.get("industry"),
-            lead.get("country", "Indonesia"), lead.get("language", "id"), lead.get("source", "research"),
-            lead.get("status", lead.get("tier", "new")), int(lead.get("score", 0)), lead.get("tier", "new"),
-            lead.get("notes"), source_url, lead.get("researched_at", now), lead.get("follow_up_state", "not_started"),
-            lead.get("next_follow_up_at"), lead.get("last_contacted_at"), now, now,
+            lead.get("whatsapp"), lead.get("website"), company, lead.get("industry"), lead.get("country", "Indonesia"),
+            lead.get("language", "id"), lead.get("source", "research"), lead.get("status", lead.get("tier", "new")),
+            int(lead.get("score", 0)), lead.get("tier", "new"), lead.get("notes"), source_url,
+            lead.get("researched_at", now), lead.get("follow_up_state", "not_started"), lead.get("next_follow_up_at"),
+            lead.get("last_contacted_at"), now, now,
         )
         with self._connect() as conn:
             conn.execute("""
                 INSERT INTO crm_leads
                 (id,name,email,phone,whatsapp,website,company,industry,country,language,source,status,score,tier,notes,source_url,researched_at,follow_up_state,next_follow_up_at,last_contacted_at,created_at,updated_at)
                 VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-                ON CONFLICT(company, source_url) DO UPDATE SET name=excluded.name,
-                  email=excluded.email,phone=excluded.phone,whatsapp=excluded.whatsapp,
-                  website=excluded.website,industry=excluded.industry,country=excluded.country,
-                  language=excluded.language,source=excluded.source,status=excluded.status,
-                  score=excluded.score,tier=excluded.tier,notes=excluded.notes,
-                  researched_at=excluded.researched_at,updated_at=excluded.updated_at
+                ON CONFLICT(company, source_url) DO UPDATE SET name=excluded.name,email=excluded.email,
+                  phone=excluded.phone,whatsapp=excluded.whatsapp,website=excluded.website,industry=excluded.industry,
+                  country=excluded.country,language=excluded.language,source=excluded.source,status=excluded.status,
+                  score=excluded.score,tier=excluded.tier,notes=excluded.notes,researched_at=excluded.researched_at,
+                  updated_at=excluded.updated_at
             """, values)
             row = conn.execute("SELECT * FROM crm_leads WHERE company=? AND source_url=?", (company, source_url)).fetchone()
         return dict(row)
+
+    def get_lead(self, lead_id: str) -> dict[str, Any] | None:
+        with self._connect() as conn:
+            row = conn.execute("SELECT * FROM crm_leads WHERE id=?", (lead_id,)).fetchone()
+        return dict(row) if row else None
+
+    def due_followups(self, before: str | None = None) -> list[dict[str, Any]]:
+        cutoff = before or datetime.now(timezone.utc).isoformat()
+        with self._connect() as conn:
+            rows = conn.execute("""
+                SELECT * FROM crm_leads
+                WHERE next_follow_up_at IS NOT NULL
+                  AND next_follow_up_at <= ?
+                  AND follow_up_state IN ('scheduled', 'queued')
+                ORDER BY next_follow_up_at, score DESC
+            """, (cutoff,)).fetchall()
+        return [dict(row) for row in rows]
 
     def set_lead_status(self, lead_id: str, status: str) -> None:
         with self._connect() as conn:
             if conn.execute("UPDATE crm_leads SET status=?, updated_at=? WHERE id=?", (status, datetime.now(timezone.utc).isoformat(), lead_id)).rowcount != 1:
                 raise ValueError("lead not found")
 
-    def set_followup_state(self, lead_id: str, state: str, *, next_follow_up_at: str | None = None) -> None:
+    def set_followup_state(self, lead_id: str, state: str, *, next_follow_up_at: str | None = None, last_contacted_at: str | None = None) -> None:
         with self._connect() as conn:
-            if conn.execute("UPDATE crm_leads SET follow_up_state=?, next_follow_up_at=?, updated_at=? WHERE id=?", (state, next_follow_up_at, datetime.now(timezone.utc).isoformat(), lead_id)).rowcount != 1:
+            if conn.execute("UPDATE crm_leads SET follow_up_state=?, next_follow_up_at=?, last_contacted_at=COALESCE(?, last_contacted_at), updated_at=? WHERE id=?", (state, next_follow_up_at, last_contacted_at, datetime.now(timezone.utc).isoformat(), lead_id)).rowcount != 1:
                 raise ValueError("lead not found")
 
     def create_approval(self, task_id: str, lead_id: str, channel: str, payload: dict[str, Any]) -> str:
