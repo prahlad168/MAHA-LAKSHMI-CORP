@@ -6,7 +6,7 @@ from typing import Any
 from .store import AgentStore
 
 CRM_STATUSES = {
-    "new", "researched", "qualified", "nurture", "contacted", "replied",
+    "new", "researched", "research_required", "qualified", "nurture", "contacted", "replied",
     "interested", "proposal", "won", "lost", "do_not_contact",
 }
 FOLLOWUP_STATES = {
@@ -36,7 +36,7 @@ class CRM:
     def set_followup_state(self, lead_id: str, state: str, *, next_followup_at: str | None = None) -> None:
         if state not in FOLLOWUP_STATES:
             raise CRMError(f"invalid follow-up state: {state}")
-        self.store.set_followup_state(lead_id, state, next_followup_at=next_followup_at)
+        self.store.set_followup_state(lead_id, state, next_follow_up_at=next_followup_at)
 
     def get_lead(self, lead_id: str) -> dict[str, Any] | None:
         return self.store.get_lead(lead_id)
