@@ -80,11 +80,13 @@ class DuckDuckGoResearchProvider:
 def discover_bali_businesses(
     limit: int = 10,
     categories: tuple[str, ...] = ("restaurant", "cafe", "hotel", "tour operator"),
-    provider: DuckDuckGoResearchProvider | None = None,
+    provider: DuckDuckGoResearchProvider | Any | None = None,
 ) -> list[dict[str, Any]]:
     if not 1 <= limit <= 50:
         raise ValueError("limit must be between 1 and 50")
     provider = provider or DuckDuckGoResearchProvider()
+    provider_name = getattr(provider, "name", "web_search")
+    provider_source_type = getattr(provider, "source_type", "web_search")
     per_query = max(3, min(10, (limit + len(categories) - 1) // len(categories) + 2))
     candidates: list[dict[str, Any]] = []
     seen: set[str] = set()
@@ -98,7 +100,7 @@ def discover_bali_businesses(
             seen.add(key)
             candidates.append({
                 "company": result["title"], "industry": category, "country": "Indonesia",
-                "source": provider.name, "source_type": provider.source_type, "source_url": url,
+                "source": provider_name, "source_type": provider_source_type, "source_url": url,
                 "website": url, "email": result.get("email"), "phone": result.get("phone"),
                 "research_snippet": result["snippet"], "research_host": urlparse(url).netloc,
             })
