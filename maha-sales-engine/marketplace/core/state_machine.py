@@ -5,8 +5,8 @@ Publication status state machine with transition validation.
 """
 
 import logging
-from typing import Dict, List, Optional
 from enum import Enum
+from typing import Any, Dict, List, Optional
 
 logger = logging.getLogger("maha-sales-engine.marketplace.state_machine")
 
@@ -106,90 +106,3 @@ class StateMachine:
     def get_terminal_statuses(cls) -> List[str]:
         """Get terminal statuses (no outgoing transitions)"""
         return [status for status, targets in cls.VALID_TRANSITIONS.items() if not targets]
-    
-    @classmethod
-    def get_initial_statuses(cls) -> List[str]:
-        """Get initial statuses (valid starting points)"""
-        return [PublicationStatus.DRAFT.value, PublicationStatus.FAILED.value]
-
-
-class StatusManager:
-    """Manage publication status with state machine validation"""
-    
-    def __init__(self):
-        self.state_machine = StateMachine()
-    
-    def transition(self, mapping: Dict[str, Any], new_status: str) -> Dict[str, Any]:
-        """Attempt status transition"""
-        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
-        
-        validation = self.state_machine.validate_transition(current_status, new_status)
-        
-        if not validation["valid"]:
-            return {
-                "success": False,
-                "error": validation["error"],
-                "current_status": current_status,
-                "attempted_status": new_status
-            }
-        
-        old_status = mapping.get("publication_status")
-        mapping["publication_status"] = new_status
-        
-        logger.info(f"Status transition: {old_status} -> {new_status}")
-        
-        return {
-            "success": True,
-            "old_status": old_status,
-            "new_status": new_status,
-            "mapping": mapping
-        }
-    
-    def can_publish(self, mapping: Dict[str, Any]) -> bool:
-        """Check if product can be published"""
-        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
-        valid_targets = self.state_machine.get_valid_transitions(current_status)
-        return PublicationStatus.PUBLISHING.value in valid_targets
-    
-    def can_update(self, mapping: Dict[str, Any]) -> bool:
-        """Check if product can be updated"""
-        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
-        valid_targets = self.state_machine.get_valid_transitions(current_status)
-        return PublicationStatus.UPDATING.value in valid_targets
-    
-    def can_archive(self, mapping: Dict[str, Any]) -> bool:
-        """Check if product can be archived"""
-        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
-        valid_targets = self.state_machine.get_valid_transitions(current_status)
-        return PublicationStatus.ARCHIVED.value in valid_targets
-    
-    def can_delete(self, mapping: Dict[str, Any]) -> bool:
-        """Check if product can be deleted"""
-        current_status = mapping.get("publication_status", PublicationStatus.DRAFT.value)
-        valid_targets = self.state_machine.get_valid_transitions(current_status)
-        return PublicationStatus.DELETED.value in valid_targets
-
-
-def main():
-    """Test state machine"""
-    sm = StateMachine()
-    manager = StatusManager()
-    
-    # Test valid transition
-    mapping = {"publication_status": PublicationStatus.DRAFT.value}
-    result = manager.transition(mapping, PublicationStatus.PUBLISHING.value)
-    print(f"Draft -> Publishing: {result['success']}")
-    
-    # Test invalid transition
-    mapping = {"publication_status": PublicationStatus.DRAFT.value}
-    result = manager.transition(mapping, PublicationStatus.DELETED.value)
-    print(f"Draft -> Deleted: {result['success']}")
-    
-    # Test valid transitions from published
-    mapping = {"publication_status": PublicationStatus.PUBLISHED.value}
-    valid = StateMachine.get_valid_transitions(PublicationStatus.PUBLISHED.value)
-    print(f"Valid from Published: {valid}")
-
-
-if __name__ == "__main__":
-    main()
