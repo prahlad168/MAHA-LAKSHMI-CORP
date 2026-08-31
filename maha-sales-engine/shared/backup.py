@@ -191,7 +191,7 @@ class BackupManager:
         
         for backup_id, metadata in manifest.items():
             created_at = datetime.fromisoformat(metadata["created_at"])
-            if created_at < cutoff:
+            if created_at <= cutoff:
                 to_remove.append(backup_id)
         
         for backup_id in to_remove:
