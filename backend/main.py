@@ -28,6 +28,7 @@ from backend.sales.routes import router as sales_router
 from backend.products.routes import router as products_router
 from backend.ai_factory.routes import router as ai_factory_router
 from backend.system.routes import router as system_router
+from backend.research.routes import router as research_router
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -69,6 +70,7 @@ app.include_router(sales_router, prefix="/api/sales", tags=["Sales"])
 app.include_router(products_router, prefix="/api/products", tags=["Products"])
 app.include_router(ai_factory_router, prefix="/api/ai-factory", tags=["AI Factory"])
 app.include_router(system_router, prefix="/api/system", tags=["System"])
+app.include_router(research_router, prefix="/api/research", tags=["Research"])
 
 # Security Middleware
 app.add_middleware(TrustedHostMiddleware, allowed_hosts=["*"])  # Configure for production
