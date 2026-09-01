@@ -1,68 +1,54 @@
 <!doctype html>
 <html lang="id">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MAHA Business Growth Score</title>
-  <meta name="description" content="Cek skor awal digital bisnis Anda dan dapatkan prioritas perbaikan.">
-  <style>
-    :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#172033;background:#f7f8fb}
-    *{box-sizing:border-box}body{margin:0}.wrap{max-width:760px;margin:auto;padding:48px 20px}
-    .card{background:white;border:1px solid #e4e7ec;border-radius:18px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
-    h1{margin:0 0 10px;font-size:clamp(30px,6vw,48px);line-height:1.05}.sub{color:#596579;line-height:1.6}
-    label{display:block;margin:18px 0 7px;font-weight:650}input,select{width:100%;padding:13px;border:1px solid #ccd2dc;border-radius:10px;font:inherit}
-    button{margin-top:22px;width:100%;padding:14px;border:0;border-radius:10px;background:#172033;color:white;font-weight:700;font-size:16px;cursor:pointer}
-    .result{display:none;margin-top:24px;padding:22px;border-radius:14px;background:#f0f3f8}.score{font-size:54px;font-weight:800}.small{font-size:13px;color:#687386}.share{display:none;margin-top:14px}
-    .share button{background:#e9edf4;color:#172033}.brand{margin-top:18px;font-size:12px;color:#7a8495}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MAHA Business Passport — Free Digital Growth Check</title>
+<meta name="description" content="Buat Business Passport gratis: skor digital, prioritas perbaikan, dan halaman bisnis yang bisa dibagikan.">
+<style>
+:root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif;color:#172033;background:#f6f7fb;line-height:1.5}*{box-sizing:border-box}body{margin:0}.wrap{max-width:980px;margin:auto;padding:28px 18px 70px}.nav{display:flex;justify-content:space-between;align-items:center;margin-bottom:40px}.logo{font-weight:900;letter-spacing:-.03em}.pill{font-size:12px;padding:7px 10px;border:1px solid #dfe3ea;border-radius:999px;background:#fff}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:24px;align-items:stretch}.card{background:#fff;border:1px solid #e1e5ec;border-radius:22px;padding:28px;box-shadow:0 12px 40px rgba(22,32,51,.06)}h1{font-size:clamp(34px,6vw,62px);line-height:1.02;letter-spacing:-.05em;margin:0 0 16px}.lead{font-size:18px;color:#596579;max-width:650px}.eyebrow{font-size:12px;font-weight:800;letter-spacing:.12em;color:#667085;text-transform:uppercase}label{display:block;font-weight:750;margin:16px 0 7px}input,select{width:100%;padding:13px 14px;border:1px solid #ccd2dc;border-radius:12px;font:inherit;background:#fff}button{border:0;border-radius:12px;padding:14px 16px;font:inherit;font-weight:800;cursor:pointer}.primary{width:100%;margin-top:20px;background:#172033;color:#fff}.secondary{background:#eef1f5;color:#172033}.demo{display:flex;flex-direction:column;justify-content:center}.demo-score{font-size:74px;font-weight:900;letter-spacing:-.06em}.bar{height:10px;background:#e9edf3;border-radius:99px;overflow:hidden}.bar>i{display:block;height:100%;width:82%;background:#172033}.muted{color:#687386}.result{display:none;margin-top:24px}.passport{border:1px solid #dfe4eb;border-radius:18px;padding:22px;background:#fbfcfe}.scoreline{display:flex;gap:20px;align-items:center}.score{font-size:60px;font-weight:900;line-height:1}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}.metric{padding:13px;background:#f1f3f7;border-radius:12px}.metric b{display:block;font-size:20px}.actions{display:grid;gap:10px}.action{padding:14px;border:1px solid #e0e4eb;border-radius:12px;background:#fff}.action b{display:block;margin-bottom:3px}.share{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}.share button{flex:1;min-width:170px}.footer{margin-top:30px;text-align:center;color:#7a8495;font-size:12px}.hidden{display:none!important}@media(max-width:760px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.wrap{padding-top:18px}}@media(max-width:460px){.grid{grid-template-columns:1fr}.scoreline{align-items:flex-start;flex-direction:column}}
+</style>
 </head>
 <body>
-<main class="wrap">
-  <section class="card">
-    <div class="small">MAHA • FREE BUSINESS TOOL</div>
-    <h1>Berapa kuat kehadiran digital bisnis Anda?</h1>
-    <p class="sub">Dapatkan skor awal dan tiga prioritas perbaikan. V1 menggunakan heuristik sederhana; ini bukan skor resmi Google.</p>
-
-    <form id="form">
-      <label for="name">Nama bisnis</label>
-      <input id="name" required maxlength="100" placeholder="Contoh: Kedai Pagi">
-      <label for="url">Website (opsional)</label>
-      <input id="url" type="url" placeholder="https://contoh.com">
-      <label for="category">Kategori</label>
-      <select id="category"><option>Restoran / Kafe</option><option>Hotel / Villa</option><option>Tour / Travel</option><option>Toko / Retail</option><option>Jasa Profesional</option><option>Lainnya</option></select>
-      <label for="location">Lokasi</label>
-      <input id="location" required maxlength="100" placeholder="Contoh: Ubud, Bali">
-      <button type="submit">Buat Growth Score Gratis</button>
-    </form>
-
-    <div id="result" class="result">
-      <div class="small">GROWTH SCORE</div>
-      <div id="score" class="score">—</div>
-      <strong id="title"></strong>
-      <p id="actions"></p>
-      <div class="share" id="shareBox">
-        <button type="button" id="copy">Salin link scorecard</button>
-      </div>
-      <div class="brand">Powered by MAHA • <a href="/">Get your own score</a></div>
-    </div>
-  </section>
-</main>
+<div class="wrap">
+<header class="nav"><div class="logo">MAHA</div><div class="pill">FREE • V1</div></header>
+<section class="hero">
+<div class="card">
+<div class="eyebrow">Business Passport</div>
+<h1>Ketahui seberapa siap bisnis Anda ditemukan online.</h1>
+<p class="lead">Buat profil bisnis publik gratis dengan skor awal, prioritas perbaikan, dan link yang bisa Anda bagikan ke pelanggan.</p>
+<form id="form">
+<label for="name">Nama bisnis</label><input id="name" maxlength="100" required placeholder="Contoh: Kedai Pagi">
+<label for="category">Kategori</label><select id="category"><option>Restoran / Kafe</option><option>Hotel / Villa</option><option>Tour / Travel</option><option>Toko / Retail</option><option>Jasa Profesional</option><option>Lainnya</option></select>
+<label for="location">Lokasi</label><input id="location" maxlength="100" required placeholder="Contoh: Ubud, Bali">
+<label for="url">Website <span class="muted">(opsional)</span></label><input id="url" type="url" placeholder="https://contoh.com">
+<button class="primary" type="submit">Buat Business Passport Gratis →</button>
+</form>
+</div>
+<div class="card demo"><div class="eyebrow">Contoh hasil</div><div class="demo-score">82<span style="font-size:24px">/100</span></div><div class="bar"><i></i></div><p><b>Good foundation.</b><br><span class="muted">Temukan prioritas yang paling berdampak.</span></p><div class="metric"><b>86</b><span class="muted">Contact readiness</span></div></div>
+</section>
+<section id="result" class="result">
+<div class="card">
+<div class="eyebrow">Your public business passport</div>
+<div class="passport">
+<div class="scoreline"><div class="score" id="score">—</div><div><h2 id="businessTitle" style="margin:0 0 4px">—</h2><div class="muted" id="meta">—</div></div></div>
+<div class="grid"><div class="metric"><b id="clarity">—</b><span class="muted">Business clarity</span></div><div class="metric"><b id="trust">—</b><span class="muted">Trust signals</span></div><div class="metric"><b id="contact">—</b><span class="muted">Contact readiness</span></div></div>
+<h3 style="margin-bottom:8px">3 prioritas berikutnya</h3><div class="actions" id="actions"></div>
+<div class="share"><button class="secondary" id="copy" type="button">Salin link Passport</button><button class="secondary" id="wa" type="button">Bagikan ke WhatsApp</button></div>
+<p class="muted" style="font-size:12px;margin-bottom:0">Skor V1 adalah heuristik otomatis, bukan peringkat Google atau rekomendasi investasi. Informasi publik harus diverifikasi sebelum digunakan untuk keputusan penting.</p>
+</div>
+</div>
+</section>
+<footer class="footer">Powered by MAHA • Build your own Business Passport</footer>
+</div>
 <script>
-  const form=document.querySelector('#form'), result=document.querySelector('#result'), score=document.querySelector('#score');
-  form.addEventListener('submit',e=>{
-    e.preventDefault();
-    const name=document.querySelector('#name').value.trim(), url=document.querySelector('#url').value.trim(), loc=document.querySelector('#location').value.trim();
-    let s=45; if(url) s+=20; if(loc.length>3) s+=10; if(name.length>4) s+=10; s+=Math.floor(Math.random()*16); s=Math.min(100,s);
-    score.textContent=s+'/100';
-    document.querySelector('#title').textContent=s>=75?'Fondasi digital sudah cukup kuat.':s>=55?'Ada fondasi, tetapi masih ada peluang besar.':'Ada beberapa perbaikan prioritas yang layak dilakukan.';
-    document.querySelector('#actions').textContent='Prioritas: perjelas penawaran, buat jalur kontak yang jelas, dan pastikan profil bisnis memiliki bukti kepercayaan yang mudah ditemukan.';
-    result.style.display='block'; document.querySelector('#shareBox').style.display='block';
-    history.replaceState({},'', '?business='+encodeURIComponent(name)+'&score='+s);
-  });
-  document.querySelector('#copy').addEventListener('click',async()=>{
-    await navigator.clipboard.writeText(location.href);
-    document.querySelector('#copy').textContent='Link tersalin ✓';
-  });
+const $=s=>document.querySelector(s);const params=new URLSearchParams(location.search);
+function scoreBusiness(name,category,location,url){let base=48;const hasUrl=!!url;base+=Math.min(12,name.length>5?12:5);base+=Math.min(12,location.length>4?12:6);base+=hasUrl?14:0;const catBonus={"Restoran / Kafe":6,"Hotel / Villa":7,"Tour / Travel":6,"Toko / Retail":5,"Jasa Profesional":4,"Lainnya":3}[category]||3;return Math.min(96,base+catBonus);}
+function render(data){const s=data.score;$('#score').textContent=s+'/100';$('#businessTitle').textContent=data.name;$('#meta').textContent=data.category+' • '+data.location;const clarity=Math.min(98,s+3),trust=Math.max(45,s-4),contact=Math.min(99,s+7);$('#clarity').textContent=clarity;$('#trust').textContent=trust;$('#contact').textContent=contact;const actions=[];if(!data.url)actions.push(['Tambahkan website atau landing page','Berikan satu tempat resmi untuk melihat penawaran dan informasi bisnis.']);if(contact<85)actions.push(['Buat jalur kontak utama','Pastikan pelanggan dapat menemukan WhatsApp, telepon, atau CTA utama dalam satu klik.']);if(trust<85)actions.push(['Perkuat bukti kepercayaan','Tampilkan alamat, jam operasional, testimonial, foto asli, dan informasi yang mudah diverifikasi.']);if(actions.length<3)actions.push(['Perjelas penawaran','Jelaskan siapa pelanggan Anda, apa yang Anda tawarkan, dan alasan memilih Anda.']);if(actions.length<3)actions.push(['Optimalkan halaman mobile','Pastikan informasi terpenting terlihat cepat di layar ponsel.']);$('#actions').innerHTML=actions.slice(0,3).map((a,i)=>`<div class="action"><b>${i+1}. ${a[0]}</b><span class="muted">${a[1]}</span></div>`).join('');$('#result').style.display='block';const q=new URLSearchParams({business:data.name,category:data.category,location:data.location,score:String(s),url:data.url||''});history.replaceState({},'',location.pathname+'?'+q.toString());window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});}
+$('#form').addEventListener('submit',e=>{e.preventDefault();const data={name:$('#name').value.trim(),category:$('#category').value,location:$('#location').value.trim(),url:$('#url').value.trim()};data.score=scoreBusiness(data.name,data.category,data.location,data.url);render(data);});
+$('#copy').addEventListener('click',async()=>{await navigator.clipboard.writeText(location.href);$('#copy').textContent='Link tersalin ✓';});
+$('#wa').addEventListener('click',()=>{const text=`Lihat Business Passport ${decodeURIComponent(params.get('business')||$('#businessTitle').textContent)}: ${location.href}`;window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');});
+(function loadShared(){const name=params.get('business');if(!name)return;const data={name,category:params.get('category')||'Bisnis',location:params.get('location')||'Lokasi belum diisi',url:params.get('url')||'',score:Number(params.get('score'))||70};$('#form').classList.add('hidden');render(data);})();
 </script>
 </body>
 </html>
