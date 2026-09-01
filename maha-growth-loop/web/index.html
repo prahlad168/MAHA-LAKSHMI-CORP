@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MAHA Business Growth Score</title>
+  <meta name="description" content="Cek skor awal digital bisnis Anda dan dapatkan prioritas perbaikan.">
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#172033;background:#f7f8fb}
+    *{box-sizing:border-box}body{margin:0}.wrap{max-width:760px;margin:auto;padding:48px 20px}
+    .card{background:white;border:1px solid #e4e7ec;border-radius:18px;padding:28px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+    h1{margin:0 0 10px;font-size:clamp(30px,6vw,48px);line-height:1.05}.sub{color:#596579;line-height:1.6}
+    label{display:block;margin:18px 0 7px;font-weight:650}input,select{width:100%;padding:13px;border:1px solid #ccd2dc;border-radius:10px;font:inherit}
+    button{margin-top:22px;width:100%;padding:14px;border:0;border-radius:10px;background:#172033;color:white;font-weight:700;font-size:16px;cursor:pointer}
+    .result{display:none;margin-top:24px;padding:22px;border-radius:14px;background:#f0f3f8}.score{font-size:54px;font-weight:800}.small{font-size:13px;color:#687386}.share{display:none;margin-top:14px}
+    .share button{background:#e9edf4;color:#172033}.brand{margin-top:18px;font-size:12px;color:#7a8495}
+  </style>
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <div class="small">MAHA • FREE BUSINESS TOOL</div>
+    <h1>Berapa kuat kehadiran digital bisnis Anda?</h1>
+    <p class="sub">Dapatkan skor awal dan tiga prioritas perbaikan. V1 menggunakan heuristik sederhana; ini bukan skor resmi Google.</p>
+
+    <form id="form">
+      <label for="name">Nama bisnis</label>
+      <input id="name" required maxlength="100" placeholder="Contoh: Kedai Pagi">
+      <label for="url">Website (opsional)</label>
+      <input id="url" type="url" placeholder="https://contoh.com">
+      <label for="category">Kategori</label>
+      <select id="category"><option>Restoran / Kafe</option><option>Hotel / Villa</option><option>Tour / Travel</option><option>Toko / Retail</option><option>Jasa Profesional</option><option>Lainnya</option></select>
+      <label for="location">Lokasi</label>
+      <input id="location" required maxlength="100" placeholder="Contoh: Ubud, Bali">
+      <button type="submit">Buat Growth Score Gratis</button>
+    </form>
+
+    <div id="result" class="result">
+      <div class="small">GROWTH SCORE</div>
+      <div id="score" class="score">—</div>
+      <strong id="title"></strong>
+      <p id="actions"></p>
+      <div class="share" id="shareBox">
+        <button type="button" id="copy">Salin link scorecard</button>
+      </div>
+      <div class="brand">Powered by MAHA • <a href="/">Get your own score</a></div>
+    </div>
+  </section>
+</main>
+<script>
+  const form=document.querySelector('#form'), result=document.querySelector('#result'), score=document.querySelector('#score');
+  form.addEventListener('submit',e=>{
+    e.preventDefault();
+    const name=document.querySelector('#name').value.trim(), url=document.querySelector('#url').value.trim(), loc=document.querySelector('#location').value.trim();
+    let s=45; if(url) s+=20; if(loc.length>3) s+=10; if(name.length>4) s+=10; s+=Math.floor(Math.random()*16); s=Math.min(100,s);
+    score.textContent=s+'/100';
+    document.querySelector('#title').textContent=s>=75?'Fondasi digital sudah cukup kuat.':s>=55?'Ada fondasi, tetapi masih ada peluang besar.':'Ada beberapa perbaikan prioritas yang layak dilakukan.';
+    document.querySelector('#actions').textContent='Prioritas: perjelas penawaran, buat jalur kontak yang jelas, dan pastikan profil bisnis memiliki bukti kepercayaan yang mudah ditemukan.';
+    result.style.display='block'; document.querySelector('#shareBox').style.display='block';
+    history.replaceState({},'', '?business='+encodeURIComponent(name)+'&score='+s);
+  });
+  document.querySelector('#copy').addEventListener('click',async()=>{
+    await navigator.clipboard.writeText(location.href);
+    document.querySelector('#copy').textContent='Link tersalin ✓';
+  });
+</script>
+</body>
+</html>
